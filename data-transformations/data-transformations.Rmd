@@ -1,0 +1,1195 @@
+---
+title: "Data Transformations"
+author: Colton Gearhart
+output: 
+   learnr::tutorial: 
+     progressive: true
+     allow_skip: true
+runtime: shiny_prerendered
+---
+
+```{r setup, include = FALSE}
+
+# set knitr options
+knitr::opts_chunk$set(
+  error = TRUE # continue code evaluation even if there is an error, in which case the error messages will print 
+)
+
+# set parameters to show / evaluate demo solutions
+# -> so can turn on for reference while prepping and off while making
+demo_code <- FALSE
+demo_results <- FALSE
+
+# disable scientific notation for readability purposes
+options(scipen = 999) 
+
+# load packages
+library(learnr)
+library(tidyverse)
+library(Lahman)
+
+# everything saved in here will be available to all exercise chunks
+# -> so repeating any sections where saving result for later
+# -> have to do this because each exercise is independent and anything saved isn't available later
+
+# edit data
+# -> remove never used columns for smaller output
+batting <- as_tibble(Batting) %>% select(-c(CS:GIDP))
+
+```
+
+## Overview 
+
+### This section 
+
+- In the previous tutorial, we learned how to create many different visuals to display one or several quantitative and/or qualitative variables.
+
+- However, creating visuals is one of the later steps in the process of data visualization.
+
+![](images/data-science-project-workflow.png){width=50%}
+
+- Nearly always we have to work with the data at least a little bit to get it into the form we need for the visuals we plan to make.
+
+- Now in this section, we are going to learn the different data transformation methods provided by another core package of the **tidyverse** called **dplyr**. Specifically, we will learn how to subset data (both rows and columns), create new columns and summarize data.
+
+### Readings
+
+- This section covers content from [Chapter 4 - Data Transformation](https://r4ds.hadley.nz/data-transform) of *R for Data Science (2e)*.
+
+- [dplyr help documentation](https://dplyr.tidyverse.org/index.html) contains everything you need to know about **dplyr**, including a very helpful [cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf).
+
+### Prerequisites 
+
+- In addition to the **tidyverse** which includes **dyplr**, we need to load (and install if necessary) the following package:
+
+  - `Lahman` &rarr; This is the package our example dataset comes from.
+  
+```{r packages, eval = FALSE}
+library(tidyverse)
+library(Lahman)
+```
+
+## Basics 
+
+### dplyr 
+
+- Throughout this section we will demonstrate several **dplyr** functions that perform the big picture data transformations tasks like filtering, organizing columns, creating new columns, etc.
+
+- While each of these has their particulars, all of them have the same general setup in terms of their inputs and output:
+
+  - The first argument is always a data frame, which is handy when using pipes (see next mini topic).
+  
+  - The subsequent arguments typically describe which columns to operate on, using the variable names (without quotes).
+  
+  - The output is always a new data frame (or tibble).
+  
+### Dataframe vs Tibble
+
+- A **dataframe** is a data type in R that we have been working with (think of it as a table in Excel, rows and columns).
+
+- All of the functions we will use / have used work perfectly fine with this data type.
+
+- However, there is special type of data frame used by the tidyverse known as a **tibble**. They are essentially equivalent, but tibbles is that they much nicer printing features than regular dataframes.
+
+- Try it out to see for yourself. The `iris` dataset we have used is a dataframe, while `diamonds` is a tibble. Run the following lines of code in the console and see the difference in how each prints:
+
+```{r data, eval = FALSE}
+iris
+diamonds
+```
+
+- The printed tibble gives similar results as `glimpse()`. So with this new type, we can just call the data object directly.
+
+- In both cases, we are shown a nicely formatted output that includes the dimensions (# of rows x # of cols) and the first few rows / columns with an indication of the column type, which is important for knowing which type of operations we can do on them:
+
+  - `<int>` is short for integer;
+  
+  - `<dbl>` is short for double (aka real numbers);
+  
+  - `<chr>` for character (aka strings);
+  
+  - `<dttm>` for date-time.
+
+### Piping 
+
+- Often, we want to perform multiple functions, i.e. take an object, do something to it, then do something to the output.
+
+- One way to do this is with *nesting* functions &rarr; `f(x)`.
+
+<!-- NOTE: start with scale, then add sd; say that this can get confusing if adding more and more functions -->
+
+```{r nest, exercise = TRUE}
+x <- rnorm(n = 10, mean = 10, sd = 2)
+```
+
+```{r nest-demo, echo = demo_code, eval = demo_results}
+x <- rnorm(n = 10, mean = 10, sd = 2)
+sd(scale(x))
+```
+
+- The **pipe** is another (equivalent) way to combine functions that is more readable. We can think of this as *chaining* functions together.
+
+  - Piping &rarr; `x %>% f`, read as "and then".
+  
+  - Takes the object / result on the left and uses (passes) it as the *first* argument of the function on the right.
+
+```{r pipe, exercise = TRUE}
+x <- rnorm(n = 10, mean = 10, sd = 2)
+```
+
+```{r pipe-demo, echo = demo_code, eval = demo_results}
+x <- rnorm(n = 10, mean = 10, sd = 2)
+x %>% scale %>% sd
+```
+
+- There is a base R version of the pipe as well `|>`, but we will continue to use `%>%` (it has some better functionality that we won't dive into).
+
+## Example  
+
+### Dataset 
+
+- We are going to use `Lahman::Batting` dataset, which contains Major League Baseball (MLB) batting statistics dating back to 1871.
+
+- Here is a preview of the dataset.
+
+```{r batting, echo = FALSE}
+Batting
+```
+
+- Because we will be checking the results of data transformations often in this section, let's convert this to a new dataset that is a tibble with `as_tibble()`. Then we can confirm the data type with `class()`.
+
+<!-- NOTE: mention we will call it lowercase `batting` to not overwrite the original one -->
+
+```{r tibble, exercise = TRUE}
+```
+
+```{r tibble-demo, echo = demo_code, eval = demo_results}
+batting <- as_tibble(Batting)
+class(Batting)
+class(batting)
+```
+
+- Next to simplify things later, lets run this line of code. We will learn what this does shortly.
+
+```{r batting-cleaned, eval = FALSE}
+batting <- batting %>% select(-c(CS:GIDP))
+```
+
+### Goal 
+
+- Suppose we are interested in the relationship between several of the batting statistics such as home runs (HR), runs batted in (RBI), etc. for the best home run hitters.
+
+- The specific questions we can answer depend on what data we have and how it is structured (i.e. what each row represents).
+
+- For example, currently each row represents a player, team and year combination, which means it shows numbers for a *single* season. So we can't answer any questions that deal with *career* statistics based on this setup (season-level vs career-level data).
+
+- One question we could investigate is how many games were needed for the top 100 home run totals in a single season.
+
+```{r hr-plot, echo = FALSE}
+batting %>% 
+  slice_max(order_by = HR,
+            n = 100) %>% 
+  ggplot(aes(x = G,
+             y = HR)) + 
+  geom_point() + 
+  theme_bw()
+```
+
+- Our goal for this section is to learn how to use the functions demonstrated in the next sections to perform all of the data transformations needed to construct the following plots.
+
+- The first one tracks a particular player's home runs per season throughout the course of his career.
+
+```{r griffey-data, echo = FALSE}
+
+# summarize over player and year (in case traded / multiple stints)
+season_stats <- batting %>% 
+  summarize(.by = c(playerID, yearID),
+            across(c(G, HR), sum))
+
+# summarize over year to get career data
+# -> calculate total games, home runs, number of seasons and indicator if still playing
+career_stats <- season_stats %>% 
+  summarize(.by = playerID,
+            across(c(G, HR), sum),
+            Seasons = n(),
+            Status = ifelse(max(yearID) == 2022, "Active", "Retired"))
+
+```
+
+```{r griffey-plot, echo = FALSE}
+
+# plot just for KG jr.
+ggplot(data = season_stats %>% filter(playerID == "griffke02"),
+       aes(x = yearID,
+           y = HR)) + 
+  geom_point(aes(alpha = G),
+             size = 3) +  
+  geom_line() + 
+  geom_smooth(se = FALSE) + 
+  labs(title = "Home runs per season by Ken Griffey Jr. - Visual 1",
+       x = "Season",
+       y = "Home runs",
+       alpha = "Games played") + 
+  theme_bw()
+
+```
+
+- The second one plots the number of seasons played and total home runs for the top 500 home run hitters in the history of the MLB and includes information about whether they are still playing.
+
+```{r best-hr-hitters-plot, echo = FALSE}
+
+# plot just top 500 HR hitters, colored by active
+# -> can switch between games or seasons on x axis
+career_stats %>% 
+  slice_max(order_by = HR,
+            n = 500) %>% 
+  ggplot(aes(x = Seasons,
+             y = HR,
+             color = Status)) + 
+  geom_point() + 
+  scale_color_manual(values = c("Active" = "forestgreen",
+                                "Retired" = "grey")) + 
+  labs(title = "Top 500 home run hitters - Visual 2",
+       x = "Seasons",
+       y = "Total home runs") + 
+  theme_bw()
+
+```
+
+## Selecting columns 
+
+### select() basics
+
+- Often there are unneeded columns in dataset. To focus on the columns of interest, we can use `select()`.
+
+- There are many ways to specify the columns we want to keep or remove, a few are shown below. First we can get a complete list of the available columns with `colnames()`.
+
+```{r}
+colnames(batting)
+```
+
+- Explicitly naming columns (and how to use piping) &rarr; Good when just need a few columns.
+
+<!-- NOTE: demo piping with dplyr verbs (show implicit dot placeholder); keep both and compare -->
+
+```{r select-explicit, exercise = TRUE}
+```
+
+```{r select-explicit-demo, echo = demo_code, eval = demo_results}
+select(batting, playerID, yearID, HR)
+batting %>% select(playerID, yearID, HR)
+```
+
+- Selecting all from a block `start_col:end_col` &rarr; Good shorthand when you know the dataset is organized in blocks of related columns.
+
+```{r select-colon, exercise = TRUE}
+```
+
+```{r select-colon-demo, echo = demo_code, eval = demo_results}
+batting %>% select(playerID:AB)
+```
+
+- Select all *except* certain columns (i.e. remove columns).
+
+  - Can remove non-adjacent columns by making a vector of column names with `c()`.
+  
+  - Can also specify column position (#) rather than name.
+
+<!-- NOTE: say to use ! cause read as "not" in computer science, non adjacent ones -->
+
+```{r select-not, exercise = TRUE}
+batting %>% select()
+batting %>% select()
+batting %>% select()
+```
+
+```{r select-not-demo, echo = demo_code, eval = demo_results}
+batting %>% select(!c(playerID:AB))
+batting %>% select(-c(playerID:AB))
+batting %>% select(!c(1, 5, 7))
+```
+
+- Can combine all these different ways.
+
+  - Note that the columns of the results are ordered based on when they were specified in `select()`.
+  
+```{r select-combined, exercise = TRUE}
+batting %>% select()
+```
+
+<!-- NOTE: switch order of HR and AB -->
+
+```{r select-combined-demo, echo = demo_code, eval = demo_results}
+batting %>% select(1:4, -yearID, c(HR, AB))
+```
+
+- Rename columns using `select(new_var = old_var)`. Note that all variables not included will be dropped.
+
+```{r select-rename, exercise = TRUE}
+batting %>% select()
+```
+
+```{r select-rename-demo, echo = demo_code, eval = demo_results}
+batting %>% select(Games = G)
+```
+
+### select() advanced 
+
+- `select()` has **helper functions** to aide in selecting multiple variables at once (it can be cumbersome to have to type out each individual name or organize them so that we can use `:`). A few of them are explained below.
+
+- `where(< function >)` &rarr; Useful for selecting all variables of a certain data type.
+
+- `starts_with()`, `ends_with()`, and `contains()` &rarr; Useful when variable names follow a pattern.
+
+- `all_of()` and `any_of()` &rarr; Useful when have a character vector of column names (these do the same thing, except we want to use `any_of()` to allow for the potential of missing variables without getting an error).
+
+<!-- NOTE: do is.character to and not another application for the other helpers; do all_of() for BA first -->
+
+```{r select-helpers, exercise = TRUE}
+batting %>% select()
+batting %>% select()
+
+vars <- c("playerID", "yearID", "HR", "H")
+batting %>% select()
+```
+
+```{r select-helpers-demo, echo = demo_code, eval = demo_results}
+batting %>% select(where(is.numeric))
+batting %>% select(ends_with("ID"))
+
+vars <- c("playerID", "yearID", "HR", "H")
+batting %>% select(all_of(vars))
+
+vars <- c("playerID", "yearID", "HR", "H", "BA")
+batting %>% select(any_of(vars))
+```
+
+- Note that these functions have to be used within a `select()` statement (or in similar verbs).
+
+### Exercise 
+
+- Using the code chunk below, use the `diamonds` dataset to create a new dataset that contains only the columns `carat`, `cut`, `color` and `price`. Try to do this *three* different ways.
+
+```{r select-ex, exercise = TRUE}
+```
+
+```{r select-ex-solution}
+# three of many ways to do this
+diamonds %>% select(carat, cut, color, price) # explicitly naming
+diamonds %>% select(1:3, 7) # block selecting using column position
+diamonds %>% select(carat:price, -c(clarity, depth, table)) # block and removing some, less efficient in terms of keystrokes in this case 
+```
+
+## Renaming columns 
+
+### rename() basics 
+
+- If want to keep the all of the variables, but just rename a few, we should use `rename(new_var = old_var)`.
+
+<!-- NOTE: show that 2B = X2B is not a legal name, then show way around it with ` `, this is how have names with spaces -->
+
+```{r rename, exercise = TRUE}
+```
+
+```{r rename-demo, echo = demo_code, eval = demo_results}
+batting %>% rename(Doubles = X2B, Triples = X3B)
+```
+
+### Exercise 
+
+- Using the code chunk below, rename the columns of the `iris` dataset so they match each of the following scenarios (*NOTE: each is a separate problem*):
+
+  a) All columns names are lowercase and the dots `.` are replaced with underscores `_`.
+  
+  b) Same rules as (a), except we only want to keep the new columns `species` and `sepal_length` (in this order) in the resulting dataframe.
+
+```{r rename-ex, exercise = TRUE}
+```
+
+```{r rename-ex-solution}
+# a)
+iris %>% rename(sepal_length = Sepal.Length, sepal_width = Sepal.Width,
+                petal_length = Petal.Length, petal_width = Petal.Width,
+                species = Species) %>% glimpse # because iris is a dataframe, use glimpse() to nicely see preview 
+# b) 
+iris %>% select(sepal_length = Sepal.Length, species = Species) %>% glimpse # use select() to rename and drop other columns
+```
+
+## Relocating columns 
+
+### relocate() basics 
+
+- Use `relocate()` to move variables around (rather than reordering all of them in a `select()` statement).
+
+- By default variables are placed in the front, but we can also specify a different location by using the `.before` or `.after` arguments.
+
+- Note that these arguments are available in `mutate()` as well, and the `.` before the word signifies that it is an argument and not a column named `after`.
+
+```{r relocate, exercise = TRUE}
+```
+
+```{r relocate-demo, echo = demo_code, eval = demo_results}
+batting %>% relocate(HR)
+batting %>% relocate(lgID, G, .after = AB)
+```
+
+- Generally it is a good idea to have all of the categorical (identifier) variables first and then the numerical variables, which is how the data was setup originally.
+
+### Exercise 
+
+- Using the code chunk below, reorganize the columns of the `diamonds` dataset so they match each of the following scenarios (*NOTE: each is a separate problem*):
+
+  a) `price` is the first column.
+  
+  b) `x`, `y`, and `z` are located after `cut`; see if you can do this two different ways.
+
+```{r relocate-ex, exercise = TRUE}
+```
+
+```{r relocate-ex-solution}
+# a)
+diamonds %>% relocate(price)
+# b) 
+diamonds %>% relocate(x, y, z, .after = cut)
+diamonds %>% relocate(x, y, z, .before = color)
+```
+
+## Filtering rows 
+
+### filter() basics 
+
+- `filter()` is used to subset a dataframe to rows that meet the specified condition(s).
+
+- These conditions are called **logical tests**. R has the following comparison operators that we can use to compare values: `>`, `>=` (greater than or equal), `<`, `<=`, `!=` (not equal), and `==` (equal).
+
+<!-- NOTE: show = vs == error, can also do operations when checking conditions -->
+
+```{r filter-one, exercise = TRUE}
+```
+
+```{r filter-one-demo, echo = demo_code, eval = demo_results}
+batting %>% filter(playerID == "aaronha01")
+batting %>% filter(yearID >= 2020)
+batting %>% filter(yearID == max(yearID))
+```
+
+- Can check more than one condition by combining logical tests: `&` or `,` to indicate “and” (check for *both* conditions) or with `|` to indicate "or" (check for *either* condition).
+
+- If checking multiple "or" values for the same variable, use `%in%` operator.
+
+<!-- NOTE: show & first, then comma -->
+
+```{r filter-many, exercise = TRUE}
+```
+
+```{r filter-many-demo, echo = demo_code, eval = demo_results}
+batting %>% filter(lgID == "NL", yearID == max(yearID))
+batting %>% filter(lgID == "NL" | yearID == max(yearID))
+batting %>% filter(teamID %in% c("CIN", "PHI", "MIA"))
+```
+
+### Exercise 
+
+- Using the code chunk below, subset the `diamonds` dataset so that the result contains only rows that match each of the following scenarios (*NOTE: each is a separate problem*):
+
+  a) The most expensive diamond.
+  
+  b) Diamonds that have `carat` between 1 and 2 (inclusive) and that are not "Premium" diamonds in terms of `cut`.
+  
+  c) The least expensive diamond, but it has to have a "Fair" or "Good" `cut`.
+  
+```{r filter-ex, exercise = TRUE}
+```
+
+<div id="filter-ex-hint">
+**HINT:** Part c) This may require more than `filter()` statement.
+</div>
+
+```{r filter-ex-solution}
+# a)
+diamonds %>% filter(price == min(price))
+# b) 
+diamonds %>% filter(carat >= 1, carat <= 2, cut != "Premium")
+diamonds %>% filter(between(carat, 1, 2), cut != "Premium") # equivalent (shorter) way
+# c)
+diamonds %>% filter(cut %in% c("Fair", "Good"), price == min(price)) %>% filter(price == min(price))
+```
+
+## Ordering rows 
+
+### arrange() basics 
+
+- `arrange()` sorts rows based on the values of the supplied columns. Each additional column gets sorted by *within* the values of the previous column.
+
+- By default it orders *ascending* (smallest to largest); can sort *descending* by wrapping the column name in `desc()`.
+
+- Note that this can be used on character or factor columns as well where it sorts *alphabetically*.
+
+<!-- NOTE: click through data on second one to find a new year -->
+
+```{r arrange, exercise = TRUE}
+```
+
+```{r arrange-demo, echo = demo_code, eval = demo_results}
+batting %>% arrange(yearID)
+batting %>% arrange(playerID)
+batting %>% arrange(desc(yearID), desc(H))
+```
+
+### Exercise 
+
+- Using the code chunk below, arrange the sample the `diamonds` dataset by `price` (most expensive to least expensive) *within* `cut`.
+
+```{r arrange-ex, exercise = TRUE}
+diamonds_sample <- sample_n(diamonds, size = 1000) %>% select(cut, price, carat)
+```
+
+```{r arrange-ex-solution}
+diamonds_sample %>% arrange(cut, desc(price))
+```
+
+## Finding unique rows 
+
+### distinct() basics 
+
+- `distinct()` finds (filters to) all *unique rows* in a dataset (across all variables); in essence, it removes the *duplicate rows*.
+
+- More often, we are trying to see which unique combinations of certain variables exist in the dataset. To do this, just supply the column names of interest to `distinct()`.
+
+- If we want to the keep other columns when filtering for unique rows, use the `.keep_all = TRUE` option. Note that `distinct()` will keep only the *first occurrence* of the unique combo.
+
+<!-- NOTE: finding all the different players the reds have had over last three years; for keep all part, show in Rstudio the batting sample and sort by (in view) player to show duplicate, then do distinct with keep all and show that it keeps the first obs -->
+
+```{r distinct, exercise = TRUE}
+batting_sample <- batting %>% filter(teamID == "CIN", yearID >= 2020)
+```
+
+```{r distinct-demo, echo = demo_code, eval = demo_results}
+batting_sample <- batting %>% filter(teamID == "CIN", yearID >= 2020)
+batting_sample %>% distinct(playerID)
+batting_sample %>% distinct(playerID, .keep_all = TRUE)
+```
+
+### Exercise 
+
+- Using the code chunk below, use the `diamonds` dataset to do the following (*NOTE: each is a separate problem*):
+
+  a) Find the unique combinations `cut` and `color`.
+  
+  b) Find the unique combinations `cut` and `color`, except keep the rest of the variables.
+  
+  c) Find the unique combinations `cut` and `color`, keeping all variables like in (b), but we want the row that is kept to be the *most* expensive diamonds for each combination.
+  
+<!-- NOTE: mention we will learn another much easier way to do c, but good for understanding -->
+
+```{r distinct-ex, exercise = TRUE}
+```
+
+<div id="distinct-ex-hint">
+**HINT:** Part c) Can you use a function we learned previously to help?
+</div>
+
+```{r distinct-ex-solution}
+# a)
+diamonds %>% 
+  distinct(cut, color) %>% 
+  arrange(cut, color) # can arrange to see combos more clearly
+# b) 
+diamonds %>% 
+  distinct(color, cut, .keep_all = TRUE) %>% # order doesn't matter in distinct()
+  arrange(cut, color) # but order does matter for arrange()
+# c)
+diamonds %>% 
+  arrange(desc(price)) %>% # arrange by highest to lowest price BEFORE, that way the FIRST occurrence of each combo that is kept by distinct() is the highest priced
+  distinct(cut, color, .keep_all = TRUE) %>% 
+  arrange(cut, color)
+```
+
+## Creating / editing columns 
+
+### mutate() basics 
+
+- `mutate()` is used create new columns based on existing columns (or to overwrite existing columns).
+
+- Can use simple algebra or any function of previous columns when creating new columns.
+
+<!-- NOTE: do first, then add second, can create multiple columns at once, introduce stringr and show cheatsheets and vignettes -->
+
+```{r mutate-basics, exercise = TRUE}
+```
+
+```{r mutate-basics-demo, echo = demo_code, eval = demo_results}
+batting %>% mutate(BA = round(H / AB, 3),
+                   teamID = str_to_lower(teamID))
+```
+
+- Can also specify where we want the new columns to be placed in the resulting dataframe with `.before` and `.after`, just like with `relocate()`.
+
+<!-- NOTE: copy code from above, cause teamID is already a variable, just BA got put where wanted -->
+
+```{r mutate-relocate, exercise = TRUE}
+```
+
+```{r mutate-relocate-demo, echo = demo_code, eval = demo_results}
+batting %>% mutate(BA = round(H / AB, 3),
+                   teamID = str_to_lower(teamID),
+                   .after = playerID)
+```
+
+### mutate() advanced 
+
+- Often we are only interested in the columns we are mutating or simply just the result, in which case we can optionally specify which variables to keep in the result using the `.keep` option.
+
+  - `.keep = "all"` &rarr; Keeps all columns; this is the default (so it was used above when nothing was specified).
+  
+  - `.keep = "used"` &rarr; *Keeps* all columns involved in the `mutate()` statement and *drops* the rest.
+  
+  - `.keep = "unused"` &rarr; *Drops* all columns involved in the `mutate()` statement, but *keeps* the rest.
+
+  - `.keep = "none"` &rarr; *Only keeps* the new column(s).
+  
+- We could of course just use the default option and then use a `select()` statement accordingly, but `mutate()` has this functionality built in.
+
+<!-- NOTE: copy from end of first ex, and cycle through each option -->
+
+```{r mutate-keep, exercise = TRUE}
+batting %>% mutate(BA = round(H / AB, 3),
+                   teamID = str_to_lower(teamID))
+```
+
+```{r mutate-keep-demo, echo = demo_code, eval = demo_results}
+batting %>% mutate(BA = round(H / AB, 3),
+                   teamID = str_to_lower(teamID),
+                   .keep = "none")
+```
+
+- Here are two very useful / common functions when used in `mutate()`
+
+  - `ifelse(condition, < value if true >, < value if false >)` &rarr; Assigns a value based on whether a logical test is true or false.
+  
+  - `case_when(condition 1 ~ < value if true >, ...)` &rarr; Extends `ifelse()` to check more than one condition (checks condition by condition).
+
+<!-- NOTE: any logical test like in filter, show this one in console to see how many have done it -->
+
+```{r mutate-ifelse, exercise = TRUE}
+batting %>% mutate()
+```
+
+```{r mutate-ifelse-demo, echo = demo_code, eval = demo_results}
+batting %>% mutate(thirty_thirty = ifelse(HR >= 30 & SB >= 30, "Yes", "No"),
+                   .keep = "used")
+```
+
+```{r mutate-case-when, exercise = TRUE}
+favs <- c("CIN", "PHI", "NYA")
+dislike <- c("BOS", "WAS")
+
+batting %>% mutate()
+```
+
+```{r mutate-case-when-demo, echo = demo_code, eval = demo_results}
+batting %>% 
+  mutate(My_teams = case_when(
+    teamID %in% favs ~ "Favorite", # if -> finds all favorite teams
+    teamID %in% dislike ~ "Dislike", # ifelse -> fins all disliked teams after checking for favorite
+    TRUE ~ "Neutral" # else -> works as an "else" statement; all other values get assigned neutral
+  )
+)
+```
+
+### Exercise 
+
+- Using the code chunk below, use the sample of the `diamonds` dataset to create a new dataset matches each of the following scenarios (*NOTE: each is a separate problem*):
+
+  a) A new column for `price_per_carat` that is calculated accordingly; place this new column first.
+  
+  b) Two new columns, where only the columns involved are kept:
+    
+      - `within_budget` &rarr; An indicator (yes or no) for whether or not `price` $\le$ $1000;
+  
+      - `my_style` &rarr; An indicator (yes or no) for whether or not `table` $\ge$ 50 mm *and* `cut` is one of "Very Good" or "Premium";
+  
+      - Afterwards, can filter to see how many diamonds are potential purchase for you!
+  
+  c) A new column named that **discretizes** `price`, which means taking a numeric variable and turning it into **ordinal** variable (i.e. categories with implicit levels such as "bad", "okay", "good"); here are the specifications:
+   
+      - New column name = `price_level`;
+  
+      - Levels &rarr; $0 \le $ `price` $< 500$ = "inexpensive", $500 \le$ `price` $< 2500$ = "moderate", $2500 \le $ `price` $< 10,000$ = "expensive", and `price` $\ge 10,000$ = "very expensive";
+  
+      - Drop all unused columns.
+  
+  d) Save the dataset from (c) to a new object and use this to create a bar graph of `price_level`. Notice the order of the bars in the plot; does it make sense?
+  
+  e) Modify the plot from (d) to have the correct order, here's how:
+  
+      - By default, ggplot2 will order character variables alphabetically. To specify the order we want, we need to convert `price_level` to a *factor* data type and explicitly define the order of the levels.
+  
+      - We can do the conversion directly in the ggplot `aes()` statement using `factor()` and specifying the `levels` option with the categories we made in (c) in the order we need.
+  
+      - Make sure to give a more readable axes label.
+  
+<!-- NOTE: mention to read 17.1 and 17.2 for how to do this -->
+
+```{r mutate-ex, exercise = TRUE}
+diamonds_sample <- sample_n(diamonds, size = 1000)
+```
+
+```{r mutate-ex-solution}
+# a)
+diamonds_sample %>% mutate(price_per_carat = price / carat, 
+                    .before = carat)
+
+# b) 
+diamonds_sample %>% mutate(within_budget = ifelse(price <= 1000,
+                                                  "yes",
+                                                  "no"),
+                           my_style = ifelse(table >= 50 & cut %in% c("Very Good", "Ideal"),
+                                             "yes",
+                                             "no"),
+                           .keep = "used") %>% 
+  filter(within_budget == "yes",
+         my_style == "yes")
+
+# c)
+diamonds_prices <- diamonds_sample %>% 
+  mutate(price_level = case_when(
+    price < 500 ~ "inexpensive", # natural lower bound of zero, so don't need to check >= 0
+    price < 2500 ~ "moderate", # case_when() already checked < 500, so everything remaining is >= 500; so don't need to check that again
+    price < 10000 ~ "expensive",
+    TRUE ~ "very expensive" # everything that is left is >= 10.000
+  ),
+  .keep = "used"
+)
+
+# d)
+diamonds_prices %>% 
+  ggplot(aes(x = price_level)) + 
+  geom_bar()
+# order of bars jumble the intuitive order in terms of how expensive
+
+# e)
+price_levels <- c("inexpensive", "moderate", "expensive", "very expensive") # define levels in order
+diamonds_prices %>% 
+  ggplot(aes(x = factor(price_level, levels = price_levels))) + # convert to factor (with correct order)
+  geom_bar() + 
+  labs(x = "Diamond price level")
+```
+
+## Summarize columns 
+
+### summarize() basics 
+
+- `summarize()` is used to calculate summary measures for columns of a dataframe.
+
+- Common functions used to summarize columns are measures of center and spread such as:
+
+  - Center &rarr; `mean()`, `median()`;
+  
+  - Spread &rarr; `sd()`, `IQR()`;
+  
+  - Range &rarr; `min()`, `max()`;
+  
+  - Count &rarr; `n()` counts the number of observations and `n_distinct()` counts the number of unique observations.
+  
+- Note that if the column contains `NA` values, many of these functions will not work as desired; so we should specify the option `na.rm = TRUE` to fix this.
+  
+- We can compute multiple summaries (which can be creative as we would like), and `summarize()` will return a dataframe with a column for each. Note that we can name the resulting columns as well.
+
+<!-- NOTE: first show result without names, then add names -->
+  
+```{r summarize, exercise = TRUE}
+```
+
+```{r summarize-demo, echo = demo_code, eval = demo_results}
+batting %>% summarize(most_recent_year = max(yearID),
+                      total_hr = sum(HR),
+                      BA = sum(H) / sum(AB),
+                      n_rows = n(),
+                      n_years = n_distinct(yearID))
+```
+
+### summarize() advanced 
+
+- Another pair of useful summaries are the *number* or *proportion* of observations that meet a certain condition. We can compute these using `sum()` and `mean()`, respectively.
+
+<!-- NOTE: first calcs the number of players in the first year of data collection, explain the logical returns false / true (0 or 1), and to count the number of yes, use sum(); same for mean(), say can do math for row numbers and n to get result of mean -->
+
+```{r summarize-logicals, exercise = TRUE}
+batting %>% summarize()
+```
+
+```{r summarize-logicals-demo, echo = demo_code, eval = demo_results}
+batting %>% summarize(n_first_year = sum(yearID == min(yearID)),
+                      n_30_hr = sum(HR >= 30),
+                      prop_30_hr = mean(HR >= 30))
+```
+
+- If we are computing the *same* summary statistic for several variables, we can shorten the command using `across(cols, function)`, which applies the same transformation to a selection of columns.
+
+- We can also combine this with our `select()` helper functions such as `where()`, `starts_with()`, etc.
+
+<!-- NOTE: demo c() and then switch to :, then start new for starts_with -->
+
+```{r summarize-across, exercise = TRUE}
+reds <- batting %>% 
+  filter(teamID == "CIN") %>% 
+  select(playerID, teamID, yearID, AB:X3B)
+reds %>% summarize()
+reds %>% summarize()
+reds %>% summarize()
+```
+
+```{r summarize-across-demo, echo = demo_code, eval = demo_results}
+reds %>% summarize(across(c(R, H), sum))
+reds %>% summarize(across(c(AB:X3B), sum))
+reds %>% summarize(across(starts_with("X"), sum))
+```
+
+### Exercise 
+
+- Using the code chunk below, calculate the following summaries using the `diamonds` dataset (*NOTE: each is a separate problem*):
+
+  a) Median `price`, minimum `table`, maximum `depth` and average `price` per `carat`.
+  
+  b) Mean of `price`, `table` and `depth`, as well as the total number of observations.
+  
+  c) *Number of* and the *proportion of* diamonds that have an "Ideal" `cut`.
+
+```{r summarize-ex, exercise = TRUE}
+```
+
+```{r summarize-ex-solution}
+# a)
+diamonds %>% summarize(med_price = median(price),
+                       min_table = min(table),
+                       max_depth = max(depth),
+                       avg_price_carat = mean(price / carat))
+
+# b) 
+diamonds %>% summarize(across(c(price, table, depth), mean),
+                       n = n())
+
+# c)
+diamonds %>% summarize(n_ideal = sum(cut == "Ideal"),
+                       prop_ideal = mean(cut == "Ideal"))
+```
+
+## Groups 
+
+### group_by() basics 
+
+- As we saw above, `summarize()`, collapses the entire dataframe down into a single row based on some measure.
+
+- Often, however, we are interested in doing a group-wise analysis on our data, where we aggregate / summarize for each **group** (i.e. level of a variable).
+
+- The first step in this is to group the data with `group_by()`, which divides the data into groups (i.e. keeps tracks of rows corresponding to each level). Doing this doesn't actually change the data, it just changes the attributes of the dataframe (or tibble).
+
+<!-- NOTE: point out Groups (run class(), then glimpse()), come back and add teamID for groups and point out multiplicative affect -->
+
+```{r group-by, exercise = TRUE}
+```
+
+```{r group-by-demo, echo = demo_code, eval = demo_results}
+batting %>% group_by(yearID, teamID)
+```
+
+- Now that the data is grouped, it will affect how the subsequent functions like `summarize()`, `mutate()`, etc. work on the data.
+
+- We can also group by multiple variables simply by specifying additional columns (order matters).
+
+- These "second-level" groups are *within* the first grouping levels, and so on for each additional (just like when ordering by multiple variables with `arrange()`).
+
+### Summarize grouped data
+
+- Pairing `group_by()` and `summarize()` is one of the most important capabilities of **dplyr**.
+
+- `summarize()` works the exact same as it did on ungrouped data, except that each summary is computed for *each group*, rather than for the *entire* dataset.
+
+- Because this still returns a dataframe, we can work with the result as well.
+
+```{r group-by-summarize, exercise = TRUE}
+batting %>% 
+  group_by(yearID)
+```
+
+```{r group-by-summarize-demo, echo = demo_code, eval = demo_results}
+batting %>% 
+  group_by(yearID) %>% 
+  summarize(total_hr = sum(HR),
+            n = n()) %>% 
+  arrange(desc(yearID))
+```
+
+- In a long pipeline, every time we apply `summarize()` there is a different level of aggregation (i.e. collapsing over more and more).
+
+<!-- NOTE: copy end code from above (arrange not needed) and add teamID in group_by(), talk about above each year is broken down into teams, then add summarize and same as above -->
+
+```{r group-by-summarize-twice, exercise = TRUE}
+```
+
+```{r group-by-summarize-twice-demo, echo = demo_code, eval = demo_results}
+batting %>% 
+  group_by(yearID, teamID) %>% 
+  summarize(total_hr = sum(HR),
+            n = n()) %>% 
+  summarize(sum(total_hr),
+            n = n())
+```
+
+### Exercise 
+
+- Using the code chunk below, calculate the following summaries using the `diamonds` dataset (*NOTE: each is a separate problem*):
+
+  a) Median `price` for each level of `color`.
+  
+  b) Average `price` and how many diamonds this corresponds to for each `cut` and `clarity` combination.
+  
+  c) Recreate the summary for the number of observations in each `cut` and `clarity` combination in (b) using the `count()` function. Search the help page for tips.
+
+```{r groups-ex, exercise = TRUE}
+```
+
+```{r groups-ex-solution}
+# a)
+diamonds %>% 
+  group_by(color) %>% 
+  summarize(median(price))
+# b) 
+diamonds %>% 
+  group_by(cut, clarity) %>% 
+  summarize(mean = mean(price),
+            n = n())
+# c)
+diamonds %>% count(cut, clarity)
+```
+
+### ungroup() basics 
+
+- Notice above how the result after the first `summarize()` is *still grouped*; however once we aggregate again (over the remaining group), the result is back to a normal ungrouped dataframe.
+
+- By default groups set by `group_by()` stay active until all are aggregated over. Usually this won't cause any problems, but if we wanted to remove the groups attribute, just use `ungroup()`.
+
+<!-- NOTE: copy code from above, add ungroup() and point out differences (no attribute and just get 1 row in result-->
+
+```{r ungroup, exercise = TRUE}
+class(batting %>% 
+  group_by(yearID, teamID, playerID) %>% 
+  summarize(total_hr = sum(HR),
+            n = n()) %>% 
+  summarize(sum(total_hr),
+            n = n()))
+```
+
+```{r ungroup-demo, echo = demo_code, eval = demo_results}
+batting %>% 
+  group_by(yearID, teamID) %>% 
+  summarize(total_hr = sum(HR),
+            n = n()) %>% 
+  ungroup() %>% 
+  summarize(sum(total_hr),
+            n = n())
+```
+
+### .by argument 
+
+- If we know that we only want the groups for *one operation* instead of the *entire chain*, we can specify the grouping in the specific function using `.by`.
+
+```{r by-summarize, exercise = TRUE}
+batting %>% 
+  group_by(yearID, teamID) %>% 
+  summarize(total_hr = sum(HR),
+            n = n()) %>% 
+  ungroup()
+```
+
+```{r by-summarize-demo, echo = demo_code, eval = demo_results}
+batting %>% 
+  summarize(.by = c(yearID, teamID),
+            total_hr = sum(HR),
+            n = n())
+```
+
+- This is equivalent to `data %>% group_by(col1, col2) %>% summarize(...) %>% ungroup()` as we saw before.
+
+### group_by() with other functions 
+
+- We can also use `group_by()` and `.by` on functions like `mutate()` and `filter()` as well.
+
+- They perform the same way as `summarize()` does for grouped data: the calculation or filtering will take place *for each group*.
+
+<!-- NOTE: do without .by first -->
+
+```{r group-by-mutate, exercise = TRUE}
+batting %>% 
+  select(playerID, yearID, HR)
+```
+
+```{r group-by-mutate-demo, echo = demo_code, eval = demo_results}
+batting %>% 
+  select(playerID, yearID, HR) %>% 
+  mutate(.by = playerID,
+         avg_hr = round(mean(HR), 1))
+```
+
+```{r group-by-filter, exercise = TRUE}
+```
+
+```{r group-by-filter-demo, echo = demo_code, eval = demo_results}
+batting %>% 
+  filter(.by = playerID,
+         yearID == min(yearID))
+```
+
+### slice() and slice_*() 
+
+- `slice()` is used to select (filter to) certain row numbers of the dataset. In base R, we can use `head()` and `tail()` to get the first or last `n` rows as well.
+
+```{r slice, exercise = TRUE}
+```
+
+```{r slice-demo, echo = demo_code, eval = demo_results}
+batting %>% slice(1:5)
+head(batting, n = 5)
+tail(batting)
+```
+
+- In the previous `filter(.by, ...)` example, we filtered to the minimum year *for each player*; this could also be accomplished with one of the variants of `slice()`, which are useful when working with *grouped data*:
+
+  - `slice_head()` and `slice_tail()` select the first or last rows.
+
+  - `slice_min()` and `slice_max()` select rows with highest or lowest values of a variable.
+  
+  - `slice_sample()` randomly selects rows.
+  
+- To specify how many rows, use the options `n` or `prop`.
+
+- Note these can all be used on *ungrouped data* as well; then the slice is based on the entire dataset.
+
+<!-- NOTE: do slice_max without by and then add by -->
+
+```{r slice-variants, exercise = TRUE}
+batting %>% slice()
+```
+
+```{r slice-variants-demo, echo = demo_code, eval = demo_results}
+batting %>% group_by(playerID) %>% slice_min(order_by = yearID)
+batting %>% slice_max(HR, by = teamID)
+```
+
+### Exercise 
+
+- Using the code chunk below, perform the following using the `diamonds` dataset (*NOTE: each is a separate problem*):
+
+  a) Summarize the median `price` for each combination of `color` and `cut` using the `.by` argument.
+  
+  b) Create a random sample (without replacement) that contains 5 of diamonds from each level of `cut`. Note that this is a great way to create a *representative* random sample from a population.
+  
+  c) Copy your code from (b) and continue the pipeline to add a new column `avg_price_cut` that represents the average price for each level of `cut`. This enables us to compare each individual price to it's respective average in the same dataset.
+  
+      - Keep only the relevant columns and be sure that the resulting dataframe is no longer grouped.
+  
+      - See if you can do this two different ways.
+
+```{r groups-ex2, exercise = TRUE}
+```
+
+```{r groups-ex2-solution}
+# a)
+diamonds %>% 
+  summarize(med_price = median(price),
+            .by = c(color, cut))
+# b) 
+diamonds %>% 
+  group_by(cut) %>% 
+  slice_sample(n = 5) %>% 
+  count(cut)
+# c)
+# way 1
+diamonds %>% 
+  group_by(cut) %>% 
+  slice_sample(n = 5) %>% 
+  mutate(avg_price_cut = mean(price),
+         .keep = "used") %>% 
+  ungroup
+# way 2
+diamonds %>% 
+  slice_sample(n = 5,
+               by = cut) %>% 
+  mutate(avg_price_cut = mean(price),
+         .by = cut,
+         .keep = "used")
+```
+
+## Application 
+
+### Recreating 
+
+- Now we will return to the plots that were our goals, and more specifically the data transformations to recreate them.
+
+<!-- NOTE: do one step at a time, season data -> griffey plot -> career data -> career plot -->
+
+```{r griffey-plot, echo = FALSE, message = FALSE}
+```
+
+```{r best-hr-hitters-plot, echo = FALSE}
+```
+
+<!-- NOTE: have to do both visuals in the same code chuck cause results dont carry over -->
+
+<!-- NOTE: Visual 2: show games first, then come back to calculate seasons (talk about knowing audience); mention plotly add info to dots later -->
+
+```{r application, exercise = TRUE}
+```
+
+### Exercise 
+
+- Using the code chuck below, study the plot below and determine how the data must have been structured behind the scenes. Then perform the necessary transformations and recreate the plot.
+
+```{r application-ex, exercise = TRUE}
+batting
+```
+
+<div id="application-ex-hint">
+**HINTS:**
+
+- This will require several steps: think about aggregating the data first, then a separate operation to find the top 5 teams, then plot only the correct teams.
+
+- To get the the $x$ scale to have the labels like shown, use `scale_x_continuous()` with the option `breaks` (which are the tick marks). Look into `seq()` as a shortcut for specifying the numbers.
+</div>
+
+```{r top-teams-plot, echo = FALSE}
+
+# summarize HRs per team and get recent data
+team_stats <- batting %>%  
+  summarize(total_hr = sum(HR),
+            .by = c(teamID, yearID)) %>% 
+  filter(yearID >= 2012)
+
+# find the teams with most HRs over this time period
+most_hr <- team_stats %>% 
+  summarize(total_hr = sum(total_hr),
+            .by = teamID) %>% 
+  slice_max(total_hr, n = 5)
+
+# extract team names to use in filter()
+most_hr_teams <- most_hr$teamID 
+
+# get teams of interest and create line plot of HRs over time
+team_stats %>% 
+  filter(teamID %in% most_hr_teams) %>% 
+  ggplot(data = .,
+         aes(x = yearID,
+             y = total_hr,
+             color = teamID)) + 
+  geom_line() + 
+  geom_point() + 
+  scale_x_continuous(breaks = seq(from = 2012, to = 2022, by = 2)) + 
+  labs(title = "Top 5 home run hitting teams over past 10 years",
+       x = "Season",
+       y = "Total HRs",
+       color = "Team") + 
+  theme_bw()
+
+```
+

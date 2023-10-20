@@ -1,0 +1,58 @@
+---
+title: "3.3 HW -- Data Transformations STARTER"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+execute: 
+  warning: false # clean up output
+  message: false # clean up output
+---
+
+```{r setup}
+
+# load packages
+library(tidyverse)
+
+```
+
+```{r data}
+
+# load data
+data_music <- read.csv(file = "Data/shuffled-playlist.csv")
+
+# preview data
+head(data_music)
+
+```
+
+### Part a -- Data cleaning
+
+```{r}
+
+```
+
+### Part b -- Summarize data
+
+```{r}
+
+```
+
+### Part c -- Grouped and specific summaries
+
+```{r}
+
+```
+
+### Part d -- Visualize data
+
+```{r}
+
+```
+
+### Part e) -- Analyze data
+
+```{r}
+
+```

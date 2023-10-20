@@ -1,0 +1,450 @@
+---
+title: "Data Transformations - STARTER"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+---
+
+```{r message = FALSE, warning = FALSE}
+
+# load packages
+library(tidyverse)
+library(Lahman)
+
+```
+
+## Basics 
+
+### Piping 
+
+```{r}
+
+x <- rnorm(n = 10, mean = 10, sd = 2)
+
+```
+
+```{r pipe, exercise = TRUE}
+
+x <- rnorm(n = 10, mean = 10, sd = 2)
+
+```
+
+## Example  
+
+### Dataset 
+
+```{r}
+```
+
+```{r}
+
+batting <- as_tibble(Batting)
+batting <- batting %>% select(-c(CS:GIDP))
+
+```
+
+## Selecting columns 
+
+### select() basics
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+batting %>% select()
+batting %>% select()
+batting %>% select()
+
+```
+
+```{r}
+
+batting %>% select()
+
+```
+
+```{r}
+
+batting %>% select()
+
+```
+
+### select() advanced 
+
+```{r}
+
+batting %>% select()
+batting %>% select()
+
+vars <- c("playerID", "yearID", "HR", "H")
+
+```
+
+### Exercise 
+
+- Using the code chunk below, use the _diamonds_ dataset to create a new dataset that contains only the columns `carat`, `cut`, `color` and `price`. Try to do this *three* different ways.
+
+```{r}
+
+```
+
+## Renaming columns 
+
+### rename() basics 
+
+```{r}
+
+```
+
+### Exercise 
+
+- Using the code chunk below, rename the columns of the _iris_ dataset so they match each of the following scenarios (*NOTE: each is a separate problem*):
+
+  a) All columns names are lowercase and the dots `.` are replaced with underscores `_`.
+  
+  b) Same rules as (a), except we only want to keep the new columns `species` and `sepal_length` (in this order) in the resulting dataframe.
+
+```{r}
+
+```
+
+## Relocating columns 
+
+### relocate() basics 
+
+```{r}
+
+```
+
+### Exercise 
+
+- Using the code chunk below, reorganize the columns of the _diamonds_ dataset so they match each of the following scenarios (*NOTE: each is a separate problem*):
+
+  a) `price` is the first column.
+  
+  b) `x`, `y`, and `z` are located after `cut`; see if you can do this two different ways.
+
+```{r}
+
+```
+
+## Filtering rows 
+
+### filter() basics 
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+### Exercise 
+
+- Using the code chunk below, subset the _diamonds_ dataset so that the result contains only rows that match each of the following scenarios (*NOTE: each is a separate problem*):
+
+  a) The most expensive diamond.
+  
+  b) Diamonds that have `carat` between 1 and 2 (inclusive) and that are not "Premium" diamonds in terms of `cut`.
+  
+  c) The least expensive diamond, but it has to have a "Fair" or "Good" `cut` (HINT: this may require more than `filter()` statement).
+  
+<!-- NOTE: add hint button -->
+
+```{r}
+
+```
+
+## Ordering rows 
+
+### arrange() basics 
+
+```{r}
+
+```
+
+### Exercise 
+
+- Using the code chunk below, arrange the sample the _diamonds_ dataset by `price` (most expensive to least expensive) *within* `cut`.
+
+```{r}
+
+diamonds_sample <- sample_n(diamonds, size = 1000) %>% select(cut, price, carat)
+
+```
+
+## Finding unique rows 
+
+### distinct() basics 
+
+```{r}
+
+batting_sample <- batting %>% filter(teamID == "CIN", yearID >= 2020)
+
+```
+
+### Exercise 
+
+- Using the code chunk below, use the _diamonds_ dataset to do the following (*NOTE: each is a separate problem*):
+
+  a) Find the unique combinations `cut` and `color`.
+  
+  b) Find the unique combinations `cut` and `color`, except keep the rest of the variables.
+  
+  c) Find the unique combinations `cut` and `color`, keeping all variables like in (b), but we want the row that is kept to be the *most* expensive diamonds for each combination (*HINT: can you use a function we learned previously to help?*).
+  
+<!-- NOTE: mention we will learn another much easier way to do c, but good for understanding -->
+
+```{r}
+
+```
+
+## Creating / editing columns 
+
+### mutate() basics 
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+### mutate() advanced 
+
+```{r}
+
+batting %>% mutate(BA = round(H / AB, 3),
+                   teamID = str_to_lower(teamID))
+
+```
+
+```{r}
+
+batting %>% mutate()
+
+```
+
+```{r}
+
+favs <- c("CIN", "PHI", "NYA")
+dislike <- c("BOS", "WAS")
+
+batting %>% mutate()
+
+```
+
+### Exercise 
+
+- Using the code chunk below, use the sample of the _diamonds_ dataset to create a new dataset matches each of the following scenarios (*NOTE: each is a separate problem*):
+
+  a) A new column for `price_per_carat` that is calculated accordingly; place this new column first.
+  
+  b) Two new columns, where only the columns involved are kept:
+    
+  - `within_budget` &rarr; An indicator (yes or no) for whether or not `price` $\le$ $1000;
+  
+  - `my_style` &rarr; An indicator (yes or no) for whether or not `table` $\ge$ 50 mm *and* `cut` is one of "Very Good" or "Premium";
+  
+  - Afterwards, can filter to see how many diamonds are potential purchase for you!
+  
+  c) A new column named that **discretizes** `price`, which means taking a numeric variable and turning it into **ordinal** variable (i.e. categories with implicit levels such as "bad", "okay", "good"); here are the specifications:
+   
+  - New column name = `price_level`;
+  
+  - Levels &rarr; $0 \le $ `price` $< 500$ = "inexpensive", $500 \le$ `price` $< 2500$ = "moderate", $2500 \le $ `price` $< 10,000$ = "expensive", and `price` $\ge 10,000$ = "very expensive";
+  
+  - Drop all unused columns.
+  
+  d) Save the dataset from (c) to a new object and use this to create a bar graph of `price_level`. Notice the order of the bars in the plot; does it make sense?
+  
+  e) Modify the plot from (d) to have the correct order, here's how:
+  
+  - By default, ggplot2 will order character variables alphabetically. To specify the order we want, we need to convert `price_level` to a *factor* data type and explicitly define the order of the levels.
+  
+  - We can do the conversion directly in the ggplot `aes()` statement using `factor()` and specifying the `levels` option with the categories we made in (c) in the order we need.
+  
+  - Make sure to give a more readable axes label.
+  
+<!-- NOTE: mention to read 17.1 and 17.2 for how to do this -->
+
+```{r}
+
+diamonds_sample <- sample_n(diamonds, size = 1000)
+
+```
+
+## Summarize columns 
+
+### summarize() basics 
+
+```{r}
+
+```
+
+### summarize() advanced 
+
+```{r}
+
+batting %>% summarize()
+
+```
+
+```{r}
+
+reds <- batting %>% 
+  filter(teamID == "CIN") %>% 
+  select(playerID, teamID, yearID, AB:X3B)
+reds %>% summarize()
+reds %>% summarize()
+
+```
+
+### Exercise 
+
+- Using the code chunk below, calculate the following summaries using the _diamonds_ dataset (*NOTE: each is a separate problem*):
+
+  a) Median `price`, minimum `table`, maximum `depth` and average `price` per `carat`.
+  
+  b) Mean of `price`, `table` and `depth`, as well as the total number of observations.
+  
+  c) *Number of* and the *proportion of* diamonds that have an "Ideal" `cut`.
+
+```{r}
+
+```
+
+## Groups 
+
+### group_by() basics 
+
+```{r}
+
+```
+
+### Summarize grouped data
+
+```{r}
+
+batting %>% 
+  group_by(yearID)
+
+```
+
+```{r}
+
+```
+
+### Exercise 
+
+- Using the code chunk below, calculate the following summaries using the _diamonds_ dataset (*NOTE: each is a separate problem*):
+
+  a) Median `price` for each level of `color`.
+  
+  b) Average `price` and how many diamonds this corresponds to for each `cut` and `clarity` combination.
+  
+  c) Recreate the summary for the number of observations in each `cut` and `clarity` combination in (b) using the `count()` function. Search the help page for tips.
+
+```{r}
+
+```
+
+### ungroup() basics 
+
+```{r}
+
+batting %>% 
+  group_by(yearID, teamID) %>% 
+  summarize(total_hr = sum(HR),
+            n = n()) %>% 
+  summarize(sum(total_hr),
+            n = n())
+
+```
+
+### .by argument 
+
+- If we know that we only want the groups for *one operation* instead of the *entire pipe*, we can specify the grouping in the specific function using `.by`.
+
+```{r}
+
+batting %>% 
+  group_by(yearID, teamID) %>% 
+  summarize(total_hr = sum(HR),
+            n = n()) %>% 
+  ungroup()
+
+```
+
+```{r}
+
+batting %>% 
+  select(playerID, yearID, HR)
+
+```
+
+```{r}
+
+```
+
+### slice() and slice_*() 
+
+```{r}
+
+```
+
+```{r}
+
+batting %>% slice()
+
+```
+
+### Exercise 
+
+- Using the code chunk below, perform the following using the _diamonds_ dataset (*NOTE: each is a separate problem*):
+
+  a) Summarize the median `price` for each combination of `color` and `cut` using the `.by` argument.
+  
+  b) Create a random sample (without replacement) that contains 5 of diamonds from each level of `cut`. Note that this is a great way to create a *representative* random sample from a population.
+  
+  c) Copy your code from (b) and continue the pipeline to add a new column `avg_price_cut` that represents the average price for each level of `cut`. This enables us to compare each individual price to it's respective average in the same dataset.
+  
+  - Keep only the relevant columns and be sure that the resulting dataframe is no longer grouped.
+  
+  - See if you can do this two different ways.
+
+```{r}
+
+```
+
+## Application 
+
+### Recreating 
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+### Exercise 
+
+- Using the code chuck below, study the plot below and determine how the data must have been structured behind the scenes. Then perform the necessary transformations and recreate the plot.
+
+```{r}
+
+batting
+
+```

@@ -1,0 +1,509 @@
+---
+title: "Visualizations - STARTER"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+---
+
+```{r message = FALSE, warning = FALSE}
+
+# load packages
+library(tidyverse)
+
+```
+
+## Example dataset 
+
+```{r}
+
+```
+
+### Aesthetic mapping 
+
+```{r}
+
+ggplot(data = diamonds)
+
+```
+
+### Exercise 
+
+- Use the code chunk below to create a scatterplot for `table` vs `depth`.
+
+```{r}
+
+```
+
+### Other attributes 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = price)) + 
+  geom_point()
+
+```
+
+```{r error = TRUE}
+
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = price)) + 
+  geom_point(color = purple)
+
+```
+
+### Incorporating more variables via `aes()` 
+
+```{r}
+
+ggplot(data = iris,
+       aes(x = Sepal.Length,
+           y = Sepal.Width))
+
+```
+
+### Exercise 
+
+- Using the code chunk below, create a scatterplot using a sample of the _diamonds_ dataset that includes the following features (code for the sample is provided, check the help page to see how it works!):
+
+  a) Visualizes `table` vs `depth`;
+  
+  b) Each observation is sized based on the weight `carat`;
+  
+  c) All observations have the shape of a diamond (*HINT: Google "geom_point shapes"*).
+
+```{r}
+
+diamonds_sample <- sample_n(diamonds, size = 100)
+
+```
+
+## Histograms 
+
+### geom_histogram() 
+
+```{r}
+
+ggplot(data = diamonds)
+
+```
+
+
+```{r}
+
+ggplot(data = iris,
+       aes(x = Petal.Length)) + 
+  geom_histogram()
+
+```
+
+### Exercise 
+
+- Use the code chunk below to create a histogram for `carat` that has 20 bins with white bars and black outlines.
+
+```{r}
+
+```
+
+### Titles and labels 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_histogram(binwidth = 0.1,
+                 fill = "red",
+                 color = "purple")
+
+```
+
+### Exercise 
+
+- Using the code chunk below, modify the code used to make the previous plot to:
+
+  a) Visualize sepal length instead of petal length;
+  
+  b) Change the X-axis label to be more readable;
+  
+  c) Give the plot an informative title.
+
+```{r}
+
+```
+
+## Boxplots 
+
+### geom_boxplot() 
+
+```{r}
+
+x <- rnorm(50)
+summary(x)
+
+```
+
+```{r}
+
+ggplot(data = diamonds)
+
+```
+
+### Exercise 
+
+- Using the code chunk below, create a *vertical* boxplot of `Sepal.Length` using the _iris_ dataset.
+
+```{r}
+
+```
+
+### Comparitive boxplots 
+
+```{r}
+
+ggplot(data = diamonds,
+aes(x = carat)) + 
+  geom_boxplot()
+
+```
+
+### Transformations and more customizations 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = cut,
+           y = price)) + 
+  geom_boxplot(fill = "darkblue",
+               color = "lightblue")
+
+```
+
+### Exercise 
+
+- Using the code chunk below, create a comparative boxplot using the _iris_ dataset that includes the following features:
+
+  a) Compares `Sepal.Length` for each `Species`;
+  
+  b) Horizontal boxplots (more than one way to do this);
+  
+  c) `Sepal.Length` is originally measured in millimeters (mm); convert this to meters (m) for this plot;
+
+  d) More informative axis label for `Sepal.Length` based on new scale;
+  
+  e) A cool theme (try a few!).
+
+```{r}
+
+```
+
+## Bar graphs 
+
+### Bar graphs
+
+### geom_bar() wtih raw data 
+
+```{r]}
+
+ggplot(data = diamonds,
+       aes(x = cut))
+
+```
+
+### geom_bar() wtih count data 
+
+```{r}
+
+table(cut = diamonds$cut)
+cut_table <- count(diamonds, cut)
+glimpse(cut_table)
+
+```
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = cut)) + 
+  geom_bar()
+
+```
+
+```{r}
+
+ggplot(data = cut_table,
+       aes(x = cut,
+           y = n))
+
+```
+
+### Exercise 
+
+- Using the code chunk below, create a bar graph of `Species` using a sample from the _iris_ dataset provided below. *HINT: Make sure to inspect the data first*.
+
+```{r}
+
+# create a sample from of data and summarize
+# -> rename so in slightly different format than example and have to work with it
+iris_sample <- iris %>% 
+  sample_n(size = 50) %>% 
+  count(Species) %>% 
+  rename(Count = n)
+
+```
+
+```{r}
+
+iris_sample
+
+```
+
+### Stacked bar graph 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = cut)) + 
+  geom_bar()
+
+```
+
+### Proportionally stacked bar graph 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = cut,
+           fill = clarity)) + 
+  geom_bar()
+
+```
+
+### Side-by-side bar graph 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = cut,
+           fill = clarity)) + 
+  geom_bar(position = "fill")
+
+```
+
+```{r}
+
+```
+
+## Line plots 
+
+### geom_line()
+
+```{r}
+
+data_sun <- data.frame(year = c(1700:1988),
+                       sunspots = as.vector(sunspot.year))
+glimpse(data_sun)
+
+```
+
+```{r}
+
+ggplot(data = data_sun)
+
+```
+
+## Facets 
+
+### Facets 
+
+### facet_wrap() 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = table,
+           y = depth)) + 
+  geom_point()
+
+```
+
+### Controlling rows and columns 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_boxplot() + 
+  facet_wrap(~ cut)
+
+```
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = price)) + 
+  geom_histogram() + 
+  facet_wrap(~ clarity,
+             nrow = 1)
+
+```
+
+### Scales for facets 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = price)) + 
+  geom_histogram() + 
+  facet_wrap(~ cut)
+
+```
+
+### Exercise 
+
+- Using the code chunk below, create a boxplots using the _iris_ dataset that includes the following features:
+
+  a) Plots `Sepal.Length` faceted by `Species`;
+  
+  b) Stack the facets vertically to emphasize the differences between each Species;
+  
+  c) Think about if we want to adjust the scales of the panel, why or why not?
+  
+- Note that we made this plot previously with comparitive boxplots by specifying `aes(y = Species)`; so this is an alternative.
+
+```{r}
+
+```
+
+### facet_grid() 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = table)) + 
+  geom_boxplot()
+
+```
+
+### Exercise 
+
+- Using the code chunk below, create scatterplots of `carat` vs `price` that is colored by `cut` and facetted by `color` and `clarity`. Try a few different options for `scales` to see how they affect the plot.
+
+```{r}
+
+# create a sample from of data with fewer levels (variety from ordinal scale of each)
+diamonds_sample <- diamonds %>% 
+  filter(cut %in% unique(diamonds$cut)[c(1,3,5)],
+         color %in% unique(diamonds$color)[c(1,4,7)],
+         clarity %in% unique(diamonds$clarity)[c(1,4,8)]) %>% 
+  sample_n(size = 5000)
+
+```
+
+```{r}
+
+diamonds_sample
+
+```
+
+## Density histograms and density curves 
+
+### Density histograms 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_histogram() + 
+  facet_wrap(~ cut,
+             scales = "free_y")
+
+```
+
+### Density curves 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = after_stat(density))) + 
+  geom_histogram(bins = 10)
+
+```
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = carat))
+
+```
+
+### Exercise 
+
+```{r}
+
+```
+
+### Multiple density curves 
+
+```{r]}
+
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_density()
+
+```
+
+### Amount of smoothing 
+
+```{r}
+
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_density()
+
+```
+
+### Exercise 
+
+- Using the code chunk below, use the _iris_ dataset to do the following:
+
+  a. Create density curves of a `Petal.Length` colored by each `Species`;
+  
+  b. Adjust the amount of smoothing to find a level that shows the overall trends well with some detail, but that is not overly exact (it's a balance);
+  
+  c. Add `fill = Species` in the `aes()` statement to see the result of this;
+  
+  d. Notice how the colors are completely opaque (not "see through"). To make them more transparent, add the following option locally `geom_density(alpha = 0.5)`. Try a few different values (`0 \le alpha \le 1`) to see the result. Note that this option can also be used with lots other `geom_*()` as well.
+  
+  e. What does this plot tell us about the petal lengths of the different species?
+
+```{r}
+
+```
+
+## Application 
+
+### Recreating 
+
+```{r eval = FALSE}
+
+# load basketball data
+# TO DO FIRST:
+# -> 1) create a folder named "data" in the same location where you saved this file and save the file "data-bsu-game.RData" in it
+# -> 2) remove eval = FALSE from the code chunk header
+load("data/data-bsu-game.RData")
+data_bsu_game
+
+```
+
+### Exercise 
+
+- Using the code chuck below, copy the final code used to create `Visual 1' from above and modify it to recreate 'Visual 2'.
+
+```{r}
+
+
+```

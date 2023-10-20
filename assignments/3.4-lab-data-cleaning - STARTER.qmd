@@ -1,0 +1,48 @@
+---
+title: "3.4 Lab -- Data Cleaning STARTER"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+execute: 
+  warning: false # clean up output
+  message: false # clean up output
+---
+
+```{r setup}
+
+# load packages
+library(tidyverse)
+
+```
+
+### Part a -- Import data
+
+```{r}
+
+```
+
+### Part b -- Reshape data
+
+```{r}
+
+```
+
+### Part c -- Clean data
+
+```{r}
+
+```
+
+### Part d -- Combine data
+
+```{r}
+
+```
+
+### Part e -- Visualize data
+
+```{r}
+
+```

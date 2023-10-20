@@ -1,0 +1,171 @@
+---
+title: "Reshaping and Combining Data - STARTER"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+---
+
+```{r message = FALSE, warning = FALSE}
+
+# load packages
+library(tidyverse)
+
+```
+
+## French fry example 
+
+### Importing the example dataset
+
+```{r eval = FALSE}
+
+# TO DO FIRST:
+# -> 1) create a folder named "data" in the same location where you saved this file and save all the datasets in it
+# -> 2) remove eval = FALSE from the respective code chunk headers
+
+# read in dataset in with desired column attributes
+# -> the long string of characters for col_types argument is shorthand notation, see documentation
+data_ff <- read_csv(file = "data/french-fries.csv",
+                    col_names = TRUE, col_types = "fffnnnnnn")
+
+# preview data
+data_ff
+
+```
+
+```{r eval = FALSE}
+
+# alternative way to load in data with pre-specified attributes
+load("data/french_fries.Rdata")
+
+```
+
+### Agreggating and plotting
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+    
+```{r}
+
+```
+
+## Gapminder example
+
+### Read in datasets
+
+```{r eval = FALSE}
+
+# load data, rename / select columns and preview
+data_life <- read_csv(file = "data/life_expectancy_years.csv") %>% 
+  rename(country = geo)
+head(data_life)
+
+data_income <- read_csv(file = "data/income_per_person.csv") %>% 
+  rename(country = geo)
+head(data_income)
+
+data_pop <- read_csv(file = "data/population_total.csv") %>% 
+  rename(country = geo)
+head(data_pop)
+
+data_countries <- read_csv(file = "data/countries_total.csv",
+                           col_select = c(country = name, country_id = `alpha-2`,region))
+head(data_countries)
+```
+
+### Reshape datasets
+
+```{r}
+
+```
+
+### Combine datasets
+
+```{r}
+
+```
+
+### Visualize data
+
+```{r}
+
+```
+
+## Application
+
+### Setup
+
+- Load the halloween candy data ([source](https://www.dataplusscience.com/HalloweenData.html)), which contains yearly data on the number of candies given to trick-or-treaters in Cincinnati, OH dating back to 2008 and the weather data from some of those dates.
+
+```{r eval = FALSE}
+
+# load candy and weather data with prespecified attributes
+load(file = "data/data-halloween.RData")
+head(data_candy)
+head(data_weather)
+
+```
+
+- Note that the candy data is already in long format because the information is repeated for each time interval.
+
+### Part a)
+
+- If we want to recreate the following scatterplot which visualizes maximum temperatures and total candy count, we need to have the data in wide format so that there is a separate column for the $X$ and $Y$ variable.
+
+- Note that typically wide data is better for this type of plot and for reporting because it is easier to process than long data, but long data is preferred when we are doing any grouping in our plots such as multiple lines or facets.
+
+- Using the code chunk below, do the following:
+
+1. Convert the `data_candy` to wide format and name the resulting object `data_halloween_wide`.
+
+2. Add the following lines of code after the pivot, which will add the candy amounts from each time interval across the rows to get a total count for the entire night:
+
+```{r eval = FALSE}
+data_candy_wide <- < code to pivot wide > %>% 
+  rowwise %>% 
+  mutate(total = sum(c_across(`6:00pm`:`8:15pm`))) 
+```
+
+*Explanation of code:*
+
+*- To sum across rows, data needs to be grouped by rows with `dplyr::rowwise()`.*
+
+*- Then we can `mutate(c_across())` the columns we want (`c_across()` pairs with `rowwise()` to perform row-wise aggregations).*
+
+3. Pipe another statement to join the weather data to the updated `data_halloween_wide`. Be sure to pick the correct type of join so that we keep all of the candy data (there is not weather data for every year).
+
+4. Create the scatterplot of interest and try to add all of the extra features to make it a polished plot. 
+
+```{r}
+
+```
+
+### Part b)
+
+- Using the code chunk below, perform the necessary data steps and recreate the following plot that visualizes the candy count by time interval across years. Try to add all of the extra features to make it a polished plot. *See the HINT to get the format the colors of the lines*.
+
+```{r}
+
+```

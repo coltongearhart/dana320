@@ -1,0 +1,4 @@
+- source: intro-quarto.qmd
+  quarto-pub:
+    - id: 6b806c97-ea69-4157-bfdd-fa42e4ead083
+      url: 'https://coltongearhart.quarto.pub/intro-quarto'

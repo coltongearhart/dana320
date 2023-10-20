@@ -1,0 +1,1748 @@
+---
+title: "Interactive Plots"
+author: Colton Gearhart
+output: 
+  # bookdown::gitbook: default
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+---
+
+```{r setup, include = FALSE}
+
+# set knitr options
+knitr::opts_chunk$set(
+  error = TRUE, # continue code evaluation even if there is an error, in which case the error messages will print 
+  warning = FALSE # turn off warnings
+)
+
+# set parameters to show / evaluate demo solutions
+# -> so can turn on for reference while prepping and off while making
+demo_code <- FALSE
+demo_results <- FALSE
+
+# disable scientific notation for readability purposes
+options(scipen = 999) 
+
+# load packages
+library(learnr)
+library(tidyverse)
+library(gapminder)
+library(plotly)
+library(corrplot)
+library(GGally)
+library(crosstalk)
+library(DT)
+library(ggforce)
+
+# everything saved in here will be available to all exercise chunks
+# -> so repeating any sections where saving result for later
+# -> have to do this because each exercise is independent and anything saved isn't available later
+econ <- economics %>%
+  mutate(year = year(date), mnnth = month(date))
+
+```
+
+```{r echo = FALSE}
+
+# NOTES TO SELF:
+
+# TO DO
+# -> 
+
+# Add textbook references in Overview
+# -> 
+
+```
+
+## Overview 
+
+### This section 
+
+- This tutorial furthers the ideas from the Visualizations tutorial, where we learned how to create many different visuals to display one or several quantitative and/or qualitative variables using **ggplot2**. Specifically, we will learn how to make our plots interactive using **plotly**.
+
+- Adding interactivity to plots can make visualizations more effective when communicating, as well as allowing you to explore your data more in depth and ask more questions along the way. Thus, it is can be important part of the exploratory data analysis (EDA) and the final communication.
+
+- We will also introduce some non-standard plot types.
+
+### Readings
+
+- This tutorial covers content from the following chapters of *Interactive web-based data visualization with R, plotly, and shiny* ([link to book](https://plotly-r.com/)): chapters 2, 3, 5, 6, 7, 13, 14, 15, and 16.
+
+- [plotly help documentation](https://plotly.com/r/) has lots of examples for different uses of **plotly** in R as well as demonstrations to get started.
+
+### Prerequisites 
+
+- In addition to the **tidyverse**, we need to load other packages (note that a few other packages may be needed for specific functions that are called without loading the libraries). We can do this by running:
+
+```{r tidyverse, eval = FALSE}
+library(tidyverse)
+library(gapminder)
+library(plotly)
+library(corrplot)
+library(GGally)
+library(crosstalk)
+library(DT)
+library(ggforce)
+```
+
+### Goal
+
+- The goal of this tutorial is to learn the basic **plotly** framework for how to build interactive plots, including adding interactivity to  **ggplot2** code and building interactivity "from scratch".
+
+- We will then then extend the basics to add graphical queries to our plots, which can aide in the exploratory data analysis (EDA) phase, combating overplotting and focusing on a particular narrative. Here is a preview of these features.
+
+```{r highlight-vs-filter-preview}
+#| echo: false
+
+# create shared data objects
+shared_data_hl <- highlight_key(txhousing, ~city, "Select a city") # need to specify variable to highlight across "Select a city"
+shared_data_filter <- highlight_key(txhousing)
+
+# create highlight plot from shared data object
+p1 <- ggplot(data = shared_data_hl) +
+  geom_line(aes(x = date,
+                y = median,
+                group = city))
+
+# convert to plotly and add select bar
+hl <- ggplotly(p1, tooltip = "city") %>% 
+  highlight(selectize = TRUE)
+
+# create highlight plot from shared data object
+p2 <- ggplot(data = shared_data_filter) +
+  geom_line(aes(x = date,
+                y = median,
+                group = city))
+
+# arrange select box for filtering shared data object and plot from same shared data object
+filter <- bscols(
+  filter_select(id = "id",
+                label = "Select a city",
+                sharedData = shared_data_filter,
+                group = ~city),
+  ggplotly(p2, dynamicTicks = TRUE),
+  widths = c(10, 10) # need vector of two 12s because organizing size-by-side with another plot
+)
+
+# arrange two plots
+bscols(hl, filter)
+```
+
+## ggplotly()
+
+### Building simple interactive plots
+
+- The easiest way to add interactivity to plots is via `plotly::ggplotly()`, which allows us to create our usual **ggplot2** workflows and then translate them to **plotly**.
+
+- To do this, we simply need to create a ggplot object, say `p <- < ggplot call >` and pass that to our new function, `ggplotly(p)`.
+
+```{r ggplotly-bargraph, exercise = TRUE}
+ggplot(data = diamonds,
+       aes(x = cut)) + 
+  geom_bar()
+```
+
+```{r ggplotly-bargraph-demo, echo = demo_code, eval = demo_results}
+p <- ggplot(data = diamonds,
+            aes(x = cut)) + 
+  geom_bar()
+ggplotly(p)
+```
+
+### Interactivity for other plots
+
+- Here is a demonstration of the types of interactivity that `ggplotly()` gives us for various plot types we already know very easily.
+
+- Side-by-side barplots. With multiple aesthetics being mapped to, there are more interactivity features available after converting to a **plotly** object.
+
+```{r ggplotly-side-by-side-bargraphs, exercise = TRUE}
+p <- ggplot(data = diamonds,
+            aes(x = cut,
+                fill = clarity)) + 
+  geom_bar(position = "dodge")
+ggplotly(p)
+```
+
+- Histograms
+
+```{r ggplotly-histograms, exercise = TRUE}
+p <- ggplot(data = diamonds,
+            aes(x = price)) + 
+  geom_histogram() + 
+  facet_grid(cut ~ .,
+             scales = "free_y")
+ggplotly(p)
+```
+
+- For boxplots, the numeric variable needs to be on the `y` aesthetic for `ggplotly()` to work as expected.
+
+```{r ggplotly-boxplots, exercise = TRUE}
+p <- ggplot(data = diamonds,
+       aes(x = cut,
+           y = price)) + 
+  geom_boxplot()
+ggplotly(p)
+```
+
+### Exercise
+
+- Using the code chunk below, create a proportionally stacked bar chart of `price` by `clarity` using the `diamonds` dataset, then add interactivity. Does all of the interactivity features work well with this plot type?
+
+```{r ggploty-stacked-bargraph-ex, exercise = TRUE}
+```
+
+```{r ggploty-stacked-bargraph-ex-solution}
+p <- ggplot(data = diamonds,
+            aes(x = cut,
+                fill = clarity)) + 
+  geom_bar(position = "fill") # position = "stack" for a regular (count) stacked bar graph
+ggplotly(p)
+```
+
+### New plots with interactivity
+
+- Scatterplots. One problem with scatterplots is the possibility of overplotting, which is when there are multiple observations occupying the same (or similar) x/y locations. When this occurs, it is hard to get an idea of the number of points at a particular spot (frequency).
+
+- One solution to this is to use `alpha` blending to make points semi-transparent, then the darker spots indicate more data. This strategy works well when there are up to roughly 10,000 data points.
+
+<!-- NOTE: do alpha for all data, then do slice sample for 10,000 points to show works for this number -->
+
+```{r ggplotly-scatterplots, exercise = TRUE}
+p <- ggplot(data = diamonds,
+       aes(x = log(carat),
+           y = log(price))) + 
+  geom_point()
+ggplotly(p)
+```
+
+```{r ggplotly-scatterplots-alpha-demo, echo = demo_code, eval = demo_results}
+p <- ggplot(data = slice_sample(diamonds, n = 10000),
+       aes(x = log(carat),
+           y = log(price))) + 
+  geom_point(alpha = 0.1)
+ggplotly(p)
+```
+
+Another solution is to change plot types to a hexagonal heat map of 2d bin counts via `geom_hex()`. This plot essentially divides the plane into regular hexagons and colors the hexagon on a gradient scale based on the count of observations in the hexagon.
+
+- Thus the problem of overplotting is solved by plotting counts via color scale (`fill`) rather than raw data points.
+
+```{r ggplotly-hexmap, exercise = TRUE}
+p <- ggplot(data = diamonds,
+            aes(x = log(carat),
+                y = log(price))) + 
+  geom_point()
+ggplotly(p)
+```
+
+```{r ggplotly-hexmap-demo, echo = demo_code, eval = demo_results}
+p <- ggplot(data = diamonds,
+            aes(x = log(carat),
+                y = log(price))) + 
+  geom_hex(bins = 100)
+ggplotly(p)
+```
+
+- For interactivity, this demonstrates that `ggplotly()` can be a very useful strategy for adding interactivity to plot types that wouldn't be straightforward to achieve without it (e.g. using the already well-built **ggplot2** suite of functions and features).
+
+- One common application that is great for `ggplotly()` is for exploring statistical summaries across groups.
+
+- For example, if we wanted to look at the distributions of diamond prices for each clarity, then we could create frequency plygons for each level using `geom_freqpoly()`.
+
+<!-- NOTE: start with freqpoly and switch to geom_density -->
+
+```{r ggplotly-freqpoly, exercise = TRUE}
+```
+
+```{r ggplotly-freqploy-demo, echo = demo_code, eval = demo_results}
+p <- ggplot(data = diamonds,
+            aes(x = price,
+                color = clarity)) + 
+  geom_density()
+ggplotly(p)
+```
+
+### Application 
+
+- We will return to the Gapminder dataset for the motivating example of **plotly**.
+
+```{r gapminder-data}
+?gapminder
+head(gapminder)
+```
+
+- Let's create the bubble plot of the most recent year of gdp per capita by life expectancy, then add interactivity.
+
+- Bubble plots extend scatterplots to 3 dimensions, but comparisons on third dimension difficult, and overplotting also gets in the way. So we want to make sure adding the third dimension via `size` is the right decision.
+
+<!-- NOTE: clean scales (comma, then millions) and labels and hard code year in title first, then show data-driven trick, then make interactive and point out hover text and add country, and legend doesn't come in quite right -->
+
+```{r gapminder-bubble-ggplotly, exercise = TRUE}
+```
+
+```{r gapminder-bubble-ggplotly-demo, echo = demo_code, eval = demo_results}
+
+gapminder_recent <- gapminder %>% filter(year == max(year))
+year <- unique(gapminder_recent$year)
+
+p <- ggplot(data = gapminder,
+            aes(x = gdpPercap,
+                y = lifeExp,
+                size = pop / 1000000,
+                color = continent,
+                label = country)) + 
+  geom_point() + 
+  scale_x_continuous(labels = scales::comma) + 
+  scale_size_continuous(labels = scales::comma) +  
+  labs(title = "Gapminder 2007", # bquote("Gapminder " * .(year))
+       x = "GDP per capita ($)",
+       y = "Life expectancy (years)",
+       size = "Population (millions)",
+       color = "Continent") + 
+  theme_bw()
+ggplotly(p)
+```
+
+- By default, the only interactive info (mouse over text) that we get is what went into the `geom_point(aes())`.
+
+- To get mouse over for country also (and not change the plot at all), we have to trick it. For `geom_point`, `label` is an unused attribute (`aes`), so we can add a `label = country` to the aes. The plot ignores it, but the mouse over adds country (this is kind of the hacker-ish way).
+
+- But what if we didn't want `lifeExp` and `gdpPercap` to be shown in mouse over? This customization would be hard to do with `ggplotly()`.
+
+- Instead, we would have to make the plot directly using **plotly** and the `plot_ly()` function, which is the general all purpose plot function for plotly (analogous to `ggplot()` function).
+
+## Rebuilding plots with plot_ly()
+
+### plot_ly() basics
+
+- Using `plot_ly()` gives us the interactivity automatically and allows us to give mores customizations to features. We will start with the basics.
+
+- If we assign variable names (e.g., `cut`, `clarity`, etc.) to visual properties (e.g., `x`, `y`, `color`, etc.) within `plot_ly()`, it tries to find a sensible geometric representation of that information for us (i.e. it will try and guess what type of plot we want).
+
+- **plotly** doesn't use the grammer of graphics the same way **ggplot** does (so **plotly** doesn't work with `aes()`, although the data argument still works the same).
+
+- Instead, in order to tell **plotly** the mapping from the dataset to attributes, it uses a `~` (tilde, recall tilde's in R define formulas, i.e. a data mapping). This is a shorthand function to say which variable are from the data.
+
+<!-- NOTE: start without ~ to show error, point out the second one is a heatmap (a new type of chart that colors by count for the intersections) -->
+
+```{r plotly, exercise = TRUE}
+```
+
+```{r plotly-demo, echo = demo_code, eval = demo_results}
+plot_ly(diamonds, x = ~cut)
+plot_ly(diamonds, x = ~cut, y = ~clarity)
+plot_ly(diamonds, x = ~cut, color = ~clarity)
+```
+
+- The `plot_ly()` function has numerous arguments (think **ggplot** aesthetics: `color` = fill, `stroke` = outline color, `span` = outline width, `symbol`, `linetype`, etc.) that make it easier to encode data variables (e.g. diamond clarity) as visual properties (e.g. color).
+
+- By default, these arguments map values of a data variable to a visual range defined by the *plural form of the argument*.
+
+![](images/aesthetic-mapping.png){width=50%}
+
+- For example, we can use `color` to map each level of diamond clarity to a different color, then `colors` is used to specify the range of colors (e.g. the `"Accent"` color palette from the **RColorBrewer** package, but we can also manually specify colors). 
+
+```{r plotly-colors, exercise = TRUE}
+```
+
+```{r plotly-colors-demo, echo = demo_code, eval = demo_results}
+plot_ly(diamonds,
+        x = ~cut,
+        color = ~clarity,
+        colors = "Accent")
+plot_ly(diamonds,
+        x = ~cut,
+        color = ~cut,
+        colors = c("red", "green", "blue", "yellow", "purple"))
+```
+
+- Since these arguments map data values to a visual range by default, you will obtain unexpected results if you try to specify the visual range directly.
+
+- If you want to specify the visual range directly, use the `I()` function to declare this value to be taken 'AsIs'.
+
+```{r plotly-colors-constant, exercise = TRUE}
+```
+
+```{r plotly-colors-constant-demo, echo = demo_code, eval = demo_results}
+plot_ly(diamonds, x = ~cut,
+        color = "black")
+plot_ly(diamonds,
+        x = ~cut, 
+        color = I("red"), stroke = I("black"), span = I(2))
+```
+
+### Building plotly objects
+
+- The **plotly** package takes a purely functional approach to a layered grammar of graphics, which means (almost) every function anticipates a plotly object as input to it's first argument and returns a modified version of that plotly object.
+
+- For a quick example, the `layout()` function anticipates a plotly object in it’s first argument and it’s other arguments add and/or modify various layout components of that object (e.g. the title).
+
+- For more complex plots with multiple "steps", we can chain them together with pipes `%>%`.
+
+```{r plotly-title, exercise = TRUE}
+```
+
+```{r plotly-title-demo, echo = demo_code, eval = demo_results}
+layout(
+  plot_ly(diamonds, x = ~cut),
+  title = "My beatiful histogram"
+)
+plot_ly(diamonds, x = ~cut) %>% layout(title = "My beatiful histogram")
+```
+
+- In addition to `layout()` for adding/modifying part(s) of the graph’s layout, there are also a family of `add_*()` functions (e.g., `add_histogram()`, `add_lines()`, etc.) that define how to render data into geometric objects. In other words, these functions add a graphical *layer* to a plot. In **plotly**, layers are called **traces**.
+
+- When using these functions, we are being explicit about what type of plot `plot_ly()` should create.
+
+```{r plotly-histogram, exercise = TRUE}
+```
+
+```{r plotly-histogram-demo, echo = demo_code, eval = demo_results}
+diamonds %>%
+  plot_ly() %>% 
+  add_histogram(x = ~cut)
+```
+
+- In many scenarios, it can be useful to combine multiple graphical layers into a single plot. In this case, it becomes useful to know a few things about `plot_ly()`:
+
+    - Arguments specified in `plot_ly()` are global, meaning that any downstream `add_*()` functions inherit these arguments (unless `inherit = FALSE`). This is the same way that `ggplot()` works.
+    
+    - Data manipulation verbs from the **dplyr** package may be used to transform the data underlying a plotly object.
+    
+    - Can use `plotly_data()` function to obtain the data at any point in time, which is primarily useful for debugging purposes (i.e. inspecting the data of a particular graphical layer).
+    
+- For example, let's create a bar graph and add data labels atop the bars.
+
+<!-- NOTE: sequentially go through first sequence, mention how group by and summarize aren't changing the plot, but the data underneath for the next layer -->
+
+```{r plotly-bargraph-labels, exercise = TRUE}
+```
+
+```{r plotly-bargraph-labels-demo, echo = demo_code, eval = demo_results}
+diamonds %>%
+  plot_ly(x = ~cut) %>% 
+  add_histogram() %>%
+  plotly_data()
+  group_by(cut) %>%
+  summarise(n = n()) %>% 
+  plotly_data()
+
+diamonds %>%
+  plot_ly(x = ~cut) %>% 
+  add_histogram() %>%
+  group_by(cut) %>%
+  summarise(n = n()) %>%
+  add_text(text = ~n, 
+           y = ~n,
+           textposition = "top middle")
+```
+
+## Common plotly plots
+
+### Bars and histograms
+
+- There is almost a one-to-one with naming conventions from `geom_*` to `add_*` because **plotly** was made to work well with **tidyverse**.
+
+- `add_bars()` and `add_histogram()` work the same way as **ggplot** `geom_bar()` `geom_histogram()`, respectively.
+
+    - The main difference between them is that bar traces require bar heights (both `x` and `y`), whereas histogram traces require just a single variable, and it handles binning automatically (i.e. it performs statistics dynamically in the web browser).
+    
+    - This means for `add_bars()`, we have to do the counting ourselves prior to handing the data to `plot_ly()`, and for `add_histogram()` we just give it the raw data.
+    
+- And perhaps confusingly, both of these functions can be used to visualize the distribution of either a numeric or a discrete variable.
+
+- To demonstrate these, lets take a look at the `datasets::mtcars` dataset, which contains information about 32 cars from 1973-74.
+
+<!-- NOTE: show head(mtcars) and the rownames are not a variable, just showing another function that is available  -->
+
+```{r mtcars, exercise = TRUE}
+# preview data
+mtcars %>% tibble::rownames_to_column(var = "model")
+```
+
+<!-- NOTE: point out have to convert to factor from double, or else will get a histogram, then can change to pareto chart by reordering and do -->
+    
+```{r plotly-bar-vs-hist, exercise = TRUE}
+```
+
+```{r plotly-bar-vs-hist-demo, echo = demo_code, eval = demo_results}
+mtcars %>%
+  plot_ly(x = ~mpg) %>% 
+  add_histogram(stroke = I("black"))
+
+mtcars %>% 
+  count(cyl = factor(cyl)) %>% 
+  mutate(cyl = fct_reorder(cyl, n, .desc = TRUE)) %>% 
+  plot_ly(x = ~cyl,
+          y = ~n) %>% 
+  add_bars()
+
+```
+
+### Exercise
+
+- Using the code chunk below and the `gapminder` dataset, create a bar graph of the number of countries per continent in only the first year of data collection. Can you create this bar graph two different ways?
+
+*CHALLENGE: Polish this plot by sorting by descending frequency, adding data labels on top of the bars, adding an informative title and hiding the legend.*
+
+```{r plotly-bar-vs-hist-ex, exercise = TRUE}
+```
+
+```{r plotly-bar-vs-hist-ex-solution}
+# easiest way: using add_histogram()
+gapminder %>%
+  filter(year == min(year)) %>% 
+  plot_ly(x = ~continent) %>% 
+  add_histogram
+
+# slightly harder way, but can customize more: using add_bars()
+gapminder %>% 
+  filter(year == min(year)) %>% 
+  count(continent) %>% 
+  mutate(continent = fct_reorder(continent, n, .desc = TRUE)) %>% 
+  plot_ly(x = ~continent,
+          y = ~n) %>% 
+  add_bars() %>% 
+  add_text(x = ~continent,
+           y = ~n,
+           text = ~n,
+           textposition = "top middle") %>% 
+  layout(title = "Gapminder 1952", showlegend = FALSE)
+```
+
+### Boxplots and schema()
+
+- Boxplots encode the five number summary of a numeric variable, and provide a decent way to compare many numeric distributions. We saw how to create comparative boxplots with `ggplotly()`, here's how to do it directly with `plot_ly()` and `add_boxplot()`.
+
+- By default, all outliers are shown. This can be changed via the `boxpoints` argument of `add_boxplot()`.
+
+- The help documentation for **plotly** functions isn't as useful as for other packages, so instead the best way to check what attributes (arguments) functions can take and their default values, possible values, etc., run `schema()` in your console and navigate through here.
+
+- Online [help documents](https://plotly.com/r/reference/), then find the specific trace we need [boxplots](https://plotly.com/r/reference/box) would be a second option for help.
+
+<!-- NOTE: point out can make horizontal or vertical, start with x = cut and y = price, then switch to horizontal-->
+<!-- - point out currently, all outliers are being shown (all points filled in), can change that option via boxpoints = argument, then show schema(), change to suspectedoutliers (empty cicles, hard to see), then none = FALSE -->
+
+```{r plotly-boxplots, exercise = TRUE}
+```
+
+```{r plotly-boxplots-demo, echo = demo_code, eval = demo_results}
+diamonds %>%
+  plot_ly(x = ~price,
+          y = ~cut) %>% 
+  add_boxplot(boxpoints = FALSE)
+```
+
+- When making comparative boxplots, it can be useful to sort by something meaningful, such as the median value. To do this, we simply need to `mutate()` the factor to have a different ordering of the levels via `fct_reorder()`.
+
+<!-- NOTE: copy above code, get rid of boxpoints, and add mutate line, add boxmean, right-skewed distributions -->
+
+```{r plotly-boxplots-sorted, exercise = TRUE}
+```
+
+```{r plotly-boxplots-demo-sorted, echo = demo_code, eval = demo_results}
+diamonds %>% 
+  mutate(cut = fct_reorder(.f = cut, .x = price, .fun = median)) %>% 
+  plot_ly(x = ~price,
+          y = ~cut) %>% 
+  add_boxplot(boxmean = TRUE)
+```
+
+### Exercise
+
+- Using the code chunk below and the `iris` dataset, create comparative boxplots of `Sepal.Width` for each `Species`, sorted by descending mean.
+
+```{r plotly-boxplots-sorted-ex, exercise = TRUE}
+```
+
+```{r plotly-boxplots-sorted-ex-solution}
+iris %>% 
+  mutate(Species = fct_reorder(.f = Species, .x = Sepal.Width, .fun = mean, .desc = TRUE)) %>% 
+  plot_ly(x = ~Species,
+          y = ~Sepal.Width) %>% 
+  add_boxplot(boxmean = TRUE)
+```
+
+### Scatterplots
+
+- To make a scatterplot, we can use `add_markers()`. Here is a simple example.
+
+```{r plotly-scatterplot, exercise = TRUE}
+```
+
+```{r plotly-scatterplot-demo, echo = demo_code, eval = demo_results}
+mtcars %>% 
+  plot_ly(x = ~wt,
+          y = ~mpg) %>% 
+  add_markers()
+```
+
+### Application
+
+- Now let's recreate the bubble plot for the most recent year of the `gapminder` dataset building from `plot_ly()`.
+
+- To get the mouse over for country, the aesthetic is `text`, rather than `label`.
+
+    - But the mouse overs (hover) don't look very nice. So to make the text look better, we can just `paste()` what text we want (and use some html code to help).
+
+<!-- NOTE: start with just country in label, then make fancy -->
+
+```{r gapminder-bubble-plotly, exercise = TRUE}
+```
+
+```{r gapminder-bubble-plotly-demo, echo = demo_code, eval = demo_results}
+gapminder %>% 
+  filter(year == max(year)) %>% 
+  plot_ly(x = ~gdpPercap,
+          y = ~lifeExp,
+          size = ~pop,
+          color = ~continent,
+          text = ~paste0("Country: ", country, "<br>Population: ", scales::comma(pop))) %>% 
+  add_markers() 
+```
+
+- Now to see the real value of **plotly**, we can add animations through the `frame` argument (in `plot_ly()`) / aesthetic (in the `ggplot()` call before `ggplotly()`).
+
+- Instead of filtering the data down to one year, we can use the whole gapminder dataset and add `frame = ~year` (or `aes(frome = year)`), which will make the visualization into an animation. By default, animated views come with a play/pause button(s) and a slider component for controlling the animation. These can be customized; see [Chapter 14](https://plotly-r.com/animating-views).
+
+<!-- NOTE: copy code, delete filter, and add frame -->
+
+```{r gapminder-bubble-plotly-frame, exercise = TRUE}
+```
+
+```{r gapminder-bubble-plotly-frame-demo, echo = demo_code, eval = demo_results}
+gapminder %>% 
+  plot_ly(x = ~gdpPercap,
+          y = ~lifeExp,
+          size = ~pop,
+          color = ~continent,
+          text = ~paste0("Country: ", country, "<br>Population: ", scales::comma(pop)),
+          frame = ~year) %>% 
+  add_markers() 
+```
+
+### Exercise
+
+- Using the code chunk below and the `iris` dataset, create two scatterplots of `Sepal.Width` by `Sepal.Length`:
+
+    a. Scatterplot 1: The color of every point is green, and the mouse over info also displays the `Species`.
+    
+    b. Scatterplot 2: Color each point by `Species`, except we want to the colors to be as follows: setosa = darkgreen, versicolor = green, virginica = grey.
+
+```{r plotly-scatterplot-ex, exercise = TRUE}
+```
+
+```{r plotly-scatterplot-ex-solution}
+# a) Scatterplot 1
+iris %>% 
+  plot_ly(x = ~Sepal.Width,
+          y = ~Sepal.Length,
+          text = ~Species) %>% 
+  add_markers(color = I("green"))
+
+# b) Scatterplot 2
+iris %>% 
+  plot_ly(x = ~Sepal.Width,
+          y = ~Sepal.Length,
+          color = ~Species,
+          colors = c("darkgreen", "green", "grey")) %>% 
+  add_markers()
+```
+
+### Line plots
+
+- To make a line plot, we can use`add_paths()` or `add_lines()`.
+
+- The only difference between these two is that `add_paths()` connects the dots according to *row order*, while `add_lines()` connects the dots according to *another variable* (`x`).
+
+    - So if your dataset is properly sorted, they should get the same result, but `add_lines()` is probably better to be more explicit about the connecting.
+    
+<!-- NOTE: write with paths, then copy code for lines, then arrange by sunspots and rerun each code -->
+
+```{r path-line, exercise = TRUE}
+data_sun <- data.frame(year = c(1700:1988),
+                       sunspots = as.vector(sunspot.year))
+```
+
+```{r path-line-demo, echo = demo_code, eval = demo_results}
+data_sun <- data.frame(year = c(1700:1988),
+                       sunspots = as.vector(sunspot.year)) %>% 
+  arrange(sunspots)
+
+data_sun %>% 
+  plot_ly(x = ~year,
+          y = ~ sunspots) %>% 
+  add_paths()
+
+data_sun %>% 
+  plot_ly(x = ~year,
+          y = ~ sunspots) %>% 
+  add_lines()
+```
+
+- Suppose we want to make a time series plot of multiple lines using the `ggplot2::economics` dataset.
+
+- There's a few different ways to do this based on the level of interactivity that we want. In all cases though, we need to `group_by()` the variable that determines the different lines *before* passing to `plot_ly()`.
+
+- So for this example, if we want to have a separate line for each year (across the months), then we can do the following.
+
+    - This basic way adds only a *single trace* (one layer).
+
+```{r multiple-line-plot1, exercise = TRUE}
+head(economics)
+econ <- economics %>%
+  mutate(year = year(date),
+         month = month(date))
+```
+
+```{r multiple-line-plot1-demo, echo = demo_code, eval = demo_results}
+head(economics)
+econ <- economics %>%
+  mutate(year = year(date),
+         month = month(date))
+
+econ %>% 
+  group_by(year) %>% 
+  plot_ly(x = ~month,
+          y = ~unemploy) %>% 
+  add_lines(text = ~year)
+```
+
+- If we want to be able to compare values at different lines with the interactivity, we need to add the grouping variable to another aesthetic to differentiate them, for lines this could be `color` or `linetype` (which only can do 6 different line types).
+
+    - This way adds trace for each year, so each one is a different layer, which allows the extra interactivity.
+
+```{r multiple-line-plot2, exercise = TRUE}
+```
+
+```{r multiple-line-plot2-demo, echo = demo_code, eval = demo_results}
+econ %>% 
+  group_by(year) %>% 
+  plot_ly(x = ~month,
+          y = ~unemploy) %>% 
+  add_lines(color = ~ordered(year))
+```
+
+- If we wanted to keep the interactivity, but different colors doesn't fit into our narrative, we need to use the `split` argument.
+
+    - This guarantees one trace per group level (regardless of the variable type), which is useful if you want a consistent visual property over multiple traces. Then we need be explicit about the constant `color` using `I()`.
+
+```{r multiple-line-plot3, exercise = TRUE}
+```
+
+```{r multiple-line-plot3-demo, echo = demo_code, eval = demo_results}
+econ %>% 
+  group_by(year) %>% 
+  plot_ly(x = ~month,
+          y = ~unemploy) %>% 
+  add_lines(split = ~ordered(year),
+            color = I("grey"))
+```
+
+### Application
+
+- Returning to the `gapminder` data, let's create time series plots for each country.
+
+```{r gapminder-line-plot1, exercise = TRUE}
+```
+
+```{r gapminder-line-plot1-demo, echo = demo_code, eval = demo_results}
+gapminder %>% 
+  group_by(country) %>% 
+  plot_ly(x = ~year, y = ~lifeExp) %>% 
+  add_lines(color = ~continent)
+```
+
+- We see that there are some interesting countries that do not follow the general trend. These would be things to focus on when trying to tell a narrative.
+
+- This first graph, which in practice would probably be made with `ggplotly()`, would be a good exploration tool (EDA phase) for us to see easily see which countries those were. Then we decide what we want to delve into further and create polished plots to communicate with.
+    
+- To polish this plot and create our narrative (good storytelling strategy), we want to focus on just these three countries and make the rest blend into the background. For plot design this means we want to make all of the non interesting countries lines grey and remove their hover text. Then make the interesting ones red and add mouseover to further highlight those.
+
+- To do this, we can use the fact that the active dataset (the newest one) is the one that `plot_ly()` builds that layer from. So we can start at the top and make sub data frames and layers that highlight those specific data points.
+
+<!-- NOTE: add, run and then comment out plotly_data() -->
+
+```{r gapminder-line-plot2, exercise = TRUE}
+gapminder %>% 
+  group_by(country) %>% 
+  plot_ly(x = ~year, y = ~lifeExp) %>% 
+  add_lines(color = ~continent)
+```
+
+```{r gapminder-line-plot2-demo, echo = demo_code, eval = demo_results}
+gapminder %>% 
+  group_by(country) %>% 
+  plot_ly(x = ~year, y = ~lifeExp) %>% 
+  #plotly_data() %>% 
+  add_lines(color = I("grey"), hoverinfo = "skip") %>% 
+  filter(country %in% c("Cambodia", "China", "Rwanda")) %>% 
+  #plotly_data() %>% 
+  add_lines(text = ~country,
+            color = I("red")) %>% 
+  hide_legend()
+```
+
+## Other types of plotly plots
+
+### 2D histogram and heatmap
+
+- To create a new plot type called a 2D histogram (for numeric data) or a heatmap (for categorical data), we can use `add_histogram2d()`. This colors rectangular bins based on the count, just like the hexagonal heat map.
+
+```{r histogram-2d, exercise = TRUE}
+```
+
+```{r histogram-2d-demo, echo = demo_code, eval = demo_results}
+diamonds %>% 
+  plot_ly(x = ~log(carat), y = ~log(price)) %>% 
+  add_histogram2d()
+```
+
+- This type of plot can be used for a statistical plot called a correlation plot, which plots the correlation between each pair of numeric variables. A static way to do this is with ``corrplot::corrplot()`.
+
+- But we can recreate a version of this to add interactivity. Since we have to create the correlation matrix ahead of time, and we are passing in the data with colored values already computed, we switch our function to `add_heatmap()` and use some more arguments, then and add a few customizations to make it statistically accurate.
+
+```{r corrplot, exercise = TRUE}
+corr <- diamonds %>% 
+  select(where(is.numeric)) %>% 
+  cor
+corrplot::corrplot(corr)
+
+corr %>% 
+  data.frame %>% 
+  plot_ly(x = rownames(corr), y = colnames(corr), z = corr) %>% 
+  add_heatmap(colors = "RdBu") %>% 
+  colorbar(limits = c(-1, 1))
+```
+
+```{r corrplot-demo, echo = demo_code, eval = demo_results}
+corr <- diamonds %>% 
+  select(where(is.numeric)) %>% 
+  cor
+corrplot::corrplot(corr)
+
+corr %>% 
+  data.frame %>% 
+  plot_ly(x = rownames(corr), y = colnames(corr), z = corr) %>% 
+  add_heatmap(colors = "RdBu") %>% 
+  colorbar(limits = c(-1, 1))
+```
+
+### Exercise
+
+- Using the code chunk below, create the following graphs:
+
+    a. An interactive 2D histogram for `Petal.Width` and `Petal.Length` from the `iris` dataset. What other type of plot can we make to display two quantitative variables that may be a better choice for this data?
+    
+    b. An interactive heatmap for `color` by `clarity` from the `diamonds` dataset. Note that the best way to do this is to let plotly guess the plot type when supplying two categorical variables to `x` and `y`.
+
+```{r histogram-2d-heatmap-ex, exercise = TRUE}
+```
+
+```{r histogram-2d-heatmap-ex-solution}
+# part a)
+iris %>% 
+  plot_ly(x = ~Petal.Width,
+          y = ~Petal.Length) %>% 
+  add_histogram2d()
+# -> small data, so scatterplot would be better, try letting plot_ly() guess the plot type and see the result
+
+# part b)
+diamonds %>% 
+  plot_ly(x =~color,
+          y = ~clarity)
+```
+    
+### Slope graphs and dumbell charts
+
+- Slope graphs and dumbell charts are useful for comparing numeric values across numerous categories.
+
+- Slope graphs are a minimal plot to easily show the change in a value across categories (or time points). That change is easy to see when we connect those values with lines, because the lines will slope up or down, in the direction of the change. The steeper the slope, the bigger the change.
+
+    - Note however for showing change over time, slopegraphs *only* show the endpoints and skip all change in the middle; so, we need to think about if this is what we want to show (else a line plot would be better).
+
+- Let's recreate the following slopegraph using **plotly**.
+
+```{r slope-graph-static-package}
+#| echo: false
+
+# create long data of summarized beginning and end year average life expectancy by continent
+gapminder_avg <- gapminder %>% 
+  filter(year %in% c(min(year), max(year))) %>% 
+  summarize(.by = c(continent, year),
+            avg_lifeExp = round(mean(lifeExp), 1)) %>% 
+  mutate(year = ordered(year))
+
+# use package to make slopegraph
+slopegraph::ggslopegraph2(dataframe = gapminder_avg,
+                          times = year,
+                          measurement = avg_lifeExp,
+                          grouping = continent,
+                          linecolor = "grey",
+                          title = "Gapminder average life expectancy (years)")
+
+```
+
+```{r slope-graph-static-ggplot}
+#| eval: false
+
+# create wide data of summarized beginning and end year average life expectancy by continent
+# then use ggplot2 to manually create slopegraph
+# -> create segments and just add annotations to beginning
+# -> not sure how to customize the x axis, so including description in title
+gapminder %>% 
+  filter(year %in% c(min(year), max(year))) %>% 
+  summarize(.by = c(continent, year),
+            avg_lifeExp = round(mean(lifeExp), 1)) %>% 
+  pivot_wider(names_from = year,
+              values_from = avg_lifeExp,
+              names_prefix = "year_") %>% 
+  ggplot() +
+  geom_segment(aes(x = 1,
+                   xend = 2,
+                   y = year_1952,
+                   yend = year_2007)) + 
+  geom_text(aes(x = 0.95,
+                y = year_1952,
+                label = continent)) + 
+  labs(title = "Gapminder life expectancy 1952 to 2007",
+       x = "",
+       y = "Average life expectancy (years)") + 
+  theme_bw() + 
+  theme(panel.grid = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())
+
+```
+
+<!-- NOTE: comment out layout before running through data steps -->
+
+```{r slope-graph-plotly, exercise = TRUE}
+gapminder %>% 
+  filter(year %in% c(min(year), max(year))) %>% 
+  summarize(.by = c(continent, year),
+           avg_lifeExp = round(mean(lifeExp), 1)) %>% 
+  pivot_wider(names_from = year,
+              values_from = avg_lifeExp,
+              names_prefix = "year_") 
+  
+  # add plotly code
+  
+  layout(title = "Gapminder average life expectancy",
+         xaxis = list(ticktext = c("1952", "2007"),
+                      tickvals = c(1, 2),
+                      zeroline = FALSE),
+         yaxis = list(title = "",
+                      showgrid = FALSE,
+                      showticks = FALSE,
+                      showticklabels = FALSE))
+```
+
+```{r slope-graph-plotly-demo, echo = demo_code, eval = demo_results}
+gapminder %>% 
+  filter(year %in% c(min(year), max(year))) %>% 
+  summarize(.by = c(continent, year),
+           avg_lifeExp = round(mean(lifeExp), 1)) %>% 
+  pivot_wider(names_from = year,
+              values_from = avg_lifeExp,
+              names_prefix = "year_") %>% 
+  plot_ly() %>% 
+  add_segments(x = 1,
+               xend = 2,
+               y = ~year_1952,
+               yend = ~year_2007) %>% 
+  add_annotations(x = 0.95,
+                  y = ~year_1952,
+                  text = ~paste(continent, year_1952),
+                  showarrow = FALSE) %>% 
+  add_annotations(x = 2.05,
+                  y = ~year_2007,
+                  text = ~paste(continent, year_2007),
+                  showarrow = FALSE) %>% 
+  layout(title = "Gapminder average life expectancy",
+         xaxis = list(ticktext = c("1952", "2007"),
+                      tickvals = c(1, 2),
+                      zeroline = FALSE),
+         yaxis = list(title = "",
+                      showgrid = FALSE,
+                      showticks = FALSE,
+                      showticklabels = FALSE))
+```
+
+- So called dumbell charts are similar in concept to slope graphs, but not quite as general. They are typically used to compare two different classes of numeric values across numerous groups, whereas slopegraphs can be built out to three or more x-axis lines.
+
+- With a dumbell chart, it’s always a good idea to order the categories by a sensible metric.
+
+- Let's recreate the following dumbell chart made by *ggplot*, except with *plotly* so there is interactivity. This plot uses the dumbell approach to show average miles per gallon city and highway for different car models from the `ggplot2::mpg` dataset.
+
+```{r dumbell-plot-static}
+head(mpg)
+
+# create summary data of mean mpg by model
+# then create dumbell chart with segments and points
+# -> manually specify color legend
+mpg %>% 
+  summarize(.by = model,
+            across(c(cty, hwy), mean)) %>% 
+  mutate(model = fct_reorder(model, cty)) %>% 
+  ggplot() +
+  geom_segment(aes(x = cty,
+                   xend = hwy,
+                   y = model,
+                   yend = model),
+               color = "grey") + 
+  geom_point(aes(x = cty,
+                 y = model,
+                 color = "blue")) + 
+  geom_point(aes(x = hwy,
+                 y = model,
+                 color = "orange")) + 
+  scale_color_manual(name = "MPG",
+                     values = c("blue", "orange"),
+                     labels = c("city", "hwy")) + 
+  theme_bw()
+```
+
+<!-- NOTE: add legend items last -->
+
+```{r dumbell-plot-plotly, exercise = TRUE}
+mpg %>% 
+  summarize(.by = model,
+            across(c(cty, hwy), mean)) %>% 
+  mutate(model = fct_reorder(model, cty)) 
+```
+
+```{r dumbell-plot-plotly-demo, echo = demo_code, eval = demo_results}
+mpg %>% 
+  summarize(.by = model,
+            across(c(cty, hwy), mean)) %>% 
+  mutate(model = fct_reorder(model, cty)) %>% 
+  plot_ly() %>% 
+  add_segments(x = ~cty,
+              xend = ~hwy,
+              y = ~model,
+              yend = ~model,
+              color = I("grey"),
+              showlegend = FALSE) %>% 
+  add_markers(x = ~cty,
+              y = ~model,
+              color = I("blue"),
+              name = "City") %>% 
+  add_markers(x = ~hwy,
+              y = ~model,
+              color = I("orange"),
+              name = "Highway") %>% 
+  layout(xaxis = list(title = "MPG"))
+```
+
+### Exercise
+
+- Using the code chunk below, create the following graphs:
+
+    a. An interactive slopegraph using the `mpg` dataset for `cty` vs `hwy` gas mileage by `model`. Use the same summarizing code as for the dumbell chart (we need wide summary data). What is a problem we have to consider with this type of plot?
+    
+    b. An interactive dumbell plot using the mean `lifeExp`  by `continent` from the `gapminder` dataset. Start with the same summarizing code as for the slopegraph (we need wide summary data again). Be sure to order the levels of `continent` by increasing mean for the minimum year.
+
+```{r slopegraph-dumbell-ex, exercise = TRUE}
+```
+
+```{r slopegraph-dumbell-ex-ex-solution}
+# part a)
+# summarize mean city and highway mpg by model
+# then order by increasing mean for city (the first axis)
+# then create slopegraph
+mpg %>% 
+  summarize(.by = model,
+            across(c(cty, hwy), mean)) %>% 
+  plot_ly() %>% 
+  add_segments(x = 1,
+               xend = 2,
+               y = ~cty,
+               yend = ~hwy) %>% 
+  add_annotations(x = 0.95,
+                  y = ~cty,
+                  text = ~model,
+                  name = "City") %>% 
+  add_annotations(x = 2.05,
+                  y = ~hwy,
+                  text = ~model,
+                  name = "Highway")
+# -> problem is that the annotations become too cluttered with too many lines, the dumbell chart is better for this data display
+
+# part b)
+# filter to beginning and end years
+# summarize avg life expectancy by year and continent
+# convert to wide data
+# change levels of continent factor
+# create dumbell chart
+gapminder %>% 
+  filter(year %in% c(min(year), max(year))) %>% 
+  summarize(.by = c(continent, year),
+           avg_lifeExp = round(mean(lifeExp), 1)) %>% 
+  pivot_wider(names_from = year,
+              values_from = avg_lifeExp,
+              names_prefix = "year_") %>% 
+  mutate(continent = fct_reorder(continent, year_1952)) %>% 
+  plot_ly() %>% 
+  add_segments(x = ~year_1952,
+              xend = ~year_2007,
+              y = ~continent,
+              yend = ~continent,
+              color = I("grey"),
+              showlegend = FALSE) %>% 
+  add_markers(x = ~year_1952,
+              y = ~continent,
+              color = I("blue"),
+              name = "1952") %>% 
+  add_markers(x = ~year_2007,
+              y = ~continent,
+              color = I("orange"),
+              name = "2007") %>% 
+  layout(xaxis = list(title = "Average life expectancy (years)"))
+```
+
+### Parallel coordinates plot
+
+- Generally speaking:
+    
+    - For 2 numeric distributions we can use a scatterplot.
+    
+    - For 2 numeric dimensions by group (or time), we can facet, use a slopegraph or a dumbell plot.
+    
+    - For 3 numeric dimensions, we can use a bubble plot.
+    
+    - For more than 3 numeric dimensions, we can use a parallel coordinates plot.
+    
+- Parallel coordinate plots are a multivariate display that organizes many numeric axes in parallel (instead of orthogonal). It's effectiveness depends how the grouped data behaves (i.e. if data within a group is similar across variables).
+
+- If want high dimensions, we can look at a "profile" of each observation across many dimensions. Then we can connect the dots to show that corresponding points go togther (i.e. connect observation values with line across all axes).
+
+- To create static parallel coordinates plot, we can use `GGally::ggparcoord()`. One important argument is `scale`, which determines how to *scale* values on each axis, which is an important aspect of the final visual.
+
+    - So by default, this function standardizes evey value with a z-score `scale = "std": $z = \frac{x \, - \,\bar{x}}{S_x}$. With a strong skew, these could get up to 4 and 5, but generally absolute values are less than 3.
+    
+    - Another more common option is to use `scale = "unimimmax"`, which puts everything on a [0,1] scale in between the min and max value of that variable: $z = \frac{x \, - \,min}{max \, - \, min}$. This which keeps the relative position of all values, just with a new scale.
+    
+<!-- NOTE: order = "anyClass" provides an optimal order of the axes according to some criteria that we don't need to know about -->
+<!-- - get decent interactivity with ggplotly -->
+
+```{r parallel-coord-static}
+# create parallel coordinate plot using default options
+iris %>% 
+  ggparcoord(columns = 1:4, 
+             groupColumn = 5,
+             scale = "uniminmax",
+             order = "anyClass",
+             alphaLines = 0.5) +
+  theme_bw()
+
+# confirm trends with correlation matrix
+cor(select(iris, where(is.numeric))) %>% round(3)
+```
+
+- When interpreting a parallel coordinates plot, we are looking for three things:
+
+    - Clusters by color: Are there groups that have similar profiles across the axes? Visually, are the lines close together and roughly parallel? Or are there anomilies (lines that don't follow the general pattern) within or across groups?
+    
+    - Slopes of lines: If slopes are constant between adjacent axes, this indicates there is a positive correlation between variables (low values of one variable correspond to low values of the other, and high values to high values).
+    
+    - Spread by color: Are lines for a group spread out on a particular axes or close together (diverging or converging)? We are looking at the variation in a variable within a particular group.
+    
+- Let's recreate the above parallel coordinates plot with interactivity via **plotly** and `add_lines()`. We have to do the scaling ourselves before passing to `plot_ly()`. To do the uniform min / max transformation, we can use `scales::rescale()`. In addition, an observation ID needs to be added so that it can be grouped by (and thus we get one line per observation), which can be done with `tibble::rowid_to_column()`.
+
+```{r parallel-coord-plotly, exercise = TRUE}
+```
+
+```{r parallel-coord-plotly-demo, echo = demo_code, eval = demo_results}
+iris %>% 
+  mutate(across(where(is.numeric), scales::rescale)) %>% 
+  rowid_to_column(var = "obs") %>% 
+  pivot_longer(cols = -c(Species, obs),
+               names_to = "variable",
+               values_to = "value") %>% 
+  group_by(obs) %>% 
+  plot_ly(x = ~variable,
+          y = ~value,
+          color = ~Species) %>% 
+  add_lines(alpha = 0.5)
+```
+
+## Graphical queries
+
+### Basic graphical queries
+
+- Here we introduce particular approach to linking views (visuals) known as graphical (database) queries. With **plotly**, we can write R code to pose graphical queries that operate in the web browser (we won't delve into the back-end of how these work).
+
+- Essentially we want to interactively select aspects of our graph (particular points, lines, etc.) and "filter" to similar data points by highlighting those while pushing the rest to the background. 
+
+- Essentially, the strategy that we use is calling `plotly::highlight_key(< data >, ~< var >)` on our data and a particular variable that we are going to highlight by. Then we pass this to our `plot_ly()` function and create the graph like normal.
+
+- For the example below, `highlight_key()` assigns the number of cylinders to each point so that when a particular point is "queried" all points with the same number of cylinders are highlighted. By default, a mouse click triggers a query, and a double-click clears the query, but both of these events can be customized through the `highlight()` function with the `on` and `off` arguments.
+
+<!-- NOTE: add highlight_key(), show results, then customize how selected via highlight() -->
+
+```{r basic-graphical-query, exercise = TRUE}
+mtcars %>% 
+  plot_ly(x = ~wt,
+          y = ~mpg) %>% 
+  add_markers() %>% 
+  add_text(text = ~cyl,
+           textposition = "top")
+```
+
+```{r basic-graphical-query-demo, echo = demo_code, eval = demo_results}
+mtcars %>% 
+  highlight_key(~cyl) %>% 
+  plot_ly(x = ~wt,
+          y = ~mpg) %>% 
+  add_markers() %>% 
+  add_text(text = ~cyl,
+           textposition = "top") %>%
+  highlight(on = "plotly_hover")
+```
+
+- Generally speaking, `highlight_key()` assigns data values to graphical marks so that when graphical mark(s) are *directly manipulated* through the `on` event, it uses the corresponding data values (call it `$SELECTION_VALUE`) to perform an SQL query of the following form:
+
+```{sql graphical-query-sql, eval = FALSE}
+SELECT * FROM mtcars WHERE cyl IN $SELECTION_VALUE
+/* SELECT < all columns > FROM < data > WHERE < var > IN < data marks > */
+```
+
+- We don't need to worry about what is happening behind the scenes, just how to apply the techniques. This is just extra info that may help with the understanding of what's actually happening if you're curious.
+
+### Linked brushing
+
+- We can take the methods used above one step further using **linked brushing**, which is a fancy way to say that multiple plots (or tables) are connected via highlighting.
+
+- Suppose we wanted to not just visually highlight matching data points, but rather show the raw data for selected points (so we will have a plot that we can select data points and a corresponding data table displayed at the same time). Doing this requires just a few modifications to the above code.
+
+- First we have to create a shared data object via `highlight_key()` (without specifying a variable so the entire data gets queried).
+
+    - `highlight_key()` is a wrapper (meaning it is an easier way to call another function) that creates a `SharedData` instance built from the **crosstalk** package. This `SharedData` is a special data structure that can be accessed by all elements using the data.
+
+    - This is important because it has has some built in reactive / listening features so that plots and tables can talk to each other.
+
+- This gets passed to `plot_ly()` to create our graph like normal with customized highlighting that gives the desirable `on` event for this application. Continuing the example, we save as an object `p <- shared_data %>% < plotly call > %>% highlight(on = "plotly_selected")`.
+
+- Finally, we use `crosstalk::bscols(< plot >, < table >)` to organize our plot and table on the same pane, where the html table is created from the shared data object using `DT::datatable(< shared data >)`. Continuing the example, we have `bscols(p, datatable(shared_data))`.
+
+- Once this is setup correctly, the rows corresponding to the selected points in the graph will be shown in the table!
+
+<!-- NOTE: starting with same code as previous, just have to create a shared data object at the start and pass that to plotly, then demo highlight on and change and show lasso, then add bscols to add table, then redo lasso select, then change height of table -->
+
+```{r linked-brushing, exercise = TRUE}
+mtcars %>% 
+  highlight_key(~cyl) %>% 
+  plot_ly(x = ~wt,
+          y = ~mpg) %>% 
+  add_markers() %>% 
+  add_text(text = ~cyl,
+           textposition = "top") %>%
+  highlight(on = "plotly_hover")
+```
+
+```{r linked-brushing-demo, echo = demo_code, eval = demo_results}
+shared_data <- highlight_key(mtcars)
+
+p <- shared_data %>% 
+  plot_ly(x = ~wt,
+          y = ~mpg) %>% 
+  add_markers() %>% 
+  add_text(text = ~cyl,
+           textposition = "top") %>%
+  highlight(on = "plotly_selected") %>% 
+  hide_legend()
+
+bscols(p, datatable(shared_data, height = 500))
+```
+
+### Application
+
+- An application of this linked brushing technique is when performing EDA. In a true exploratory setting, you have to make lots of visualizations, and investigate lots of follow-up questions, before stumbling across something truly valuable. Being able to quickly and easily add this interactive filtering to our visuals, as demonstrated  above, is a practical augmentation to the exploration process.
+
+- Suppose we are investigating the `mpg` data, so we setup the linked brushing for a scatterplot and data table and we notice there is a cluster of points that are away from the general trend. Let's look more into those rows.
+
+```{r linked-brushing-app, exercise = TRUE}
+shared_data <- highlight_key(mpg)
+
+p <- shared_data %>% 
+  plot_ly(x = ~displ,
+          y = ~hwy) %>% 
+  add_markers() %>% 
+  highlight(on = "plotly_selected")
+
+bscols(p, datatable(shared_data, height = 500))
+```
+
+- Note that this is much quicker than trying to write code to query those observations, it is much easier and intuitive to draw an outline around the points to query the data behind them.
+
+- With the gleaned information, suppose this fits into our narrative and we are in the final stages of an analysis, when it is time to publish our work to a general audience. Rather than relying on the audience to interact with the graphics and discover insight for themselves, it’s always a good idea to clearly highlight our findings.
+
+- One option using strategies from previous tutorials is to use aesthetic mapping to differentiate the points of interest from the rest. Here is how this can be done with **ggplot** using the `color` aesthetic.
+
+```{r brushed-linking-app-final-attempt}
+# plot two layers
+# -> one of all points with grey color
+# -> another with just points of interest in a different color
+# -> add legend with informative values
+ggplot() + 
+  geom_point(aes(x = displ,
+                 y = hwy,
+                 color = "Other"),
+             data = mpg) + 
+  geom_point(aes(x = displ,
+                 y = hwy,
+                 color = "Corvette"),
+             data = filter(mpg, model == "corvette")) + 
+  scale_color_manual(values = c("Other" = "grey", "Corvette" = "red"),
+                     name = "Model") + 
+  labs(title = "Fuel economy from 1999 to 2008 for 38 car models",
+       caption = "Source: https://fueleconomy.gov/",
+       x = "Engine Displacement",
+       y = "Miles Per Gallon") + 
+  theme_bw() 
+
+```
+
+- An alternative is to annotate the points of interest. This can be done via `ggforce::geom_mark_hull()` (or `*_ellipse`,  `*_circle`,  `*_rect`).
+
+```{r brushed-linking-app-final, exercise = TRUE}
+ggplot(data = mpg) + 
+  geom_point(aes(x = displ,
+                 y = hwy)) +
+  labs(title = "Fuel economy from 1999 to 2008 for 38 car models",
+       caption = "Source: https://fueleconomy.gov/",
+       x = "Engine Displacement",
+       y = "Miles Per Gallon") + 
+  theme_bw()
+```
+
+<!-- NOTE: show different shapes, _ellipse (includes a non corvette, _circle, _rect) -->
+
+```{r brushed-linking-app-final-demo, echo = demo_code, eval = demo_results}
+ggplot(aes(x = displ,
+           y = hwy),
+       data = mpg) + 
+  geom_point() +
+  geom_mark_hull(aes(filter = model == "corvette",
+                     label = model)) +
+  labs(title = "Fuel economy from 1999 to 2008 for 38 car models",
+       caption = "Source: https://fueleconomy.gov/",
+       x = "Engine Displacement",
+       y = "Miles Per Gallon") + 
+  theme_bw()
+```
+
+- *CAUTION*: Make sure the points we are highlighting are in a cluster on their own or else additional unwanted points will be included in the annotations as well as demonstrated below.
+
+```{r brushed-linking-app-final-caution}
+# show hull with colored points to point out caution when using this technique
+ggplot() + 
+  geom_point(aes(x = displ,
+                 y = hwy),
+             data = mpg) + 
+  geom_point(aes(x = displ,
+                 y = hwy,
+                 color = "a4"),
+             data = filter(mpg, model == "a4")) + 
+  geom_mark_hull(aes(x = displ,
+                     y = hwy,
+                     filter = model == "a4",
+                     label = model),
+                 data = mpg) + 
+  scale_color_manual(values = c("a4" = "red"),
+                     name = "Model") + 
+  theme_bw()
+```
+
+### More graphical queries
+
+- Graphical queries can also help to combat overplotting on busy plots.
+
+<!-- NOTE: just adding highlight_key() -->
+
+```{r graphical-query, exercise = TRUE}
+gapminder %>% 
+  group_by(country) %>% 
+  plot_ly(x = ~year,
+          y = ~lifeExp,
+          text = ~country) %>% 
+  add_lines(color = ~continent)
+```
+
+```{r graphical-query-demo, echo = demo_code, eval = demo_results}
+gapminder %>% 
+  group_by(country) %>% 
+  highlight_key(~country) %>% 
+  plot_ly(x = ~year,
+          y = ~lifeExp,
+          text = ~country) %>% 
+  add_lines(color = ~continent)
+```
+
+- Querying a country via direct manipulation is somewhat helpful for focusing on a particular time series, but it’s not so helpful for querying a country by name and/or comparing multiple countries at once.
+
+- We can add a few options in `highlight()` to change the behavior when the `on` event occurs.
+
+    - To select multiple (selections remain), hold shift and click (`shift + click`) while clicking.
+    
+    - To be able to change the color of selections, set `dynamic = TRUE`.
+    
+    - To be able to type in names of selections and have a dropdown, set `selectize = TRUE`.
+    
+<!-- NOTE: copy previous ending code, demo shift (persistant = TRUE) first, then dynamic, then selectize and selectize + shift, then rename select bar -->
+
+```{r graphical-query-more-features, exercise = TRUE}
+```
+
+```{r graphical-query-more-features-demo, echo = demo_code, eval = demo_results}
+gapminder %>% 
+  group_by(country) %>% 
+  highlight_key(~country, "Select a country") %>% 
+  plot_ly(x = ~year,
+          y = ~lifeExp,
+          text = ~country) %>% 
+  add_lines(color = ~continent) %>% 
+  highlight(dynamic = TRUE,
+            selectize = TRUE)
+```
+
+- This allows us to focus on certain comparisons of interest and notice finer aspects of the data that would be hard with everything plotted.
+
+### Exercise
+
+- Using the code chuck below, explore the `ggplot2::msleep` data.
+
+    a. Create a linked brushing setup for a scatterplot of `brainwt` by `sleep_total` and the corresponding data table. Which points stand out? Which species are they?
+    
+    b. *CHALLENGE*: Recreate the scatterplot as a static image using **ggplot2** and add annotations to the interesting species via `geom_mark_*()` as if it were to be in the final published work. Add  nicely formatted, informative labels and titles as well.
+
+```{r linked-brush-ex, exercise = TRUE}
+```
+
+```{r linked-brush-ex-solution}
+# part a) linked brush setup
+shared_data <- highlight_key(msleep)
+
+p <- shared_data %>% 
+  plot_ly(x = ~brainwt,
+          y = ~sleep_total) %>% 
+  add_markers() %>% 
+  highlight(on = "plotly_selected")
+
+bscols(p, datatable(shared_data, height = 500))
+
+# part b) final publishable plot example
+ggplot(aes(x = brainwt,
+           y = sleep_total),
+       data = msleep) + 
+  geom_point() +
+  geom_mark_hull(aes(filter = name %in% c("Asian elephant", "African elephant"), label = "Elephants")) + 
+  geom_mark_hull(aes(filter = name %in% c("Big brown bat", "Little brown bat"), label = "Bats")) + 
+  geom_mark_hull(aes(filter = name == "Human", label = name)) + 
+  labs(title = "Mammals sleep patterns",
+       x = "Brain weight (kg)",
+       y = "Sleep total (hours)") + 
+  theme_bw()
+```
+
+### Linking multiple plots and subplot()
+
+- We can also link multiple plots together so that brushing on one highlights data on the other. A very common strategy is to have an aggregated data plot followed by a more detailed plot (this hits the popular data viz advice "Overview first, zoom and filter, then details on demand").
+
+- To do this, we need to create a shared data object like before via `shared_data <- highlight_key(< data >)`, then build both plots off `shared_data`. 
+
+- The plots can then be arranged side-by-side (or any way we desire) using `plotly::subplot()`, which can be further modified with additional piped statements. The `highlight()` features can be specified for the `subplot()` statement rather than the individual plots.
+
+<!-- NOTE: first create shared data, then replace datasets, name objects, add highlight(), then subplot, then subplot features (haven't grouped by anything, so gives dropdown of rownames (individual observations by default)), to name have to skip second argument, for this application don't want selectize and dynamic, so remove -->
+
+```{r linking-multiple-plots, exercise = TRUE}
+mtcars %>% 
+  plot_ly(x = ~ordered(cyl)) %>% 
+  add_histogram()
+
+mtcars %>% 
+  plot_ly(x = ~wt,
+          y = ~mpg) %>% 
+  add_markers() 
+```
+
+```{r linking-multiple-plots-demo, echo = demo_code, eval = demo_results}
+share_data <- highlight_key(mtcars, , "Select a model")
+
+p1 <- share_data %>% 
+  plot_ly(x = ~ordered(cyl)) %>% 
+  add_histogram()
+
+p2 <- share_data %>% 
+  plot_ly(x = ~wt,
+          y = ~mpg) %>% 
+  add_markers()
+
+subplot(p1, p2) %>% 
+  hide_legend() %>% 
+  highlight(on = "plotly_click", dynamic = TRUE, selectize = TRUE)
+
+```
+
+- Note that `subplot()` can be used even when we are not linking images and it has a lot of customization to organize our plots well. Below are some example uses of this function.
+
+    - Create comparative boxplots for diamond prices, and add overall boxplot on same axes.
+
+<!-- NOTE: p = base plotly object, then add overall boxplot (x just gives the x axis a label), then by cut, then plot together; run through plots individually and then plot together, then add subplot() customizations -->
+
+```{r subplot, exercise = TRUE}
+p <- plot_ly(diamonds,
+             y = ~price,
+             color = I("black"), 
+             alpha = 0.1 )
+
+p1 <- p %>% add_boxplot(x = "Overall")
+p2 <- p %>% add_boxplot(x = ~cut)
+
+subplot(p1, p2)
+```
+
+```{r subplot-demo, echo = demo_code, eval = demo_results}
+p <- plot_ly(diamonds,
+             y = ~price,
+             color = I("black"), 
+             alpha = 0.1 )
+
+p1 <- p %>% add_boxplot(x = "Overall")
+p2 <- p %>% add_boxplot(x = ~cut)
+
+subplot(p1, p2,
+        shareY = TRUE,
+        widths = c(0.2, 0.8)) %>% 
+  hide_legend()
+```
+
+    - Create density plots (for modality) and comparative boxplots (for center and outliers) to get a really good idea of the distributions of diamond prices by cut. We can also use the linked brushing setup with this as well.
+
+<!-- NOTE: add subplot, then customize, then make ggplotly, then make shared data -->
+
+```{r subplot2, exercise = TRUE}
+p1 <- ggplot(data = diamonds,
+            aes(x = price,
+                color = cut)) + 
+  geom_density() + 
+  theme_bw()
+
+p2 <- diamonds %>% 
+  plot_ly() %>% 
+   add_boxplot(x = ~price,
+               y = ~cut,
+               color = ~cut)
+```
+
+```{r subplot2-demo, echo = demo_code, eval = demo_results}
+shared_data <- highlight_key(diamonds)
+
+p1 <- ggplot(data = shared_data,
+            aes(x = price,
+                color = cut)) + 
+  geom_density() + 
+  theme_bw()
+
+p2 <- shared_data %>% 
+  plot_ly() %>% 
+   add_boxplot(x = ~price,
+               y = ~cut,
+               color = ~cut)
+
+subplot(ggplotly(p1), p2,
+        nrows = 2,
+        shareX = TRUE) %>% 
+  highlight(on = "plotly_click")
+```
+
+### Exercise
+
+- Using code chuck below and the starter code that filters and summarizes the `Lahman::Batting` data to team totals for the most current year then creates three density plots, do the following:
+
+    a. *CHALLENGE*: Create an interactive parallel coordinates. Remember that we need long data for all of the numeric variables and we can group by `teamID` because that acts as the observation ID. What can we conclude from this plot, if anything?
+    
+    b. Combine these plots into a single view with `subplot()`; however have the three density plots in the first row and the parallel coordinates plot in the second row.
+    
+<div id="subplot-ex-hint">
+**HINT:** You can nest subplot statements, e.g. `subplot(subplot(< plots >) < another plot >)`.
+</div>
+
+```{r subplot-ex, exercise = TRUE}
+# create team summarized batting data for the most recent year
+batting <- Lahman::Batting %>% 
+  filter(yearID == max(yearID)) %>% 
+  select(-c(stint,G)) %>% 
+  summarize(.by = c(teamID, yearID, lgID), across(c(where(is.numeric)), sum)) %>% 
+  mutate(yearID = as.factor(yearID)) %>% # so year doesn't get rescaled in the parallel coordinates plot
+  select(where(is.factor), HR, RBI, SB) # just look at three important batting stats
+
+# create three different density plots
+p1 <- batting %>% 
+  ggplot() + 
+  geom_density(aes(x = HR,
+                   color = lgID)) + 
+  theme_bw()
+p2 <- batting %>% 
+  ggplot() + 
+  geom_density(aes(x = RBI,
+                   color = lgID)) + 
+  theme_bw()
+p3 <- batting %>% 
+  ggplot() + 
+  geom_density(aes(x = SB,
+                   color = lgID)) + 
+  theme_bw() 
+
+# create parallel coordinates plot
+
+# organize plots
+```
+
+```{r subplot-ex-solution}
+# create team summarized batting data for the most recent year
+batting <- Lahman::Batting %>% 
+  filter(yearID == max(yearID)) %>% 
+  select(-c(stint,G)) %>% 
+  summarize(.by = c(teamID, yearID, lgID), across(c(where(is.numeric)), sum)) %>% 
+  mutate(yearID = as.factor(yearID)) %>% # so year doesn't get rescaled in the parallel coordinates plot
+  select(where(is.factor), HR, RBI, SB) # just look at three important batting stats
+
+# create three different density plots
+p1 <- batting %>% 
+  ggplot() + 
+  geom_density(aes(x = HR,
+                   color = lgID)) + 
+  theme_bw()
+
+p2 <- batting %>% 
+  ggplot() + 
+  geom_density(aes(x = RBI,
+                   color = lgID)) + 
+  theme_bw()
+
+p3 <- batting %>% 
+  ggplot() + 
+  geom_density(aes(x = SB,
+                   color = lgID)) + 
+  theme_bw() 
+
+# create parallel coordinates plot
+p4 <- batting %>% 
+  mutate(across(where(is.numeric), scales::rescale)) %>% 
+  pivot_longer(cols = -c(teamID, lgID, yearID),
+               names_to = "variable",
+               values_to = "value") %>% 
+  group_by(teamID) %>% 
+  plot_ly(x = ~variable,
+          y = ~value,
+          color = ~lgID,
+          text = ~teamID) %>% 
+  add_lines(alpha = 0.5)
+
+# AL and NL behave similarly, no trends
+# -> positive correlation between HR and RBIs, less so for RBIs and SBs
+
+# oragnize three plots in first row and one in second row
+# -> note that subplot implicitly converts to plotly like ggplotly()
+subplot(subplot(p1, p2, p3),
+        p4,
+        nrows = 2)
+```
+
+## Filter events
+
+### Highlight vs filter
+
+- We just covered **plotly**’s framework for highlight events, but it also supports filter events. These events trigger slightly different logic:
+
+    - A highlight event dims the opacity of existing marks, then adds an additional graphical layer representing the selection.
+    
+    - A filter event completely remove existing marks and rescales axes to the remaining data.
+
+- Here is a demo of what the difference is:
+
+```{r highlight-vs-filter-preview, echo = FALSE}
+```
+
+### Creating a filtered event plot
+
+- Now we can recreate the filtered event plot.
+
+- To do this, filter events must be fired from filter widgets (think: html element) from the **crosstalk** package. So create the filter bar, we can use `crosstalk::filter_select()`, which expects a `SharedData` instance as an input. As we have seen, we can use `shared_data <- highlight_key()` to accomplish this.
+
+- Then we create the plot like usual from `shared_data` using either `ggplotly()` or `plot_ly()`.
+
+- Finally, we need to arrange the filter bar and the plot with `crosstalk::bscols()`.
+
+<!-- NOTE: just create filter bar, then plot, then wrap in bscols, then add widths  -->
+
+```{r highlight-vs-filter, exercise = TRUE}
+# create shared data object
+shared_data <- highlight_key(txhousing)
+
+# create highlight plot from shared data object
+p <- ggplot(data = shared_data) +
+  geom_line(aes(x = date,
+                y = median,
+                group = city))
+
+# arrange select box for filtering shared data object and plot from same shared data object
+
+```
+
+```{r highlight-vs-filter-demo, echo = demo_code, eval = demo_results}
+# crate shared data object
+shared_data <- highlight_key(txhousing)
+
+# create highlight plot from shared data object
+p <- ggplot(data = shared_data) +
+  geom_line(aes(x = date,
+                y = median,
+                group = city))
+
+# arrange select box for filtering shared data object and plot from same shared data object
+bscols(filter_select(id = "id",
+                     label = "Select a city",
+                     sharedData = shared_data,
+                     group = ~city),
+       ggplotly(p, dynamicTicks = TRUE),
+       widths = 12)
+```
+
+### Exercise
+
+- Using the code chunk below, modify / add to the code below to transform the static timeseries plot of the `gapminder` dataset into an interactive filtered event plot.
+
+```{r filtered-event-ex, exercise = TRUE}
+ggplot(data = gapminder) + 
+  geom_line(aes(x = year,
+                y = lifeExp,
+                group = country,
+                color = continent)) + 
+  theme_bw()
+```
+
+```{r filtered-event-ex-solution}
+# crate shared data object
+shared_data <- highlight_key(gapminder)
+
+# create highlight plot from shared data object
+p <- ggplot(data = shared_data) + 
+  geom_line(aes(x = year,
+                y = lifeExp,
+                group = country,
+                color = continent)) + 
+  theme_bw()
+
+# arrange select box for filtering shared data object and plot from same shared data object
+bscols(filter_select(id = "id",
+                     label = "Select a country",
+                     sharedData = shared_data,
+                     group = ~country),
+       ggplotly(p, dynamicTicks = TRUE),
+       widths = 12)
+```

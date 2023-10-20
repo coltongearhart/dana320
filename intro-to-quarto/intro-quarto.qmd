@@ -1,0 +1,288 @@
+---
+format: 
+  revealjs:
+    slide-number: true
+    width: 1920
+    height: 1080
+    logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+editor: source
+---
+
+## So what is Quarto?
+
+```{r setup, include = FALSE}
+library(fontawesome)
+library(tidyverse)
+```
+
+. . .
+
+> ### Quarto^®^ is an open-source scientific and technical publishing system built on [Pandoc](https://pandoc.org/).
+
+. . .
+
+> Quarto is the next-generation of RMarkdown, which is a platform that allows users to combine plain text and code in a single document and output to a variety of sources.
+
+. . .
+
+> This means we can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more.
+
+## Quarto (and R Markdown) workflow
+
+::: columns
+::: {.column width="50%"}
+
+![](images/quarto-wizardry.png)
+
+:::
+
+::: {.column width="50%"}
+
+![](images/qmd-knitr.png)
+
+:::
+:::
+
+## Why Quarto, instead of RMarkdown
+
+-   Batteries included, shared syntax
+-   Choose your own editor and your preferred data science language
+-   Better accessibility and richer features out of the box
+-   More enhancements overtime - RMarkdown still maintained, but majority of new features built into Quarto
+
+. . .
+
+Collaboration with other colleagues in other languages - shared format, choose your editor and your native language
+
+. . .
+
+1.  Reproducibility
+2.  Re-usability
+3.  Extensibility
+4.  "Lazy" ability
+
+## Change your mental model
+
+No more copy-paste, no more manually rebuilding analyses from disparate components, no more dread when the data is updated and you need to run an analysis.
+
+::: columns
+::: {.column width="50%"}
+Source
+
+![](images/word.png){width="650px"}
+:::
+
+::: {.column width="50%"}
+Output
+
+![](images/word.png){width="650px"}
+:::
+:::
+
+## Change your mental model
+
+::: columns
+::: {.column width="50%"}
+Source
+
+`r fontawesome::fa("file-code", height = "600px", fill = "#447099")`
+:::
+
+::: {.column width="50%"}
+Output
+
+`r fontawesome::fa("file-image", height = "600px", fill = "#447099")`
+:::
+:::
+
+## Change your mental model
+
+::: columns
+::: {.column width="50%"}
+    ---
+    title: "ggplot2 demo"
+    author: "Norah Jones"
+    date: "5/22/2021"
+    format: 
+      html:
+        fig-width: 8
+        fig-height: 4
+        code-fold: true
+    ---
+
+    ## Air Quality
+
+    @fig-airquality further explores the impact of temperature 
+      on ozone level.
+
+    ```{{r}}
+    #| label: fig-airquality
+    #| fig-cap: Temperature and ozone level.
+    #| warning: false
+
+    library(ggplot2)
+    ggplot(airquality, aes(Temp, Ozone)) + 
+
+      geom_point() + 
+      geom_smooth(method = "loess"
+    )
+    ```
+:::
+
+::: {.column width="50%"}
+![](https://quarto.org/images/hello-knitr.png)
+:::
+:::
+
+## Where to use Quarto
+
+We will be using RStudio. But this also works with Jupyter notebooks (python users), among other platforms.
+
+![](https://quarto.org/docs/tools/images/rstudio-preview.png)
+
+## So what is a Quarto doc?
+
+> A Quarto document i.e. a `.qmd` is a plain text file, like a `.rmd`, that can be rendered to many different formats
+
+![](https://quarto.org/docs/get-started/hello/images/rstudio-source-visual.png){width="1000px"}
+
+## So what is a Quarto doc?
+
+![](images/inspecting-qmd-file.png)
+
+## YAML
+
+::: columns
+::: {.column width="50%"}
+    
+    ---
+    title: "ggplot2 demo"
+    author: "Norah Jones"
+    date: "5/22/2021"
+    format: 
+      html:
+        code-fold: true
+        embed-resources: true
+    ---
+
+:::
+
+::: {.column width="50%"}
+<h3>Currently our header is quite basic. <br> It includes:</h3>
+-    The title of the document; title: “ggplot2 demo”
+
+-    Who wrote it: author: “Norah Jones”
+
+-    Date: “5/22/2021”
+
+-    The output type: html_document
+
+-    Option to display code; code-fold: true
+
+-    Option to bundle all files into a single `.html` file; embed-resources: true
+
+:::
+:::
+
+## Code chunks
+
+![](images/code-chunk.png)
+
+## Code chunk options
+
+![](images/code-chunk-options.png)
+Source: [Code chunks](https://rmarkdown.rstudio.com/lesson-3.html)
+
+
+## Code chunk example
+
+```{r}
+#| echo: fenced
+#| output-location: column
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess"
+)
+```
+
+## Markup text
+
+Now that we have a report with a header and some code, we need to explain what the code is doing and why.
+
+-    This is where the plain text comes in.
+
+-    Outside of a code chunk, type anything you want. You can even include pictures and tables.
+
+We can also Cross Reference.
+
+![](images/markup-text.png){width="1000px"}
+
+## Markup text
+
+![](images/cross-reference-figure.png)
+
+## Text Formatting
+
++-----------------------------------+-------------------------------+
+| Markdown Syntax                   | Output                        |
++===================================+===============================+
+|     *italics* and **bold**        | *italics* and **bold**        |
++-----------------------------------+-------------------------------+
+|     superscript^2^ / subscript~2~ | superscript^2^ / subscript~2~ |
++-----------------------------------+-------------------------------+
+|     ~~strikethrough~~             | ~~strikethrough~~             |
++-----------------------------------+-------------------------------+
+|     `verbatim code`               | `verbatim code`               |
++-----------------------------------+-------------------------------+
+
+Source: [Getting Started with Quarto](https://rstudio-conf-2022.github.io/get-started-quarto/materials/01-intro-quarto.html#/quarto-more-internals)
+
+## Headings
+
++---------------------+-----------------+
+| Markdown Syntax     | Output          |
++=====================+=================+
+|     # Header 1      | # Header 1      |
++---------------------+-----------------+
+|     ## Header 2     | ## Header 2     |
++---------------------+-----------------+
+|     ### Header 3    | ### Header 3    |
++---------------------+-----------------+
+|     #### Header 4   | #### Header 4   |
++---------------------+-----------------+
+|     ##### Header 5  | ##### Header 5  |
++---------------------+-----------------+
+|     ###### Header 6 | ###### Header 6 |
++---------------------+-----------------+
+
+Source: [Getting Started with Quarto](https://rstudio-conf-2022.github.io/get-started-quarto/materials/01-intro-quarto.html#/quarto-more-internals)
+
+## Inline code
+
+> Inside your text you can include executable code with the syntax:
+
+For example:
+
+There are 344 rows in the penguins data set.
+
+![](images/inline-code.png)
+
+
+## Rendering file
+
+Save your report and…
+
+![](images/render.png)
+
+## Rendering file
+
+Look at your console while it renders:
+
+![](images/render-log.png){width=1200px}
+

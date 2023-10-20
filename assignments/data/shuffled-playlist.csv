@@ -1,0 +1,179 @@
+artist,album,genre,name,danceability,energy,loudness,speechiness,acousticness,instrumentalness,liveness,valence,tempo
+Streetlight+Manifesto,Everything Goes Numb,ska,A Moment of Violence,0.609,0.918,-5.998,0.0894,0.0087,0,0.294,0.541,89.975
+Adele,25,pop,Water Under the Bridge,0.596,0.838,-6.52,0.0704,0.0189,1.54E-05,0.108,0.479,94.982
+Pink Floyd,The Dark Side of the Moon,classic rock,Speak to Me,0.592,0.0196,-33.35,0.0358,0.362,0.854,0.108,0.0322,119.504
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Baby Boy,0.529,0.403,-7.103,0.0349,0.123,0.496,0.0647,0.723,199.928
+Ed+Sheeran,Divide (Deluxe),pop,Nancy Mulligan,0.68,0.852,-4.35,0.0349,0.117,0,0.0866,0.852,101.993
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,You Ain't Gotta Lie (Momma Said),0.501,0.646,-5.422,0.231,0.482,1.43E-05,0.274,0.648,94.746
+Streetlight+Manifesto,Everything Goes Numb,ska,"Failing, Flailing",0.648,0.896,-5.546,0.0825,0.0426,2.15E-06,0.0675,0.794,137.804
+Eagles,Hotel California (Remastered),classic rock,New Kid In Town - Remastered,0.649,0.425,-9.811,0.0267,0.378,0.0013,0.108,0.651,107.383
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Oh Daddy - Live,0.38,0.484,-10.59,0.0455,0.395,0.0112,0.687,0.165,127.679
+Doomtree,No Kings,hip hop,Gimme The Go,0.612,0.738,-6.738,0.303,0.055,0,0.125,0.564,125.756
+Eagles,Hotel California (Remastered),classic rock,The Last Resort - Remastered,0.549,0.28,-10.692,0.0311,0.474,0.0612,0.16,0.299,125.83
+Dessa,Chime,hip hop,Jumprope,0.73,0.497,-9.047,0.0515,0.00871,4.20E-05,0.156,0.232,155.954
+Adele,25,pop,I Miss You,0.381,0.581,-4.273,0.0481,0.00936,1.43E-05,0.455,0.155,113.218
+Dessa,Chime,hip hop,Ride,0.503,0.436,-9.372,0.0477,0.0146,0.000706,0.779,0.129,80.001
+Dessa,Chime,hip hop,Fire Drills,0.566,0.714,-7.616,0.145,0.0452,0.000289,0.0633,0.367,93.836
+Streetlight+Manifesto,Everything Goes Numb,ska,The Big Sleep,0.54,0.903,-6.817,0.111,0.00431,0,0.105,0.578,147.981
+Less+Than+Jake,Hello Rockview,ska,Five State Drive,0.444,0.98,-4.25,0.0774,0.000555,1.99E-06,0.104,0.671,117.986
+Adele,25,pop,River Lea,0.293,0.586,-5.63,0.0342,0.0579,3.68E-06,0.123,0.227,81.723
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Me and Your Mama,0.557,0.461,-11.796,0.0342,0.00952,0.0405,0.0708,0.291,117.999
+Less+Than+Jake,Hello Rockview,ska,Help Save The Youth Of America From Exploding,0.448,0.947,-4.781,0.113,0.00322,0,0.185,0.729,140.043
+Taylor+Swift,1989,pop,How You Get The Girl,0.614,0.659,-6.092,0.0717,0.00421,0.0077,0.0796,0.472,119.931
+Taylor+Swift,1989,pop,Wildest Dreams,0.556,0.688,-7.328,0.0856,0.0612,0.00256,0.112,0.459,140.011
+Childish+Gambino,"""Awaken, My Love!""",hip hop,The Night Me and Your Mama Met,0.579,0.124,-14.588,0.0302,0.969,0.0912,0.0609,0.118,134.021
+Taylor+Swift,1989,pop,Clean,0.806,0.385,-7.797,0.0353,0.243,0,0.111,0.224,103.982
+Adele,25,pop,When We Were Young,0.381,0.594,-5.97,0.0486,0.348,0,0.0925,0.275,143.86
+Pink Floyd,The Dark Side of the Moon,classic rock,Eclipse,0.359,0.579,-10.765,0.0406,0.0591,0.746,0.0686,0.136,68.102
+No+Doubt,Tragic Kingdom,ska,The Climb,0.551,0.709,-6.066,0.0257,0.0952,5.27E-06,0.111,0.359,97.183
+Doomtree,No Kings,hip hop,Team The Best Team,0.566,0.796,-6.045,0.0633,0.0625,6.71E-06,0.563,0.828,126.849
+No+Doubt,Tragic Kingdom,ska,Don't Speak,0.515,0.705,-7.055,0.0333,0.224,1.33E-05,0.17,0.532,76.078
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Silver Springs - 2004 Remastered Edition,0.348,0.576,-8.388,0.0289,0.00766,0.0462,0.276,0.418,179.014
+Taylor+Swift,1989,pop,Shake It Off,0.653,0.799,-5.359,0.163,0.0577,0,0.221,0.945,160.017
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Riot,0.498,0.95,-5.903,0.0736,0.000318,2.43E-05,0.39,0.61,91.324
+No+Doubt,Tragic Kingdom,ska,Sixteen,0.492,0.927,-5.962,0.0885,0.0109,6.51E-05,0.751,0.788,157.079
+Streetlight+Manifesto,Everything Goes Numb,ska,"A Better Place, a Better Time",0.532,0.864,-5.467,0.289,0.0747,0,0.106,0.441,139.334
+Streetlight+Manifesto,Everything Goes Numb,ska,If and When We Rise Again,0.492,0.881,-6.57,0.0927,0.0325,0.00255,0.193,0.58,154.087
+Streetlight+Manifesto,Everything Goes Numb,ska,Here's to Life,0.451,0.883,-5.624,0.0865,0.00638,0.000508,0.235,0.555,139.946
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Go Your Own Way - 2004 Remastered Edition,0.586,0.941,-5.139,0.0375,0.0167,0.000776,0.068,0.812,135.448
+Taylor+Swift,1989,pop,Bad Blood,0.65,0.793,-6.083,0.185,0.0795,1.30E-05,0.168,0.29,170.101
+No+Doubt,Tragic Kingdom,ska,End It On This,0.529,0.662,-8.412,0.0319,0.00513,0.000203,0.0839,0.587,162.748
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,Complexion (A Zulu Love),0.673,0.569,-7.706,0.297,0.568,3.88E-06,0.211,0.418,89.892
+Taylor+Swift,1989,pop,All You Had To Do Was Stay,0.604,0.727,-5.725,0.0355,0.00216,4.02E-05,0.11,0.507,97.035
+Pink Floyd,The Dark Side of the Moon,classic rock,Time,0.358,0.48,-11.79,0.0849,0.521,0.00428,0.178,0.361,120.317
+The+Beatles,Let It Be (Remastered),classic rock,I've Got A Feeling - Remastered,0.44,0.609,-8.824,0.0358,0.0715,0,0.582,0.359,165.156
+Eagles,Hotel California (Remastered),classic rock,Hotel California - Remastered,0.579,0.508,-9.484,0.027,0.00574,0.000494,0.0575,0.609,147.125
+Streetlight+Manifesto,Everything Goes Numb,ska,The Saddest Song,0.564,0.912,-4.997,0.0625,0.0117,1.11E-06,0.359,0.935,144.67
+Eagles,Hotel California (Remastered),classic rock,Life In The Fast Lane - Remastered,0.667,0.755,-7.246,0.069,0.0966,6.94E-05,0.0523,0.883,109.535
+Adele,25,pop,Sweetest Devotion,0.419,0.745,-5.477,0.0408,0.231,0,0.123,0.26,155.875
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,For Free? - Interlude,0.527,0.895,-4.681,0.219,0.583,0,0.402,0.757,127.936
+Taylor+Swift,1989,pop,Out Of The Woods,0.557,0.828,-6.848,0.0388,0.00107,1.48E-05,0.34,0.307,92.002
+The+Beatles,Let It Be (Remastered),classic rock,Two Of Us - Remastered,0.726,0.702,-10.757,0.032,0.0974,3.46E-05,0.239,0.923,109.114
+Less+Than+Jake,Hello Rockview,ska,Motto,0.22,0.974,-3.903,0.142,0.000359,0.00206,0.294,0.222,190.539
+Ed+Sheeran,Divide (Deluxe),pop,Hearts Don't Break Around Here,0.604,0.366,-7.881,0.0267,0.719,0,0.162,0.157,105.177
+Dessa,Chime,hip hop,Half of You,0.662,0.811,-7.76,0.0699,0.0323,1.92E-06,0.106,0.488,142.811
+Ed+Sheeran,Divide (Deluxe),pop,Dive,0.761,0.386,-6.158,0.0399,0.355,0,0.0953,0.517,134.943
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Monday Morning - Live,0.512,0.905,-7.02,0.0493,0.118,0,0.953,0.702,112.993
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Stand Tall,0.31,0.252,-13.231,0.0384,0.673,0.00525,0.133,0.119,88.85
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Don't Stop - 2004 Remastered Edition,0.672,0.72,-7.781,0.035,0.0373,9.38E-06,0.0371,0.838,118.731
+Ed+Sheeran,Divide (Deluxe),pop,Castle on the Hill,0.461,0.834,-4.868,0.0989,0.0232,1.14E-05,0.14,0.482,135.007
+Pink Floyd,The Dark Side of the Moon,classic rock,The Great Gig in the Sky,0.275,0.216,-13.818,0.0345,0.768,0.897,0.0832,0.176,116.388
+Doomtree,No Kings,hip hop,No Way,0.666,0.857,-6.472,0.29,0.0142,0.000829,0.525,0.478,146.058
+Ed+Sheeran,Divide (Deluxe),pop,Barcelona,0.747,0.76,-4.294,0.187,0.448,0,0.153,0.683,99.975
+Doomtree,No Kings,hip hop,Little Mercy,0.509,0.699,-5.638,0.0444,0.14,0,0.282,0.152,143.944
+Streetlight+Manifesto,Everything Goes Numb,ska,Point / Counterpoint,0.772,0.868,-5.299,0.0621,0.0637,0,0.0727,0.825,129.814
+Taylor+Swift,1989,pop,I Wish You Would,0.651,0.889,-5.944,0.0534,0.0164,7.57E-05,0.114,0.501,118.012
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Second Hand News - 2004 Remastered Edition,0.696,0.942,-5.232,0.13,0.214,0.0049,0.0518,0.479,117.541
+Dessa,Chime,hip hop,Velodrome,0.475,0.417,-10.719,0.0308,0.0278,1.20E-05,0.107,0.138,102.058
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,u,0.402,0.801,-5.641,0.463,0.275,0,0.604,0.552,72.855
+No+Doubt,Tragic Kingdom,ska,World Go 'Round,0.561,0.806,-6.069,0.0458,0.154,2.29E-05,0.25,0.77,146.504
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Redbone,0.743,0.359,-10.401,0.0794,0.199,0.00611,0.137,0.587,160.083
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,How Much A Dollar Cost,0.64,0.72,-4.771,0.18,0.422,0,0.169,0.338,88.015
+Pink Floyd,The Dark Side of the Moon,classic rock,Brain Damage,0.322,0.265,-13.398,0.0302,0.0726,0.34,0.366,0.219,133.577
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,i,0.537,0.815,-4.312,0.327,0.719,0,0.665,0.751,121.917
+No+Doubt,Tragic Kingdom,ska,Sunday Morning,0.589,0.785,-5.367,0.0312,0.00906,1.82E-05,0.127,0.787,157.109
+Less+Than+Jake,Hello Rockview,ska,Nervous In The Alley,0.365,0.939,-4.555,0.112,0.00316,0,0.0309,0.752,126.777
+Dessa,Chime,hip hop,I Hope I’m Wrong,0.656,0.573,-9.763,0.0425,0.276,7.40E-06,0.117,0.172,111.052
+Less+Than+Jake,Hello Rockview,ska,Last One Out Of Liberty City,0.207,0.977,-5.117,0.108,0.0181,0,0.342,0.661,189.414
+Fleetwood+Mac,Rumours (Deluxe),classic rock,You Make Loving Fun - 2004 Remastered Edition,0.62,0.604,-9.088,0.0261,0.0133,0.102,0.104,0.862,126.576
+Ed+Sheeran,Divide (Deluxe),pop,Eraser,0.64,0.812,-5.647,0.0834,0.086,0,0.0509,0.925,86.013
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Zombies,0.643,0.413,-12.081,0.142,0.506,0.00197,0.067,0.457,159.891
+Less+Than+Jake,Hello Rockview,ska,Great American Sharpshooter,0.586,0.965,-4.882,0.0631,0.109,7.87E-06,0.351,0.813,103.702
+Eagles,Hotel California (Remastered),classic rock,Victim Of Love - Remastered,0.576,0.545,-7.213,0.0281,0.0871,0.000502,0.267,0.649,84.24
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Intro - Live,0.509,0.814,-10.856,0.12,0.314,0.83,0.933,0.537,94.776
+No+Doubt,Tragic Kingdom,ska,Happy Now?,0.405,0.842,-5.572,0.0396,0.00365,3.33E-05,0.196,0.491,157.931
+Adele,25,pop,Hello,0.481,0.451,-6.095,0.0347,0.336,0,0.0872,0.287,157.966
+The+Beatles,Let It Be (Remastered),classic rock,Get Back - Remastered,0.761,0.592,-9.836,0.0586,0.492,0.00626,0.61,0.321,123.095
+Adele,25,pop,All I Ask,0.587,0.283,-5.473,0.0279,0.882,0,0.149,0.339,141.961
+Streetlight+Manifesto,Everything Goes Numb,ska,Everything Went Numb,0.652,0.897,-5.165,0.0562,0.0131,0.015,0.0447,0.913,134.923
+Ed+Sheeran,Divide (Deluxe),pop,Save Myself,0.552,0.29,-5.617,0.0448,0.85,0,0.227,0.466,78.842
+Dessa,Chime,hip hop,Say When,0.471,0.332,-12.238,0.0405,0.323,4.97E-06,0.0775,0.148,163.765
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,These Walls,0.704,0.487,-5.536,0.113,0.114,2.65E-06,0.229,0.386,107.926
+Taylor+Swift,1989,pop,Welcome To New York,0.79,0.626,-4.733,0.031,0.0358,2.23E-06,0.309,0.664,117.015
+Less+Than+Jake,Hello Rockview,ska,All My Best Friends Are Metalheads,0.582,0.91,-4.566,0.107,0.0755,1.03E-06,0.0992,0.733,92.179
+The+Beatles,Let It Be (Remastered),classic rock,Dig It - Remastered,0.54,0.489,-12.276,0.117,0.659,0.0019,0.457,0.663,157.03
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Terrified,0.466,0.411,-10.892,0.0548,0.414,0.528,0.0973,0.106,140.041
+Ed+Sheeran,Divide (Deluxe),pop,Bibia Be Ye Ye,0.738,0.677,-5.121,0.0824,0.52,0,0.133,0.854,127.067
+Less+Than+Jake,Hello Rockview,ska,Big Crash,0.443,0.945,-4.56,0.0795,0.0425,0,0.35,0.676,95.542
+Pink Floyd,The Dark Side of the Moon,classic rock,Us and Them,0.356,0.302,-14.528,0.0346,0.863,0.546,0.634,0.12,72.623
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Never Going Back Again - 2004 Remastered Edition,0.654,0.336,-12.825,0.0379,0.858,0.385,0.0786,0.942,176.083
+The+Beatles,Let It Be (Remastered),classic rock,Dig A Pony - Remastered,0.538,0.478,-8.957,0.0388,0.472,0,0.17,0.53,59.004
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,Wesley's Theory,0.55,0.797,-6.762,0.278,0.36,3.50E-05,0.224,0.555,114.048
+The+Beatles,Let It Be (Remastered),classic rock,One After 909 - Remastered,0.554,0.828,-6.435,0.0739,0.0307,0,0.907,0.904,90.95
+No+Doubt,Tragic Kingdom,ska,Spiderwebs,0.49,0.841,-7.082,0.0544,0.0397,1.47E-05,0.0987,0.697,143.337
+Taylor+Swift,1989,pop,I Know Places,0.609,0.771,-4.956,0.0572,0.223,0,0.138,0.554,159.982
+Less+Than+Jake,Hello Rockview,ska,"Richard Allen George...No, It's Just Cheez",0.376,0.903,-5.724,0.276,0.13,0,0.816,0.582,96.752
+Dessa,Chime,hip hop,Good Grief,0.627,0.677,-7.42,0.0447,0.277,0,0.0824,0.235,124.059
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Dreams - Live,0.485,0.643,-8.956,0.0422,0.174,0.00294,0.966,0.346,127.759
+No+Doubt,Tragic Kingdom,ska,Excuse Me Mr.,0.335,0.958,-5.338,0.131,0.00458,0,0.282,0.655,145.917
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,For Sale? - Interlude,0.404,0.688,-8.367,0.0771,0.435,7.31E-05,0.123,0.264,81.718
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Songbird - 2004 Remastered Edition,0.389,0.0851,-15.477,0.0346,0.982,0.00187,0.101,0.374,184.298
+Taylor+Swift,1989,pop,Style,0.592,0.789,-5.493,0.0382,0.00263,0.00103,0.125,0.489,94.999
+Doomtree,No Kings,hip hop,Beacon,0.645,0.851,-6.237,0.26,0.0222,0,0.198,0.457,92.028
+Doomtree,No Kings,hip hop,The Grand Experiment,0.716,0.892,-5.93,0.303,0.0263,0,0.121,0.733,139.938
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Have Some Love,0.783,0.803,-6.433,0.0848,0.0159,0.0197,0.682,0.931,148.184
+Less+Than+Jake,Hello Rockview,ska,Al's War,0.437,0.977,-3.556,0.13,0.0203,2.75E-06,0.311,0.505,141.404
+Pink Floyd,The Dark Side of the Moon,classic rock,Money,0.469,0.537,-10.421,0.152,0.0241,0.00201,0.269,0.788,124.193
+Ed+Sheeran,Divide (Deluxe),pop,Supermarket Flowers,0.589,0.242,-10.517,0.0442,0.914,0,0.0887,0.231,89.749
+Less+Than+Jake,Hello Rockview,ska,Theme Song For H Street,0.496,0.944,-5.253,0.127,0.00217,3.53E-06,0.0877,0.78,112.146
+Less+Than+Jake,Hello Rockview,ska,Danny Says,0.556,0.949,-5.373,0.0627,0.00554,4.09E-05,0.0881,0.709,114.003
+Pink Floyd,The Dark Side of the Moon,classic rock,Any Colour You Like,0.277,0.672,-12.582,0.0901,0.197,0.935,0.423,0.506,150.588
+No+Doubt,Tragic Kingdom,ska,You Can Do It,0.628,0.857,-5.269,0.0455,0.217,0,0.0663,0.927,125.912
+The+Beatles,Let It Be (Remastered),classic rock,Let It Be - Remastered,0.443,0.403,-8.339,0.0322,0.631,0,0.111,0.418,143.462
+Ed+Sheeran,Divide (Deluxe),pop,Perfect,0.599,0.448,-6.312,0.0232,0.163,0,0.106,0.167,95.05
+Ed+Sheeran,Divide (Deluxe),pop,Shape of You,0.825,0.652,-3.183,0.0802,0.581,0,0.0931,0.933,95.977
+Ed+Sheeran,Divide (Deluxe),pop,How Would You Feel (Paean),0.617,0.439,-5.63,0.0269,0.424,0,0.127,0.261,139.979
+Fleetwood+Mac,Rumours (Deluxe),classic rock,The Chain - Live,0.347,0.889,-7.252,0.0818,0.0177,0.0742,0.976,0.289,155.539
+Ed+Sheeran,Divide (Deluxe),pop,Galway Girl,0.624,0.876,-3.374,0.1,0.0735,0,0.327,0.767,99.943
+Streetlight+Manifesto,Everything Goes Numb,ska,That'll Be the Day,0.581,0.933,-5.219,0.0953,0.0125,0,0.195,0.735,146.927
+Ed+Sheeran,Divide (Deluxe),pop,Happier,0.522,0.385,-7.355,0.0288,0.536,0,0.135,0.23,89.792
+Pink Floyd,The Dark Side of the Moon,classic rock,On the Run,0.388,0.563,-21.192,0.0628,0.65,0.902,0.104,0.134,165.393
+Childish+Gambino,"""Awaken, My Love!""",hip hop,Boogieman,0.714,0.774,-7.923,0.0957,0.0986,0.178,0.214,0.635,87.988
+Less+Than+Jake,Hello Rockview,ska,History Of A Boring Town,0.541,0.943,-4.27,0.0552,0.0323,0,0.0911,0.779,107.313
+Doomtree,No Kings,hip hop,Fresh New Trash,0.468,0.723,-5.739,0.0609,0.0125,0,0.358,0.654,177.663
+Less+Than+Jake,Hello Rockview,ska,Scott Farcas Takes It On The Chin,0.372,0.97,-4.238,0.12,0.00711,5.46E-05,0.0562,0.635,131.544
+Ed+Sheeran,Divide (Deluxe),pop,What Do I Know?,0.838,0.492,-5.69,0.038,0.251,0,0.262,0.9,115.092
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,Mortal Man,0.51,0.52,-9.07,0.732,0.68,0,0.72,0.413,85.161
+Eagles,Hotel California (Remastered),classic rock,Wasted Time - Reprise; Remastered,0.195,0.245,-14.752,0.0385,0.186,0.912,0.254,0.113,112.07
+Adele,25,pop,Million Years Ago,0.721,0.273,-7.617,0.028,0.733,0,0.108,0.186,105.846
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Dreams - 2004 Remastered Edition,0.828,0.492,-9.744,0.0276,0.0644,0.00428,0.128,0.78,120.151
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,The Blacker The Berry,0.56,0.858,-4.09,0.326,0.00744,0,0.429,0.253,176.117
+Dessa,Chime,hip hop,Boy Crazy,0.693,0.446,-8.945,0.0296,0.0643,3.72E-06,0.276,0.304,119.938
+Streetlight+Manifesto,Everything Goes Numb,ska,A Moment of Silence,0.703,0.715,-5.669,0.142,0.117,5.52E-06,0.113,0.589,160.177
+Childish+Gambino,"""Awaken, My Love!""",hip hop,California,0.875,0.437,-11.342,0.555,0.337,0,0.138,0.818,148.851
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,Alright,0.791,0.779,-5.972,0.235,0.0734,0,0.0832,0.581,110.037
+Streetlight+Manifesto,Everything Goes Numb,ska,We Are the Few,0.473,0.9,-6.337,0.0891,0.0142,0,0.125,0.773,131.372
+Fleetwood+Mac,Rumours (Deluxe),classic rock,The Chain - 2004 Remastered Edition,0.545,0.67,-8.81,0.0496,0.009,0.000822,0.0451,0.468,151.553
+Taylor+Swift,1989,pop,This Love,0.294,0.444,-8.818,0.0415,0.667,0,0.101,0.102,71.382
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Don't Stop - Live,0.437,0.842,-7.802,0.0732,0.157,0,0.933,0.657,125.065
+Taylor+Swift,1989,pop,Blank Space,0.751,0.684,-5.448,0.0679,0.0847,0,0.0737,0.597,95.979
+The+Beatles,Let It Be (Remastered),classic rock,Across The Universe - Remastered,0.257,0.412,-11.788,0.0287,0.361,8.68E-05,0.0702,0.862,152.126
+No+Doubt,Tragic Kingdom,ska,Tragic Kingdom,0.404,0.865,-6.607,0.0612,0.0151,4.66E-05,0.545,0.633,152.046
+Doomtree,No Kings,hip hop,Bangarang,0.484,0.937,-5.608,0.177,0.0704,0,0.752,0.696,75.992
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,Institutionalized,0.54,0.732,-5.247,0.456,0.123,0,0.127,0.59,82.647
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Oh Daddy - 2004 Remastered Edition,0.585,0.338,-10.887,0.0335,0.505,0.000125,0.136,0.478,138.131
+Doomtree,No Kings,hip hop,Own Yours,0.567,0.861,-5.794,0.18,0.0253,0,0.153,0.392,119.992
+No+Doubt,Tragic Kingdom,ska,Just A Girl,0.637,0.904,-4.769,0.0505,0.0999,8.20E-05,0.138,0.77,108.011
+Ed+Sheeran,Divide (Deluxe),pop,New Man,0.78,0.745,-3.97,0.145,0.0559,0,0.0595,0.849,94.026
+Fleetwood+Mac,Rumours (Deluxe),classic rock,I Don't Want To Know - 2004 Remastered Edition,0.722,0.697,-7.03,0.0278,0.0633,0.0103,0.0675,0.938,139.348
+Dessa,Chime,hip hop,5 out of 6,0.648,0.765,-8.579,0.0641,0.0506,0.000277,0.0647,0.832,156.044
+The+Beatles,Let It Be (Remastered),classic rock,For You Blue - Remastered,0.88,0.556,-10.773,0.0855,0.24,0.0483,0.24,0.958,128.542
+Doomtree,No Kings,hip hop,Bolt Cutter,0.727,0.823,-8.549,0.207,0.0789,4.78E-06,0.066,0.362,141.969
+Adele,25,pop,Send My Love (To Your New Lover),0.69,0.524,-8.39,0.103,0.0415,3.16E-06,0.17,0.561,164.023
+Eagles,Hotel California (Remastered),classic rock,Pretty Maids All In A Row - Remastered,0.331,0.19,-13.482,0.0325,0.186,0.0508,0.101,0.0947,195.365
+Kendrick+Lamar,To Pimp A Butterfly,hip hop,King Kunta,0.881,0.658,-4.53,0.101,0.00515,0,0.203,0.506,107.052
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Never Going Back Again - Live,0.608,0.388,-15.458,0.0361,0.761,0.0539,0.693,0.79,91.235
+Eagles,Hotel California (Remastered),classic rock,Try And Love Again - Remastered,0.466,0.786,-6.81,0.0344,0.13,0.14,0.817,0.716,154.341
+Doomtree,No Kings,hip hop,String Theory,0.507,0.948,-6.322,0.374,0.00308,4.09E-05,0.16,0.428,170.802
+The+Beatles,Let It Be (Remastered),classic rock,Maggie Mae - Remastered,0.516,0.515,-12.035,0.215,0.379,0,0.103,0.534,169.039
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Rhiannon - Live,0.349,0.739,-8.281,0.0716,0.314,0.699,0.972,0.243,134.364
+The+Beatles,Let It Be (Remastered),classic rock,The Long And Winding Road - Remastered,0.299,0.329,-10.096,0.0279,0.756,0.0105,0.0559,0.371,132.282
+Doomtree,No Kings,hip hop,Punch-Out,0.244,0.835,-5.408,0.119,8.26E-05,6.45E-06,0.183,0.66,88.048
+The+Beatles,Let It Be (Remastered),classic rock,I Me Mine - Remastered,0.291,0.638,-7.854,0.0554,0.179,0,0.101,0.535,185.235
+Adele,25,pop,Remedy,0.396,0.305,-6.481,0.0387,0.891,0,0.169,0.251,165.398
+Fleetwood+Mac,Rumours (Deluxe),classic rock,Gold Dust Woman - 2004 Remastered Edition,0.666,0.599,-9.352,0.0305,0.259,0.000769,0.373,0.708,123.16
+Eagles,Hotel California (Remastered),classic rock,Wasted Time - Remastered,0.431,0.174,-11.373,0.0351,0.418,9.74E-05,0.109,0.144,117.563
+Dessa,Chime,hip hop,Shrimp,0.699,0.54,-6.909,0.226,0.0225,0,0.0571,0.307,84.43
+Pink Floyd,The Dark Side of the Moon,classic rock,Breathe (In the Air),0.431,0.375,-15.142,0.0347,0.391,0.721,0.143,0.266,128.153
+Adele,25,pop,Love in the Dark,0.333,0.341,-6.025,0.0304,0.536,0,0.109,0.142,109.812
+No+Doubt,Tragic Kingdom,ska,Hey You,0.583,0.816,-6.139,0.0307,0.00531,0.000822,0.186,0.761,119.015
