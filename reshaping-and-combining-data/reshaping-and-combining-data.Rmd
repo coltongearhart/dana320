@@ -2,7 +2,6 @@
 title: "Reshaping and Combining Data"
 author: Colton Gearhart
 output: 
-  #bookdown::gitbook: default
   learnr::tutorial:
    progressive: true
    allow_skip: true
@@ -78,9 +77,9 @@ data_pop_long <- data_pop %>%
 
 # combine data
 data_gapminder <- data_life_long %>% 
-  inner_join(data_income_long, by = c("country", "year")) %>% 
-  inner_join(data_pop_long, by = c("country", "year")) %>% 
-  left_join(data_countries, by = c("country"))
+  inner_join(data_income_long, join_by(country, year)) %>% 
+  inner_join(data_pop_long, join_by(country, year)) %>% 
+  left_join(data_countries, join_by(country))
 
 # halloween data
 
@@ -93,9 +92,11 @@ load(file = "www/data-halloween.RData")
 
 ### This section 
 
-- In the previous tutorial, we learned how to create many different visuals to display one or several quantitative and/or qualitative variables.
+- In the previous tutorial, we learned how to transform our data for either for data cleaning, summarizing, or to get it into a form for different visualizations.
 
-- However, creating visuals is one of the later steps in the process of data visualization.
+- Before either of these steps can be done, generally data needs to be worked with after importing.
+
+![](images/data-science-project-workflow.png){width=50%}
 
 **tidyr** is all about cleaning up messy data and turning it into well structured / organized objects. These objects are can be easily used across all packages in the **tidyverse** (e.g. **ggplot2**, **dpylr**, etc.), which makes common data analysis tasks flow much cleaner and smoother.
 
@@ -103,13 +104,13 @@ load(file = "www/data-halloween.RData")
 
 - This section covers content from [Chapter 6 - Data Tidying](https://r4ds.hadley.nz/data-tidy) of *R for Data Science (2e)*.
 
-    - Additional topics `read_csv()` from [Chapter 8 - Data Import](https://r4ds.hadley.nz/data-import) and basic joins (which are a part of dplyr) from [Chapter 20 - Joins](https://r4ds.hadley.nz/joins).
+    - Additional topics `read_csv()` from [Chapter 8 - Data Import](https://r4ds.hadley.nz/data-import) and basic joins (which are a part of **dplyr**) from [Chapter 20 - Joins](https://r4ds.hadley.nz/joins).
 
 - [tidyr help documentation](https://tidyr.tidyverse.org/index.html) contains everything you need to know about **tidyr**, including a very helpful [cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf).
 
 ### Prerequisites 
 
-- Before we can use the functions, datasets, and help pages within the **tidyverse**, which includes **readr**, **tidyr**, and **dplyr** we need to load the package. We can do this by running:
+- Before we can use the functions, datasets, and help pages within the **tidyverse** (which includes **readr**, **tidyr**, and **dplyr**), we need to load the package. We can do this by running:
 
 ```{r tidyverse, eval = FALSE}
 library(tidyverse)
@@ -139,16 +140,16 @@ data_ff
 
 ```
 
-- This contains information from a designed experiment where subjects were asked to taste french fries that were cooked in different oils. Subjects rated the french fries according to certain flavor attributes, repeated samples were taken.
+- This contains information from a designed experiment where subjects were asked to taste french fries that were cooked in different oils. Subjects rated the french fries according to certain flavor attributes. Repeated samples were taken.
   
-- An alternative to reading the data directly is to load a .RData file which can have the dataset already loaded with pre-specified attributes.
+- An alternative to reading the data directly is to load a .RData file, which can have the dataset already loaded with pre-specified attributes.
 
 - In a typical project workflow, after data cleaning it is a good idea to save a cleaned dataset and then start the analysis by loading in the cleaned data rather than starting with the raw data every time.
 
 ```{r ff-data2}
 
 # alternative way to load in data with pre-specified attributes
-load("www/french_fries.Rdata")
+load("www/french_fries.RData")
 
 ```
 
@@ -193,7 +194,7 @@ ggplot() +
 
 - Before we can create the goal plot, lets create some simpler plots to build up to the goal.
 
--Lets start with a simple line plot of the raw data. 
+- Lets start with a simple plot of the raw data. 
 
 ```{r first-plot, exercise = TRUE}
 ```
@@ -205,7 +206,7 @@ ggplot() +
              data = data_ff)
 ```
 
-- Now lets manipulate the data so that we can visually compare the raw individual potato scores to the mean over each time period. Then plot
+- Now lets manipulate the data so that we can visually compare the raw individual potato scores to the mean over each time period. Then we can add it to the plot.
 
 <!-- NOTE: we are adding a trend line, and using two different datasets in our function call -->
 <!-- - group argument tells ggplot which points to connect -->
@@ -329,16 +330,16 @@ head(data_long)
 data_flavor <- data_long %>% 
   group_by(time, treatment, subject, flavor_type) %>% 
   summarize(avg_flavor = mean(flavor_score, na.rm = TRUE))
-ggplot() + 
-  geom_line(aes(x = time, y = avg_flavor, group = subject),
-            data = data_flavor) + 
-  stat_smooth(aes(x = time, y = avg_flavor, group = 1),
-              data = data_flavor) + 
+ggplot(aes(x = time,
+           y = avg_flavor),
+       data = data_flavor) + 
+  geom_line(aes(group = subject)) + 
+  geom_smooth(aes(group = 1)) + 
   facet_grid(flavor_type ~ treatment,
              scale = "free_y")
 ```
 
--Note that we could revert the tall dataset back to its original wide format using `tidyr::pivot_wider()`. This takes the following main arguments:
+- Note that we could revert the tall dataset back to its original wide format using `tidyr::pivot_wider()`. This takes the following main arguments:
 
     - `names_from` &rarr; Column to get the output column names from
 
@@ -428,23 +429,25 @@ head(data_pop_long)
 
 ![](images/joins-example.png){width=75%}
 
--The first step is to inner join the life expectancy, income, and population databy country and year. This will keep all observations with matching (Country, Year) values. This can be done in with a series of pipes.
+- The first step is to inner join the life expectancy, income, and population databy country and year. This will keep all observations with matching (Country, Year) values. This can be done in with a series of pipes.
 
 - Then we can take that result and left join with the countries total data to add in the country abbreviations.
+
+- The join family of functions `*_join()` use `join_by(lhs == rhs)` to specify which columns to join by.
 
 ```{r combine-data, exercise = TRUE}
 ```
 
 ```{r combine-data-demo, echo = demo_code, eval = demo_results}
 data_gapminder <- data_life_long %>% 
-  inner_join(data_income_long, by = c("country", "year")) %>% 
-  inner_join(data_pop_long, by = c("country", "year")) %>% 
-  left_join(data_countries, by = c("country"))
+  inner_join(data_income_long, join_by(country, year)) %>% 
+  inner_join(data_pop_long, join_by(country, year)) %>% 
+  left_join(data_countries, join_by(country))
 ```
 
 ### Visualize data
 
-Now that the data is merged, we can recreate the visual for a particular year.
+- Now that the data is merged, we can recreate the visual for a particular year.
 
 <!-- NOTE: will learn how to animate the panes next section -->
 <!-- - can change scale of population size to make more readable -->
