@@ -1,0 +1,37 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "DANA 320"
+  author: "Colton Gearhart"
+  date: "10-27-2023"
+  cover-image: data-vizualization.png
+  chapters:
+    - index.qmd
+
+    - part: course-notes.qmd
+      chapters:
+        - placeholder.qmd
+        - visualizations.qmd
+
+    - part: assignments.qmd
+      chapters:
+        - hw-visualizations.qmd
+        - hw-data-transformations.qmd
+        - lab-data-cleaning.qmd
+        - hw-data-manipulations.qmd
+
+format:
+  html:
+    theme: flatly
+    code-link: true
+    #code-fold: show
+    #code-tools: true
+    code-block-border-left: "#2C3E50"
+    highlight-style: github
+    number-depth: 3
+    toc-depth: 3
+    df-print: kable
+    
+title-block-banner: true

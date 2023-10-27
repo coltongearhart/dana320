@@ -1,0 +1,229 @@
+## Lab - Data Cleaning
+
+```{r}
+#| label: load-prereqs
+#| echo: false
+#| message: false
+
+# knitr options
+source("_common.R")
+
+```
+
+Submission: Completed qmd file and rendered html file via Canvas.
+
+What will be looked at for grading: Correct code, output and sufficient write-ups where indicated.
+
+### Overview
+
+This problem applies the ideas from the notes '3.4 -- Reshaping and Combining Data', where we learned to restructure datasets, and also uses functions from **dplyr** functions from '3.3 -- Data Transformations'.
+
+We will be working with the `midwest-gas-prices.csv` data, which contains the average weekly midwestern fuel prices for a gallon of regular unleaded gasoline from November 1994 to May 2012. We want to use this data to create a time series line-plot of the data that looks like the image below:
+
+![](assignments/images/timeplot.png)
+
+```{r}
+#| label: setup
+#| echo: false
+
+# load packages
+library(tidyverse)
+library(magrittr)
+
+```
+
+The problem is that the data is very messy and improperly structured to create this visualization. Here is how the data file is structured in Excel and how it would read directly into R.
+
+![](assignments/images/gas-prices-raw-data.png)
+
+```{r}
+#| label: raw-data
+#| echo: false
+
+# load data
+data_raw <- read.csv(file = "assignments/data/midwest-gas-prices.csv")
+
+# preview data
+display_nice(data_raw, nrow = 5)
+
+```
+
+This assignment will take you through steps to resolve all of the structural issues with the current data and also clean it.
+
+### Assignment
+
+The goal of this assignment is to restructure and clean the data in R using the **dplyr**, **tidyr**, **stringr**, and **lubridate** packages.
+
+Overview of the current setup of data:
+
+- Currently the data is very messy and improperly structured to create the desired visualization.
+
+- There is one column for year/mon.
+
+- Prices and more dates are spread across multiple columns, all with bad labels.
+
+- And all date columns are character variables.
+
+Our end goal for the data is as follows to have a data frame that has only two columns: date and price. Complete each of the following steps in order to ultimately recreate the visual of interest.
+
+#### Part a -- Import data
+
+The header of this data is two rows of poorly formatted labels. When you read in the data you will want to skip over the header using the options in the `read_csv()` function.
+
+Here is the result after properly being read in:
+
+```{r echo = solutions}
+#| label: import-data
+
+# read in messy gas price data
+# -> skip first row of data because the header of this data is two rows of poorly formatted labels
+data_raw <- read_csv(file = "assignments/data/midwest-gas-prices.csv", col_names = TRUE, skip = 1)
+
+```
+
+```{r}
+#| label: preview-raw-data
+#| echo: false
+
+# preview data
+display_nice(data_raw, nrow = 5)
+
+```
+
+#### Part b -- Reshape data
+
+The first column has the year/month combined followed by five pairs of columns for the dates and prices associated with weeks 1 through 5 of each month. Each of these five column pairs will need to be moved from wide format to long format using functions in the _tidyr_ package.
+
+Note that this will be made much easier if you:
+
+1. First create separate data frames with the columns of dates and columns of prices
+
+2. Then pivot the columns in each
+
+3. Then recombine after they have both been reformatted wide-to-long.
+
+Here is what the price information should look like:
+
+```{r echo = solutions}
+#| label: reshape-data-price
+
+# create cleaned dataset of only prices
+# -> select desired columns
+# -> convert from wide to tall format
+# --> want to pivot all of the column, there isn't really an id variable
+# --> so can use tidy selection helper everything()
+# -> remove unneeded columns
+data_values <- data_raw %>% 
+  select(starts_with("Value")) %>% 
+  pivot_longer(cols = everything(),
+               names_to = "unneeded_column",
+               values_to = "price") %>% 
+  select(price)
+
+```
+
+```{r}
+#| label: preview-price-data
+#| echo: false
+
+# preview data
+display_nice(data_values)
+
+```
+
+And now the date information:
+
+```{r echo = solutions}
+#| label: reshape-data-dates
+
+# reshape dataset of only dates
+# -> select first variable (that is the year/mon info) and rename to something useful, also select the rest of the date columns
+# -> convert from wide to long (don't need the new column created from the names)
+data_dates <- data_raw %>% 
+  select(year_month = 1, starts_with("End")) %>% 
+  pivot_longer(cols = !year_month,
+               names_to = "unneeded_column",
+               values_to = "month_day")
+
+```
+
+```{r}
+#| label: preview-reshaped-date-data
+#| echo: false
+
+# preview data
+display_nice(data_dates)
+
+```
+
+#### Part c -- Clean data
+
+For the date information, extra steps are needed after reshaping.
+
+1. Notice that the years for each date are listed as 2016 in the month/day column, this needs to be replaced with the real year from the year/month column. I suggest using a combination of the `stringr::str_sub()` and the `paste()` function to fix the year.
+
+2. After you get the date column similar to "mm/dd/yyyy" or "mm-dd-yy", you can use `lubridate::mdy()` to transform the column to a POSIX date-formatted variable.
+
+```{r echo = solutions}
+#| label: clean-data-dates
+
+# clean long date data
+# -> paste together the extracted year from year/mon column and the extracted day and moth info from day/month column and convert to date value
+# -> keep only the final date column
+data_dates %<>% 
+  mutate(date = paste(str_sub(month_day, start = 1, end = -4),
+                      str_sub(year_month, start = 1, end = 4),
+                      sep = "/") %>% mdy,
+         .keep = "none")
+
+```
+
+```{r}
+#| label: preview-cleaned-date-data
+#| echo: false
+
+# preview data
+display_nice(data_dates)
+
+```
+
+#### Part d -- Combine data
+
+Now we can combine the date and price data back together with base R `cbind()` or `dplyr::bind_cols()` in order to create the final desired dataset for the visualization.
+
+```{r echo = solutions}
+#| label: combine-data
+#| echo: false
+
+# combine datasets back together
+data_prices <- bind_cols(data_dates, data_values)
+
+```
+
+```{r}
+#| label: preview-combined-data
+#| echo: false
+
+# preview data
+display_nice(data_prices)
+
+```
+
+#### Part e -- Visualize data
+
+Now recreate the desired visualization using the final dataset.
+
+```{r include = solutions}
+#| label: visualize-data
+
+# create time series plot
+ggplot() + 
+  geom_line(aes(x = date,
+                y = price),
+            data = data_prices) +
+  labs(title = "Timeplot of average weekly midwestern gas prices 1995-2012", 
+       x = "Time",
+       y = "Price for unleaded gasoline ($/gallon)") +
+  theme_bw()
+
+```
