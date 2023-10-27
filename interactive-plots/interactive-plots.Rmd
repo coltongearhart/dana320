@@ -2,7 +2,6 @@
 title: "Interactive Plots"
 author: Colton Gearhart
 output: 
-  # bookdown::gitbook: default
   learnr::tutorial:
     progressive: true
     allow_skip: true
@@ -40,19 +39,7 @@ library(ggforce)
 # -> so repeating any sections where saving result for later
 # -> have to do this because each exercise is independent and anything saved isn't available later
 econ <- economics %>%
-  mutate(year = year(date), mnnth = month(date))
-
-```
-
-```{r echo = FALSE}
-
-# NOTES TO SELF:
-
-# TO DO
-# -> 
-
-# Add textbook references in Overview
-# -> 
+  mutate(year = year(date), month = month(date))
 
 ```
 
@@ -153,9 +140,9 @@ ggplotly(p)
 
 ### Interactivity for other plots
 
-- Here is a demonstration of the types of interactivity that `ggplotly()` gives us for various plot types we already know very easily.
+- Here is a demonstration of the types of interactivity that `ggplotly()` gives us for various plot types we already know.
 
-- Side-by-side barplots. With multiple aesthetics being mapped to, there are more interactivity features available after converting to a **plotly** object.
+- Side-by-side bar graphs: With multiple aesthetics being mapped to, there are more interactive features available after converting to a **plotly** object.
 
 ```{r ggplotly-side-by-side-bargraphs, exercise = TRUE}
 p <- ggplot(data = diamonds,
@@ -287,7 +274,7 @@ head(gapminder)
 gapminder_recent <- gapminder %>% filter(year == max(year))
 year <- unique(gapminder_recent$year)
 
-p <- ggplot(data = gapminder,
+p <- ggplot(data = gapminder_recent,
             aes(x = gdpPercap,
                 y = lifeExp,
                 size = pop / 1000000,
@@ -317,7 +304,7 @@ ggplotly(p)
 
 ### plot_ly() basics
 
-- Using `plot_ly()` gives us the interactivity automatically and allows us to give mores customizations to features. We will start with the basics.
+- Using `plot_ly()` gives us the interactivity automatically and allows us to give more customizations to features. We will start with the basics.
 
 - If we assign variable names (e.g., `cut`, `clarity`, etc.) to visual properties (e.g., `x`, `y`, `color`, etc.) within `plot_ly()`, it tries to find a sensible geometric representation of that information for us (i.e. it will try and guess what type of plot we want).
 
@@ -445,9 +432,9 @@ diamonds %>%
 
 - There is almost a one-to-one with naming conventions from `geom_*` to `add_*` because **plotly** was made to work well with **tidyverse**.
 
-- `add_bars()` and `add_histogram()` work the same way as **ggplot** `geom_bar()` `geom_histogram()`, respectively.
+- `add_bars()` and `add_histogram()` work the same way as **ggplot** `geom_bar()` and `geom_histogram()`, respectively.
 
-    - The main difference between them is that bar traces require bar heights (both `x` and `y`), whereas histogram traces require just a single variable, and it handles binning automatically (i.e. it performs statistics dynamically in the web browser).
+    - The main difference between them is that bars trace requires bar heights (both `x` and `y`), whereas histogram traces require just a single variable, and it handles binning automatically (i.e. it performs statistics dynamically in the web browser).
     
     - This means for `add_bars()`, we have to do the counting ourselves prior to handing the data to `plot_ly()`, and for `add_histogram()` we just give it the raw data.
     
@@ -470,6 +457,10 @@ mtcars %>% tibble::rownames_to_column(var = "model")
 ```{r plotly-bar-vs-hist-demo, echo = demo_code, eval = demo_results}
 mtcars %>%
   plot_ly(x = ~mpg) %>% 
+  add_histogram(stroke = I("black"))
+
+mtcars %>%
+  # plot_ly(x = ~factor(cyl)) %>% 
   add_histogram(stroke = I("black"))
 
 mtcars %>% 
@@ -605,7 +596,7 @@ gapminder %>%
 
 - Now to see the real value of **plotly**, we can add animations through the `frame` argument (in `plot_ly()`) / aesthetic (in the `ggplot()` call before `ggplotly()`).
 
-- Instead of filtering the data down to one year, we can use the whole gapminder dataset and add `frame = ~year` (or `aes(frome = year)`), which will make the visualization into an animation. By default, animated views come with a play/pause button(s) and a slider component for controlling the animation. These can be customized; see [Chapter 14](https://plotly-r.com/animating-views).
+- Instead of filtering the data down to one year, we can use the whole gapminder dataset and add `frame = ~year` (or `aes(frame = year)`), which will make the visualization into an animation. By default, animated views come with a play/pause button(s) and a slider component for controlling the animation. These can be customized; see [Chapter 14](https://plotly-r.com/animating-views).
 
 <!-- NOTE: copy code, delete filter, and add frame -->
 
@@ -751,7 +742,7 @@ econ %>%
 ```{r gapminder-line-plot1-demo, echo = demo_code, eval = demo_results}
 gapminder %>% 
   group_by(country) %>% 
-  plot_ly(x = ~year, y = ~lifeExp) %>% 
+  plot_ly(x = ~year, y = ~lifeExp, text = ~country) %>% 
   add_lines(color = ~continent)
 ```
 
@@ -800,7 +791,7 @@ diamonds %>%
   add_histogram2d()
 ```
 
-- This type of plot can be used for a statistical plot called a correlation plot, which plots the correlation between each pair of numeric variables. A static way to do this is with ``corrplot::corrplot()`.
+- This type of plot can be used for a statistical plot called a correlation plot, which plots the correlation between each pair of numeric variables. A static way to do this is with `corrplot::corrplot()`.
 
 - But we can recreate a version of this to add interactivity. Since we have to create the correlation matrix ahead of time, and we are passing in the data with colored values already computed, we switch our function to `add_heatmap()` and use some more arguments, then and add a few customizations to make it statistically accurate.
 
@@ -851,7 +842,7 @@ iris %>%
 
 # part b)
 diamonds %>% 
-  plot_ly(x =~color,
+  plot_ly(x = ~color,
           y = ~clarity)
 ```
     
@@ -865,7 +856,12 @@ diamonds %>%
 
 - Let's recreate the following slopegraph using **plotly**.
 
+![](images/slopegraph.png){width=50%}
+
+<!-- NOTE: works in RStudio but not in learnr for some reason -->
+
 ```{r slope-graph-static-package}
+#| eval: false
 #| echo: false
 
 # create long data of summarized beginning and end year average life expectancy by continent
@@ -971,11 +967,13 @@ gapminder %>%
                       showticklabels = FALSE))
 ```
 
+- This would be an example where the interactivity doesn't really add anything to the plot. So just because it *can* be made interactive, doesn't mean that it *should* be made interactive.
+
 - So called dumbell charts are similar in concept to slope graphs, but not quite as general. They are typically used to compare two different classes of numeric values across numerous groups, whereas slopegraphs can be built out to three or more x-axis lines.
 
 - With a dumbell chart, it’s always a good idea to order the categories by a sensible metric.
 
-- Let's recreate the following dumbell chart made by *ggplot*, except with *plotly* so there is interactivity. This plot uses the dumbell approach to show average miles per gallon city and highway for different car models from the `ggplot2::mpg` dataset.
+- Let's recreate the following dumbell chart made by **ggplot**, except with **plotly** so there is interactivity. This plot uses the dumbell approach to show average miles per gallon city and highway for different car models from the `ggplot2::mpg` dataset.
 
 ```{r dumbell-plot-static}
 head(mpg)
@@ -1048,7 +1046,7 @@ mpg %>%
 ```{r slopegraph-dumbell-ex, exercise = TRUE}
 ```
 
-```{r slopegraph-dumbell-ex-ex-solution}
+```{r slopegraph-dumbell-ex-solution}
 # part a)
 # summarize mean city and highway mpg by model
 # then order by increasing mean for city (the first axis)
@@ -1470,7 +1468,7 @@ mtcars %>%
 ```
 
 ```{r linking-multiple-plots-demo, echo = demo_code, eval = demo_results}
-share_data <- highlight_key(mtcars, , "Select a model")
+shared_data <- highlight_key(mtcars, , "Select a model")
 
 p1 <- share_data %>% 
   plot_ly(x = ~ordered(cyl)) %>% 
@@ -1483,13 +1481,13 @@ p2 <- share_data %>%
 
 subplot(p1, p2) %>% 
   hide_legend() %>% 
-  highlight(on = "plotly_click", dynamic = TRUE, selectize = TRUE)
+  highlight(dynamic = TRUE, selectize = TRUE)
 
 ```
 
 - Note that `subplot()` can be used even when we are not linking images and it has a lot of customization to organize our plots well. Below are some example uses of this function.
 
-    - Create comparative boxplots for diamond prices, and add overall boxplot on same axes.
+- Create comparative boxplots for diamond prices, and add overall boxplot on same axes.
 
 <!-- NOTE: p = base plotly object, then add overall boxplot (x just gives the x axis a label), then by cut, then plot together; run through plots individually and then plot together, then add subplot() customizations -->
 
@@ -1497,7 +1495,7 @@ subplot(p1, p2) %>%
 p <- plot_ly(diamonds,
              y = ~price,
              color = I("black"), 
-             alpha = 0.1 )
+             alpha = 0.1)
 
 p1 <- p %>% add_boxplot(x = "Overall")
 p2 <- p %>% add_boxplot(x = ~cut)
@@ -1509,7 +1507,7 @@ subplot(p1, p2)
 p <- plot_ly(diamonds,
              y = ~price,
              color = I("black"), 
-             alpha = 0.1 )
+             alpha = 0.1O)
 
 p1 <- p %>% add_boxplot(x = "Overall")
 p2 <- p %>% add_boxplot(x = ~cut)
@@ -1520,9 +1518,9 @@ subplot(p1, p2,
   hide_legend()
 ```
 
-    - Create density plots (for modality) and comparative boxplots (for center and outliers) to get a really good idea of the distributions of diamond prices by cut. We can also use the linked brushing setup with this as well.
+- Create density plots (for modality) and comparative boxplots (for center and outliers) to get a really good idea of the distributions of diamond prices by cut. We can also use the linked brushing setup with this as well.
 
-<!-- NOTE: add subplot, then customize, then make ggplotly, then make shared data -->
+<!-- NOTE: add subplot, then customize, subplot adds interactivity by default, then make shared data -->
 
 ```{r subplot2, exercise = TRUE}
 p1 <- ggplot(data = diamonds,
@@ -1553,10 +1551,9 @@ p2 <- shared_data %>%
                y = ~cut,
                color = ~cut)
 
-subplot(ggplotly(p1), p2,
+subplot(p1, p2,
         nrows = 2,
-        shareX = TRUE) %>% 
-  highlight(on = "plotly_click")
+        shareX = TRUE)
 ```
 
 ### Exercise
@@ -1567,9 +1564,7 @@ subplot(ggplotly(p1), p2,
     
     b. Combine these plots into a single view with `subplot()`; however have the three density plots in the first row and the parallel coordinates plot in the second row.
     
-<div id="subplot-ex-hint">
-**HINT:** You can nest subplot statements, e.g. `subplot(subplot(< plots >) < another plot >)`.
-</div>
+    - **HINT:** You can nest subplot statements, e.g. `subplot(subplot(< plots >) < another plot >)`
 
 ```{r subplot-ex, exercise = TRUE}
 # create team summarized batting data for the most recent year
