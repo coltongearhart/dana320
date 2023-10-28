@@ -1,7 +1,0 @@
-# Course Notes {#sec-course-notes .unnumbered}
-
-This section contains the notes from the course.
-
-Here is an overview of the content and corresponding assignments.
-
-![](images/overview-r.png)

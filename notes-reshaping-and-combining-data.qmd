@@ -1,94 +1,41 @@
----
-title: "Reshaping and Combining Data"
-author: Colton Gearhart
-output: 
-  learnr::tutorial:
-   progressive: true
-   allow_skip: true
-runtime: shiny_prerendered
----
+# Reshaping and Combining Data
 
-```{r setup, include = FALSE}
+```{r}
+#| label: load-prereqs
+#| echo: false
+#| message: false
 
-# set knitr options
-knitr::opts_chunk$set(
-  error = TRUE # continue code evaluation even if there is an error, in which case the error messages will print 
-)
-
-# set parameters to show / evaluate demo solutions
-# -> so can turn on for reference while prepping and off while making
-demo_code <- FALSE
-demo_results <- FALSE
-
-# disable scientific notation for readability purposes
-options(scipen = 999) 
-
-# load packages
-library(learnr)
-library(tidyverse)
-
-# everything saved in here will be available to all exercise chunks
-# -> so repeating any sections where saving result for later
-# -> have to do this because each exercise is independent and anything saved isn't available later
-
-# read in dataset in with desired column attributes
-# -> the long string of characters for col_types argument is shorthand notation, see documentation
-data_ff <- read_csv("www/french-fries.csv",
-                          col_names = TRUE, col_types = "fffnnnnnn")
-
-# french fry
-
-# mean potato data
-data_potato <- data_ff %>% 
-  group_by(time) %>% 
-  summarize(avg_potato = mean(potato, na.rm = TRUE))
-
-# long data
-data_long <- data_ff %>% 
-  pivot_longer(cols = potato:painty,
-               names_to = "flavor_type",
-               values_to = "flavor_score")
-
-# gapminder
-
-# load data and slightly modify
-data_life <- read_csv(file = "www/life_expectancy_years.csv") %>% 
-  rename(country = geo)
-data_income <- read_csv(file = "www/income_per_person.csv") %>% 
-  rename(country = geo)
-data_pop <- read_csv(file = "www/population_total.csv") %>% 
-  rename(country = geo)
-data_countries <- read_csv(file = "www/countries_total.csv",
-                           col_select = c(country = name, country_id = `alpha-2`,region))
-
-# long data
-data_life_long <- data_life %>% 
-  pivot_longer(cols = -1,
-               names_to = "year",
-               values_to = "life_exp")
-data_income_long <- data_income %>% 
-  pivot_longer(cols = -1,
-               names_to = "year",
-               values_to = "income")
-data_pop_long <- data_pop %>% 
-  pivot_longer(cols = -1,
-               names_to = "year",
-               values_to = "population")
-
-# combine data
-data_gapminder <- data_life_long %>% 
-  inner_join(data_income_long, join_by(country, year)) %>% 
-  inner_join(data_pop_long, join_by(country, year)) %>% 
-  left_join(data_countries, join_by(country))
-
-# halloween data
-
-# load candy and weather data with prespecified attributes
-load(file = "www/data-halloween.RData")
+# knitr options
+source("_common.R")
 
 ```
 
-## Overview 
+```{r}
+#| label: setup
+#| echo: false
+
+# load packages
+library(tidyverse)
+
+```
+
+## Overview
+
+### Materials
+
+-   Attached are all of the supplemental materials to this content! Feel free to check them out :)
+
+-   Click the image below or follow the link to access the interactive tutorial that corresponds to this content: <https://coltongearhart.shinyapps.io/reshaping-and-combining-data/>
+
+    [![](images/tutorial-reshaping-and-combining-data.png){width="1000"}](https://coltongearhart.shinyapps.io/reshaping-and-combining-data/)
+
+-   Here are the videos that go through the tutorial:
+
+{{< video https://youtu.be/taTT7nkFUuc >}}
+
+{{< video https://youtu.be/QhMMCVFN2PM >}}
+
+-   And finally here is the starter file mentioned and needed data for the content and exercises: [reshaping-and-combining-data-STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/tutorials/reshaping-and-combining-data/reshaping-and-combining-data-STARTER.qmd) and [data folder](https://github.com/coltongearhart/dana320/blob/main/tutorials/reshaping-and-combining-data/www/)
 
 ### This section 
 
@@ -96,7 +43,7 @@ load(file = "www/data-halloween.RData")
 
 - Before either of these steps can be done, generally data needs to be worked with after importing.
 
-![](images/data-science-project-workflow.png){width=50%}
+![](tutorials/reshaping-and-combining-data/images/data-science-project-workflow.png){width=50%}
 
 **tidyr** is all about cleaning up messy data and turning it into well structured / organized objects. These objects are can be easily used across all packages in the **tidyverse** (e.g. **ggplot2**, **dpylr**, etc.), which makes common data analysis tasks flow much cleaner and smoother.
 
@@ -112,7 +59,9 @@ load(file = "www/data-halloween.RData")
 
 - Before we can use the functions, datasets, and help pages within the **tidyverse** (which includes **readr**, **tidyr**, and **dplyr**), we need to load the package. We can do this by running:
 
-```{r tidyverse, eval = FALSE}
+```{r tidyverse}
+#| eval: false
+
 library(tidyverse)
 ```
 
@@ -132,12 +81,11 @@ library(tidyverse)
 
 # read in dataset in with desired column attributes
 # -> the long string of characters for col_types argument is shorthand notation, see documentation
-data_ff <- read_csv(file = "www/french-fries.csv",
+data_ff <- read_csv(file = "tutorials/reshaping-and-combining-data/www/french-fries.csv",
                     col_names = TRUE, col_types = "fffnnnnnn")
 
 # preview data
-data_ff
-
+data_ff %>% head
 ```
 
 - This contains information from a designed experiment where subjects were asked to taste french fries that were cooked in different oils. Subjects rated the french fries according to certain flavor attributes. Repeated samples were taken.
@@ -147,17 +95,16 @@ data_ff
 - In a typical project workflow, after data cleaning it is a good idea to save a cleaned dataset and then start the analysis by loading in the cleaned data rather than starting with the raw data every time.
 
 ```{r ff-data2}
-
 # alternative way to load in data with pre-specified attributes
-load("www/french_fries.RData")
-
+load("tutorials/reshaping-and-combining-data/www/french_fries.RData")
 ```
 
 ### Goal
 
 - The goal is to understand the data reshaping process to create the following visual.
 
-```{r goal-preview, echo = FALSE}
+```{r goal-preview}
+#| echo: false
 
 # convert from wide to tall with pivot_longer
 # arguments
@@ -187,7 +134,6 @@ ggplot() +
               data = data_flavor) + 
   facet_grid(flavor_type ~ treatment,
              scale = "free_y")
-
 ```
 
 ### Agreggating and plotting
@@ -195,9 +141,6 @@ ggplot() +
 - Before we can create the goal plot, lets create some simpler plots to build up to the goal.
 
 - Lets start with a simple plot of the raw data. 
-
-```{r first-plot, exercise = TRUE}
-```
 
 ```{r first-plot_demo, echo = demo_code, eval = demo_results}
 ggplot() + 
@@ -208,18 +151,12 @@ ggplot() +
 
 - Now lets manipulate the data so that we can visually compare the raw individual potato scores to the mean over each time period. Then we can add it to the plot.
 
-<!-- NOTE: we are adding a trend line, and using two different datasets in our function call -->
-<!-- - group argument tells ggplot which points to connect -->
-<!-- - 1 says there are no groups and just connect all of the points -->
-```{r potato, exercise = TRUE}
-```
-
 ```{r potato-demo, echo = demo_code, eval = demo_results}
 data_potato <- data_ff %>% 
   group_by(time) %>% 
   summarize(avg_potato = mean(potato, na.rm = TRUE))
 
-data_potato
+data_potato %>% head
 
 ggplot() + 
   geom_point(aes(x = time, y = potato),
@@ -236,13 +173,6 @@ ggplot() +
 
 - Then once the new data is ready, we can create the line plot of interest.
 
-<!-- NOTE: summarize by averaging scores of both batches for each subject / time period entry -->
-<!-- - because we only group by time and subject, we are ignoring treatment -->
-<!-- - make line plot to visualize weekly average score for potato for each subject -->
-
-```{r subject-plot, exercise = TRUE}
-```
-
 ```{r subject-plot-demo, echo = demo_code, eval = demo_results}
 data_subject <- data_ff %>% 
   group_by(time, subject) %>% 
@@ -256,15 +186,6 @@ ggplot() +
 - Now we can do the same thing, but refine our analysis by incorporating the different type of oil (treatment). We do this by also grouping by the treatment applied to each batch of french fries.
 
 - Then we can make new plot with more refined data. We can also add a smoothing line ($\approx$ mean line) for comparison, which will show the average scores across all subjects as well as the corresponding confidence band.
-
-<!-- NOTE: summarize data again, but add oil type (treatment) -->
-<!-- - so now also aggregate by oil type -->
-<!-- - make new line plot -->
-<!-- -- add a smoothing line with stat_smooth -->
-<!-- -- this is essentially some kind of sliding window average -->
-
-```{r smooth-line, exercise = TRUE}
-```
 
 ```{r smooth-line-demo, echo = demo_code, eval = demo_results}
 data_treatment <- data_ff %>% 
@@ -303,10 +224,6 @@ ggplot() +
     
     - `values_to` &rarr; New value column name
 
-```{r pivot-longer, exercise = TRUE}
-
-```
-
 ```{r pivot-longer-demo, echo = demo_code, eval = demo_results}
 data_long <- data_ff %>% 
   pivot_longer(cols = potato:painty,
@@ -318,13 +235,6 @@ head(data_long)
 - Now that the data is organized in a way that is conducive to the analysis we want to do, we can proceed. So we will average over the replications within each of the desired groups.
 
 - Then create the final visual!
-
-<!-- NOTE: make new summary to visualize each subject, treatment, flavor and score group -->
-<!-- - create lineplot for each persons score over time, facetted by flavor and treatment type -->
-<!-- - add linear model "smoother" to visually emphasize trend -->
-
-```{r average-long, exercise = TRUE}
-```
 
 ```{r average-long-demo, echo = demo_code, eval = demo_results}
 data_flavor <- data_long %>% 
@@ -344,20 +254,13 @@ ggplot(aes(x = time,
     - `names_from` &rarr; Column to get the output column names from
 
     - `values_from` &rarr; Column to get the output values from
-    
-<!-- NOTE: go back from tall dataset to wide with pivot_wider -->
-<!-- - the arguments and columns that should be specified are intuitive when looking at how pivot_longer was used -->
-<!-- - show that this wide data is the same as the original french fry data -->
-    
-```{r pivot-wider, exercise = TRUE}
-```
 
 ```{r pivot-wider-demo, echo = demo_code, eval = demo_results}
 data_wide <- data_long %>% 
   pivot_wider(names_from = flavor_type,
               values_from = flavor_score)
 
-data_wide
+data_wide %>% head
 
 head(data_wide == data_ff)
 ```
@@ -370,24 +273,22 @@ head(data_wide == data_ff)
 
 - First we need to read in the multiple gapminder datasets ([gapminder.org/data](https://www.gapminder.org/data/)) about life expectancy, income, population totals, and countries.
 
-<!-- NOTE: point out wide data like in tableau -->
-
 ```{r data-gapminder}
 
 # load data, rename / select columns and preview
-data_life <- read_csv(file = "www/life_expectancy_years.csv") %>% 
+data_life <- read_csv(file = "tutorials/reshaping-and-combining-data/www/life_expectancy_years.csv") %>% 
   rename(country = geo)
 head(data_life)
 
-data_income <- read_csv(file = "www/income_per_person.csv") %>% 
+data_income <- read_csv(file = "tutorials/reshaping-and-combining-data/www/income_per_person.csv") %>% 
   rename(country = geo)
 head(data_income)
 
-data_pop <- read_csv(file = "www/population_total.csv") %>% 
+data_pop <- read_csv(file = "tutorials/reshaping-and-combining-data/www/population_total.csv") %>% 
   rename(country = geo)
 head(data_pop)
 
-data_countries <- read_csv(file = "www/countries_total.csv",
+data_countries <- read_csv(file = "tutorials/reshaping-and-combining-data/www/countries_total.csv",
                            col_select = c(country = name, country_id = `alpha-2`,region))
 head(data_countries)
 ```
@@ -395,11 +296,6 @@ head(data_countries)
 ### Reshape datasets
 
 - Now the life expectancy, income and population totals need to be pivot to be long data, just like we did with the french fry data.
-
-<!-- NOTE: conceptually same as what did in tableau both in desktop and in prep builder -->
-
-```{r gapminder-pivot, exercise = TRUE}
-```
 
 ```{r gapminder-pivot-demo, echo = demo_code, eval = demo_results}
 data_life_long <- data_life %>% 
@@ -423,11 +319,11 @@ head(data_pop_long)
 
 - Now that each dataset has been converted to long format, we can begin to combine each of them into a single dataset.
 
-![](images/tableau-flow.png){width=100%}
+![](tutorials/reshaping-and-combining-data/images/tableau-flow.png){width=100%}
 
-![](images/joins.png){width=75%}
+![](tutorials/reshaping-and-combining-data/images/joins.png){width=75%}
 
-![](images/joins-example.png){width=75%}
+![](tutorials/reshaping-and-combining-data/images/joins-example.png){width=75%}
 
 - The first step is to inner join the life expectancy, income, and population databy country and year. This will keep all observations with matching (Country, Year) values. This can be done in with a series of pipes.
 
@@ -435,25 +331,17 @@ head(data_pop_long)
 
 - The join family of functions `*_join()` use `join_by(lhs == rhs)` to specify which columns to join by.
 
-```{r combine-data, exercise = TRUE}
-```
-
 ```{r combine-data-demo, echo = demo_code, eval = demo_results}
 data_gapminder <- data_life_long %>% 
   inner_join(data_income_long, join_by(country, year)) %>% 
   inner_join(data_pop_long, join_by(country, year)) %>% 
   left_join(data_countries, join_by(country))
+head(data_gapminder)
 ```
 
 ### Visualize data
 
 - Now that the data is merged, we can recreate the visual for a particular year.
-
-<!-- NOTE: will learn how to animate the panes next section -->
-<!-- - can change scale of population size to make more readable -->
-
-```{r visualize-data, exercise = TRUE}
-```
 
 ```{r visualize-data-demo, echo = demo_code, eval = demo_results}
 data_gapminder %>% 
@@ -479,18 +367,19 @@ data_gapminder %>%
 
 ```{r data-halloween}
 # load candy and weather data with prespecified attributes
-load(file = "www/data-halloween.RData")
+load(file = "tutorials/reshaping-and-combining-data/www/data-halloween.RData")
 head(data_candy)
 head(data_weather)
 ```
 
 - Note that the candy data is already in long format because the information is repeated for each time interval.
 
-### Part a)
+### Part a){#sec-application-ex}
 
 - If we want to recreate the following scatterplot which visualizes maximum temperatures and total candy count, we need to have the data in wide format so that there is a separate column for the $X$ and $Y$ variable.
 
-```{r application-preview, echo = FALSE}
+```{r application-preview}
+#| echo: false
 
 # pivot to wide data, then calculate total candy count, and join with weather data
 data_halloween_wide <- data_candy %>% 
@@ -511,7 +400,6 @@ ggplot(data = data_halloween_wide,
        x = "Max temp on Halloween (F)",
        y = "Total candy count") + 
   theme_bw()
-
 ```
 
 - Note that typically wide data is better for this type of plot and for reporting because it is easier to process than long data, but long data is preferred when we are doing any grouping in our plots such as multiple lines or facets.
@@ -522,7 +410,9 @@ ggplot(data = data_halloween_wide,
 
 2. Add the following lines of code after the pivot, which will add the candy amounts from each time interval across the rows to get a total count for the entire night:
 
-```{r row-total-code, eval = FALSE}
+```{r row-total-code}
+#| eval: false
+
 data_candy_wide <- < code to pivot wide > %>% 
   rowwise %>% 
   mutate(total = sum(c_across(`6:00pm`:`8:15pm`))) 
@@ -538,8 +428,37 @@ data_candy_wide <- < code to pivot wide > %>%
 
 4. Create the scatterplot of interest and try to add all of the extra features to make it a polished plot. 
 
-```{r application, exercise = TRUE}
+### Part b) {#sec-application2-ex}
+
+- Using the code chunk below, perform the necessary data steps and recreate the following plot that visualizes the candy count by time interval across years. Try to add all of the extra features to make it a polished plot. *HINT: To format the color of the lines, add `scale_color_brewer()` to your ggplot function call for the color palette used above.*
+
+```{r application2-preview}
+#| echo: false
+
+# convert halloween data to long so can group by time interval for lines
+data_halloween_long <- data_halloween_wide %>% 
+  pivot_longer(cols = `6:00pm`:total,
+               names_to = "Time",
+               values_to = "Count")
+
+# create polished line plot
+data_halloween_long %>% 
+  ggplot() + 
+  geom_line(aes(x = Date,
+                y = Count,
+                group = Time,
+                color = Time)) + 
+  scale_color_brewer() + 
+  labs(title = "Halloween candy count over the years",
+       x = "Year",
+       y = "Candy count",
+       color = "Time slot") + 
+  theme_bw()
 ```
+
+## Application solutions
+
+[Application @sec-application-ex]
 
 ```{r application-solution}
 # pivot to wide data, then calculate total candy count, and join with weather data
@@ -563,38 +482,7 @@ ggplot(data = data_halloween_wide,
   theme_bw()
 ```
 
-### Part b)
-
-- Using the code chunk below, perform the necessary data steps and recreate the following plot that visualizes the candy count by time interval across years. Try to add all of the extra features to make it a polished plot. *See the HINT to get the format the colors of the lines*.
-
-```{r application2-preview, echo = FALSE}
-# convert halloween data to long so can group by time interval for lines
-data_halloween_long <- data_halloween_wide %>% 
-  pivot_longer(cols = `6:00pm`:total,
-               names_to = "Time",
-               values_to = "Count")
-
-# create polished line plot
-data_halloween_long %>% 
-  ggplot() + 
-  geom_line(aes(x = Date,
-                y = Count,
-                group = Time,
-                color = Time)) + 
-  scale_color_brewer() + 
-  labs(title = "Halloween candy count over the years",
-       x = "Year",
-       y = "Candy count",
-       color = "Time slot") + 
-  theme_bw()
-```
-
-```{r application2, exercise = TRUE}
-```
-
-<div id="application2-hint">
-**HINT:** Add `scale_color_brewer()` to your ggplot function call for the color palette used above.
-</div>
+[Application @sec-application2-ex]
 
 ```{r application2-solution}
 # convert halloween data to long so can group by time interval for lines

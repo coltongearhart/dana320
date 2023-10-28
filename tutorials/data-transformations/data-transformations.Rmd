@@ -512,7 +512,7 @@ diamonds %>% filter(price == min(price))
 diamonds %>% filter(carat >= 1, carat <= 2, cut != "Premium")
 diamonds %>% filter(between(carat, 1, 2), cut != "Premium") # equivalent (shorter) way
 # c)
-diamonds %>% filter(cut %in% c("Fair", "Good"), price == min(price)) %>% filter(price == min(price))
+diamonds %>% filter(cut %in% c("Fair", "Good")) %>% filter(price == min(price))
 ```
 
 ## Ordering rows 

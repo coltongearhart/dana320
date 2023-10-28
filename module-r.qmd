@@ -1,0 +1,5 @@
+# R {#sec-course-notes .unnumbered}
+
+Here is an overview of the content and corresponding assignments.
+
+![](images/overview-r.png)

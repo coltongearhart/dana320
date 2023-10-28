@@ -29,11 +29,13 @@ library(tidyverse)
 
     [![](images/tutorial-visualizations.png){width="1000"}](http://coltongearhart.shinyapps.io/visualizations)
 
--   Here is the video that goes through the tutorial:
+-   Here are the videos that go through the tutorial:
 
 {{< video https://youtu.be/QhMMCVFN2PM >}}
 
--   And finally here is the starter file mentioned and needed data for one of the exercises: [visulaizations - STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/visualizations-STARTER.qmd)
+{{< video https://youtu.be/VQPV6dILO78 >}}
+
+-   And finally here is the starter file mentioned and needed data for one of the exercises: [visulaizations-STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/visualizations-STARTER.qmd) and [data-bsu-game.RData](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/www/data-bsu-game.RData)
 
 ### This section
 
@@ -215,7 +217,7 @@ ggplot(data = diamonds,
 
 -   Only *data-driven attributes* go inside the `aes()` function.
 
--   To see how this works, let's take a look at the *iris* dataset.
+-   To see how this works, let's take a look at the `iris` dataset.
 
 ```{r iris}
 glimpse(iris)
@@ -270,7 +272,7 @@ ggplot(data = diamonds,
                  color = "purple")
 ```
 
--   Now let's use the *iris* data to make another histogram, except we are going to incorporate another variable; specifically we want to visualize on the petal lengths *based on which species they are*.
+-   Now let's use the `iris` data to make another histogram, except we are going to incorporate another variable; specifically we want to visualize on the petal lengths *based on which species they are*.
 
 -   Note that to map species to the color of the bars, the `fill` argument should be used (using the `color` attribute only changes the outline color of the bars).
 
@@ -337,7 +339,7 @@ ggplot(data = diamonds,
 
 ### Exercise {#sec-boxplot-ex}
 
--   Create a *vertical* boxplot of `Sepal.Length` using the *iris* dataset.
+-   Create a *vertical* boxplot of `Sepal.Length` using the `iris` dataset.
 
 ### Comparitive boxplots
 
@@ -374,7 +376,7 @@ ggplot(data = diamonds,
 
 ### Exercise {#sec-boxplot-ex2}
 
--   Create a comparative boxplot using the *iris* dataset that includes the following features:
+-   Create a comparative boxplot using the `iris` dataset that includes the following features:
 
     a)  Compares `Sepal.Length` for each `Species`;
 
@@ -452,7 +454,7 @@ ggplot(data = cut_table,
 
 ### Exercise {#sec-bargraph-ex}
 
--   Copy the code below that creates a sample of the *iris* data and then create a bar graph of `Species`. *HINT: Make sure to inspect the data first.*
+-   Copy the code below that creates a sample of the `iris` data and then create a bar graph of `Species`. *HINT: Make sure to inspect the data first.*
 
 ```{r bargraph-ex-setup}
 #| eval: false
@@ -622,7 +624,7 @@ ggplot(data = diamonds,
 
 ### Exercise {#sec-facet-wrap-ex}
 
--   Create a boxplots using the *iris* dataset that includes the following features:
+-   Create a boxplots using the `iris` dataset that includes the following features:
 
     a)  Plots `Sepal.Length` faceted by `Species`;
 
@@ -651,7 +653,7 @@ ggplot(data = diamonds,
 
 ### Exercise {#sec-facet-grid-ex}
 
--   Copy the code below that creates a sample from the *diamonds* dataset and create scatterplots of `carat` vs `price` that is colored by `cut` and facetted by `color` and `clarity`. Try a few different options for `scales` to see how they affect the plot.
+-   Copy the code below that creates a sample from the `diamonds` dataset and create scatterplots of `carat` vs `price` that is colored by `cut` and facetted by `color` and `clarity`. Try a few different options for `scales` to see how they affect the plot.
 
 ```{r facet-grid-ex-setup}
 #| eval: false
@@ -727,7 +729,7 @@ ggplot(data = diamonds,
 
 ### Exercise {#sec-density-curve-ex}
 
--   Use the *iris* dataset to do the following:
+-   Use the `iris` dataset to do the following:
 
     a.  Create a density histogram of `Petal.Length`;
 
@@ -766,7 +768,7 @@ ggplot(data = diamonds,
 
 ### Exercise {#sec-density-curves-ex}
 
--   Use the *iris* dataset to do the following:
+-   Use the `iris` dataset to do the following:
 
     a.  Create density curves of a `Petal.Length` colored by each `Species`;
 

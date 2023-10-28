@@ -10,17 +10,20 @@ book:
   chapters:
     - index.qmd
 
-    - part: course-notes.qmd
+    - part: module-excel.qmd
       chapters:
         - placeholder.qmd
-        - visualizations.qmd
 
-    - part: assignments.qmd
+    - part: module-r.qmd
       chapters:
+        - notes-visualizations.qmd
         - hw-visualizations.qmd
+        - notes-data-transformations.qmd
         - hw-data-transformations.qmd
+        - notes-reshaping-and-combining-data.qmd
         - lab-data-cleaning.qmd
         - hw-data-manipulations.qmd
+        - notes-interactive-plots.qmd
 
 format:
   html:
@@ -32,6 +35,6 @@ format:
     highlight-style: github
     number-depth: 3
     toc-depth: 3
-    df-print: kable
+    df-print: paged
     
 title-block-banner: true
