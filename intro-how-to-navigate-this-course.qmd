@@ -1,0 +1,13 @@
+# How to Navigate this Course 
+
+This video goes over a couple of items not covered in @sec-intro-syllabus such as:
+
+-    How to know what to do each week
+-    Introduce Yourself Discussion Post and Course Overview Quiz
+-    Understanding the Reading Assignments
+-    Content videos and how to follow along (including the additional exercises)
+-    Where to post questions
+
+{{< video https://youtu.be/0TRR3AhAYDo >}}
+
+ASSIGNMENT: Be sure to complete the 'Course Overview Quiz' on Canvas.

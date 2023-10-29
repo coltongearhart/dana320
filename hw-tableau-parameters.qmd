@@ -1,0 +1,118 @@
+# HW -- Parameters {#sec-hw-parameters}
+
+## Submission
+
+Submission
+
+-   Please upload a completed workbook for this assignment to Canvas.
+
+-   Part of the grading will be the organization / cleanliness of the workbook.
+
+    -   Make sure the final product looks professional and presentable, e.g. have your EDA worksheets labelled as such (EDA 1, EDA 2. etc.) and the final sheets / dashboard appropriately labelled so I know where to look.
+
+FILES
+
+-   [parameters-STARTER.twbx](https://github.com/coltongearhart/dana320/blob/main/tableau/parameters-STARTER.twbx) (the needed data should be part of the packaged Tableau file, but if not here it is: [data-halloween.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/data-halloween.csv))
+
+-   *NOTE*: Instructors can contact me for solutions :)
+
+## Overview
+
+-   This problem is an application of the techniques from the notes in @sec-notes-parameters, where we learned many ways to incorporate parameters into our visualizations.
+
+-   **It is designed to be open-ended, allowing you to explore many plot types in Tableau while creating a narrative.**
+
+## Data Sources
+
+-   The connected data source in the accompanying workbook combines information from three different sources about three contexts: Halloween candy data, weather data and economic data. A sample is shown below with some aspects highlighted, followed by detailed descriptions:
+
+![](images/hw2.3-data.png){fig-align="left"}
+
+![](images/hw2.3-data-2.png){fig-align="left"}
+
+### Halloween Data
+
+-   Overview
+
+    -   Contains yearly data on the number of candies given to trick-or-treaters in Cincinnati, OH dating back to 2008.
+
+-   Specifics
+
+    -   The trick-or-treat count (Count) was recorded in 30-minute intervals (Time) (each row above = half hour interval).
+    -   The night of trick-or-treating has always been on October 31st each year (some neighborhoods change the night of trick-or-treating).
+    -   Official trick or treat hours are from 6pm-8pm, but there are often "stragglers" past 8pm that are not turned away. These stragglers are counted in the 8pm-8:15pm time slot. There has never been a trick-or-treater past 8:15pm.
+    -   The type of candy did not vary year by year. It is always a general mix of candy purchased in bulk variety bags.
+    -   Location of home: Corner home in a neighborhood in East Walnut Hills/Evanston area, Cincinnati, OH 45207.
+
+-   Source
+
+    -   <https://www.dataplusscience.com/HalloweenData.html>
+
+### Weather Data
+
+-   Overview
+
+    -   Contains the daily minimum and maximum temperatures and precipitation levels on October 31st from 2008-16.
+
+-   Specifics
+
+    -   Units: Minimum (Tmin) and maximum (Tmax) temperatures are recorded in Fahrenheit and precipitation (Prcp) in inches.
+    -   Location: Measurements taken at a station in Cheviot, OH (about 10 miles away from the East Walnut Hills area).
+    -   Missing values: Data is only for 2008-16; so, there is no data for 2017-22 (this is highlighted in the pink shaded boxes).
+    -   Repeated values: Because each row corresponds to a half hour candy interval on the same day, the temperature and precipitation values are the same for every interval that day (this is highlighted with the yellow and orange shaded boxes).
+
+-   Source
+
+    -   NCEI database at <https://www.ncei.noaa.gov/pub/data/ghcn/daily/>
+
+### Economic Data
+
+-   Overview
+
+    -   Contains the gross domestic product (Gdp millions) for Cincinnati, OH in millions of dollars for years 2008-21.
+
+-   Specifics
+
+    -   GDP definition: Measure of the market value of all final goods and services produced within an area in a particular period of time.
+    -   Each value represents the GDP for that particular year.
+    -   Missing values: Data is only for 2008-21; so, there is no data for 2022 (this is highlighted in the pink shaded boxes).
+    -   Repeated values: Because each row corresponds to a half hour candy interval on the same day, the GDP values are the same for every interval that day (this is highlighted with the yellow and orange shaded boxes).
+
+-   Source
+
+    -   Bureau of Economic Analysis at <https://fred.stlouisfed.org/series/NGMP17140>
+
+### Assignment
+
+-   The goal is to visualize the dataset to find trends between the amount of candy given out, the weather during on Halloween and the economy for the year.
+
+a.  Determine a story or goal of the visualization.
+
+    -   Simple examples include:
+
+        -   Forecast future trick-or-treaters or estimate future candy need.
+        -   Explore variation of the number of trick-or-treaters year by year.
+        -   Visualize total number of candies as a function of weather or economy.
+
+    -   This may take some exploratory data analysis and the creation of many plots.
+
+b.  Create at least two polished plots that support your narrative.
+
+    -   You may not (/ should not) use all of the plots that you create when exploring.
+    -   Polished plots means that there are neat / informative titles and axis labels, well-chosen colors, visuals that make statistical sense (i.e. using the plots correctly based on the data types and context) and they add to the story you are trying to tell
+        -   **Note that when using the weather data and economic data, the aggregation function should be AVG() so that the value stays the same (remember that it is repeated in each row = half hour interval).**
+    -   Plots MUST use parameters, at least one for each plot.
+        -   Parameters MUST be used in at least two different ways.
+        -   For example, one for changing the color of points on a scatterplot above or below the line and one for adding in a reference line for a date.
+    -   Feel free to make more than two plots or use more parameters, but the minimum requirement is at TWO PLOTS and TWO differently used PARAMETERS.
+
+c.  Create a dashboard combining your polished plots with a Big Idea.
+
+    -   Organize your polished plots + shown (or incorporated) parameters into a neat dashboard, where the title and/or subtitle is a nicely formatted sentence containing the "Big Idea" of your narrative.
+    -   Recall that the Big Idea from Storytelling with Data is the "so what" of your narrative that is boiled down to a single sentence. It has three components
+        -   It must 1) articulate your unique point of view 2) convey what's at stake and 3) be a complete sentence.
+    -   Apply these components to our Halloween context and your visuals.
+
+What will be looked at for grading
+
+-   Organization of the final dashboard, narrative via Big Idea statement, quality of the polished plots and how they contribute to the narrative, implementation of parameters.

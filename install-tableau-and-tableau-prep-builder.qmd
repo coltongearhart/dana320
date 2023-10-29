@@ -1,0 +1,39 @@
+# Install Excel
+
+![](images/logo-tableau.png){fig-align="left"}
+
+## How to Install Tableau and Tableau Prep Builder
+
+-   Tableau offers **free one-year Tableau licenses to students**, which includes **access to entire eLearning platform**.
+
+![](images/tableau-students.png){fig-align="left" width="400"}
+
+-   Navigate to this [link](https://www.tableau.com/academic/students) and click "Get Tableau for Free". Then follow the registration instructions. After which you will receive an email with further information, where you will need to do the following:
+
+    1.  Download and install "Tableau Desktop" AND "Tableau Prep".
+
+    2.  Open Tableau Desktop application and enter the product key given in the email to activate the license. Note that this will be valid for one year, but it can be renewed / applied for again.
+
+    3.  Create an account for [eLearning](https://elearning.tableau.com) and register with the given access code.
+
+## Next Assignment
+
+-   Our first work with Tableau will be the DataCamp assignment "Introduction to Tableau".
+
+-   Even if it takes a while for Tableau to respond to your application, this assignment can be completed without Tableau installed on your computer.
+
+-   As you will see, within DataCamp there is a version called Tableau Public, which would be sufficient for starting out.
+
+## Tableau eLearning
+
+-   This is Tableau's online teaching platform that contains **tons of great resources** in the form of interactive courses or learning paths (kinda like a plan of courses).
+
+![](images/tableau-elearning.png){fig-align="left"}
+
+-   **These would be great supplementary resources as we are working through Tableau or a great way to continue learning Tableau outside of our class**.
+
+-   I encourage you to browse around here to see what is available!
+
+## Having Trouble?
+
+-   Please reach out to me or the [BSU Technology Help Desk](https://www.bsu.edu/about/administrativeoffices/helpdesk) as soon as possible.

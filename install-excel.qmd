@@ -1,0 +1,15 @@
+# Install Excel
+
+![](images/logo-excel.png){fig-align="left"}
+
+## How to Install Excel
+
+-   Excel and all of Microsoft Office 365 Pro Plus is available **free to BSU students**.
+
+-   Follow these [instructions](https://bsu.service-now.com/helpdesk?id=kb_article&sys_id=d94161fcdb5a3a401e8c3c8f9d961949) to download Excel if you do not already have it on your personal computer. It is also available for free on campus computers.
+
+-   IF YOU HAVE A MAC, using Numbers (Apple's version of Excel) is not an adequate replacement. **You will need Microsoft Excel**.
+
+## Having Trouble?
+
+-   Please reach out to me or the [BSU Technology Help Desk](https://www.bsu.edu/about/administrativeoffices/helpdesk) as soon as possible.

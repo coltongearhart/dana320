@@ -1,0 +1,1024 @@
+# Notes -- Visualizations
+
+```{r}
+#| label: load-prereqs
+#| echo: false
+#| message: false
+
+# knitr options
+source("_common.R")
+
+```
+
+```{r}
+#| label: setup
+#| echo: false
+
+# load packages
+library(tidyverse)
+
+```
+
+## Overview
+
+### Materials
+
+-   Attached are all of the supplemental materials to this content! Feel free to check them out :)
+
+-   Click the image below or follow the link to access the interactive tutorial that corresponds to this content: <http://coltongearhart.shinyapps.io/visualizations/>
+
+    [![](images/tutorial-visualizations.png){width="1000"}](http://coltongearhart.shinyapps.io/visualizations/)
+
+-   Here are the videos that go through the tutorial:
+
+{{< video https://youtu.be/yH44Dn3hyjY >}}
+
+{{< video https://youtu.be/VQPV6dILO78 >}}
+
+-   And finally here is the starter file mentioned and needed data for one of the exercises: [visulaizations-STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/visualizations-STARTER.qmd) and [data-bsu-game.RData](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/www/data-bsu-game.RData)
+
+### This section
+
+-   This section introduces the world of **ggplot2**, several different types of plots, and some basic features to enhance your visuals. Then it covers simple data visualization principles when working with multiple variables and how to implement these within **ggplot2**.
+
+![](tutorials/visualizations/images/data-science-project-workflow.png){width="50%"}
+
+### Readings
+
+-   This section covers content from [Chapter 2 - Data Visualization](https://r4ds.hadley.nz/data-visualize) of *R for Data Science (2e)*.
+
+    -   Additional content includes section 10.4 - Facets and 10.5 - Statistical Transformations.
+
+-   [ggplot2 help documentation](https://ggplot2.tidyverse.org/index.html) contains everything you need to know about **ggplot2**, including a very helpful [cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf).
+
+### Prerequisites
+
+-   Before we can use the functions, datasets, and help pages within the **tidyverse**, which includes ggplot2, we need to load the package. We can do this by running:
+
+```{r tidyverse}
+#| eval: FALSE
+library(tidyverse)
+```
+
+-   Note if any package is not currently installed, it cannot be loaded. We can install packages using the 'Packages' tab or by running:
+
+```{r install}
+#| eval: FALSE
+install.packages("tidyverse")
+```
+
+### Goal
+
+-   Our goal by the end of this section is to be able to understand all the aspects of the following plots, how to create them, and how to set up the plot to easily switch between different layouts.
+
+```{r application-preview}
+#| echo: false
+
+# load basketball data
+load("tutorials/visualizations/www/data-bsu-game.RData")
+
+# filter to most recent season and take out the few neutral games
+data_bsu_plot <- bsu_game %>% 
+  filter(Season == max(Season),
+         Location != "Neutral")
+
+# line plot of points over the season
+# -> specific colors by W/L and also take into account location with either the points (Visual 1) or facet (Visual 2)
+# -> add reference line for average points
+ggplot(data = data_bsu_plot,
+       aes(x = Date,
+           y = Points)) + 
+  geom_point(aes(color = Outcome,
+                 shape = Location),
+             size = 4) + 
+  geom_line(color = "lightgrey") + 
+  geom_hline(aes(yintercept = mean(Points)),
+             color = "grey20",
+             linetype = "dashed") + 
+  scale_color_manual(values = c("L" = "red", "W" = "green")) + 
+  scale_shape_manual(values = c("Home" = 19, "Away" = 5, "Neutral" = 8)) + 
+  labs(title = "Ball State Basketball 2012-13 Visual 1") + 
+  theme_bw()
+
+ggplot(data = data_bsu_plot,
+       aes(x = Date,
+           y = Points)) +  
+  geom_point(aes(color = Outcome),
+             size = 4) + 
+  geom_line(color = "lightgrey") + 
+  geom_hline(aes(yintercept = mean(Points)),
+             color = "grey20",
+             linetype = "dashed") + 
+  scale_color_manual(values = c("L" = "red", "W" = "green")) + 
+  facet_wrap(~ Location) + 
+  labs(title = "Ball State Basketball 2012-13 Visual 2") + 
+  theme_bw()
+
+```
+
+## Example dataset
+
+-   We are going to use `diamonds` dataset from **ggplot2** package, aka `ggplot2::diamonds` (this is the syntax for denoting which package a function or dataset comes from `packagename::functionname()`). This contains price and other attribute information about a large sample of diamonds.
+
+-   You can search a function or dataset name in the 'Help' tab or run `?< function or dataset >` to bring up the documentation.
+
+```{r diamonds-help}
+?diamonds
+```
+
+-   To preview the dataset, we can click on it in the 'Environment' tab or run `glimpse()`, which shows a better formatted preview than the standard `print()` function.
+
+-   Displayed results compactly show the number of observations, the number of variables and their corresponding data types and also some of the raw data.
+
+```{r diamonds}
+glimpse(diamonds)
+```
+
+## ggplot2 basics and scatterplots
+
+### Building from scratch
+
+-   ggplot2 builds plots based on an approach called the **grammar of graphics** (hence "gg"plot2).
+
+-   The grammar of graphics approach requires explicit aesthetic mapping of data to geometric features.
+
+-   All plots follow a similar structure that builds up from the `ggplot()` function, which creates a "blank canvas".
+
+-   And the first thing we can do is specify the dataset we will be using and rerun the code.
+
+```{r canvas-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds)
+```
+
+-   Now it is primed with the data, but we haven't told it to do anything.
+
+### Aesthetic mapping
+
+-   Next, we can add a layer of geometric features with `geom_*()`. This uses uses **aesthetic mapping**, which takes values of a variable and translates them into a visual feature.
+
+-   Choice of geometry depends on the data types of the variables of interest from the supplied dataset as well as the intent for creating the plot.
+
+-   In the example below, both variables (`carat` and `price`) are continuous. So we can use a scatterplot visualize their relationship. This is created by adding a layer of points via `geom_point()`.
+
+-   Simply use `+` between ggplot2 functions to add **layers**.
+
+```{r layer-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       x = carat,
+       y = price) + 
+  geom_point()
+```
+
+-   The code above throws an error because R can't find `carat` and `price` because it is looking for standalone objects (i.e. vectors named `carat` and `price`).
+
+-   So to tell R that the attributes are from the `diamonds` dataset, use the `aes()` function. In other words, this function connects the plot features to the dataframe specified in the `data` argument. Lets correct the above code.
+
+```{r aes-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = price)) +
+  geom_point()
+```
+
+### Exercise {#sec-aes-ex}
+
+-   Create a scatterplot for `table` vs `depth`.
+
+### Other attributes
+
+-   Now we can adapt the scatterplot from above to learn more about function structure. Lets try to change the color of the points. A reasonable first attempt would be to specify a `color` argument.
+
+```{r color-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = price,
+           color = "purple")) + 
+  geom_point()
+```
+
+-   This does not work as hoped. Because we specified within the `aes()` function, `ggplot()` looks for the column `purple` in the dataset.
+
+-   So when it doesn't find one, a new column *purple* is made and assigned this *same value to every observation*. And because this new column is being mapped to the color of the dots, `ggplot()` colors accordingly (although it's not what we wanted).
+
+-   The solution to change the color of all data points is to relocate the `color` argument.
+
+-   Anything that is a *simple "constant" value* (i.e. not part of the data and just an option for visual look) should be specified *locally* and *outside* of the `aes()` function.
+
+-   So lets correct it.
+
+```{r color-constant-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = price)) + 
+  geom_point(color = "purple")
+```
+
+### Incorporating more variables via `aes()`
+
+-   Only *data-driven attributes* go inside the `aes()` function.
+
+-   To see how this works, let's take a look at the `iris` dataset.
+
+```{r iris}
+glimpse(iris)
+```
+
+-   For this example, we want to create a scatterplot for `Sepal.Length` vs `Sepal.Width` and color each observation based on `Species`, while also changing the style of dot for every point.
+
+-   Note that color is a data-driven feature, and size / shape are simply constants.
+
+```{r color-aes-demo, echo = demo_code, eval = demo_results}
+ggplot(data = iris,
+       aes(x = Sepal.Length,
+           y = Sepal.Width,
+          color = Species)) + 
+  geom_point(size = 10,
+             shape = "*")
+```
+
+### Exercise {#sec-aes-ex2}
+
+-   Create a scatterplot using a sample of the `diamonds` dataset that includes the following features (code for the sample is provided, check the help page to see how it works!):
+
+    a)  Visualizes `table` vs `depth`;
+
+    b)  Each observation is sized based on the weight `carat`;
+
+    c)  All observations have the shape of a diamond. *HINT: Google "geom_point() shapes".*
+
+```{r aes-ex2}
+#| eval: false
+
+diamonds_sample <- sample_n(diamonds, size = 100)
+```
+
+-   Now lets take a look at some different types of plots and more options to spruce them up.
+
+## Histograms
+
+### geom_histogram()
+
+-   A basic **histogram** is a *univariate* plot that can be used for *continuous* variables and is created via `geom_histogram()`.
+
+-   Below we will code an example that shows the required mapping (i.e. arguments needed within the `aes()` function along with some other relevant arguments for `geom_histogram()`.
+
+-   Search the help page for each `geom_*` to see which aesthetics are required and what else can be modified.
+
+```{r hist-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes( x = carat)) + 
+  geom_histogram(binwidth = 0.1,
+                 fill = "red",
+                 color = "purple")
+```
+
+-   Now let's use the `iris` data to make another histogram, except we are going to incorporate another variable; specifically we want to visualize on the petal lengths *based on which species they are*.
+
+-   Note that to map species to the color of the bars, the `fill` argument should be used (using the `color` attribute only changes the outline color of the bars).
+
+```{r hist-color-aes-demo, echo = demo_code, eval = demo_results}
+ggplot(data = iris,
+       aes(x = Petal.Length,
+           fill = Species)) + 
+  geom_histogram()
+```
+
+### Exercise {#sec-hist-ex}
+
+-   Create a histogram for `carat` that has 20 bins with white bars and black outlines.
+
+### Titles and labels
+
+-   We can use of the `labs()` function which adds main titles, axis titles, etc. These labels can be tacked onto any ggplot2 plot. Let's try it below.
+
+```{r labs-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_histogram(binwidth = 0.1,
+                 fill = "red",
+                 color = "purple") + 
+  labs(title = "Histogram of diamond weights",
+       x = "Weight in carats",
+       y = "Count")
+```
+
+### Exercise {#sec-hist-ex2}
+
+-   Modify the code used to make the previous plot to:
+
+    a)  Visualize sepal length instead of petal length;
+
+    b)  Change the X-axis label to be more readable;
+
+    c)  Give the plot an informative title.
+
+## Boxplots
+
+### geom_boxplot()
+
+-   Boxplots are another common plot, which are used to visualize the distribution of a *numeric* variable. However, they no longer map the raw data.
+
+-   Instead, `geom_boxplot()` maps the five number summary that is computed from the raw data.
+
+```{r summ-demo, echo = demo_code, eval = demo_results}
+x <- rnorm(50)
+summary(x)
+boxplot(x)
+hist(x)
+```
+
+-   This is an example of when an aesthetic has an implicit transformation, which is then used to build the plot rather than straight from the raw data.
+
+-   `geom_boxplot()` requires a continuous variable to be mapped to either the `x` or `y` argument, depending on the desired orientation of the boxplot.
+
+```{r boxplot-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_boxplot()
+```
+
+### Exercise {#sec-boxplot-ex}
+
+-   Create a *vertical* boxplot of `Sepal.Length` using the `iris` dataset.
+
+### Comparitive boxplots
+
+-   We can also make comparative (side-by-side) boxplots by mapping a categorical variable to the other axis. Lets see how to this works.
+
+```{r comp-boxplots-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+aes(x = carat,
+    y = cut)) + 
+  geom_boxplot()
+```
+
+-   This results in boxplots based on a single continuous variable, but grouped by the levels of the categorical variable. This is one way to plot a numerical response with a categorical explanatory variable.
+
+-   An advantage of this is that they are easier for comparing centers (medians) and spread (IQR), and can also highlights outliers. However with big data, it will often show many outliers that aren't actually outliers (because the spread gets smaller and smaller as $n$ increases).
+
+### Transformations and more customizations
+
+-   We can do transformations of the input variables directly within the `ggplot()` call, without having to modify the data object itself.
+
+-   Just like the other geoms, we can modify some visual aspects of the layer.
+
+-   Then if we want to swap the axes, we can use `coord_flip()`; this is one of many functions that can be used for further customization of most ggplots (others include `scale_*()`, `theme_*()`, etc.).
+
+```{r boxplot-cust-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = cut,
+           y = price/1000)) + 
+  geom_boxplot(fill = "darkblue",
+               color = "lightblue") + 
+  coord_flip() + 
+  theme_classic()
+```
+
+### Exercise {#sec-boxplot-ex2}
+
+-   Create a comparative boxplot using the `iris` dataset that includes the following features:
+
+    a)  Compares `Sepal.Length` for each `Species`;
+
+    b)  Horizontal boxplots (more than one way to do this);
+
+    c)  `Sepal.Length` is originally measured in millimeters (mm); convert this to meters (m) for this plot;
+
+    d)  More informative axis label for `Sepal.Length` based on new scale;
+
+    e)  A cool theme (try a few!).
+
+## Bar graphs
+
+### Bar graphs
+
+-   A bar graph (also known as bar chart or bar plot) is used for *categorical* data and assigns a height of a bar to the count of a group.
+
+-   Comparisons are made easier with visuals than just numbers (although keep in mind that sometimes simpler is better and a table suffices).
+
+-   Just like a boxplot, a bar graph is not plotting the raw data itself. Rather it uses a summary of the data, specifically the frequency (or relative frequency = frequency / total)
+
+-   There are two ways we can use `geom_bar()` to make our bar graph, and it depends on the structure of the data.
+
+### geom_bar() wtih raw data
+
+-   One way to make a bar graph is to just use the raw data and let `geom_bar()` convert the data into counts behind the scenes, as shown below.
+
+-   Lets take a look at the data before plotting.
+
+```{r}
+#| echo: false
+head(diamonds)
+```
+
+-   By "raw data", we mean there is one row for each observation. When this is the case, we don't have to change any options in `geom_bar()`.
+
+```{r bargraph-raw-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = cut)) + 
+  geom_bar()
+```
+
+### geom_bar() wtih count data
+
+-   Another way is to manually create the counts dataframe (aka frequency table) and make the bar graph from this summarized data.
+
+-   There are multiple ways to calculate the frequencies of each group in a dataframe. Two ways are shown below, using Base R `table()` and the other using a tidyverse function `dplyr::count()`.
+
+```{r freq-table-demo, echo = demo_code, eval = demo_results}
+class(table(cut = diamonds$cut))
+data.frame(table(cut = diamonds$cut))
+cut_table <- count(diamonds, cut)
+glimpse(cut_table)
+```
+
+-   Now we have the frequency table, we can go into plotting it. But it will be different than how we used `geom_bar()` last time because we are giving it *already summarized* data.
+
+-   Specifically we have the group label (our `x`) and the now specified count (height, `y`); so, we need to tell `geom_bar()` to *not* do any statistical transformation on these variables (i.e. don't count again). To do this, we use the option `stat = "identity"`.
+
+```{r bargraph-stat-demo, echo = demo_code, eval = demo_results}
+ggplot(data = cut_table,
+       aes(x = cut,
+           y = n)) + 
+  geom_bar(stat = "identity")
+```
+
+-   Just like with most things, there is still another way to do this: `geom_col()` treats the `y` aesthetic as heights directly and we don't have to specify anything else.
+
+```{r bargraph-col-demo, echo = demo_code, eval = demo_results}
+ggplot(data = cut_table,
+       aes(x = cut,
+           y = n)) + 
+  geom_col()
+```
+
+### Exercise {#sec-bargraph-ex}
+
+-   Copy the code below that creates a sample of the `iris` data and then create a bar graph of `Species`. *HINT: Make sure to inspect the data first.*
+
+```{r bargraph-ex-setup}
+#| eval: false
+
+# create a sample from of data and summarize
+# -> rename so in slightly different format than example and have to work with it
+iris_sample <- iris %>% 
+  sample_n(size = 50) %>% 
+  count(Species) %>% 
+  rename(Count = n)
+
+# create bar graph
+```
+
+### Displays for bivariate categorical data
+
+### Stacked bar graph
+
+-   A common extension of a barplot is to show the breakdown of a second categorical variable within each bar. One way to do this is with a stacked bar graph.
+
+-   We can again use `geom_bar()` (and let it do the counting). In order to differentiate between the two variables, we can specify `fill` in the `aes()`, just like we did with `geom_histogram()`.
+
+```{r bargraph-stacked-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = cut,
+           fill = clarity)) + 
+  geom_bar()
+```
+
+-   Notice that the y-axis on the plot is count, so all of the bars and segments are based on the frequency.
+
+### Proportionally stacked bar graph
+
+-   If we want the plot to be more standardized-ish, we can make a proportionally stacked bar graph by specifying `position = "fill"`. This makes each bar have the same height and the segments corresponding to the second variable are broken out by percentage within each individual bar.
+
+```{r bargraph-prop-stacked-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = cut,
+           fill = clarity)) + 
+  geom_bar(position = "fill")
+```
+
+-   This makes across group comparisons valid and easier because segments are no longer based on potentially very different sample sizes (technically, we are plotting the conditional distributions of clarity for each type of cut).
+
+-   The advantage of this display is that we can see if there are differences in the distributions of clarity across each cut (regardless of how many total diamonds belong to each cut).
+
+### Side-by-side bar graph
+
+-   We can also incorporate the second variable by having side-by-side bars rather than stacked. To do this, we just have to set `position = "dodge"`.
+
+```{r bargraph-prop-side-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = cut,
+           fill = clarity)) + 
+  geom_bar(position = "dodge")
+```
+
+-   This display may tell a better story if it is important to keep an idea of sample size for each group combination. We can still tell that there are the most "Ideal" cut diamonds.
+
+### Exercise {#sec-bargraph-2vars-ex}
+
+-   Create a few different displays using the `diamonds` dataset that visualize `cut` and `color` together. Can you notice any trends or lack-thereof between the two variables? Explain.
+
+## Line plots
+
+### geom_line()
+
+-   Another type of plot is a line plot. These are most commonly used when looking at a *quantitative* variable across time periods (aka time series data).
+
+-   Below is a look at the example data `sunspot.year`. As usual we should get familiar with the data first.
+
+```{r sunspot}
+glimpse(sunspot.year)
+```
+
+-   Before plotting, we need to turn this into a dataframe and add a column indicating the year.
+
+```{r sunspot-clean}
+data_sun <- data.frame(year = c(1700:1988),
+                       sunspots = as.vector(sunspot.year))
+glimpse(data_sun)
+```
+
+-   This is an easy plot to make, just use `geom_line()` and specify the `x`, which is usually time, and `y` within the `aes()`.
+
+```{r line-demo, echo = demo_code, eval = demo_results}
+ggplot(data = data_sun,
+       aes(x = year,
+           y = sunspots)) + 
+  geom_line()
+```
+
+## Facets
+
+### Facets
+
+-   *Facets* (think subplots) are a data-driven feature that can be used to compare distributions based on the levels of other variables.
+
+-   Visually, this is done by splitting plots into different panels rather than one overall panel. There are multiple ways this can be done within ggplot2.
+
+### facet_wrap()
+
+-   If we are facetting by *one categorical variable*, we want to use `facet_wrap(~ var)`.
+
+-   Note: the tilde `~` is used to make **formula** in R.
+
+-   Let's create a scatterplot and add facets for `cut` to demonstrate this.
+
+```{r facet-wrap-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = table,
+           y = depth)) + 
+  geom_point() + 
+  facet_wrap(~ cut)
+```
+
+-   We see that `facet_wrap()` "wraps" the panels for a single factor rectangularly, which is ideal when there are many levels for the factor.
+
+### Controlling rows and columns
+
+-   If we want to control how the panels are wrapped because we are trying to highlight some aspect, we can specify how many rows or columns of panels using the options `nrow` and `ncol`.
+
+```{r facet-wrap-1col-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_boxplot() + 
+  facet_wrap(~ cut,
+             ncol = 1)
+```
+
+-   Just be careful of overplotting, don't want too many panels stacked together.
+
+```{r facet-wrap-bad-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = price)) + 
+  geom_histogram() + 
+  facet_wrap(~ clarity,
+             ncol = 1)
+```
+
+### Scales for facets
+
+-   By default, all the panels will have the *same* scale for the numeric variable. This can distort some plots as shown below.
+
+```{r}
+ggplot(data = diamonds,
+       aes(x = price)) + 
+  geom_histogram() + 
+  facet_wrap(~ cut)
+```
+
+-   To make the plots more readable, we can add an option to allow panels to have scales (min, max, tick marks, etc.) based on *only the data in the respective panel*, rather than the *collective data*.
+
+-   This is done via the `scales` argument; options are `"free_x"`, `"free_y"` or `"free"` (both $x$ and $y$ scales are free).
+
+-   Now we can correct the above plot.
+
+```{r facet-scales-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = price)) + 
+  geom_histogram() + 
+  facet_wrap(~ cut,
+             scales = "free_y")
+```
+
+-   This is another way to display numerical distributions for multiple groups. The advantage of creating multiple histograms is that they can show prevalence (i.e. frequencies) and modality of the distributions, whereas boxplots cannot.
+
+### Exercise {#sec-facet-wrap-ex}
+
+-   Create a boxplots using the `iris` dataset that includes the following features:
+
+    a)  Plots `Sepal.Length` faceted by `Species`;
+
+    b)  Stack the facets vertically to emphasize the differences between each Species;
+
+    c)  Think about if we want to adjust the scales of the panel, why or why not?
+
+-   Note that we made this plot previously with comparitive boxplots by specifying `aes(y = Species)`; so this is an alternative.
+
+### facet_grid()
+
+-   If we want to facet by *two categorical variables*, we should use `facet_grid(var1 ~ var 2)` as it can make a matrix of panels.
+
+-   Note that `var1` (before `~`) represents the rows and `var2` (after) is the columns.
+
+-   Lets create boxplots for each combination of `cut` and `color` for the `diamonds` dataset.
+
+```{r facet-grid-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = table)) + 
+  geom_boxplot() + 
+  facet_grid(cut ~ color)
+```
+
+-   Note that when using `facet_grid()`, we may need to fix the scales in the same way as with `facet_wrap()`. And just because we can make the plot means that it is good...
+
+### Exercise {#sec-facet-grid-ex}
+
+-   Copy the code below that creates a sample from the `diamonds` dataset and create scatterplots of `carat` vs `price` that is colored by `cut` and facetted by `color` and `clarity`. Try a few different options for `scales` to see how they affect the plot.
+
+```{r facet-grid-ex-setup}
+#| eval: false
+
+# create a sample from of data with fewer levels (variety from ordinal scale of each)
+diamonds_sample <- diamonds %>% 
+  filter(cut %in% unique(diamonds$cut)[c(1,3,5)],
+         color %in% unique(diamonds$color)[c(1,4,7)],
+         clarity %in% unique(diamonds$clarity)[c(1,4,8)]) %>% 
+  sample_n(size = 5000)
+```
+
+## Density histograms and density curves
+
+### Density histograms
+
+-   As we saw in the previous topic, if comparing a numeric distribution for a categorical explanatory variable, multiple histograms are a good option. But we had to allow varying scales between panels in order to have a readable plot.
+
+-   Another option if we are not concerned with counts (sample size), but rather *shape and modality* across groups, is to make the heights of bars *proportional*.
+
+-   We can think of this as each histogram having the same amount of "ink", whcih is done by adding the condition that total heights must sum to 1. In essence, this standardizes heights.
+
+-   To do this, we map `y = after_stat(density)` in the `aes()` statement (we won't dig into how this works).
+
+```{r density-hists-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = after_stat(density))) + 
+  geom_histogram() + 
+  facet_wrap(~ cut)
+```
+
+-   This can of course be done for a single histogram too.
+
+### Density curves
+
+-   A density curve is related to the density histograms we just showed.
+
+-   As we have seen, (density) histograms are really choppy binned representations of data whose display can vary widely based on our selection of bin width / number of bins.
+
+```{r density-hist_bins-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = after_stat(density))) + 
+  geom_histogram(bins = 50)
+```
+
+-   A more objective way to represent the data is called a **density curve**, which is a *smooth curve* based off the observed data that has an area under the curve (AUC) of 1.
+
+-   We can think of this smooth curve as a blanket thrown over the top of our density histogram as shown below.
+
+```{r density-curve-hist}
+#| echo: false
+
+ggplot(data = diamonds,
+       aes(x = carat,
+           y = after_stat(density))) + 
+  geom_histogram(fill = "white",
+                 color = "grey50") + 
+  geom_density(adjust = 2,
+               col = "blue")
+```
+
+-   Notice how the density curve still reflects the overall pattern of histograms, but it is much smoother.
+
+-   To create this by itself, use `geom_density()`.
+
+```{r density-curve-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_density()
+```
+
+### Exercise {#sec-density-curve-ex}
+
+-   Use the `iris` dataset to do the following:
+
+    a.  Create a density histogram of `Petal.Length`;
+
+    b.  Overlay a density curve of `Petal.Length`. *HINT: You can plot multiple geoms on the same plot simply by adding another layer.*
+
+### Multiple density curves
+
+-   Density curves provide us with yet another way to visualize a quantitative distribution by group.
+
+-   Drawing multiple lines (density curves) on the same plot is often better than many histograms, because the histograms would have to be stacked.
+
+-   To distinguish between different groups when working with lines, we could use the aesthetics `linetype` or `color` (color will likely be easier to read, especially for several groups).
+
+-   We can also add some other options to make the lines stand out more.
+
+```{r density-curves-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat,
+           color = cut)) + 
+  geom_density(linewidth = 0.75)
+```
+
+-   Just be careful to not let the plot to get jumbled / messy with too many lines.
+
+### Amount of smoothing
+
+-   One way to tweak the resulting curve is to change the amount of smoothing, which is a statistical parameter (not just a visual one like binwidth). To do this, use the `adjust` parameter.
+
+-   If adjustment is *larger* (e.g. `adjust = 2`), then the probability is more spread out and there is *less smoothing*; if *smaller* (e.g `adjust = 0.2`), then the smoothing is *more sensitive* and picks up on smaller patterns / spikes in the data.
+
+```{r density-curve-adjust-demo, echo = demo_code, eval = demo_results}
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_density(adjust = 2)
+```
+
+### Exercise {#sec-density-curves-ex}
+
+-   Use the `iris` dataset to do the following:
+
+    a.  Create density curves of a `Petal.Length` colored by each `Species`;
+
+    b.  Adjust the amount of smoothing to find a level that shows the overall trends well with some detail, but that is not overly exact (it's a balance);
+
+    c.  Add `fill = Species` in the `aes()` statement to see the result of this;
+
+    d.  Notice how the colors are completely opaque (not "see through"). To make them more transparent, add the following option locally `geom_density(alpha = 0.5)`. Try a few different values (`0 \le alpha \le 1`) to see the result. Note that this option can also be used with lots other `geom_*()` as well.
+
+    e.  What does this plot tell us about the petal lengths of the different species?
+
+## Application
+
+### Recreating
+
+-   Now we will return to the plots in the beginning of this section and recreate them.
+
+```{r application-data}
+# load basketball data
+load("tutorials/visualizations/www/data-bsu-game.RData")
+
+# filter to most recent season and take out the few neutral games
+data_bsu_plot <- bsu_game %>% 
+  filter(Season == max(Season),
+         Location != "Neutral")
+```
+
+```{r application-ex1-solution}
+# line plot of points over the season
+# -> specific colors by W/L and also take into account location with either the points (Visual 1)
+# -> add reference line for average points
+ggplot(data = data_bsu_plot,
+       aes(x = Date,
+           y = Points)) + 
+  geom_point(aes(color = Outcome,
+                 shape = Location),
+             size = 4) + 
+  geom_line(color = "lightgrey") + 
+  geom_hline(aes(yintercept = mean(Points)),
+             color = "grey20",
+             linetype = "dashed") + 
+  scale_color_manual(values = c("L" = "red", "W" = "green")) + 
+  scale_shape_manual(values = c("Home" = 19, "Away" = 5, "Neutral" = 8)) + 
+  labs(title = "Ball State Basketball 2012-13 Visual 1") + 
+  theme_bw()
+```
+
+### Exercise {#sec-application-ex2}
+
+-   Copy the final code used to create \`Visual 1' from above and modify it to recreate 'Visual 2'.
+
+## Exercise solutions
+
+[Exercise @sec-aes-ex]
+
+```{r aes-ex-solution}
+ggplot(data = diamonds,
+       aes(x = table,
+           y = depth)) +
+  geom_point()
+```
+
+[Exercise @sec-aes-ex2]
+
+```{r aes-ex2-solution}
+# create sample
+diamonds_sample <- sample_n(diamonds, size = 100)
+
+# create scatterplot
+ggplot(data = diamonds_sample,
+       aes(x = table,
+           y = depth,
+           size = carat)) +
+  geom_point(shape = 5)
+```
+
+[Exercise @sec-hist-ex]
+
+```{r hist-ex-solution}
+ggplot(data = diamonds,
+       aes(x = carat)) + 
+  geom_histogram(bins = 20,
+                 fill = "white",
+                 color = "black")
+```
+
+[Exercise @sec-hist-ex2]
+
+```{r hist-ex2-solution}
+ggplot(data = iris,
+       aes(x = Sepal.Length,
+           fill = Species)) + 
+  geom_histogram() + 
+  labs(title = "Sepal Length by Species",
+       x = "Sepal Length (cm)")
+```
+
+[Exercise @sec-boxplot-ex]
+
+```{r boxplot-ex-solution}
+ggplot(data = iris,
+       aes(y = Sepal.Length)) + 
+  geom_boxplot()
+```
+
+[Exercise @sec-boxplot-ex2]
+
+```{r boxplot-ex2-solution}
+# NOTE: if have X and Y aesthetics swapped, can use coord_flip() to get horizontal boxplots without changing your aes() statement
+ggplot(data = iris,
+       aes(x = Species,
+           y = Sepal.Length / 10)) +  
+  geom_boxplot() + 
+  labs(y = "Sepal Length (m)") + 
+  theme_light()
+```
+
+[Exercise @sec-bargraph-ex]
+
+```{r bargraph-ex-solution}
+# create a sample from of data and summarize
+# -> rename so in slightly different format than example and have to work with it
+iris_sample <- iris %>% 
+  sample_n(size = 50) %>% 
+  count(Species) %>% 
+  rename(Count = n)
+
+# preview dataset to figure out structure
+glimpse(iris_sample) #-> count (summarized) data
+
+# create bar graph
+# -> way 1)
+ggplot(data = iris_sample,
+       aes(x = Species,
+           y = Count)) + 
+  geom_bar(stat = "identity")
+# -> way 2)
+ggplot(data = iris_sample,
+       aes(x = Species,
+           y = Count)) + 
+  geom_col()
+```
+
+[Exercise @sec-bargraph-2vars-ex]
+
+```{r bargraph-2vars-solution}
+# two of several plots that could be made
+
+# side-by-side bar graphs
+ggplot(data = diamonds,
+       aes(x = color,
+           fill = cut)) + 
+  geom_bar(position = "dodge")
+
+# proportionally stacked bar graph
+ggplot(data = diamonds,
+       aes(x = cut,
+           fill = color)) + 
+  geom_bar(position = "fill")
+
+# trends
+# -> colors E, F, amd G are the three most common
+# -> distributions of color are relatively the same across cuts (i.e. about same proportion of diamonds for each color regardless of cut)
+```
+
+[Exercise @sec-facet-wrap-ex]
+
+```{r facet-wrap-ex-solution}
+ggplot(data = iris,
+       aes(x = Sepal.Length)) +  
+  geom_boxplot() + 
+  facet_wrap(~ Species,
+             ncol = 1)
+# we do NOT want to use scales = "free_x" because in order to have an equal comparison of the boxplots across species, we need them to be on the same scale
+```
+
+[Exercise @sec-facet-grid-ex]
+
+```{r facet-grid-ex-solution}
+# create a sample from of data with fewer levels (variety from ordinal scale of each)
+diamonds_sample <- diamonds %>% 
+  filter(cut %in% unique(diamonds$cut)[c(1,3,5)],
+         color %in% unique(diamonds$color)[c(1,4,7)],
+         clarity %in% unique(diamonds$clarity)[c(1,4,8)]) %>% 
+  sample_n(size = 5000)
+
+# create facetted scatterplots
+ggplot(data = diamonds_sample,
+       aes(x = carat,
+           y = price,
+           color = cut)) + 
+  geom_point() + 
+  facet_grid(color ~ clarity,
+             scales = "free") # both X and Y axes to be free (for the grid, not each individual panel)
+```
+
+[Exercise @sec-density-curve-ex]
+
+```{r density-curve-ex-solution}
+ggplot(data = iris,
+       aes(x = Petal.Length,
+           y = after_stat(density))) + 
+  geom_histogram() + 
+  geom_density()
+```
+
+[Exercise @sec-density-curves-ex]
+
+```{r density-curves-ex-solution}
+ggplot(data = iris,
+       aes(x = Petal.Length,
+           color = Species,
+           fill = Species)) + 
+  geom_density(adjust = 1,
+               alpha = 0.5)
+# two of the species have similar petal lengths, while one is well below the others
+```
+
+[Exercise @sec-application-ex2]
+
+```{r application-ex2-solution}
+# line plot of points over the season
+# -> specific colors by W/L and also take into account location with facet (Visual 2)
+# -> add reference line for average points
+ggplot(data = data_bsu_plot,
+       aes(x = Date,
+           y = Points)) + 
+  geom_point(aes(color = Outcome,
+                 shape = Location),
+             size = 4) + 
+  geom_line(color = "lightgrey") + 
+  geom_hline(aes(yintercept = mean(Points)),
+             color = "grey20",
+             linetype = "dashed") + 
+  scale_color_manual(values = c("L" = "red", "W" = "green")) + 
+  scale_shape_manual(values = c("Home" = 19, "Away" = 5, "Neutral" = 8)) + 
+  labs(title = "Ball State Basketball 2012-13 Visual 1") + 
+  theme_bw()
+
+ggplot(data = data_bsu_plot,
+       aes(x = Date,
+           y = Points)) +  
+  geom_point(aes(color = Outcome),
+             size = 4) + 
+  geom_line(color = "lightgrey") + 
+  geom_hline(aes(yintercept = mean(Points)),
+             color = "grey20",
+             linetype = "dashed") + 
+  scale_color_manual(values = c("L" = "red", "W" = "green")) + 
+  facet_wrap(~ Location) + 
+  labs(title = "Ball State Basketball 2012-13 Visual 2") + 
+  theme_bw()
+```

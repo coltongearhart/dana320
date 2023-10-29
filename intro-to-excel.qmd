@@ -1,0 +1,57 @@
+# Introduction to Excel
+
+![](images/logo-datacamp.png){fig-align="left"}
+
+## Overview
+
+-   To start the Excel module, I have assigned a DataCamp course.
+
+-   If you have not used DataCamp before, it is an online learning platform that focuses on teaching students the comprehensive skills they need to become successful data scientists. Courses contain videos taught by industry experts to follow along with as well as various built-in learning checks (exercises).
+
+## Access Course -- Steps
+
+1.  Join our DataCamp classroom by clicking the this [invite link](https://www.datacamp.com/groups/shared_links/6eac8e1a004c5b60e5006e1a8506be07169e8861f84d42a42d2d121da1befd9c).
+
+2.  If you do not have a DataCamp account, it will prompt you to make one. **You MUST USE your @bsu.edu email**.
+
+![](images/create-account-datacamp.png){fig-align="left"} 
+
+3. Once you do this, navigate to the 'Learn' tab at the top and then to 'Assignments' on the sidebar. This is where you will find this and future assignments.
+
+![](images/excel-assignment-datacamp.png){fig-align="left"}
+
+## Course: Introduction to Excel
+
+-   This course covers the basics of Excel and will give you the foundation needed for the rest of the module. **Even if you are familiar with Excel, this will be a very useful course where you will learn features that you are probably not aware of.**
+
+-   This will serve as both content and an assignment to start the module.
+
+-   It has 3 chapters that you will need to complete (you must finish Chapter 1 in order to unlock Chapter 2, and so forth):
+
+    1.  Getting Started with Excel
+
+    2.  Managing data and applying aggregate functions
+
+    3.  Other functions and visualizing data
+
+-   HOW TO WORK THROUGH THIS COURSE
+
+    -   Completing the course requires you earn enough XP by watching the videos and complete the exercises correctly.
+
+    -   **These will be the most effective if you follow along with the videos and do them at the same time and take the time to actually do the exercises**. Guessing just to get it done is not an effective learning strategy.
+
+-   Here is a link to [DOWNLOAD](https://assets.datacamp.com/production/repositories/6291/datasets/d835da019de0c7a6cb5d7efdf6f8be022321d6cf/Exercises%20and%20Datasets.pdf) the workbooks / datasets used in the videos and exercises.
+
+## Learn more!
+
+-   By joining our course, you have unlimited access to ANY DataCamp course until January 6, 2024.
+
+-   Feel free to explore and complete any other course you wish, related to our class or not.
+
+## Submission
+
+-   Upon completion of the entire course, you will receive a certificate called a 'Statement of Accomplishment' like below.
+
+-   Please upload this certificate for this assignment (a picture of it, or a word doc with the certificate in it, etc.). **IT MUST INCLUDE YOUR NAME IN THE CERTIFICATE, or no credit will be given.**
+
+![](images/statement-of-accomplishment.png){fig-align="left"}

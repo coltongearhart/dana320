@@ -1,0 +1,80 @@
+# Lab -- Pivot Tables and Combining Data {#sec-lab-pivot-tables-and-combining-data}
+
+## Submission
+
+Submission
+
+- Please upload a completed workbook for this assignment to Canvas.
+
+- Part of the grading will be the organization / cleanliness of the workbook.
+
+    - Make sure the final product looks professional and presentable, e.g. no extraneous work scattered about and data, plots and reports placed well.
+
+FILES
+
+- [lab-pivot-tables-and-combining-data.docx](https://github.com/coltongearhart/dana320/blob/main/excel/lab-pivot-tables-and-combining-data.docx) and [lab-pivot-tables-and-combining-data-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/lab-pivot-tables-and-combining-data-STARTER.xlsx)
+
+- *NOTE*: Instructors can contact me for solutions :)
+
+## Part 1 -- Pivot Table Reports
+
+### Overview
+
+-   This problem is an extension of the notes from @sec-notes-introduction-to-pivot-tables, where we learned how to create, organize, and customize Pivot Tables.
+
+-   The first tab of the accompanying workbook contains a dataset of biographical information for the Men's and Women's 2018 Olympic Hockey Teams from Canada and the United States; a subset is shown below:
+
+![](images/lab1.3-part1-data.png){fig-align="left"}
+
+### Assignment
+
+-   The goal is to recreate the following Report via a Pivot Table, which compares the physical attributes for the Canadian vs USA team, with the option of looking at the Men's or Women's team.
+
+![](images/lab1.3-part1-report.png){fig-align="left"}
+
+-   Here are the aspects you will need to consider while doing so:
+
+    -   How to structure the Pivot Table in terms of rows, columns, values and filters.
+    -   How to use the desired summary measures and apply formats.
+    -   How to design the Pivot Table in terms of layout, subtotals, grand totals, blank lines, etc.
+    -   How to style the Pivot Table in terms of shading, borders, headers in order to create a nice, presentable Report.
+    -   How to add user input option and customize the style.
+
+What will be looked at for grading
+
+-   Correct layout of Report (rows and columns in final Report), correct summary measures with good formats, design and style of the final Report (shading, borders, headers), correct implementation and style of the user input option.
+
+## Part 2 -- Combining Data and Creating Reports
+
+### Overview
+
+-   This problem is an application of the notes in @sec-notes-combining-data-and-more-on-pivot-tables, where we used XLOOKUP to combine tables and then create reports.
+
+-   The second tab of the accompanying workbook contains a dataset with two tables: a reference table for the region each state belongs to a dataset of biographical information for all NBA players. Subsets of each are shown below:
+
+![](images/lab1.3-part2-data.png){fig-align="left"}
+
+### Assignment
+
+-   The goal is to create a single combined dataset (i.e. attach the Region to the NBA players data) and create two reports and a visual.
+
+a.  Here are the aspects you will need to consider for combining the datasets:
+
+    -   How to add a new column and bring in data from another table.
+    -   How to take into account non-matches.
+    -   After creating the new column, do a data quality check and see if there were any non-matches. If there were some, can they be fixed easily? If so, do it and confirm the data is now properly merged.
+
+b.  Now that the data is combined, you want to create two Reports.
+
+    1.  Summarizes the number of players from each Region, sorted from largest to smallest.
+    2.  Summarizes the number of players from each State, sorted alphabetically.
+
+c.  The second Report from above is well setup to create a Map Chart, which is a geographical map shaded based on the value of some measure (in this case the number of players). Here's how:
+
+    -   Creating a Map Chart will not work on a Pivot Table. So copy the Report and Paste Values next to it.
+    -   Highlight new table and Insert -\> Map Chart.
+    -   Try a few designs / layouts to see what looks best. Be sure to give the Map Chart an informative title and legend title.
+
+What will be looked at for grading
+
+-   Correct formula to merge datasets, 100% matches of the merged data, two correct Reports, Map Chart.

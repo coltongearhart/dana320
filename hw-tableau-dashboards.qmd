@@ -1,0 +1,41 @@
+# HW -- Dashboards {#sec-hw-dashboards}
+
+## Submission
+
+Submission
+
+-   Please upload a completed workbook for this assignment to Canvas.
+
+-   Part of the grading will be the organization / cleanliness of the workbook.
+
+    -   Make sure the final product looks professional and presentable, e.g. have your EDA worksheets labelled as such (EDA 1, EDA 2. etc.) and the final sheets / dashboard appropriately labelled so I know where to look.
+
+FILES
+
+-   [hw-dashboards.docx](https://github.com/coltongearhart/dana320/blob/main/tableau/working-with-data.docx), start with any blank Tableau workbook, and the following files: [bike-sales.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/bike-sales.csv) and [folder](https://github.com/coltongearhart/dana320/blob/main/tableau/images-hw/)
+
+## Video Description
+
+{{< video https://youtu.be/wjaWHNVlSnE >}}
+
+## Overview
+
+-   This problem is an application of the strategies from the notes in @sec-notes-dashboards, where we learned how to create an effective dashboard, that also utilizes some techniques from the notes in @sec-notes-parameters about the use of parameters.
+
+-   **This is a re-creation assignment demonstrating your ability to follow along with a tutorial using a new dataset and applying similar methods to new problems.**
+
+## Data Source
+
+-   The file bike-sales.csv contains sales for a bike company; a subset of which is shown below connected in Tableau:
+
+![](images/hw2.4-data.png){fig-align="left"}
+
+## Assignment
+
+-   The goal is to recreate the dashboard explained in the video accompanying this assignment. A preview of the features is demonstrated below.
+
+![](images/hw2.4-dashboard.png){fig-align="left"}
+
+What will be looked at for grading
+
+-   Correct implementation of the ALL of dynamic features in the dashboard including the use of parameters, correct organization and good style of the final plots and dashboard.

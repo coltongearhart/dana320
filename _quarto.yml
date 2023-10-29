@@ -3,27 +3,63 @@ project:
   output-dir: docs
 
 book:
-  title: "DANA 320"
+  title: "DANA 320 --<br>Data Visualization"
   author: "Colton Gearhart"
   date: "10-27-2023"
-  cover-image: data-vizualization.png
+  cover-image: data-visualization.png
   chapters:
     - index.qmd
 
+    - part: module-intro.qmd
+      chapters:
+        - intro-meet-your-instructor.qmd
+        - intro-syllabus.qmd
+        - intro-how-to-navigate-this-course.qmd
+        - intro-to-data-viz.qmd
+
+    - part: module-readings.qmd
+      chapters:
+        - quizzes-readings.qmd
+
     - part: module-excel.qmd
       chapters:
-        - placeholder.qmd
+        - install-excel.qmd
+        - intro-to-excel.qmd
+        - notes-excel-basic-charts-in-excel.qmd
+        - lab-excel-more-charts-in-excel.qmd
+        - hw-excel-plots-for-analyses.qmd
+        - notes-excel-reports.qmd
+        - lab-excel-pivot-tables-and-combining-data.qmd
+        - hw-excel-creating-more-engaging-reports.qmd
+        - notes-excel-dynamic-charts-and-dashboards.qmd
+        - lab-excel-dynamic-charts-and-dashboards.qmd
+        - hw-excel-dynamic-charts-and-dashboards.qmd
+
+    - part: module-tableau.qmd
+      chapters:
+        - install-tableau-and-tableau-prep-builder.qmd
+        - intro-to-tableau.qmd
+        - notes-tableau-working-with-data.qmd
+        - hw-tableau-working-with-data.qmd
+        - notes-tableau-parameters.qmd
+        - hw-tableau-parameters.qmd
+        - notes-tableau-dashboards.qmd
+        - hw-tableau-dashboards.qmd
+
 
     - part: module-r.qmd
       chapters:
-        - notes-visualizations.qmd
-        - hw-visualizations.qmd
-        - notes-data-transformations.qmd
-        - hw-data-transformations.qmd
-        - notes-reshaping-and-combining-data.qmd
-        - lab-data-cleaning.qmd
-        - hw-data-manipulations.qmd
-        - notes-interactive-plots.qmd
+        - install-r-and-rstudio.qmd
+        - intro-to-r.qmd
+        - intro-to-quarto.qmd
+        - notes-r-visualizations.qmd
+        - hw-r-visualizations.qmd
+        - notes-r-data-transformations.qmd
+        - hw-r-data-transformations.qmd
+        - notes-r-reshaping-and-combining-data.qmd
+        - lab-r-data-cleaning.qmd
+        - hw-r-data-manipulations.qmd
+        - notes-r-interactive-plots.qmd
 
 format:
   html:

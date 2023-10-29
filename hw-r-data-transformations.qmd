@@ -1,0 +1,320 @@
+# HW - Data Transformations
+
+```{r}
+#| label: load-prereqs
+#| echo: false
+#| message: false
+
+# knitr options
+source("_common.R")
+
+```
+
+Submission: Completed qmd file and rendered html file via Canvas.
+
+What will be looked at for grading: Correct code, output and sufficient write-ups where indicated.
+
+## Overview
+
+These problems apply the ideas from the notes '3.3 -- Data Transformations', where we learned how to modify datasets plots using in R using **dplyr** and uses the transformed data to make visualizations learned in notes '3.2 -- Visualizations'.
+
+We will be working with the `shuffled-playlist.csv` data, which contains information about songs in a Spotify playlist. A subset is shown below:
+
+```{r}
+#| label: setup
+#| echo: false
+
+# load packages
+library(tidyverse)
+
+```
+
+```{r}
+#| label: music
+
+# load data
+data_music <- read.csv(file = "r/data/shuffled-playlist.csv")
+
+# preview data
+head(data_music)
+
+```
+
+To read in the data, first download it from Canvas and then change the path in the `read.csv()` statement above to where you have saved the data relative to the location of the your homework file. 
+
+## Assignment
+
+The goal of this assignment is to demonstrate common data manipulation tasks using **dplyr** and creating more plots from transformed data with **ggplot2**. You will be asked several questions about the music dataset that can be answered by working with the data and then you will create some simple plots focused on particular aspects of the data.
+
+### Part a -- Data cleaning
+
+First we will do some data cleaning. Notice in the above preview how the spaces are ` ` are actually plus signs `+` in the artist names. Use a `mutate()` statement to overwrite `artist` with the following line of code: `str_replace_all(string = artist, pattern =  "\\+", replacement = " ")`. Also overwrite `data_music` so that it is updated with the cleaned artist information.
+
+*Explanation of code:*
+
+*- `str_replace_all()` is part of a package very useful for working with strings. This function in particular finds all occurrences of `+` and replaces them with a space `" "`.*
+
+*- Note that the pattern matching is done via what is called "regular expressions". And `+` is a special character in regular expressions, so we have to preface it with a double escape character in R `\\`. If you are curious about more regular expression patterns, see this [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) and the documentation for `?str_replace`.*
+
+```{r echo = solutions}
+#| label: data-clean
+
+# find the number of rows in dataset
+data_music <- data_music %>% 
+  mutate(artist = str_replace_all(string = artist, pattern =  "\\+", replacement = " "))
+
+# preview data
+head(data_music)
+
+```
+
+### Part b -- Summarize data
+
+1. Determine the number of rows in the dataset. Then use an in-line R statement to write a sentence that is dynamically updated based on your calculation. For example, if I calculate the number of rows and save it as the object `n_rows`, then my sentence will read "There are < n_rows > in the dataset.", where < n_rows > pulls from your calculation.
+
+```{r include = solutions}
+#| label: nrows
+
+# find the number of rows in dataset
+(n_rows <- nrow(data_music))
+
+```
+
+For each of the following questions, use pipes `%>%` (or a series of pipes) to display a mini-dataframe that answers the question (there is no need to save the results into an object).
+
+2. What song has the highest `valence` score? Display only the categorical information about the song (i.e. artist, album, genre, name) and its respective valence score. *HINT: use a `select()` statement in conjunction with `where()` to display only the character variables.*
+
+```{r include = solutions}
+#| label: valence
+
+# determine song with highest valence score
+# -> filter to row with max value and then display only necessary info
+data_music %>%
+  filter(valence == max(valence)) %>%
+  select(where(is.character), valence)
+
+```
+    
+3. What is the average energy for hip hop songs?
+
+```{r include = solutions}
+#| label: avg-hiphop
+
+# determine average energy for hip hop songs
+# -> filter to genre of interest and then calculate summary
+data_music %>%
+  filter(genre == "hip hop") %>%
+  summarize(avg_energy = (mean(energy)))
+
+```
+    
+4. What percentage of songs in the data are by the artist Dessa?
+
+```{r include = solutions}
+#| label: dessa
+
+# determine percentage of songs that are by the artist Dessa
+# -> summarize based on condition of interest
+# using mean() correctly calculates the proportion because the == condition returns a 0 or 1 for each row
+# -> then taking the average is equivalent to counting the number of successes and dividing by the total
+(dessa_proportion <- data_music %>%
+  summarize(propotion = mean(artist == "Dessa")))
+
+```
+
+### Part c -- Grouped and specific summaries
+
+1. Calculate the average `energy`, `tempo` and `loudness` for each `genre`. First do this by having a separate `mean(< variable >)` statement for each.
+
+```{r include = solutions}
+#| label: average-manual
+
+# summarize a few music measures by genre
+data_music %>% 
+  summarize(.by = genre,
+            avg_energy = mean(energy),
+            avg_tempo = mean(tempo),
+            avg_loudness = mean(loudness))
+
+```
+
+2. Now repeat the calculation using `across()`, which allows us to apply the same function to a set of variables. This is much less cumbersome than typing each mean statement out like before.
+
+```{r include = solutions}
+#| label: average-across
+
+# use summarize() to aggregate data with across() to specify the list of variables
+data_music %>% 
+  summarize(.by = genre,
+            across(c(energy, tempo, loudness), mean))
+
+```
+
+3. Use the same technique as above to calculate the mean of all numeric variable by `genre`.
+
+```{r include = solutions}
+#| label: average-numeric
+
+# use where() function to specify which columns to summarize
+data_music %>% 
+  summarize(.by = genre,
+            across(where(is.numeric), mean))
+
+```
+
+4. Determine which pop song is the most danceable (highest danceability). Display only the categorical information about the song and its respective danceability score. *HINT: Think about the series of pipes that we need to do.*
+
+```{r include = solutions}
+#| label: max-dance-pop
+
+# find the most danceable pop song and only display the needed info
+# -> use filter() to subset the dataframe by row multiple times (highest dance within only pop)
+data_music %>% 
+  filter(genre == "pop") %>% 
+  filter(danceability == max(danceability)) %>% 
+  select(where(is.character), danceability)
+
+```
+
+5. Use the same strategy to determine which which Adele song has the lowest energy.
+
+```{r include = solutions}
+#| label: min-energy-adele
+
+# find minimum energy within Adele songs
+data_music %>% 
+  filter(artist == "Adele") %>% 
+  filter(energy == min(energy)) %>% 
+  select(where(is.character), energy)
+
+```
+
+6. CHALLENGE: Find the artists with the lowest average acousticness for each genre.
+
+```{r include = solutions}
+#| label: lowest-avg-genre
+
+# find the artists with the lowest average acousticness for each genre
+data_music %>% 
+  summarize(.by = c(genre, artist),
+            avg_acousticness = mean(acousticness)) %>% 
+  filter(.by  = genre,
+         avg_acousticness == min(avg_acousticness))
+
+```
+
+### Part d -- Visualize data
+
+Now we will create some plots based on subsets of the data.
+
+1. Create a dataset of only hip hop songs and make bar graph for the number of songs by each artist. Add data labels atop the bars and change the color scheme of the bars.
+
+```{r include = solutions}
+#| label: hip-hop-bargraph
+
+# set theme
+theme_set(theme_bw())
+
+# create bar graph of songs by artist for only hip hop data
+data_music %>% 
+  filter(genre ==  "hip hop") %>% 
+  ggplot(aes(x = artist),
+         data = .) + 
+  geom_bar(fill = "orange") + 
+  geom_text(stat = "count",
+            aes(label = after_stat(count)),
+            vjust = -1)
+
+```
+
+2. Find which three artists have the most songs in this playlist. To do this create a dataframe in descending order according to song count. Then create a scatterplot of `speechiness` vs `liveness` for only the top three artists. Include a sentence write-up describing the relationship in the scatterplot.
+
+*CHALLENGE: Setup the code in such a way to create the scatterplot without ever explicitly naming the top 3 artists, e.g. never coding `Fleetwood Mac`. This makes your code much more dynamic.*
+
+```{r include = solutions}
+#| label: top-artists-scatterplot
+
+# find artists with the highest count
+(data_top3 <- data_music %>% 
+  count(artist) %>% 
+  arrange(desc(n)) %>% 
+  slice_head(n = 3))
+
+# create scatterplot of speechiness vs liveness for top artists
+data_music %>% 
+  filter(artist %in% data_top3$artist) %>% 
+  ggplot(data = .) + 
+  geom_point(aes(x = speechiness,
+                 y = liveness)) +
+  labs(title = "Speechiness vs liveness")
+
+```
+
+
+3. How do the tempos compare for the artist within the ska genre? Create comparative boxplots to display this and include a sentence write-up summarizing the results.
+
+```{r include = solutions}
+#| label: comparative-boxplots
+
+# filter to specific genre and create comparative boxplots
+data_music %>% 
+  filter(genre == "ska") %>% 
+  ggplot() +
+  geom_boxplot(aes(x = energy,
+                   y = artist))
+
+```
+
+### Part e -- Analyze data
+
+1. Ask and answer another question about this dataset using a combination of "data steps" like in parts b and c.
+
+```{r include = solutions}
+#| label: additional-data-steps
+
+# Does Ed Sheeran or Taylor Swift have the most danceable song?
+
+# want to compare the qualities of music from two specific artists
+# -> subset data to artists of interest
+data_artist <- data_music %>% 
+filter(artist %in% c("Ed Sheeran",
+                     "Taylor Swift"))
+
+# find the most danceable song for each artist and display nicely
+data_artist %>% 
+  filter(.by = artist,
+         danceability == max(danceability)) %>% 
+  arrange(desc(danceability)) %>% 
+  select(where(is.character), danceability)
+
+```
+
+2. Create an additional plot of your choosing that tells an interesting story about the data. This plot must use data that has been transformed in some way. Describe this plot in a few sentences.
+
+```{r include = solutions}
+#| label: additional-plot
+
+# want to compare acousticness vs energy
+# -> choosing a scatterplot so can visualize data at the song level and see if there are any clusters for the artists
+# -> set some aesthetics
+# color scale
+# -> labels are matched up correctly because they are assigned in alphabetical order to (to the unique values)
+# -> could use a named string if wanted to explicitly match up values to their label
+ggplot() +
+geom_point(
+  aes(x = acousticness,
+      y = energy,
+      color = artist),
+  data = data_artist,
+  shape = "♪", size = 5
+) +
+scale_color_discrete(labels = c("Ed Sheeran",
+                                "Taylor Swift")) +
+labs(title = "Comparison of acousticness and energy of similar artists",
+     color = "Artist")
+
+# We can see that there is a cluster of data points for Taylor Swift located at the lower end of acousticness and higher end of energy. This indicates that the majority of her songs in this dataset had similar charactertics. Perhaps this is because of a running theme / style throughout her album 1989. As for Ed Sheeran, his songs from the album ÷ covered a wider spectrum when it comes to acousticness and energy. Some of his songs were similar to Taylor Swift’s; however, some of them were low in energy with varying amounts of acousticness. Overall, these differences shed light on the contrasting styles of these two artists.
+
+```
+
+

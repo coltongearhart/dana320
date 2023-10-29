@@ -1,0 +1,27 @@
+# Notes -- Basic Charts in Excel
+
+## Preface
+
+-   Below is all of the content for this section along with the corresponding assignments (in the recommended order).
+
+-   ***Be sure to follow along with all of the videos using the provided Excel files AND complete the additional Exercises.***
+
+-   Post any questions related to content or assignments in the corresponding discussion board.
+
+## Basic Charts in Excel {#sec-notes-basic-charts-in-excel}
+
+-   This video introduces the basics of creating a variety of different charts in Excel and is our first exposure to redesigning plots to be more effective, which is a main goal of this course: **Learn the features of different technologies so we can utilize them to create thoughtful data visualizations.**
+
+-   FILES: [basic-charts-in-excel-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/basic-charts-in-excel-STARTER.xlsx) and [basic-charts-in-excel-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/basic-charts-in-excel-COMPLETED.xlsx)
+
+{{< video https://youtu.be/hCT9pENTHS0 >}}
+
+{{< video https://youtu.be/pw4X3vUjGrg >}}
+
+## Lab
+
+ASSIGNMENT LINK: @sec-lab-more-charts-in-excel
+
+## Homework
+
+ASSIGNMENT LINK: @sec-lab-more-charts-in-excel2

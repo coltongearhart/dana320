@@ -1,4 +1,4 @@
-# R {#sec-course-notes .unnumbered}
+# R {.unnumbered}
 
 Here is an overview of the content and corresponding assignments.
 

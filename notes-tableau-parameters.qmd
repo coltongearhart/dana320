@@ -1,0 +1,43 @@
+# Notes -- Parameters {#sec-notes-parameters}
+
+## Preface
+
+-   Below is all of the content for this section along with the corresponding assignments (in the recommended order).
+
+-   ***Be sure to follow along with all of the videos using the provided Tableau workbooks (no additional exercises)***.
+
+-   Post any questions related to content or assignments in the corresponding discussion board.
+
+## Parameters
+
+-   In addition to getting more familiar with navigating Tableau, these videos introduce **parameters**, which are ways to make our plots and dashboards more **interactive / dynamic**.
+
+-   FILES: [10+3-use-cases-for-parameters.twbx](https://github.com/coltongearhart/dana320/blob/main/tableau/10+3-use-cases-for-parameters.twbx) (the needed data should be part of the packaged Tableau file)
+
+{{< video https://youtu.be/0Uar_D57QhU?si=T3R66U8dzUbCgTdO >}}
+
+-   NOTES
+
+    -   Data (the specific values) in video are slightly different than the data in the workbook, but all the column names and important items are the exact same.
+
+    -   Date Range example: To get the date format like in the video, do the following:
+
+        -   Display format = Custom -\> Format = MMMM dd, yyyy
+
+    -   Web Traffic and Date Range Unrelated example: We don't have the 'Web Traffic' data, so instead use the 'Coffee Sales' data source and the \[Date\] column.
+
+-   **REQUIRED WATCH only from minutes 2:22 - 9:54 of the next video (skip the intro and watch only the first two examples)**.
+
+    -   OPTIONAL (additional) content: Feel free to watch the rest of the video, there are some cool examples (just not as clean of a video).
+
+{{< video https://youtu.be/opfVV1maNVw?si=yTJ7CJK71zvQcaGT >}}
+
+## Types of Graphs in Tableau
+
+-   The following image shows what type of relationships can be described by which type of visual objects. It may be helpful for the explanatory data analysis as part of the homework.
+
+![](images/graph-selection-matrix.png){fig-align="left" width="1500"}
+
+## Homework
+
+ASSIGNMENT LINK: @sec-hw-parameters

@@ -1,0 +1,85 @@
+# HW -- Dynamic Charts and Dashboards {#sec-hw-dynamic-charts-and-dashboards}
+
+## Submission
+
+Submission
+
+-   Please upload a completed workbook for this assignment to Canvas.
+
+-   Part of the grading will be the organization / cleanliness of the workbook.
+
+    -   Make sure the final product looks professional and presentable, e.g. no extraneous work scattered about and data, plots and reports placed well.
+
+FILES
+
+-   [hw-dynamic-charts-and-dashboards.docx](https://github.com/coltongearhart/dana320/blob/main/excel/hw-dynamic-charts-and-dashboards.docx) and [hw-dynamic-charts-and-dashboards-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/hw-dynamic-charts-and-dashboards-STARTER.xlsx)
+
+-   *NOTE*: Instructors can contact me for solutions :)
+
+## Part 1 -- Dynamically Formatted Bar Chart
+
+### Overview
+
+-   This problem is an application using ideas from the notes @sec-notes-dynamic-charts, where we conditionally formatted charts and implemented a dynamic target line, respectively.
+
+-   The first tab of the accompanying workbook contains a dataset of sales for various companies, which is shown below:
+
+![](images/hw1.4-part1-data.png){fig-align="left"}
+
+### Assignment
+
+-   The goal is to create a dynamic Bar Chart that colors the bars based on the relationship to dynamic Target Line, specifically highlighting those that are greater than the target.
+
+    -   This is one way that we highlight the important information from a big chart (if there is no way around a big chart).
+
+-   Here are the aspects you will need to consider while doing so:
+
+    -   How to setup dynamic Target Line.
+    -   How to setup conditional formatting of bars
+    -   How to label and style the Target Line, e.g. color, line style, etc. Suppose only the plot is going to be presented; the audience should be able to easily tell what the target is.
+    -   How to style Bar Chart, e.g. colors scheme and data labels.
+
+-   To confirm your setup works as desired, start with Target = 250 and change to Target = 225 and see if the plot highlights the correct bars.
+
+What will be looked at for grading
+
+-   Dynamic target line, dynamic conditional formatting of the bars based on the specific target, style of Target Line and Bar Chart (including color scheme data labels) with correct emphasis.
+
+## Part 2 -- Dynamic Dashboard
+
+### Overview
+
+-   This problem furthers the ideas from the notes @sec-notes-dynamic-dashboards-part2, where we used Excel functions to create dynamic datasets, which out charts where then built off.
+
+-   The second tab of the accompanying workbook contains a dataset with two tables: a master table for the monthly sales targets of each product and the monthly sales of each product; the target sales table and a subset of the monthly sales are shown below:
+
+![](images/hw1.4-part2-data.png){fig-align="left"}
+
+### Assignment
+
+-   The goal is to recreate the following dynamic dashboard that includes all the labelled features:
+
+![](images/hw1.4-part2-plot.png){fig-align="left"}
+
+-   Here are the features that need to be included in final dashboard (as shown in image above):
+
+    -   Dynamic data: Only data for the selected product should display.
+    -   Dynamic chart title: Chart title should update automatically based on the selected product; see this [tutorial](https://trumpexcel.com/dynamic-chart-titles-in-excel/) for help.
+    -   Dynamic target line: Target line should update automatically based on the selected product; values from the master table of monthly targets.
+    -   Dynamic dropdown: If a new product is added, it should appear in the dropdown automatically.
+
+-   Here are specifications for the Dashboard:
+
+    -   All of the "prep work" for the plot and its features should be included on the 'Part 2' tab.
+    -   Create a new tab named 'Dashboard'; this is where the final plot will go. Only the dropdown and plot should be in this tab.
+    -   On the 'Dashboard' tab, hide all other rows and columns so the only the dropdown and plot are showing. This is to increase focus on the plot and so nothing else can even be clicked on.
+    -   Style the plot and dashboard to be nice, and presentable.
+
+-   To confirm your setup works as desired, add the following information to the two data tables and see if the drop down updates for the new product and the plot updates accordingly when it is selected:
+
+    -   Product = Filing Cabinet; Monthly Target = 160
+    -   Sales data (Jan -- Dec): 94, 120, 96, 164, 186, 94, 84, 171, 145, 164, 124, 127
+
+What will be looked at for grading
+
+-   Correct formulas in the prep work, correct implementation of the dynamic features in the plot, correct organization and good style of the final plot and dashboard.

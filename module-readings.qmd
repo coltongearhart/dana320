@@ -1,0 +1,43 @@
+# Readings {.unnumbered}
+
+## Overview
+
+- Weekly readings and corresponding quizzes will be assigned continuously throughout the semester.
+
+- These will correspond to the following texts:
+
+    - SWD = Storytelling with data (Note that this is available as an audiobook on Audible as well)
+
+    - R4DS = [R for Data Science (2e)](https://r4ds.hadley.nz/)
+
+- Further along in the semester, there may be discussion posts related to ideas from these.
+
+## Purpose of Readings
+
+- **Regular content in the course will focus on the tools used to carry out data visualizations**, specifically the methods and techniques to manipulate data and create visuals in Excel, Tableau and R.
+
+- To guide the design and creation of these visuals, **the readings are where we will explore the principles of data visualization**.
+
+- Included in these principles are:
+
+    - The science of visual perception (how our brains process visual information);
+
+    - How creators can optimize a data display (methods for more effective visuals);
+
+    - How to create accurate, non-misleading displays (from a statistical and visual perspective).
+
+## Schedule
+
+- Below is an outline of the assigned readings and the content they cover.
+
+![](images/overview-readings.png)
+
+## Additional Resources
+
+- Once we get further in the semester, I encourage you to check out the following online platforms for discussing and sharing data visualizations. Can you see **how the visuals apply the principles of data visualization**?
+
+    - [flowingdata.com](flowingdata.com), [visualcomplexity.com](visualcomplexity.com), [reddit.com/r/dataisbeautiful](reddit.com/r/dataisbeautiful)
+
+- If you want to read more about data visualization, you can try these data visualization books:
+
+    - *Visualize This* (Nathan Yau), *Data Visualization Made Simple* (Kristen Sosulski)

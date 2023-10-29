@@ -1,0 +1,124 @@
+# HW -- Creating More Engaging Reports {#sec-hw-creating-more-engagin-reports}
+
+## Submission
+
+Submission
+
+-   Please upload a completed workbook for this assignment to Canvas.
+
+-   Part of the grading will be the organization / cleanliness of the workbook.
+
+    -   Make sure the final product looks professional and presentable, e.g. no extraneous work scattered about and data, plots and reports placed well.
+
+FILES
+
+-   [hw-creating-more-engaging-reports.docx](https://github.com/coltongearhart/dana320/blob/main/excel/hw-creating-more-engaging-reports.docx) and [hw-creating-more-engaging-reports-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/hw-creating-more-engaging-reports-STARTER.xlsx)
+
+-   *NOTE*: Instructors can contact me for solutions :)
+
+IMPORTANT NOTE:
+
+-   Certain aspects in each part below have not been explicitly covered so far.
+
+-   Very often when researching a new method for software, we are trying to learn from a video or tutorial and apply it to our specific problem / dataset. So we need to be able to recognize the similarities, determine what applies, what doesn't, and be able to follow along with our scenario. This will be your first practice!
+
+-   Here are links to a [video](https://youtu.be/yHzT_BUggQk) and the corresponding [tutorial](https://www.xelplus.com/excel-advanced-pivot-tables/) that contains many short tips that will be referenced later (some of which we have covered).
+
+## Part 1 -- Creating Reports with Customized Features
+
+### Overview
+
+-   This problem furthers the ideas from the notes from @sec-notes-combining-data-and-more-on-pivot-tables, where worked with date variables in Pivot Tables and used alternate summary measures.
+
+-   The first tab of the accompanying workbook contains a dataset of sales for a bike company; a subset of which is shown below:
+
+![](images/hw1.3-part1-data.png){fig-align="left"}
+
+-   The response variable *Y* is 'Number of weekly riders' and the other numeric variables are the explanatory *X* variables.
+
+### Assignment
+
+-   The goal is to create a Report that summarizes quarterly bike sales by Model with both numerical and visual components. A subset of the desired final Report is shown below:
+
+![](images/hw1.3-part1-report.png){fig-align="left"}
+
+-   This is a great way to incorporate a visual aspect into Reports to further emphasize what the numbers are showing.
+
+a.  The final Report displays measures for Profit. This needs to be calculated in the bike sales table before making the Pivot Table.
+
+    -   Add columns 'Revenue' and 'Profit' to the table.
+    -   Write formulas to calculate them. In simple terms: Revenue relates income from a sale, whereas profit is the money left over after accounting for the cost to make the product.
+
+b.  Now that you have the raw data needed for the Report, you can start creating it. Here are the aspects you will need to consider while doing so (*just the numerical parts for now*):
+
+    -   How to structure the Pivot Table in terms of rows, columns, values and filters.
+    -   How to get the sale Date to appear as Quarters.
+    -   How to use the desired summary measures and apply formats.
+    -   How to calculate '% Diff', which represents *the percentage difference in total profit relative to the previous Quarter for each Model* (refer to the Tip #6 in the source linked at the top for help with this if needed).
+
+c.  Now you can add the custom formatting for the visual component. Here's how:
+
+    -   Add a copy of the '% Diff' measure from above to the Report.
+    -   Follow along with Tip #7 in the source linked at the top. If you want to be creative, try a few different symbols.
+
+d.  Lastly, format the Pivot Table to be a nice, presentable Report. Here are the aspects you will need to consider while doing so:
+
+    -   How to have only concise and needed headers.
+    -   How to not show unnecessary columns and have appropriately sized columns.
+    -   How to style the Report (i.e. shading and borders).
+
+What will be looked at for grading
+
+-   Correct layout of Report (rows and only needed columns in final Report), correct summary measures with good formats, correct implementation of the visual component, design and style of the final Report (shading, borders, headers, column sizing).
+
+## Part 2 -- Combining Data and Creating Reports with Visuals
+
+### Overview
+
+-   This problem furthers the ideas from the notes from @sec-notes-more-on-xlookup where we applied the optional arguments of XLOOKUP to bring in data, and also builds on Part 1.
+
+-   The second tab of the accompanying workbook contains a dataset with three tables: an employee dataset which shows information relating to their hire, a table for the current system for assigning raises and a table for the new proposed method. A subset of the employee data and both raise tables are shown below:
+
+![](images/hw1.3-part2-data.png){fig-align="left"}
+
+-   The setup of the data will be important. Every time an employee is hired, transferred or promoted, a new record is added. This means employees like Eliseo Bittner, who moved from HR to Finance, and Jayna McGraw, who was promoted with a salary increase, all have more than one row.
+
+-   The Standard Raise assigns a flat \$ amount based on salary bracket, while the Proposed Raise is based on percentage of salary with different percentages for each salary bracket.
+
+### Assignment
+
+-   The goal is to use XLOOKUP to create a Report that demonstrates the effect of a new proposed method for assigning raises, relative to the current standard way.
+
+    -   This report will be based on regular data (i.e. not aggregated data), which means you won't be using a Pivot Table.
+
+    -   Additionally, it will incorporate a visual component in a different way that also captures magnitude of the numbers they represent rather than just the sign +/-, as shown below:
+
+![](images/hw1.3-part2-report.png){fig-align="left"}
+
+a.  The first step is to create a dataset of only the most current information about the employees. Here are the aspects you will need to consider while doing so:
+
+    -   Create a unique list of employee names by copying the entire list to a new table and then removing duplicates (do to this: Data -\> Remove Duplicates). Later we will learn a function to do this!
+    -   How to use a *single* XLOOKUP to bring in the corresponding Start Date, Department and Salary.
+    -   Which optional argument of XLOOKUP is needed to find only the most recent record (in terms of Start Date) for employees who have been transferred or promoted.
+
+b.  Now that you have up-to-date information, the two different raises can be brought into the Report. Here are the aspects you will need to consider while doing so:
+
+    -   Both methods follow the same rule for assigning raises: Based on Salary, the employee receives the bonus at the next lowest cutoff. For example, if an employee makes \$65,000, their bonus will be \$1,500 or 1.5%.
+    -   How to use XLOOKUP to bring in the correct Standard Raise. Then repeat for the Proposed Raise.
+
+c.  Now you can add the data bars for the effect of the Proposed Raise. Here's how:
+
+    -   Create a new column that calculates in \$ how much more or less the Proposed Raise is relative to the Standard Raise.
+    -   Follow along with Tip #4 in the source linked at the top. Note that It adds data bars to a Pivot Table, but it should be similar for a regular table. If it isn't clear, find another tutorial (not all are perfect for exactly what you need).
+
+d.  Now with all of the needed information and displays in the Report, it can be styled to be presentable and organized to illuminate any trends. Here are some aspects to consider and questions to answer:
+
+    -   How to style the Report (i.e. shading and borders).
+    -   How to organize the Report to answer the following questions. Add a text box to your workbook with a quick write-up for each, referencing your Report when necessary.
+
+    1.  Company wide, does the Proposed Raise method result employees getting larger or smaller raises? How do you know or how can it be shown?
+    2.  Is there a specific department that benefits most from the Proposed Raises? How can this be shown? 3.In general, who benefits most from the Proposed Raises, employees in lower or higher salary brackets? How can this be shown?
+
+What will be looked at for grading
+
+-   Correctly removed duplicates, correct use of XLOOKUPs to bring in all the needed data, correct implementation of data bars for the calculated Proposed Raise Effect, style of final Report, organization and writeups to support answers to the questions at the end in (d).

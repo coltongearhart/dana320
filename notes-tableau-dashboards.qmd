@@ -1,0 +1,52 @@
+# Notes -- Parameters {#sec-notes-dashboards}
+
+## Preface
+
+-   Below is all of the content for this section along with the corresponding assignments (in the recommended order).
+
+-   ***Be sure to follow along with all of the videos using the provided Tableau workbooks (no additional exercises)***.
+
+-   Post any questions related to content or assignments in the corresponding discussion board.
+
+## Dashboards in Tableau
+
+-   The real power of Tableau is in creating **dashboards.** These videos will take you through designing a **complete, effective, well-designed dashboard step-by-step**.
+
+-   FILES: [dashboards-STARTER.twbx](https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-STARTER.twbx) (the needed data should be part of the packaged Tableau file, but if not here it is: [sample-superstore.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/sample-superstore.csv)) and [dashboards-COMPLETED.twbx](https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-COMPLETED.twbx)
+
+-   **NOTES: These are important mini items to make sure you can follow all the steps in the video; if you get stuck somewhere, look here first!**
+
+    -   PLAYBACK
+        -   **I recommend watching the videos on a slower speed in order to keep up with her steps!** Some parts are a bit quick, so be prepared to pause and/or rewind often to catch everything.
+    -   SHAPES
+        -   Download this items in this [folder](https://github.com/coltongearhart/dana320/blob/main/tableau/images-notes/).
+        -   Then move the 'Custom Categories' folder to the following location on your computer: 'My Tableau Repository' (This was automatically made when you installed Tableau) -\> 'Shapes' -\> Place in here.
+        -   Then when in the 'Edit Shape' dialog (menu), click 'Reload Shapes' for our 'Custom Categories' to appear.
+    -   MAC USERS
+        -   Some of the keyboard shortcuts she uses are Windows specific, here are the Mac equivalents:
+        -   Windows ===\> Mac
+        -   Right click + drag ===\> Option + drag (this opens a Drop Field dialog of aggregation options)
+        -   Control + drag ===\> Command + drag (this is to duplicate a pill / field on a shelf)
+    -   CONTAINERS on the dashboard
+        -   You may or may not be able to 'Fix Height' on some of the containers. They don't have to be setup exactly like hers, just the general idea is good enough.
+        -   It may take some time to organize the formatting of the containers and spacing can be finicky, but it is part of the process.
+    -   PUBLISH to server
+        -   Skip this part, not relevant for us.
+
+{{< video https://youtu.be/cGa7QDeueTA?si=VFUU2OH5MTk1BM73 >}}
+
+{{< video https://youtu.be/pVOJ1LM5cX0?si=PqQlSfhDnirSKOFy >}}
+
+## Dashboard Design
+
+-   Here are some information about **how your audience will look at dashboards** as well as some tips in **how to structure your dashboard to optimize its' effectiveness**.
+
+-   The emphasis areas shown below agree with the Storytelling With Data idea that we tend to **read plots in a "Z" pattern**. So this is how we setup our dashboards as well in terms of **most emphasis to least**.
+
+-   Finally there is a checklist for items and aspects to have incorporated in your final dashboards so that **users are able to easily glean the information that we want to focus on**.
+
+![](images/dashboard-design.png){fig-align="left" width="2000"}
+
+## Homework
+
+\< link \>

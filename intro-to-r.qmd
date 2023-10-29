@@ -1,0 +1,39 @@
+# Introduction to R
+
+![](images/logo-datacamp.png){fig-align="left"}
+
+## Course: Introduction to Tableau
+
+![](images/logo-r.png){fig-align="left" width="300"}
+
+-   This course covers the basics of R and introduces you to data structures and how we work with data in R. **This is our first programming language we are working with, so it is especially important to spend the time understanding the basic syntax, logic and structure for working with objects and commands in R**.
+
+-   This will serve as both content and an assignment to start the module.
+
+-   It has 6 chapters that you will need to: complete:
+
+    1.  Intro to Basics
+
+    2.  Vectors
+
+    3.  Matrices
+
+    4.  Factors
+
+    5.  Data frames
+
+    6.  Lists
+
+-   HOW TO WORK THROUGH THIS COURSE
+
+    -   This course is just exercises that you can complete in DataCamp's editor. Feel free to copy some exercises into an RStudio script on your computer and try them there as well (this way you can refer to them later).
+
+## Learn more!
+
+-   Remember that you have **unlimited access to ANY DataCamp course** until January 6, 2024.
+
+-   Make sure to take advantage of this if you are interested.
+
+## Submission
+
+-   Please upload this certificate for this assignment (a picture of it, or a word doc with the certificate in it, etc.). **IT MUST INCLUDE YOUR NAME IN THE CERTIFICATE, or no credit will be given.**

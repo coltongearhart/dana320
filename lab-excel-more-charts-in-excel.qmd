@@ -1,0 +1,106 @@
+# Lab -- More Charts in Excel {#sec-lab-more-charts-in-excel}
+
+## Submission
+
+Submission
+
+- Please upload a completed workbook for this assignment to Canvas.
+
+- Part of the grading will be the organization / cleanliness of the workbook.
+
+    - Make sure the final product looks professional and presentable, e.g. no extraneous work scattered about and data, plots and reports placed well.
+
+FILES
+
+- [lab-more-charts-in-excel.docx](https://github.com/coltongearhart/dana320/blob/main/excel/lab-more-charts-in-excel.docx) and [lab-more-charts-in-excel-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/lab-more-charts-in-excel-STARTER.xlsx)
+
+- *NOTE*: Instructors can contact me for solutions :)
+
+## Part 1 -- Multiple Variable Charts
+
+### Overview
+
+-   This problem furthers the ideas from the notes in @sec-notes-basic-charts-in-excel, where we learned how to create and format many simple charts in Excel.
+
+-   The first tab of the accompanying workbook contains a dataset of physical measurements of a sample several different fish species caught from the same lake; a subset is shown below:
+
+![](images/lab1.2-part1-data.png){fig-align="left"}
+
+### Assignment
+
+-   The goal is to create several plots that visualize more than one variable at the same time.
+
+-   Here are some questions to investigate about the fish species and the plots we will use to help. After each plot, add a text box with a quick write-up answering the directed questions.
+
+a.  Do different species have different lengths? Comparative Boxplot of length by species
+
+    -   This type of plot visualizes boxplots for each species.
+
+    -   To create this: Highlight the Species column and Length column at the same time -\> Insert Box and Whisker Plot.
+
+    -   In the write-up: Compare the distributions of length between the different species.
+
+b.  How do the distributions of weights compare for species of different lengths? Comparative Histograms
+
+    -   There is no good way to plot two histograms in the same panel; so, the best way to do this is to create two separate histograms and organize next to each other, specifically one for shorter length species and one for longer length.
+
+    -   To create this:
+
+    1.  Based on the plot from (a), identify the 3 shortest species.
+    2.  To make two histograms, you need two separate tables. Copy the entire dataset and paste off to the side; this will be used to help make the two needed tables.
+    3.  Filter the copied data to the 3 shortest species; then copy only those rows and paste in their own table. Repeat for the remaining species. Now the full copied data can be deleted.
+    4.  Insert histograms for each new table. Be sure color each histogram different and give them informative titles based on which subset of data it is based on (shorter fish or longer fish).
+
+    -   In the write up: Compare the distributions of weight for the two groups of fish.
+
+c.  Is weight a good predictor of length? Scatterplot
+
+    -   Scatterplots visualize two numeric variables by plotting each pair of numbers.
+
+    -   To create this: Highlight the Weight and Length columns at the same time -\> Insert Scatterplot.
+
+    -   Be sure to give the chart a title and axis labels.
+
+    -   In the write-up: Does there appear to be a relationship between weight and length of fish? If so, describe the trend.
+
+What will be looked at for grading
+
+-   Correct plots and sufficient write-ups.
+
+## Part 2 -- Waterfall Chart
+
+### Overview
+
+-   This problem extends Part 1 of this Lab, where we continued introducing more types of Charts that can be made in Excel.
+
+-   The second tab of the accompanying workbook contains a dataset for interest rates of a 30-year mortgage; a subset of which is shown below:
+
+![](images/lab1.2-part2-data.png){fig-align="left"}
+
+### Assignment
+
+-   The goal is to create a Waterfall Chart, including performing the necessary data transformations needed for the plot.
+
+-   A Waterfall Chart shows a running total as values are added or subtracted. It's useful for understanding how an initial value is affected by a series of positive and negative values. An example is shown below:
+
+![](images/lab1.2-part2-plot.png){fig-align="left"}
+
+-   It is commonly used in a business context to show the incoming and outgoing money (revenue, expenses, net income, etc.). It can also be used to show values across time as in the example.
+
+-   Here's how to create it:
+
+a.  Create a new column named 'Change in interest rate (%)' with the following specifications:
+
+    -   The first value (corresponding to the earliest year) should be equal to the interest rate that year. This represents the starting 'base' total.
+    -   After the base, a Waterfall Chart plots the change from the previous item (i.e. year to year in this case). Write a formula to calculate the *change in rate* from the previous year and fill it down. For example, if 2010 rate was 5.5% and 2011 rate was 5%, the value in the row for 2011 is -0.5%.
+    -   After the final year, add an extra row that is the cumulative value of the interest rate after all of the changes. It should equal the rate in the last year. This row (without a year label) represents the ending 'base' total.
+
+b.  With the data setup, now you can highlight the change column -\> Insert Waterfall Chart.
+
+    -   To correctly format the starting and ending 'base', double click the bars and click 'Set as Total'.
+    -   Set the horizontal axis labels to the Year.
+    -   Choose appropriate colors for the Increase, Decrease, and Totals. Be sure to give the chart an informative title as well.
+
+What will be looked at for grading
+
+-   Correct data setup, well-formatted Waterfall Chart.

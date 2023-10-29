@@ -1,0 +1,9 @@
+# Introduction to Data Visualization
+
+Watch the video below to find out more about what Data Visualization is and big picture how we will be learning it!
+
+{{< video https://youtu.be/27TaBNl006c >}}
+
+SLIDES: [intro-to-data-viz.pptx](https://github.com/coltongearhart/dana320/blob/main/intro/intro-to-data-viz.pptx)
+
+ASSIGNMENT: Be sure to complete the 'Introduce Yourself Discussion Post' on Canvas.

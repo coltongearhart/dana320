@@ -1,5 +1,5 @@
-# R {#sec-course-notes .unnumbered}
+# Excel {.unnumbered}
 
 Here is an overview of the content and corresponding assignments.
 
-![](images/overview-r.png)
+![](images/overview-excel.png)

@@ -1,0 +1,29 @@
+# Install R and RStudio
+
+![](images/logo-r.png){fig-align="left" width="300"}
+
+-   Below are some steps to get R and RStudio installed on your computer and a quick video to get you familiar with the RStudio environment.
+
+## R vs RStudio
+
+-   R is the actual software that works behind the scenes on everything that we will do. However, it is not very user friendly; it only has a command line interface.
+
+-   So instead, we will work in RStudio. RStudio is a IDE (integrated development environment) for R. Think of it as an application that we can use to manage and run R code.
+
+## How to Install R and RStudio
+
+-   Navigate [here](https://posit.co/download/rstudio-desktop/) and follow Step 1 (Install R) and Step 2 (Install RStudio, can scroll down for versions as well).
+
+![](images/download-r-rstudio-steps.png){fig-align="left" width="400"}
+
+-   Be sure to download the appropriate version based on what type of computer you have (Windows vs Mac) for both steps.
+
+## Learn about RStudio
+
+-   Watch this video as an introduction to RStudio (only 6 min long) **and follow along**!
+
+{{< video https://youtu.be/FIrsOBy5k58?si=Swj8A61fPchcPnRa >}}
+
+## Having Trouble?
+
+-   Please reach out to me or the [BSU Technology Help Desk](https://www.bsu.edu/about/administrativeoffices/helpdesk) as soon as possible.

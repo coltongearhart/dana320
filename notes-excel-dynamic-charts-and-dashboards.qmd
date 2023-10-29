@@ -1,0 +1,69 @@
+# Notes -- Dynamic Charts and Dashboards
+
+## Preface
+
+-   Below is all of the content for this section along with the corresponding assignments (in the recommended order).
+
+-   ***Be sure to follow along with all of the videos using the provided Excel files AND complete the additional Exercises.***
+
+-   Post any questions related to content or assignments in the corresponding discussion board.
+
+## Dynamic Charts Part 1 and Part 2 {#sec-notes-dynamic-charts}
+
+-   Now we are going to learn how to make our charts **dynamic**, meaning that when we change the data our chart updates automatically.
+
+-   Additionally we add some **design thinking** by bringing focus to certain aspects of the charts.
+
+-   FILES: [dynamic-charts-part1-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/dynamic-charts-part1-STARTER.xlsx) and [dynamic-charts-part1-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/dynamic-charts-part1-COMPLETED.xlsx)
+
+{{< video https://youtu.be/OqtFvB6B7E4?si=FGamjMhdryxLu7TC >}}
+
+-   Here is the written [tutorial](https://www.xelplus.com/highlight-max-min-values-in-an-excel-line-chart/) for the video.
+
+-   This video covers another common dynamic feature of charts that be used for increased emphasis and information.
+
+-   Quote from video and how it applies to us: "**You picked the wrong thing to be good at**".
+
+    -   **Our goal is to learn the functionality and capability of the software tools to make processes as dynamic and automated as possible**.
+
+    -   **"Work hard to be lazy" will be a common theme, especially when we start programming in R**!
+
+-   FILES: [dynamic-charts-part2-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/dynamic-charts-part2-STARTER.xlsx) and [dynamic-charts-part2-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/dynamic-charts-part2-COMPLETED.xlsx)
+
+{{< video https://youtu.be/tp9OXKcn7sA?si=dEaHJLAdErQY7zuL >}}
+
+## Dynamic Dashboards Part 1 {#sec-notes-dynamic-dashboards-part1}
+
+-   This video introduces us to creating **Dashboards**, which are very clean, effective ways of displaying results.
+
+-   **If we ever need aggregated data for a chart, our strategy is to make a pivot table with a pivot chart; then we can add functionality to make it dynamic based on user input**.
+
+-   FILES: [dynamic-dashboards-part1-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/dynamic-dashboards-part1-STARTER.xlsx) and [dynamic-dashboards-part1-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/dynamic-dashboards-part1-COMPLETED.xlsx)
+
+{{< video https://youtu.be/fWqNZrq-bdA >}}
+
+## Lab
+
+ASSIGNMENT LINK: @sec-lab-dynamic-charts-and-dashboards
+
+## 5 Excel Functions
+
+-   This video introduces a suite of functions that will help us create dynamic dashboards in the next video.
+
+-   FILES: [5-excel-functions-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/5-excel-functions-STARTER.xlsx) and [5-excel-functions-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/m5-excel-functions-COMPLETED.xlsx)
+
+{{< video https://youtu.be/_EWcAR_Hkvg?si=Vg_TQRpbvRopP10o >}}
+
+-   Here is the written [tutorial](https://www.xelplus.com/excel-functions-office-365/) for the video.
+
+## Dynamic Dashboards Part 2 {#sec-notes-dynamic-dashboards-part2}
+
+-   This video puts everything together and uses the functions from the previous video to create **dynamic dashboards**.
+
+-   FILES: [dynamic-dashboards-part2-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/dynamic-dashboards-part2-STARTER.xlsx) and [dynamic-dashboards-part2-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/dynamic-dashboards-part2-COMPLETED.xlsx)
+
+{{< video https://youtu.be/ehrXyFPljBo?si=VJdGxDh0qwQExxtL >}}
+
+## Homework
+
+ASSIGNMENT LINK: @sec-hw-dynamic-charts-and-dashboards

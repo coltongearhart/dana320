@@ -1,6 +1,14 @@
 # Overview {.unnumbered}
 
-\< insert table with links to each chapters and brief descriptions from the schedule \>
+## Content
+
+![](images/overview-all.png){fig-align="left" width="1000"}
+
+## Concurrent Readings
+
+![](images/overview-readings.png){fig-align="left"}
+
+## Source
 
 ::: callout-note
 ## Quarto blog publish details
@@ -8,8 +16,8 @@
 This book was created using [Quarto](https://quarto.org/) and published with Github Pages.
 :::
 
-<!-- ::: callout-tip -->
-<!-- ## Github repository for code -->
+::: callout-tip
+## Github repository for code
 
-<!-- You can find the code to reproduce this project at [coltongearhart/climate-dataviz](https://github.com/coltongearhart/dana320). -->
-<!-- ::: -->
+You can find the code to reproduce this project at [coltongearhart/dana320](https://github.com/coltongearhart/dana320).
+:::

@@ -1,0 +1,9 @@
+# Syllabus {#sec-intro-syllabus}
+
+Watch the following video to hear more detail about our course!
+
+{{< video https://youtu.be/7qw-5fPc0yQ >}}
+
+FILE: [dana-320-syllabus-fa23.docx](https://github.com/coltongearhart/dana320/blob/main/intro/dana-320-syllabus-fa23.docx)
+
+<embed src="intro/dana-320-syllabus-fa23.pdf" type="application/pdf" width="100%" height="100%"></embed>

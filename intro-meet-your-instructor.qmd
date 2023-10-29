@@ -1,0 +1,7 @@
+# Meet Your Instructor
+
+Check out the video below to find out a little more about me!
+
+{{< video https://youtu.be/qOSBSVJJ3sk >}}
+
+SLIDES: [meet-your-instructor.pptx](https://github.com/coltongearhart/dana320/blob/main/intro/meet-your-instructor.pptx)

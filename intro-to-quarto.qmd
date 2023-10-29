@@ -1,0 +1,15 @@
+# Introduction to Quarto
+
+- Now that we are familiar with R and RStudio, we will introduce one more concept called **Quarto**.
+
+- Quarto is a visual editor within RStudio that allows you to **combine text and code** (and it's output) in a single document.
+
+- **This is how we will complete all of our notes and assignments, so it will be important to be familiar with how to write .qmd files.**
+
+- SLIDES: Click the image below or follow the link to access the slides tutorial that corresponds to this video: <https://coltongearhart.quarto.pub/intro-quarto/>
+
+    [![](images/intro-to-quarto.png){width="500"}](https://coltongearhart.quarto.pub/intro-quarto/)
+    
+-   Here is the video that goes through the slides:
+
+{{< video https://youtu.be/0QlevjackzM >}}

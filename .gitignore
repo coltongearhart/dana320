@@ -11,6 +11,8 @@
 *_data/
 libs/
 *.zip
+*SOLUTION.xlsx
+*SOLUTION.twbx
 
 rsconnect/
 

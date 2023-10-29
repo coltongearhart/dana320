@@ -1,0 +1,61 @@
+# Notes -- Working with Data {#sec-notes-working-with-data}
+
+## Preface
+
+-   Below is all of the content for this section along with the corresponding assignments (in the recommended order).
+
+-   ***Be sure to follow along with all of the videos using the provided Tableau workbooks (no additional exercises)***.
+
+-   Post any questions related to content or assignments in the corresponding discussion board.
+
+## Gapminder Visualization
+
+-   The main goal of this lesson is **get more familiar with using Tableau**. We will do this by recreating the famous visualization shown in the Ted Talk shown below that analyzes how Life Expectancy in years (health) and GDP per capita (wealth) have changed over time in the world for various countries.
+
+{{< video https://youtu.be/jbkSRLYSojo?si=HEiEGZnx6rCjXRqK >}}
+
+## Connecting to Mulitple Data Sources
+
+-   To do this we need to **connect to multiple data sources** and **link fields across data sources**.
+
+-   This technique is called **blending data**, which is essentially linking data across common keys (fields).
+
+    -   OPTIONAL watch: Video [tutorial](https://youtu.be/dC10teRrv-k?si=OBITIGD5FF0Ay-8n) on blending data.
+
+-   FILES: Start with any blank Tableau workbook and [recreating-gapminder-data folder](https://github.com/coltongearhart/dana320/blob/main/tableau/recreating-gapminder-data/), and [recreating-gapminder-visualization-COMPLETED.twb](https://github.com/coltongearhart/dana320/blob/main/tableau/recreating-gapminder-visualization-COMPLETED.twb)
+
+{{< video https://youtu.be/K8F2tasK818 >}} https://youtu.be/1cdRDCjnH2A
+
+## Recreating the Gapminder Visualization
+
+-   Now that we have the necessary data connected and formatted as needed, let's recreate the visualization in Tableau.
+
+{{< video https://youtu.be/1cdRDCjnH2A >}}
+
+- FILES: Continuing to work on files from above.
+
+## Tableau Prep Builder
+
+-   Now we are going to introduce **Tableau Prep Builder** (the other Tableau application we downloaded), which allows us to **visualize the process of manipulating our data**.
+
+-   This is a great video that explains many common data problems in industry and how Tableau Prep Builder can help (nothing to follow along with, just watch and enjoy :)
+
+{{< video https://youtu.be/1tpgs5hCr2o?si=lWl9GLjtJ6-xJS8K >}}
+
+## Joining Data and Improving Visualization
+
+-   Another strategy when working with multiple data sources is to **merge (join)** them into a single dataset (table). Let's do this to introduce some of the functionality of **Tableau Prep Builder**.
+
+    -   OPTIONAL watch: Video [tutorial](https://youtu.be/FtyVMvfzn1I?si=MrtPxPi28w2uzizh) on **joining data and data relationships** (note that for our purposes with this example, we couldn't use this method directly in Tableau because we also need to pivot the data).
+
+-   Then we will recreate the previous visualization from the combined dataset, and add some more features.
+
+- FILES: Start with any blank Tableau Prep Builder flow and [join-gapminder-data-COMPLETED.tfl](https://github.com/coltongearhart/dana320/blob/main/tableau/join-gapminder-data-COMPLETED.tfl), which outputs [joined-gapminder-data.hyper](https://github.com/coltongearhart/dana320/blob/main/tableau/joined-gapminder-data.hyper)
+
+{{< video https://youtu.be/IHIvkFrzlW8 >}}
+
+![](images/joins.png){fig-align="left" width="1000"}
+
+## Homework
+
+ASSIGNMENT LINK: @sec-hw-working-with-data

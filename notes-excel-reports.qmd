@@ -1,0 +1,77 @@
+# Notes -- Reports
+
+## Preface
+
+-   Below is all of the content for this section along with the corresponding assignments (in the recommended order).
+
+-   ***Be sure to follow along with all of the videos using the provided Excel files AND complete the additional Exercises.***
+
+-   Post any questions related to content or assignments in the corresponding discussion board.
+
+## Introduction to Pivot Tables {#sec-notes-introduction-to-pivot-tables}
+
+-   In the previous section, we calculated summary statistics manually using functions like COUNTIF().
+
+-   Now we introduce **Pivot Tables**, which is are a much more automated and flexible method for summarizing.
+
+-   FILES: [introduction-to-pivot-tables-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/introduction-to-pivot-tables-STARTER.xlsx) and [introduction-to-pivot-tables-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/introduction-to-pivot-tables-COMPLETED.xlsx)
+
+{{< video https://youtu.be/UsdedFoTA68?si=moLRcNBivM-QOT-W >}}
+
+-   Here is the written [tutorial](https://www.xelplus.com/pivot-tables-in-10-minutes/) for the video.
+
+-   *NOTE*: Insert Pivot Tables into existing worksheet instead of into a new sheet; there are prompts for where to put them.
+
+## Combining Data and More on Pivot Tables {#sec-notes-combining-data-and-more-on-pivot-tables}
+
+-   This video introduces a very common data structure and a function to help combine datasets.
+
+-   Then we learn some more useful Pivot Table features.
+
+-   FILES: [combining-data-and-more-on-pivot-tables-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/combining-data-and-more-on-pivot-tables-STARTER.xlsx) and [combining-data-and-more-on-pivot-tables-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/combining-data-and-more-on-pivot-tables-COMPLETED.xlsx)
+
+{{< video https://youtu.be/og5R6ZdKk1M >}}
+
+{{< video https://youtu.be/g89mPC4kG4M >}}
+
+{{< video https://youtu.be/oUzn2MxAgqg >}}
+
+ADDITIONAL RESOURCES
+
+-   When learning / applying new methods, will probably keep running into specific mini problems. So when searching solutions, be sure to use solutions that you can understand as much as possible so you learn more and can reapply it later.
+
+    -   Article [tutorial](https://www.automateexcel.com/formulas/xlookup-return-blank-not-zero/) for how to fix XLOOKUP bringing in zeros instead of blanks.
+
+-   Combining data via Data models and PowerPivot [video](https://youtu.be/mTdIEhtcqlo?si=AxPluX8u8HWX5e56) and [tutorial](https://www.xelplus.com/relationships-pivot-tables-multiple-sheets/).
+
+    -   Currently this can't be done in Excel on Mac or Excel Online, but pretty much all companies have Windows Excel (so it will likely be available to you). **And more importantly, a lot of software and technology is knowing what can be done, then deciding if it is useful for your application**. So this is still a GREAT WATCH!
+
+## Lab
+
+ASSIGNMENT LINK: @sec-lab-pivot-tables-and-combining-data
+
+## More on XLOOKUP {#sec-notes-more-on-xlookup}
+
+-   Now we will learn some useful applications / capabilities of the function that was introduced in the last video.
+
+-   *NOTE*: These examples used to be very convoluted with older Excel functions, but with `XLOOLUP()` there is no need to learn `HLOOKUP()`, `VLOOKUP()` or `INDEX(MATCH())`.
+
+-   FILES: [more-on-xlookup-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/more-on-xlookup-STARTER.xlsx) and [more-on-xlookup-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/more-on-xlookup-COMPLETED.xlsx)
+
+{{< video https://youtu.be/4c0CLUER6nw?si=ic97WfIpcZvxqLdG >}}
+
+-   Here is the written [tutorial](https://www.xelplus.com/excel-xlookup-5-examples/) for the video.
+
+## Panel Chart
+
+-   This is a specific application of Pivot Tables that we can tie back into creating Charts.
+
+-   Will see later in course that this type of plot is much easier to do in other software and looks much better. **In addition to type of plot we should also consider the best tool (in terms of ease of application and quality of final product) to use to make it**.
+
+-   FILES: [panel-chart-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/panel-chart-STARTER.xlsx) and [panel-chart-COMPLETED.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/panel-chart-COMPLETED.xlsx)
+
+{{< video https://youtu.be/JD9TFhO3DgM >}}
+
+## Homework
+
+ASSIGNMENT LINK: @sec-hw-creating-more-engagin-reports

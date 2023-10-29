@@ -1,0 +1,85 @@
+# Lab -- Dynamic Charts and Dashboards {#sec-lab-dynamic-charts-and-dashboards}
+
+## Submission
+
+Submission
+
+- Please upload a completed workbook for this assignment to Canvas.
+
+- Part of the grading will be the organization / cleanliness of the workbook.
+
+    - Make sure the final product looks professional and presentable, e.g. no extraneous work scattered about and data, plots and reports placed well.
+
+FILES
+
+- [lab-dynamic-charts-and-dashboards.docx](https://github.com/coltongearhart/dana320/blob/main/excel/lab-dynamic-charts-and-dashboards.docx) and [lab-dynamic-charts-and-dashboards-STARTER.xlsx](https://github.com/coltongearhart/dana320/blob/main/excel/lab-dynamic-charts-and-dashboards-STARTER.xlsx)
+
+- *NOTE*: Instructors can contact me for solutions :)
+
+## Part 1 -- Dynamically Formatted Line Chart
+
+### Overview
+
+-   This problem is an extension of the notes from @sec-notes-dynamic-charts, where we dynamically highlighted the minimum and maximum points on a line chart.
+
+-   The first tab of the accompanying workbook contains a dataset of weekly sales; a subset is shown below:
+
+![](images/lab1.4-part1-data.png){fig-align="left"}
+
+### Assignment
+
+-   The goal is to recreate the following plot, which dynamically highlights the *smallest 2* and the *largest 2 data points* of the line chart.
+
+![](images/lab1.4-part1-plot.png){fig-align="left"}
+
+```         
+-   This is one way that we highlight the important information from a big chart (if there is no way around a big chart).
+```
+
+-   Here are the aspects you will need to consider while doing so:
+
+    -   `MIN()` and `MAX()` check for the single smallest and largest values in an array. To check the *k smallest* or *k largest*, use `SMALL()` and `LARGE()`, respectively. Try to setup a mini example (such as 1,2,3,4,5) to see how these functions work.
+    -   How to setup the data to have the correct conditional formatting.
+    -   How to format the lines and markers to emphasize the extreme points.
+    -   How to have informative data labels to make it clear what each highlighted point is / represents.
+    -   Suppose this worksheet will be presented, how to remove clutter of any additional work needed for the plot and only show the original data and the plot.
+
+-   To confirm your setup works as desired, change the following data points, and see if the plot now highlights the correct points:
+
+    -   Week 5 = 950, Week 12 = 118, Week 25 = 120 and Week 35 = 940
+
+What will be looked at for grading
+
+-   Correct formula(s) for checking extreme points, dynamic conditional formatting of the extreme points on the plot, informative data labels, color scheme of plot with correct emphasis.
+
+## Part 2 -- Dynamic Dashboard using Pivot Tables and Pivot Charts
+
+### Overview
+
+-   This problem furthers the ideas from the notes @sec-notes-dynamic-dashboards-part1, where we created a dynamic dashboard using Pivot Tables and Pivot Charts.
+
+-   The second tab of the accompanying workbook contains a dataset of students' test scores for a standardized test, along with some demographic and preparation information; a subset is shown below:
+
+![](images/lab1.4-part2-data.png){fig-align="left"}
+
+### Assignment
+
+-   The goal is to create a dynamic dashboard that visualizes student performance based on the level of education of their parents.
+
+-   Here are the features that need to be included in your final dashboard:
+
+    -   Report that summarizes the Average Final Score (which equals average of the three individual scores: math, reading and writing) by Parental Level of Education.
+    -   A Line Chart that visualizes the Report.
+    -   Has the option for the user to select whether the Report / Chart show information for Male or Female students and whether Test Prep Course was completed or not.
+    -   All of the above features organized together as a Dashboard.
+
+-   Here are some aspects you will need to consider while doing so:
+
+    -   How to format the Report and Chart logically based on the levels of education.
+    -   How to incorporate user input for Gender and Test Prep Course.
+    -   When different subsets of the data are shown based on the input, pay attention to the Chart and specifically the scale. Is it hard to make easy visual comparisons of the different sets of students based on what happens? Try to solve this.
+    -   How to style each individual part and the collective to look like a nice, presentable Dashboard.
+
+What will be looked at for grading
+
+-   Correct setup of Report and Chart, implementation of the user input, dynamic Report / Chart (chart should include solution to the visual comparison problem mentioned above), style of final Dashboard.
