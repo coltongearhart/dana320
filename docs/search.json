@@ -880,7 +880,7 @@
     "text": "23.1 Preface\n\nBelow is all of the content for this section along with the corresponding assignments (in the recommended order).\nBe sure to follow along with all of the videos using the provided Tableau workbooks (no additional exercises).\nPost any questions related to content or assignments in the corresponding discussion board.",
     "crumbs": [
       "Tableau",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Notes -- Parameters</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Notes -- Dashboards</span>"
     ]
   },
   {
@@ -891,7 +891,7 @@
     "text": "23.2 Dashboards in Tableau\n\nThe real power of Tableau is in creating dashboards. These videos will take you through designing a complete, effective, well-designed dashboard step-by-step.\nFILES: dashboards-STARTER.twbx (the needed data should be part of the packaged Tableau file, but if not here it is: sample-superstore.csv) and dashboards-COMPLETED.twbx\nNOTES: These are important mini items to make sure you can follow all the steps in the video; if you get stuck somewhere, look here first!\n\nPLAYBACK\n\nI recommend watching the videos on a slower speed in order to keep up with her steps! Some parts are a bit quick, so be prepared to pause and/or rewind often to catch everything.\n\nSHAPES\n\nDownload this items in this folder.\nThen move the ‘Custom Categories’ folder to the following location on your computer: ‘My Tableau Repository’ (This was automatically made when you installed Tableau) -&gt; ‘Shapes’ -&gt; Place in here.\nThen when in the ‘Edit Shape’ dialog (menu), click ‘Reload Shapes’ for our ‘Custom Categories’ to appear.\n\nMAC USERS\n\nSome of the keyboard shortcuts she uses are Windows specific, here are the Mac equivalents:\nWindows ===&gt; Mac\nRight click + drag ===&gt; Option + drag (this opens a Drop Field dialog of aggregation options)\nControl + drag ===&gt; Command + drag (this is to duplicate a pill / field on a shelf)\n\nCONTAINERS on the dashboard\n\nYou may or may not be able to ‘Fix Height’ on some of the containers. They don’t have to be setup exactly like hers, just the general idea is good enough.\nIt may take some time to organize the formatting of the containers and spacing can be finicky, but it is part of the process.\n\nPUBLISH to server\n\nSkip this part, not relevant for us.",
     "crumbs": [
       "Tableau",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Notes -- Parameters</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Notes -- Dashboards</span>"
     ]
   },
   {
@@ -902,7 +902,7 @@
     "text": "23.3 Dashboard Design\n\nHere are some information about how your audience will look at dashboards as well as some tips in how to structure your dashboard to optimize its’ effectiveness.\nThe emphasis areas shown below agree with the Storytelling With Data idea that we tend to read plots in a “Z” pattern. So this is how we setup our dashboards as well in terms of most emphasis to least.\nFinally there is a checklist for items and aspects to have incorporated in your final dashboards so that users are able to easily glean the information that we want to focus on.",
     "crumbs": [
       "Tableau",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Notes -- Parameters</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Notes -- Dashboards</span>"
     ]
   },
   {
@@ -913,7 +913,7 @@
     "text": "23.4 Homework\n&lt; link &gt;",
     "crumbs": [
       "Tableau",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Notes -- Parameters</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Notes -- Dashboards</span>"
     ]
   },
   {
