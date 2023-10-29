@@ -238,34 +238,34 @@
   {
     "objectID": "lab-excel-more-charts-in-excel.html#submission",
     "href": "lab-excel-more-charts-in-excel.html#submission",
-    "title": "8  Lab – More Charts in Excel",
-    "section": "8.1 Submission",
-    "text": "8.1 Submission\nSubmission\n\nPlease upload a completed workbook for this assignment to Canvas.\nPart of the grading will be the organization / cleanliness of the workbook.\n\nMake sure the final product looks professional and presentable, e.g. no extraneous work scattered about and data, plots and reports placed well.\n\n\nFILES\n\nlab-more-charts-in-excel.docx and lab-more-charts-in-excel-STARTER.xlsx\nNOTE: Instructors can contact me for solutions :)",
+    "title": "9  Lab – More Charts in Excel",
+    "section": "9.1 Submission",
+    "text": "9.1 Submission\nSubmission\n\nPlease upload a completed workbook for this assignment to Canvas.\nPart of the grading will be the organization / cleanliness of the workbook.\n\nMake sure the final product looks professional and presentable, e.g. no extraneous work scattered about and data, plots and reports placed well.\n\n\nFILES\n\nlab-more-charts-in-excel.docx and lab-more-charts-in-excel-STARTER.xlsx\nNOTE: Instructors can contact me for solutions :)",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Lab -- More Charts in Excel</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Lab -- More Charts in Excel</span>"
     ]
   },
   {
     "objectID": "lab-excel-more-charts-in-excel.html#part-1-multiple-variable-charts",
     "href": "lab-excel-more-charts-in-excel.html#part-1-multiple-variable-charts",
-    "title": "8  Lab – More Charts in Excel",
-    "section": "8.2 Part 1 – Multiple Variable Charts",
-    "text": "8.2 Part 1 – Multiple Variable Charts\n\n8.2.1 Overview\n\nThis problem furthers the ideas from the notes in Section 7.2, where we learned how to create and format many simple charts in Excel.\nThe first tab of the accompanying workbook contains a dataset of physical measurements of a sample several different fish species caught from the same lake; a subset is shown below:\n\n\n\n\n\n\n\n\n\n\n8.2.2 Assignment\n\nThe goal is to create several plots that visualize more than one variable at the same time.\nHere are some questions to investigate about the fish species and the plots we will use to help. After each plot, add a text box with a quick write-up answering the directed questions.\n\n\nDo different species have different lengths? Comparative Boxplot of length by species\n\nThis type of plot visualizes boxplots for each species.\nTo create this: Highlight the Species column and Length column at the same time -&gt; Insert Box and Whisker Plot.\nIn the write-up: Compare the distributions of length between the different species.\n\nHow do the distributions of weights compare for species of different lengths? Comparative Histograms\n\nThere is no good way to plot two histograms in the same panel; so, the best way to do this is to create two separate histograms and organize next to each other, specifically one for shorter length species and one for longer length.\nTo create this:\n\n\nBased on the plot from (a), identify the 3 shortest species.\nTo make two histograms, you need two separate tables. Copy the entire dataset and paste off to the side; this will be used to help make the two needed tables.\nFilter the copied data to the 3 shortest species; then copy only those rows and paste in their own table. Repeat for the remaining species. Now the full copied data can be deleted.\nInsert histograms for each new table. Be sure color each histogram different and give them informative titles based on which subset of data it is based on (shorter fish or longer fish).\n\n\nIn the write up: Compare the distributions of weight for the two groups of fish.\n\nIs weight a good predictor of length? Scatterplot\n\nScatterplots visualize two numeric variables by plotting each pair of numbers.\nTo create this: Highlight the Weight and Length columns at the same time -&gt; Insert Scatterplot.\nBe sure to give the chart a title and axis labels.\nIn the write-up: Does there appear to be a relationship between weight and length of fish? If so, describe the trend.\n\n\nWhat will be looked at for grading\n\nCorrect plots and sufficient write-ups.",
+    "title": "9  Lab – More Charts in Excel",
+    "section": "9.2 Part 1 – Multiple Variable Charts",
+    "text": "9.2 Part 1 – Multiple Variable Charts\n\n9.2.1 Overview\n\nThis problem furthers the ideas from the notes in Section 7.2, where we learned how to create and format many simple charts in Excel.\nThe first tab of the accompanying workbook contains a dataset of physical measurements of a sample several different fish species caught from the same lake; a subset is shown below:\n\n\n\n\n\n\n\n\n\n\n9.2.2 Assignment\n\nThe goal is to create several plots that visualize more than one variable at the same time.\nHere are some questions to investigate about the fish species and the plots we will use to help. After each plot, add a text box with a quick write-up answering the directed questions.\n\n\nDo different species have different lengths? Comparative Boxplot of length by species\n\nThis type of plot visualizes boxplots for each species.\nTo create this: Highlight the Species column and Length column at the same time -&gt; Insert Box and Whisker Plot.\nIn the write-up: Compare the distributions of length between the different species.\n\nHow do the distributions of weights compare for species of different lengths? Comparative Histograms\n\nThere is no good way to plot two histograms in the same panel; so, the best way to do this is to create two separate histograms and organize next to each other, specifically one for shorter length species and one for longer length.\nTo create this:\n\n\nBased on the plot from (a), identify the 3 shortest species.\nTo make two histograms, you need two separate tables. Copy the entire dataset and paste off to the side; this will be used to help make the two needed tables.\nFilter the copied data to the 3 shortest species; then copy only those rows and paste in their own table. Repeat for the remaining species. Now the full copied data can be deleted.\nInsert histograms for each new table. Be sure color each histogram different and give them informative titles based on which subset of data it is based on (shorter fish or longer fish).\n\n\nIn the write up: Compare the distributions of weight for the two groups of fish.\n\nIs weight a good predictor of length? Scatterplot\n\nScatterplots visualize two numeric variables by plotting each pair of numbers.\nTo create this: Highlight the Weight and Length columns at the same time -&gt; Insert Scatterplot.\nBe sure to give the chart a title and axis labels.\nIn the write-up: Does there appear to be a relationship between weight and length of fish? If so, describe the trend.\n\n\nWhat will be looked at for grading\n\nCorrect plots and sufficient write-ups.",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Lab -- More Charts in Excel</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Lab -- More Charts in Excel</span>"
     ]
   },
   {
     "objectID": "lab-excel-more-charts-in-excel.html#part-2-waterfall-chart",
     "href": "lab-excel-more-charts-in-excel.html#part-2-waterfall-chart",
-    "title": "8  Lab – More Charts in Excel",
-    "section": "8.3 Part 2 – Waterfall Chart",
-    "text": "8.3 Part 2 – Waterfall Chart\n\n8.3.1 Overview\n\nThis problem extends Part 1 of this Lab, where we continued introducing more types of Charts that can be made in Excel.\nThe second tab of the accompanying workbook contains a dataset for interest rates of a 30-year mortgage; a subset of which is shown below:\n\n\n\n\n\n\n\n\n\n\n8.3.2 Assignment\n\nThe goal is to create a Waterfall Chart, including performing the necessary data transformations needed for the plot.\nA Waterfall Chart shows a running total as values are added or subtracted. It’s useful for understanding how an initial value is affected by a series of positive and negative values. An example is shown below:\n\n\n\n\n\n\n\n\n\nIt is commonly used in a business context to show the incoming and outgoing money (revenue, expenses, net income, etc.). It can also be used to show values across time as in the example.\nHere’s how to create it:\n\n\nCreate a new column named ‘Change in interest rate (%)’ with the following specifications:\n\nThe first value (corresponding to the earliest year) should be equal to the interest rate that year. This represents the starting ‘base’ total.\nAfter the base, a Waterfall Chart plots the change from the previous item (i.e. year to year in this case). Write a formula to calculate the change in rate from the previous year and fill it down. For example, if 2010 rate was 5.5% and 2011 rate was 5%, the value in the row for 2011 is -0.5%.\nAfter the final year, add an extra row that is the cumulative value of the interest rate after all of the changes. It should equal the rate in the last year. This row (without a year label) represents the ending ‘base’ total.\n\nWith the data setup, now you can highlight the change column -&gt; Insert Waterfall Chart.\n\nTo correctly format the starting and ending ‘base’, double click the bars and click ‘Set as Total’.\nSet the horizontal axis labels to the Year.\nChoose appropriate colors for the Increase, Decrease, and Totals. Be sure to give the chart an informative title as well.\n\n\nWhat will be looked at for grading\n\nCorrect data setup, well-formatted Waterfall Chart.",
+    "title": "9  Lab – More Charts in Excel",
+    "section": "9.3 Part 2 – Waterfall Chart",
+    "text": "9.3 Part 2 – Waterfall Chart\n\n9.3.1 Overview\n\nThis problem extends Part 1 of this Lab, where we continued introducing more types of Charts that can be made in Excel.\nThe second tab of the accompanying workbook contains a dataset for interest rates of a 30-year mortgage; a subset of which is shown below:\n\n\n\n\n\n\n\n\n\n\n9.3.2 Assignment\n\nThe goal is to create a Waterfall Chart, including performing the necessary data transformations needed for the plot.\nA Waterfall Chart shows a running total as values are added or subtracted. It’s useful for understanding how an initial value is affected by a series of positive and negative values. An example is shown below:\n\n\n\n\n\n\n\n\n\nIt is commonly used in a business context to show the incoming and outgoing money (revenue, expenses, net income, etc.). It can also be used to show values across time as in the example.\nHere’s how to create it:\n\n\nCreate a new column named ‘Change in interest rate (%)’ with the following specifications:\n\nThe first value (corresponding to the earliest year) should be equal to the interest rate that year. This represents the starting ‘base’ total.\nAfter the base, a Waterfall Chart plots the change from the previous item (i.e. year to year in this case). Write a formula to calculate the change in rate from the previous year and fill it down. For example, if 2010 rate was 5.5% and 2011 rate was 5%, the value in the row for 2011 is -0.5%.\nAfter the final year, add an extra row that is the cumulative value of the interest rate after all of the changes. It should equal the rate in the last year. This row (without a year label) represents the ending ‘base’ total.\n\nWith the data setup, now you can highlight the change column -&gt; Insert Waterfall Chart.\n\nTo correctly format the starting and ending ‘base’, double click the bars and click ‘Set as Total’.\nSet the horizontal axis labels to the Year.\nChoose appropriate colors for the Increase, Decrease, and Totals. Be sure to give the chart an informative title as well.\n\n\nWhat will be looked at for grading\n\nCorrect data setup, well-formatted Waterfall Chart.",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Lab -- More Charts in Excel</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Lab -- More Charts in Excel</span>"
     ]
   },
   {
@@ -304,78 +304,78 @@
   {
     "objectID": "notes-excel-reports.html#preface",
     "href": "notes-excel-reports.html#preface",
-    "title": "10  Notes – Reports",
-    "section": "10.1 Preface",
-    "text": "10.1 Preface\n\nBelow is all of the content for this section along with the corresponding assignments (in the recommended order).\nBe sure to follow along with all of the videos using the provided Excel files AND complete the additional Exercises.\nPost any questions related to content or assignments in the corresponding discussion board.",
+    "title": "11  Notes – Reports",
+    "section": "11.1 Preface",
+    "text": "11.1 Preface\n\nBelow is all of the content for this section along with the corresponding assignments (in the recommended order).\nBe sure to follow along with all of the videos using the provided Excel files AND complete the additional Exercises.\nPost any questions related to content or assignments in the corresponding discussion board.",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Notes -- Reports</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Notes -- Reports</span>"
     ]
   },
   {
     "objectID": "notes-excel-reports.html#sec-notes-introduction-to-pivot-tables",
     "href": "notes-excel-reports.html#sec-notes-introduction-to-pivot-tables",
-    "title": "10  Notes – Reports",
-    "section": "10.2 Introduction to Pivot Tables",
-    "text": "10.2 Introduction to Pivot Tables\n\nIn the previous section, we calculated summary statistics manually using functions like COUNTIF().\nNow we introduce Pivot Tables, which is are a much more automated and flexible method for summarizing.\nFILES: introduction-to-pivot-tables-STARTER.xlsx and introduction-to-pivot-tables-COMPLETED.xlsx\n\n\n\nHere is the written tutorial for the video.\nNOTE: Insert Pivot Tables into existing worksheet instead of into a new sheet; there are prompts for where to put them.",
+    "title": "11  Notes – Reports",
+    "section": "11.2 Introduction to Pivot Tables",
+    "text": "11.2 Introduction to Pivot Tables\n\nIn the previous section, we calculated summary statistics manually using functions like COUNTIF().\nNow we introduce Pivot Tables, which is are a much more automated and flexible method for summarizing.\nFILES: introduction-to-pivot-tables-STARTER.xlsx and introduction-to-pivot-tables-COMPLETED.xlsx\n\n\n\nHere is the written tutorial for the video.\nNOTE: Insert Pivot Tables into existing worksheet instead of into a new sheet; there are prompts for where to put them.",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Notes -- Reports</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Notes -- Reports</span>"
     ]
   },
   {
     "objectID": "notes-excel-reports.html#sec-notes-combining-data-and-more-on-pivot-tables",
     "href": "notes-excel-reports.html#sec-notes-combining-data-and-more-on-pivot-tables",
-    "title": "10  Notes – Reports",
-    "section": "10.3 Combining Data and More on Pivot Tables",
-    "text": "10.3 Combining Data and More on Pivot Tables\n\nThis video introduces a very common data structure and a function to help combine datasets.\nThen we learn some more useful Pivot Table features.\nFILES: combining-data-and-more-on-pivot-tables-STARTER.xlsx and combining-data-and-more-on-pivot-tables-COMPLETED.xlsx\n\n\n\n\nADDITIONAL RESOURCES\n\nWhen learning / applying new methods, will probably keep running into specific mini problems. So when searching solutions, be sure to use solutions that you can understand as much as possible so you learn more and can reapply it later.\n\nArticle tutorial for how to fix XLOOKUP bringing in zeros instead of blanks.\n\nCombining data via Data models and PowerPivot video and tutorial.\n\nCurrently this can’t be done in Excel on Mac or Excel Online, but pretty much all companies have Windows Excel (so it will likely be available to you). And more importantly, a lot of software and technology is knowing what can be done, then deciding if it is useful for your application. So this is still a GREAT WATCH!",
+    "title": "11  Notes – Reports",
+    "section": "11.3 Combining Data and More on Pivot Tables",
+    "text": "11.3 Combining Data and More on Pivot Tables\n\nThis video introduces a very common data structure and a function to help combine datasets.\nThen we learn some more useful Pivot Table features.\nFILES: combining-data-and-more-on-pivot-tables-STARTER.xlsx and combining-data-and-more-on-pivot-tables-COMPLETED.xlsx\n\n\n\n\nADDITIONAL RESOURCES\n\nWhen learning / applying new methods, will probably keep running into specific mini problems. So when searching solutions, be sure to use solutions that you can understand as much as possible so you learn more and can reapply it later.\n\nArticle tutorial for how to fix XLOOKUP bringing in zeros instead of blanks.\n\nCombining data via Data models and PowerPivot video and tutorial.\n\nCurrently this can’t be done in Excel on Mac or Excel Online, but pretty much all companies have Windows Excel (so it will likely be available to you). And more importantly, a lot of software and technology is knowing what can be done, then deciding if it is useful for your application. So this is still a GREAT WATCH!",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Notes -- Reports</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Notes -- Reports</span>"
     ]
   },
   {
     "objectID": "notes-excel-reports.html#lab",
     "href": "notes-excel-reports.html#lab",
-    "title": "10  Notes – Reports",
-    "section": "10.4 Lab",
-    "text": "10.4 Lab\nASSIGNMENT LINK: Chapter 11",
+    "title": "11  Notes – Reports",
+    "section": "11.4 Lab",
+    "text": "11.4 Lab\nASSIGNMENT LINK: Chapter 11",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Notes -- Reports</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Notes -- Reports</span>"
     ]
   },
   {
     "objectID": "notes-excel-reports.html#sec-notes-more-on-xlookup",
     "href": "notes-excel-reports.html#sec-notes-more-on-xlookup",
-    "title": "10  Notes – Reports",
-    "section": "10.5 More on XLOOKUP",
-    "text": "10.5 More on XLOOKUP\n\nNow we will learn some useful applications / capabilities of the function that was introduced in the last video.\nNOTE: These examples used to be very convoluted with older Excel functions, but with XLOOLUP() there is no need to learn HLOOKUP(), VLOOKUP() or INDEX(MATCH()).\nFILES: more-on-xlookup-STARTER.xlsx and more-on-xlookup-COMPLETED.xlsx\n\n\n\nHere is the written tutorial for the video.",
+    "title": "11  Notes – Reports",
+    "section": "11.5 More on XLOOKUP",
+    "text": "11.5 More on XLOOKUP\n\nNow we will learn some useful applications / capabilities of the function that was introduced in the last video.\nNOTE: These examples used to be very convoluted with older Excel functions, but with XLOOLUP() there is no need to learn HLOOKUP(), VLOOKUP() or INDEX(MATCH()).\nFILES: more-on-xlookup-STARTER.xlsx and more-on-xlookup-COMPLETED.xlsx\n\n\n\nHere is the written tutorial for the video.",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Notes -- Reports</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Notes -- Reports</span>"
     ]
   },
   {
     "objectID": "notes-excel-reports.html#panel-chart",
     "href": "notes-excel-reports.html#panel-chart",
-    "title": "10  Notes – Reports",
-    "section": "10.6 Panel Chart",
-    "text": "10.6 Panel Chart\n\nThis is a specific application of Pivot Tables that we can tie back into creating Charts.\nWill see later in course that this type of plot is much easier to do in other software and looks much better. In addition to type of plot we should also consider the best tool (in terms of ease of application and quality of final product) to use to make it.\nFILES: panel-chart-STARTER.xlsx and panel-chart-COMPLETED.xlsx",
+    "title": "11  Notes – Reports",
+    "section": "11.6 Panel Chart",
+    "text": "11.6 Panel Chart\n\nThis is a specific application of Pivot Tables that we can tie back into creating Charts.\nWill see later in course that this type of plot is much easier to do in other software and looks much better. In addition to type of plot we should also consider the best tool (in terms of ease of application and quality of final product) to use to make it.\nFILES: panel-chart-STARTER.xlsx and panel-chart-COMPLETED.xlsx",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Notes -- Reports</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Notes -- Reports</span>"
     ]
   },
   {
     "objectID": "notes-excel-reports.html#homework",
     "href": "notes-excel-reports.html#homework",
-    "title": "10  Notes – Reports",
-    "section": "10.7 Homework",
-    "text": "10.7 Homework\nASSIGNMENT LINK: Chapter 12",
+    "title": "11  Notes – Reports",
+    "section": "11.7 Homework",
+    "text": "11.7 Homework\nASSIGNMENT LINK: Chapter 12",
     "crumbs": [
       "Excel",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Notes -- Reports</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Notes -- Reports</span>"
     ]
   },
   {

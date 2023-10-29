@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.376">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>DANA 320 – Data Visualization - 28&nbsp; Notes – Visualizations</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./hw-r-visualizations.html" rel="next">
+<link href="./intro-to-quarto.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-visualizations.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Notes -- Visualizations</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-visualizations.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Notes -- Visualizations</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">
+<span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Notes – Visualizations</span>
+</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">DANA 320 – Data Visualization</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-meet-your-instructor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Meet Your Instructor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-how-to-navigate-this-course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Navigate this Course</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-data-viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-readings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Readings</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quizzes-readings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reading Check Quizzes</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Excel</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-basic-charts-in-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Notes – Basic Charts in Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-more-charts-in-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab – More Charts in Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-plots-for-analyses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">HW – Plots for Analyses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Notes – Reports</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-pivot-tables-and-combining-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lab – Pivot Tables and Combining Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-creating-more-engaging-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">HW – Creating More Engaging Reports</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notes – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Lab – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">HW – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-tableau.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tableau</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-tableau-and-tableau-prep-builder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-tableau.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Tableau</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Notes – Working with Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">HW – Working with Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">HW – Parameters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">HW – Dashboards</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-r-and-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Install R and RStudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-visualizations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Notes – Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-data-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-data-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-reshaping-and-combining-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-r-data-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-data-manipulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">HW - Data Manipulations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">28.1</span> Overview</a>
+  <ul class="collapse">
+<li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">28.1.1</span> Materials</a></li>
+  <li><a href="#this-section" id="toc-this-section" class="nav-link" data-scroll-target="#this-section"><span class="header-section-number">28.1.2</span> This section</a></li>
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><span class="header-section-number">28.1.3</span> Readings</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">28.1.4</span> Prerequisites</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal"><span class="header-section-number">28.1.5</span> Goal</a></li>
+  </ul>
+</li>
+  <li><a href="#example-dataset" id="toc-example-dataset" class="nav-link" data-scroll-target="#example-dataset"><span class="header-section-number">28.2</span> Example dataset</a></li>
+  <li>
+<a href="#ggplot2-basics-and-scatterplots" id="toc-ggplot2-basics-and-scatterplots" class="nav-link" data-scroll-target="#ggplot2-basics-and-scatterplots"><span class="header-section-number">28.3</span> ggplot2 basics and scatterplots</a>
+  <ul class="collapse">
+<li><a href="#building-from-scratch" id="toc-building-from-scratch" class="nav-link" data-scroll-target="#building-from-scratch"><span class="header-section-number">28.3.1</span> Building from scratch</a></li>
+  <li><a href="#aesthetic-mapping" id="toc-aesthetic-mapping" class="nav-link" data-scroll-target="#aesthetic-mapping"><span class="header-section-number">28.3.2</span> Aesthetic mapping</a></li>
+  <li><a href="#sec-aes-ex" id="toc-sec-aes-ex" class="nav-link" data-scroll-target="#sec-aes-ex"><span class="header-section-number">28.3.3</span> Exercise</a></li>
+  <li><a href="#other-attributes" id="toc-other-attributes" class="nav-link" data-scroll-target="#other-attributes"><span class="header-section-number">28.3.4</span> Other attributes</a></li>
+  <li><a href="#incorporating-more-variables-via-aes" id="toc-incorporating-more-variables-via-aes" class="nav-link" data-scroll-target="#incorporating-more-variables-via-aes"><span class="header-section-number">28.3.5</span> Incorporating more variables via <code>aes()</code></a></li>
+  <li><a href="#sec-aes-ex2" id="toc-sec-aes-ex2" class="nav-link" data-scroll-target="#sec-aes-ex2"><span class="header-section-number">28.3.6</span> Exercise</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="header-section-number">28.4</span> Histograms</a>
+  <ul class="collapse">
+<li><a href="#geom_histogram" id="toc-geom_histogram" class="nav-link" data-scroll-target="#geom_histogram"><span class="header-section-number">28.4.1</span> geom_histogram()</a></li>
+  <li><a href="#sec-hist-ex" id="toc-sec-hist-ex" class="nav-link" data-scroll-target="#sec-hist-ex"><span class="header-section-number">28.4.2</span> Exercise</a></li>
+  <li><a href="#titles-and-labels" id="toc-titles-and-labels" class="nav-link" data-scroll-target="#titles-and-labels"><span class="header-section-number">28.4.3</span> Titles and labels</a></li>
+  <li><a href="#sec-hist-ex2" id="toc-sec-hist-ex2" class="nav-link" data-scroll-target="#sec-hist-ex2"><span class="header-section-number">28.4.4</span> Exercise</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots"><span class="header-section-number">28.5</span> Boxplots</a>
+  <ul class="collapse">
+<li><a href="#geom_boxplot" id="toc-geom_boxplot" class="nav-link" data-scroll-target="#geom_boxplot"><span class="header-section-number">28.5.1</span> geom_boxplot()</a></li>
+  <li><a href="#sec-boxplot-ex" id="toc-sec-boxplot-ex" class="nav-link" data-scroll-target="#sec-boxplot-ex"><span class="header-section-number">28.5.2</span> Exercise</a></li>
+  <li><a href="#comparitive-boxplots" id="toc-comparitive-boxplots" class="nav-link" data-scroll-target="#comparitive-boxplots"><span class="header-section-number">28.5.3</span> Comparitive boxplots</a></li>
+  <li><a href="#transformations-and-more-customizations" id="toc-transformations-and-more-customizations" class="nav-link" data-scroll-target="#transformations-and-more-customizations"><span class="header-section-number">28.5.4</span> Transformations and more customizations</a></li>
+  <li><a href="#sec-boxplot-ex2" id="toc-sec-boxplot-ex2" class="nav-link" data-scroll-target="#sec-boxplot-ex2"><span class="header-section-number">28.5.5</span> Exercise</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#bar-graphs" id="toc-bar-graphs" class="nav-link" data-scroll-target="#bar-graphs"><span class="header-section-number">28.6</span> Bar graphs</a>
+  <ul class="collapse">
+<li><a href="#bar-graphs-1" id="toc-bar-graphs-1" class="nav-link" data-scroll-target="#bar-graphs-1"><span class="header-section-number">28.6.1</span> Bar graphs</a></li>
+  <li><a href="#geom_bar-wtih-raw-data" id="toc-geom_bar-wtih-raw-data" class="nav-link" data-scroll-target="#geom_bar-wtih-raw-data"><span class="header-section-number">28.6.2</span> geom_bar() wtih raw data</a></li>
+  <li><a href="#geom_bar-wtih-count-data" id="toc-geom_bar-wtih-count-data" class="nav-link" data-scroll-target="#geom_bar-wtih-count-data"><span class="header-section-number">28.6.3</span> geom_bar() wtih count data</a></li>
+  <li><a href="#sec-bargraph-ex" id="toc-sec-bargraph-ex" class="nav-link" data-scroll-target="#sec-bargraph-ex"><span class="header-section-number">28.6.4</span> Exercise</a></li>
+  <li><a href="#displays-for-bivariate-categorical-data" id="toc-displays-for-bivariate-categorical-data" class="nav-link" data-scroll-target="#displays-for-bivariate-categorical-data"><span class="header-section-number">28.6.5</span> Displays for bivariate categorical data</a></li>
+  <li><a href="#stacked-bar-graph" id="toc-stacked-bar-graph" class="nav-link" data-scroll-target="#stacked-bar-graph"><span class="header-section-number">28.6.6</span> Stacked bar graph</a></li>
+  <li><a href="#proportionally-stacked-bar-graph" id="toc-proportionally-stacked-bar-graph" class="nav-link" data-scroll-target="#proportionally-stacked-bar-graph"><span class="header-section-number">28.6.7</span> Proportionally stacked bar graph</a></li>
+  <li><a href="#side-by-side-bar-graph" id="toc-side-by-side-bar-graph" class="nav-link" data-scroll-target="#side-by-side-bar-graph"><span class="header-section-number">28.6.8</span> Side-by-side bar graph</a></li>
+  <li><a href="#sec-bargraph-2vars-ex" id="toc-sec-bargraph-2vars-ex" class="nav-link" data-scroll-target="#sec-bargraph-2vars-ex"><span class="header-section-number">28.6.9</span> Exercise</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#line-plots" id="toc-line-plots" class="nav-link" data-scroll-target="#line-plots"><span class="header-section-number">28.7</span> Line plots</a>
+  <ul class="collapse">
+<li><a href="#geom_line" id="toc-geom_line" class="nav-link" data-scroll-target="#geom_line"><span class="header-section-number">28.7.1</span> geom_line()</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#facets" id="toc-facets" class="nav-link" data-scroll-target="#facets"><span class="header-section-number">28.8</span> Facets</a>
+  <ul class="collapse">
+<li><a href="#facets-1" id="toc-facets-1" class="nav-link" data-scroll-target="#facets-1"><span class="header-section-number">28.8.1</span> Facets</a></li>
+  <li><a href="#facet_wrap" id="toc-facet_wrap" class="nav-link" data-scroll-target="#facet_wrap"><span class="header-section-number">28.8.2</span> facet_wrap()</a></li>
+  <li><a href="#controlling-rows-and-columns" id="toc-controlling-rows-and-columns" class="nav-link" data-scroll-target="#controlling-rows-and-columns"><span class="header-section-number">28.8.3</span> Controlling rows and columns</a></li>
+  <li><a href="#scales-for-facets" id="toc-scales-for-facets" class="nav-link" data-scroll-target="#scales-for-facets"><span class="header-section-number">28.8.4</span> Scales for facets</a></li>
+  <li><a href="#sec-facet-wrap-ex" id="toc-sec-facet-wrap-ex" class="nav-link" data-scroll-target="#sec-facet-wrap-ex"><span class="header-section-number">28.8.5</span> Exercise</a></li>
+  <li><a href="#facet_grid" id="toc-facet_grid" class="nav-link" data-scroll-target="#facet_grid"><span class="header-section-number">28.8.6</span> facet_grid()</a></li>
+  <li><a href="#sec-facet-grid-ex" id="toc-sec-facet-grid-ex" class="nav-link" data-scroll-target="#sec-facet-grid-ex"><span class="header-section-number">28.8.7</span> Exercise</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#density-histograms-and-density-curves" id="toc-density-histograms-and-density-curves" class="nav-link" data-scroll-target="#density-histograms-and-density-curves"><span class="header-section-number">28.9</span> Density histograms and density curves</a>
+  <ul class="collapse">
+<li><a href="#density-histograms" id="toc-density-histograms" class="nav-link" data-scroll-target="#density-histograms"><span class="header-section-number">28.9.1</span> Density histograms</a></li>
+  <li><a href="#density-curves" id="toc-density-curves" class="nav-link" data-scroll-target="#density-curves"><span class="header-section-number">28.9.2</span> Density curves</a></li>
+  <li><a href="#sec-density-curve-ex" id="toc-sec-density-curve-ex" class="nav-link" data-scroll-target="#sec-density-curve-ex"><span class="header-section-number">28.9.3</span> Exercise</a></li>
+  <li><a href="#multiple-density-curves" id="toc-multiple-density-curves" class="nav-link" data-scroll-target="#multiple-density-curves"><span class="header-section-number">28.9.4</span> Multiple density curves</a></li>
+  <li><a href="#amount-of-smoothing" id="toc-amount-of-smoothing" class="nav-link" data-scroll-target="#amount-of-smoothing"><span class="header-section-number">28.9.5</span> Amount of smoothing</a></li>
+  <li><a href="#sec-density-curves-ex" id="toc-sec-density-curves-ex" class="nav-link" data-scroll-target="#sec-density-curves-ex"><span class="header-section-number">28.9.6</span> Exercise</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">28.10</span> Application</a>
+  <ul class="collapse">
+<li><a href="#recreating" id="toc-recreating" class="nav-link" data-scroll-target="#recreating"><span class="header-section-number">28.10.1</span> Recreating</a></li>
+  <li><a href="#sec-application-ex2" id="toc-sec-application-ex2" class="nav-link" data-scroll-target="#sec-application-ex2"><span class="header-section-number">28.10.2</span> Exercise</a></li>
+  </ul>
+</li>
+  <li><a href="#exercise-solutions" id="toc-exercise-solutions" class="nav-link" data-scroll-target="#exercise-solutions"><span class="header-section-number">28.11</span> Exercise solutions</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="overview" class="level2" data-number="28.1"><h2 data-number="28.1" class="anchored" data-anchor-id="overview">
+<span class="header-section-number">28.1</span> Overview</h2>
+<section id="materials" class="level3" data-number="28.1.1"><h3 data-number="28.1.1" class="anchored" data-anchor-id="materials">
+<span class="header-section-number">28.1.1</span> Materials</h3>
+<ul>
+<li><p>Attached are all of the supplemental materials to this content! Feel free to check them out :)</p></li>
+<li>
+<p>Click the image below or follow the link to access the interactive tutorial that corresponds to this content: <a href="http://coltongearhart.shinyapps.io/visualizations/" class="uri">http://coltongearhart.shinyapps.io/visualizations/</a></p>
+<p><a href="http://coltongearhart.shinyapps.io/visualizations/"><img src="images/tutorial-visualizations.png" class="img-fluid" width="1000"></a></p>
+</li>
+<li><p>Here are the videos that go through the tutorial:</p></li>
+</ul>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yH44Dn3hyjY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/VQPV6dILO78" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<ul>
+<li>And finally here is the starter file mentioned and needed data for one of the exercises: <a href="https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/visualizations-STARTER.qmd">visulaizations-STARTER.qmd</a> and <a href="https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/www/data-bsu-game.RData">data-bsu-game.RData</a>
+</li>
+</ul></section><section id="this-section" class="level3" data-number="28.1.2"><h3 data-number="28.1.2" class="anchored" data-anchor-id="this-section">
+<span class="header-section-number">28.1.2</span> This section</h3>
+<ul>
+<li>This section introduces the world of <strong>ggplot2</strong>, several different types of plots, and some basic features to enhance your visuals. Then it covers simple data visualization principles when working with multiple variables and how to implement these within <strong>ggplot2</strong>.</li>
+</ul>
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="50%">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="tutorials/visualizations/images/data-science-project-workflow.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img" style="width:50.0%">
+</div>
+</figure>
+</div>
+</section><section id="readings" class="level3" data-number="28.1.3"><h3 data-number="28.1.3" class="anchored" data-anchor-id="readings">
+<span class="header-section-number">28.1.3</span> Readings</h3>
+<ul>
+<li>
+<p>This section covers content from <a href="https://r4ds.hadley.nz/data-visualize">Chapter 2 - Data Visualization</a> of <em>R for Data Science (2e)</em>.</p>
+<ul>
+<li>Additional content includes section 10.4 - Facets and 10.5 - Statistical Transformations.</li>
+</ul>
+</li>
+<li><p><a href="https://ggplot2.tidyverse.org/index.html">ggplot2 help documentation</a> contains everything you need to know about <strong>ggplot2</strong>, including a very helpful <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">cheatsheet</a>.</p></li>
+</ul></section><section id="prerequisites" class="level3" data-number="28.1.4"><h3 data-number="28.1.4" class="anchored" data-anchor-id="prerequisites">
+<span class="header-section-number">28.1.4</span> Prerequisites</h3>
+<ul>
+<li>Before we can use the functions, datasets, and help pages within the <strong>tidyverse</strong>, which includes ggplot2, we need to load the package. We can do this by running:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Note if any package is not currently installed, it cannot be loaded. We can install packages using the ‘Packages’ tab or by running:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="goal" class="level3" data-number="28.1.5"><h3 data-number="28.1.5" class="anchored" data-anchor-id="goal">
+<span class="header-section-number">28.1.5</span> Goal</h3>
+<ul>
+<li>Our goal by the end of this section is to be able to understand all the aspects of the following plots, how to create them, and how to set up the plot to easily switch between different layouts.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/application-preview-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/application-preview-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="example-dataset" class="level2" data-number="28.2"><h2 data-number="28.2" class="anchored" data-anchor-id="example-dataset">
+<span class="header-section-number">28.2</span> Example dataset</h2>
+<ul>
+<li><p>We are going to use <code>diamonds</code> dataset from <strong>ggplot2</strong> package, aka <code><a href="https://ggplot2.tidyverse.org/reference/diamonds.html">ggplot2::diamonds</a></code> (this is the syntax for denoting which package a function or dataset comes from <code>packagename::functionname()</code>). This contains price and other attribute information about a large sample of diamonds.</p></li>
+<li><p>You can search a function or dataset name in the ‘Help’ tab or run <code>?&lt; function or dataset &gt;</code> to bring up the documentation.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">diamonds</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>To preview the dataset, we can click on it in the ‘Environment’ tab or run <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code>, which shows a better formatted preview than the standard <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function.</p></li>
+<li><p>Displayed results compactly show the number of observations, the number of variables and their corresponding data types and also some of the raw data.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 53,940
+Columns: 10
+$ carat   &lt;dbl&gt; 0.23, 0.21, 0.23, 0.29, 0.31, 0.24, 0.24, 0.26, 0.22, 0.23, 0.…
+$ cut     &lt;ord&gt; Ideal, Premium, Good, Premium, Good, Very Good, Very Good, Ver…
+$ color   &lt;ord&gt; E, E, E, I, J, J, I, H, E, H, J, J, F, J, E, E, I, J, J, J, I,…
+$ clarity &lt;ord&gt; SI2, SI1, VS1, VS2, SI2, VVS2, VVS1, SI1, VS2, VS1, SI1, VS1, …
+$ depth   &lt;dbl&gt; 61.5, 59.8, 56.9, 62.4, 63.3, 62.8, 62.3, 61.9, 65.1, 59.4, 64…
+$ table   &lt;dbl&gt; 55, 61, 65, 58, 58, 57, 57, 55, 61, 61, 55, 56, 61, 54, 62, 58…
+$ price   &lt;int&gt; 326, 326, 327, 334, 335, 336, 336, 337, 337, 338, 339, 340, 34…
+$ x       &lt;dbl&gt; 3.95, 3.89, 4.05, 4.20, 4.34, 3.94, 3.95, 4.07, 3.87, 4.00, 4.…
+$ y       &lt;dbl&gt; 3.98, 3.84, 4.07, 4.23, 4.35, 3.96, 3.98, 4.11, 3.78, 4.05, 4.…
+$ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39, 2.…</code></pre>
+</div>
+</div>
+</section><section id="ggplot2-basics-and-scatterplots" class="level2" data-number="28.3"><h2 data-number="28.3" class="anchored" data-anchor-id="ggplot2-basics-and-scatterplots">
+<span class="header-section-number">28.3</span> ggplot2 basics and scatterplots</h2>
+<section id="building-from-scratch" class="level3" data-number="28.3.1"><h3 data-number="28.3.1" class="anchored" data-anchor-id="building-from-scratch">
+<span class="header-section-number">28.3.1</span> Building from scratch</h3>
+<ul>
+<li><p>ggplot2 builds plots based on an approach called the <strong>grammar of graphics</strong> (hence “gg”plot2).</p></li>
+<li><p>The grammar of graphics approach requires explicit aesthetic mapping of data to geometric features.</p></li>
+<li><p>All plots follow a similar structure that builds up from the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function, which creates a “blank canvas”.</p></li>
+<li><p>And the first thing we can do is specify the dataset we will be using and rerun the code.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/canvas-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Now it is primed with the data, but we haven’t told it to do anything.</li>
+</ul></section><section id="aesthetic-mapping" class="level3" data-number="28.3.2"><h3 data-number="28.3.2" class="anchored" data-anchor-id="aesthetic-mapping">
+<span class="header-section-number">28.3.2</span> Aesthetic mapping</h3>
+<ul>
+<li><p>Next, we can add a layer of geometric features with <code>geom_*()</code>. This uses uses <strong>aesthetic mapping</strong>, which takes values of a variable and translates them into a visual feature.</p></li>
+<li><p>Choice of geometry depends on the data types of the variables of interest from the supplied dataset as well as the intent for creating the plot.</p></li>
+<li><p>In the example below, both variables (<code>carat</code> and <code>price</code>) are continuous. So we can use a scatterplot visualize their relationship. This is created by adding a layer of points via <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>.</p></li>
+<li><p>Simply use <code>+</code> between ggplot2 functions to add <strong>layers</strong>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>       y <span class="op">=</span> <span class="va">price</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `geom_point()`:
+! Problem while setting up geom.
+ℹ Error occurred in the 1st layer.
+Caused by error in `compute_geom_1()`:
+! `geom_point()` requires the following missing aesthetics: x and y</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The code above throws an error because R can’t find <code>carat</code> and <code>price</code> because it is looking for standalone objects (i.e.&nbsp;vectors named <code>carat</code> and <code>price</code>).</p></li>
+<li><p>So to tell R that the attributes are from the <code>diamonds</code> dataset, use the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> function. In other words, this function connects the plot features to the dataframe specified in the <code>data</code> argument. Lets correct the above code.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/aes-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-aes-ex" class="level3" data-number="28.3.3"><h3 data-number="28.3.3" class="anchored" data-anchor-id="sec-aes-ex">
+<span class="header-section-number">28.3.3</span> Exercise</h3>
+<ul>
+<li>Create a scatterplot for <code>table</code> vs <code>depth</code>.</li>
+</ul></section><section id="other-attributes" class="level3" data-number="28.3.4"><h3 data-number="28.3.4" class="anchored" data-anchor-id="other-attributes">
+<span class="header-section-number">28.3.4</span> Other attributes</h3>
+<ul>
+<li>Now we can adapt the scatterplot from above to learn more about function structure. Lets try to change the color of the points. A reasonable first attempt would be to specify a <code>color</code> argument.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">price</span>,</span>
+<span>           color <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/color-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This does not work as hoped. Because we specified within the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> function, <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> looks for the column <code>purple</code> in the dataset.</p></li>
+<li><p>So when it doesn’t find one, a new column <em>purple</em> is made and assigned this <em>same value to every observation</em>. And because this new column is being mapped to the color of the dots, <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> colors accordingly (although it’s not what we wanted).</p></li>
+<li><p>The solution to change the color of all data points is to relocate the <code>color</code> argument.</p></li>
+<li><p>Anything that is a <em>simple “constant” value</em> (i.e.&nbsp;not part of the data and just an option for visual look) should be specified <em>locally</em> and <em>outside</em> of the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> function.</p></li>
+<li><p>So lets correct it.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/color-constant-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="incorporating-more-variables-via-aes" class="level3" data-number="28.3.5"><h3 data-number="28.3.5" class="anchored" data-anchor-id="incorporating-more-variables-via-aes">
+<span class="header-section-number">28.3.5</span> Incorporating more variables via <code>aes()</code>
+</h3>
+<ul>
+<li><p>Only <em>data-driven attributes</em> go inside the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> function.</p></li>
+<li><p>To see how this works, let’s take a look at the <code>iris</code> dataset.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 150
+Columns: 5
+$ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.…
+$ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.…
+$ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.…
+$ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.…
+$ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</code></pre>
+</div>
+</div>
+<ul>
+<li><p>For this example, we want to create a scatterplot for <code>Sepal.Length</code> vs <code>Sepal.Width</code> and color each observation based on <code>Species</code>, while also changing the style of dot for every point.</p></li>
+<li><p>Note that color is a data-driven feature, and size / shape are simply constants.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">Sepal.Width</span>,</span>
+<span>          color <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>             shape <span class="op">=</span> <span class="st">"*"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/color-aes-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-aes-ex2" class="level3" data-number="28.3.6"><h3 data-number="28.3.6" class="anchored" data-anchor-id="sec-aes-ex2">
+<span class="header-section-number">28.3.6</span> Exercise</h3>
+<ul>
+<li>
+<p>Create a scatterplot using a sample of the <code>diamonds</code> dataset that includes the following features (code for the sample is provided, check the help page to see how it works!):</p>
+<ol type="a">
+<li><p>Visualizes <code>table</code> vs <code>depth</code>;</p></li>
+<li><p>Each observation is sized based on the weight <code>carat</code>;</p></li>
+<li><p>All observations have the shape of a diamond. <em>HINT: Google “geom_point() shapes”.</em></p></li>
+</ol>
+</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Now lets take a look at some different types of plots and more options to spruce them up.</li>
+</ul></section></section><section id="histograms" class="level2" data-number="28.4"><h2 data-number="28.4" class="anchored" data-anchor-id="histograms">
+<span class="header-section-number">28.4</span> Histograms</h2>
+<section id="geom_histogram" class="level3" data-number="28.4.1"><h3 data-number="28.4.1" class="anchored" data-anchor-id="geom_histogram">
+<span class="header-section-number">28.4.1</span> geom_histogram()</h3>
+<ul>
+<li><p>A basic <strong>histogram</strong> is a <em>univariate</em> plot that can be used for <em>continuous</em> variables and is created via <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>.</p></li>
+<li><p>Below we will code an example that shows the required mapping (i.e.&nbsp;arguments needed within the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> function along with some other relevant arguments for <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>.</p></li>
+<li><p>Search the help page for each <code>geom_*</code> to see which aesthetics are required and what else can be modified.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span> x <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>                 fill <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/hist-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Now let’s use the <code>iris</code> data to make another histogram, except we are going to incorporate another variable; specifically we want to visualize on the petal lengths <em>based on which species they are</em>.</p></li>
+<li><p>Note that to map species to the color of the bars, the <code>fill</code> argument should be used (using the <code>color</code> attribute only changes the outline color of the bars).</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span>,</span>
+<span>           fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/hist-color-aes-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-hist-ex" class="level3" data-number="28.4.2"><h3 data-number="28.4.2" class="anchored" data-anchor-id="sec-hist-ex">
+<span class="header-section-number">28.4.2</span> Exercise</h3>
+<ul>
+<li>Create a histogram for <code>carat</code> that has 20 bins with white bars and black outlines.</li>
+</ul></section><section id="titles-and-labels" class="level3" data-number="28.4.3"><h3 data-number="28.4.3" class="anchored" data-anchor-id="titles-and-labels">
+<span class="header-section-number">28.4.3</span> Titles and labels</h3>
+<ul>
+<li>We can use of the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> function which adds main titles, axis titles, etc. These labels can be tacked onto any ggplot2 plot. Let’s try it below.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>                 fill <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Histogram of diamond weights"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Weight in carats"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Count"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/labs-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-hist-ex2" class="level3" data-number="28.4.4"><h3 data-number="28.4.4" class="anchored" data-anchor-id="sec-hist-ex2">
+<span class="header-section-number">28.4.4</span> Exercise</h3>
+<ul>
+<li>
+<p>Modify the code used to make the previous plot to:</p>
+<ol type="a">
+<li><p>Visualize sepal length instead of petal length;</p></li>
+<li><p>Change the X-axis label to be more readable;</p></li>
+<li><p>Give the plot an informative title.</p></li>
+</ol>
+</li>
+</ul></section></section><section id="boxplots" class="level2" data-number="28.5"><h2 data-number="28.5" class="anchored" data-anchor-id="boxplots">
+<span class="header-section-number">28.5</span> Boxplots</h2>
+<section id="geom_boxplot" class="level3" data-number="28.5.1"><h3 data-number="28.5.1" class="anchored" data-anchor-id="geom_boxplot">
+<span class="header-section-number">28.5.1</span> geom_boxplot()</h3>
+<ul>
+<li><p>Boxplots are another common plot, which are used to visualize the distribution of a <em>numeric</em> variable. However, they no longer map the raw data.</p></li>
+<li><p>Instead, <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> maps the five number summary that is computed from the raw data.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-2.0292 -0.6498  0.1520  0.1249  0.8299  1.8949 </code></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/summ-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/summ-demo-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This is an example of when an aesthetic has an implicit transformation, which is then used to build the plot rather than straight from the raw data.</p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> requires a continuous variable to be mapped to either the <code>x</code> or <code>y</code> argument, depending on the desired orientation of the boxplot.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/boxplot-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-boxplot-ex" class="level3" data-number="28.5.2"><h3 data-number="28.5.2" class="anchored" data-anchor-id="sec-boxplot-ex">
+<span class="header-section-number">28.5.2</span> Exercise</h3>
+<ul>
+<li>Create a <em>vertical</em> boxplot of <code>Sepal.Length</code> using the <code>iris</code> dataset.</li>
+</ul></section><section id="comparitive-boxplots" class="level3" data-number="28.5.3"><h3 data-number="28.5.3" class="anchored" data-anchor-id="comparitive-boxplots">
+<span class="header-section-number">28.5.3</span> Comparitive boxplots</h3>
+<ul>
+<li>We can also make comparative (side-by-side) boxplots by mapping a categorical variable to the other axis. Lets see how to this works.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>    y <span class="op">=</span> <span class="va">cut</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/comp-boxplots-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This results in boxplots based on a single continuous variable, but grouped by the levels of the categorical variable. This is one way to plot a numerical response with a categorical explanatory variable.</p></li>
+<li><p>An advantage of this is that they are easier for comparing centers (medians) and spread (IQR), and can also highlights outliers. However with big data, it will often show many outliers that aren’t actually outliers (because the spread gets smaller and smaller as <span class="math inline">\(n\)</span> increases).</p></li>
+</ul></section><section id="transformations-and-more-customizations" class="level3" data-number="28.5.4"><h3 data-number="28.5.4" class="anchored" data-anchor-id="transformations-and-more-customizations">
+<span class="header-section-number">28.5.4</span> Transformations and more customizations</h3>
+<ul>
+<li><p>We can do transformations of the input variables directly within the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> call, without having to modify the data object itself.</p></li>
+<li><p>Just like the other geoms, we can modify some visual aspects of the layer.</p></li>
+<li><p>Then if we want to swap the axes, we can use <code><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip()</a></code>; this is one of many functions that can be used for further customization of most ggplots (others include <code>scale_*()</code>, <code>theme_*()</code>, etc.).</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">price</span><span class="op">/</span><span class="fl">1000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"darkblue"</span>,</span>
+<span>               color <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-16" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/boxplot-cust-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-16" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-boxplot-ex2" class="level3" data-number="28.5.5"><h3 data-number="28.5.5" class="anchored" data-anchor-id="sec-boxplot-ex2">
+<span class="header-section-number">28.5.5</span> Exercise</h3>
+<ul>
+<li>
+<p>Create a comparative boxplot using the <code>iris</code> dataset that includes the following features:</p>
+<ol type="a">
+<li><p>Compares <code>Sepal.Length</code> for each <code>Species</code>;</p></li>
+<li><p>Horizontal boxplots (more than one way to do this);</p></li>
+<li><p><code>Sepal.Length</code> is originally measured in millimeters (mm); convert this to meters (m) for this plot;</p></li>
+<li><p>More informative axis label for <code>Sepal.Length</code> based on new scale;</p></li>
+<li><p>A cool theme (try a few!).</p></li>
+</ol>
+</li>
+</ul></section></section><section id="bar-graphs" class="level2" data-number="28.6"><h2 data-number="28.6" class="anchored" data-anchor-id="bar-graphs">
+<span class="header-section-number">28.6</span> Bar graphs</h2>
+<section id="bar-graphs-1" class="level3" data-number="28.6.1"><h3 data-number="28.6.1" class="anchored" data-anchor-id="bar-graphs-1">
+<span class="header-section-number">28.6.1</span> Bar graphs</h3>
+<ul>
+<li><p>A bar graph (also known as bar chart or bar plot) is used for <em>categorical</em> data and assigns a height of a bar to the count of a group.</p></li>
+<li><p>Comparisons are made easier with visuals than just numbers (although keep in mind that sometimes simpler is better and a table suffices).</p></li>
+<li><p>Just like a boxplot, a bar graph is not plotting the raw data itself. Rather it uses a summary of the data, specifically the frequency (or relative frequency = frequency / total)</p></li>
+<li><p>There are two ways we can use <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> to make our bar graph, and it depends on the structure of the data.</p></li>
+</ul></section><section id="geom_bar-wtih-raw-data" class="level3" data-number="28.6.2"><h3 data-number="28.6.2" class="anchored" data-anchor-id="geom_bar-wtih-raw-data">
+<span class="header-section-number">28.6.2</span> geom_bar() wtih raw data</h3>
+<ul>
+<li><p>One way to make a bar graph is to just use the raw data and let <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> convert the data into counts behind the scenes, as shown below.</p></li>
+<li><p>Lets take a look at the data before plotting.</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["carat"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cut"],"name":[2],"type":["ord"],"align":["right"]},{"label":["color"],"name":[3],"type":["ord"],"align":["right"]},{"label":["clarity"],"name":[4],"type":["ord"],"align":["right"]},{"label":["depth"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["table"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[7],"type":["int"],"align":["right"]},{"label":["x"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.23","2":"Ideal","3":"E","4":"SI2","5":"61.5","6":"55","7":"326","8":"3.95","9":"3.98","10":"2.43"},{"1":"0.21","2":"Premium","3":"E","4":"SI1","5":"59.8","6":"61","7":"326","8":"3.89","9":"3.84","10":"2.31"},{"1":"0.23","2":"Good","3":"E","4":"VS1","5":"56.9","6":"65","7":"327","8":"4.05","9":"4.07","10":"2.31"},{"1":"0.29","2":"Premium","3":"I","4":"VS2","5":"62.4","6":"58","7":"334","8":"4.20","9":"4.23","10":"2.63"},{"1":"0.31","2":"Good","3":"J","4":"SI2","5":"63.3","6":"58","7":"335","8":"4.34","9":"4.35","10":"2.75"},{"1":"0.24","2":"Very Good","3":"J","4":"VVS2","5":"62.8","6":"57","7":"336","8":"3.94","9":"3.96","10":"2.48"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<ul>
+<li>By “raw data”, we mean there is one row for each observation. When this is the case, we don’t have to change any options in <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-17" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-raw-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-17" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="geom_bar-wtih-count-data" class="level3" data-number="28.6.3"><h3 data-number="28.6.3" class="anchored" data-anchor-id="geom_bar-wtih-count-data">
+<span class="header-section-number">28.6.3</span> geom_bar() wtih count data</h3>
+<ul>
+<li><p>Another way is to manually create the counts dataframe (aka frequency table) and make the bar graph from this summarized data.</p></li>
+<li><p>There are multiple ways to calculate the frequencies of each group in a dataframe. Two ways are shown below, using Base R <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> and the other using a tidyverse function <code><a href="https://dplyr.tidyverse.org/reference/count.html">dplyr::count()</a></code>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span>cut <span class="op">=</span> <span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "table"</code></pre>
+</div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span>cut <span class="op">=</span> <span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cut"],"name":[1],"type":["fct"],"align":["left"]},{"label":["Freq"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Fair","2":"1610"},{"1":"Good","2":"4906"},{"1":"Very Good","2":"12082"},{"1":"Premium","2":"13791"},{"1":"Ideal","2":"21551"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cut_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">cut_table</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5
+Columns: 2
+$ cut &lt;ord&gt; Fair, Good, Very Good, Premium, Ideal
+$ n   &lt;int&gt; 1610, 4906, 12082, 13791, 21551</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Now we have the frequency table, we can go into plotting it. But it will be different than how we used <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> last time because we are giving it <em>already summarized</em> data.</p></li>
+<li><p>Specifically we have the group label (our <code>x</code>) and the now specified count (height, <code>y</code>); so, we need to tell <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> to <em>not</em> do any statistical transformation on these variables (i.e.&nbsp;don’t count again). To do this, we use the option <code>stat = "identity"</code>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cut_table</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-18" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-stat-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-18" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Just like with most things, there is still another way to do this: <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col()</a></code> treats the <code>y</code> aesthetic as heights directly and we don’t have to specify anything else.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cut_table</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-19" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-col-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-19" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-bargraph-ex" class="level3" data-number="28.6.4"><h3 data-number="28.6.4" class="anchored" data-anchor-id="sec-bargraph-ex">
+<span class="header-section-number">28.6.4</span> Exercise</h3>
+<ul>
+<li>Copy the code below that creates a sample of the <code>iris</code> data and then create a bar graph of <code>Species</code>. <em>HINT: Make sure to inspect the data first.</em>
+</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a sample from of data and summarize</span></span>
+<span><span class="co"># -&gt; rename so in slightly different format than example and have to work with it</span></span>
+<span><span class="va">iris_sample</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Count <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create bar graph</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="displays-for-bivariate-categorical-data" class="level3" data-number="28.6.5"><h3 data-number="28.6.5" class="anchored" data-anchor-id="displays-for-bivariate-categorical-data">
+<span class="header-section-number">28.6.5</span> Displays for bivariate categorical data</h3>
+</section><section id="stacked-bar-graph" class="level3" data-number="28.6.6"><h3 data-number="28.6.6" class="anchored" data-anchor-id="stacked-bar-graph">
+<span class="header-section-number">28.6.6</span> Stacked bar graph</h3>
+<ul>
+<li><p>A common extension of a barplot is to show the breakdown of a second categorical variable within each bar. One way to do this is with a stacked bar graph.</p></li>
+<li><p>We can again use <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> (and let it do the counting). In order to differentiate between the two variables, we can specify <code>fill</code> in the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code>, just like we did with <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>,</span>
+<span>           fill <span class="op">=</span> <span class="va">clarity</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-20" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-stacked-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-20" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Notice that the y-axis on the plot is count, so all of the bars and segments are based on the frequency.</li>
+</ul></section><section id="proportionally-stacked-bar-graph" class="level3" data-number="28.6.7"><h3 data-number="28.6.7" class="anchored" data-anchor-id="proportionally-stacked-bar-graph">
+<span class="header-section-number">28.6.7</span> Proportionally stacked bar graph</h3>
+<ul>
+<li>If we want the plot to be more standardized-ish, we can make a proportionally stacked bar graph by specifying <code>position = "fill"</code>. This makes each bar have the same height and the segments corresponding to the second variable are broken out by percentage within each individual bar.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>,</span>
+<span>           fill <span class="op">=</span> <span class="va">clarity</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-21" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-prop-stacked-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-21" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This makes across group comparisons valid and easier because segments are no longer based on potentially very different sample sizes (technically, we are plotting the conditional distributions of clarity for each type of cut).</p></li>
+<li><p>The advantage of this display is that we can see if there are differences in the distributions of clarity across each cut (regardless of how many total diamonds belong to each cut).</p></li>
+</ul></section><section id="side-by-side-bar-graph" class="level3" data-number="28.6.8"><h3 data-number="28.6.8" class="anchored" data-anchor-id="side-by-side-bar-graph">
+<span class="header-section-number">28.6.8</span> Side-by-side bar graph</h3>
+<ul>
+<li>We can also incorporate the second variable by having side-by-side bars rather than stacked. To do this, we just have to set <code>position = "dodge"</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>,</span>
+<span>           fill <span class="op">=</span> <span class="va">clarity</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-22" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-prop-side-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-22" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>This display may tell a better story if it is important to keep an idea of sample size for each group combination. We can still tell that there are the most “Ideal” cut diamonds.</li>
+</ul></section><section id="sec-bargraph-2vars-ex" class="level3" data-number="28.6.9"><h3 data-number="28.6.9" class="anchored" data-anchor-id="sec-bargraph-2vars-ex">
+<span class="header-section-number">28.6.9</span> Exercise</h3>
+<ul>
+<li>Create a few different displays using the <code>diamonds</code> dataset that visualize <code>cut</code> and <code>color</code> together. Can you notice any trends or lack-thereof between the two variables? Explain.</li>
+</ul></section></section><section id="line-plots" class="level2" data-number="28.7"><h2 data-number="28.7" class="anchored" data-anchor-id="line-plots">
+<span class="header-section-number">28.7</span> Line plots</h2>
+<section id="geom_line" class="level3" data-number="28.7.1"><h3 data-number="28.7.1" class="anchored" data-anchor-id="geom_line">
+<span class="header-section-number">28.7.1</span> geom_line()</h3>
+<ul>
+<li><p>Another type of plot is a line plot. These are most commonly used when looking at a <em>quantitative</em> variable across time periods (aka time series data).</p></li>
+<li><p>Below is a look at the example data <code>sunspot.year</code>. As usual we should get familiar with the data first.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">sunspot.year</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Time-Series [1:289] from 1700 to 1988: 5 11 16 23 36 58 29 20 10 8 ...</code></pre>
+</div>
+</div>
+<ul>
+<li>Before plotting, we need to turn this into a dataframe and add a column indicating the year.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_sun</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1700</span><span class="op">:</span><span class="fl">1988</span><span class="op">)</span>,</span>
+<span>                       sunspots <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="va">sunspot.year</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data_sun</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 289
+Columns: 2
+$ year     &lt;int&gt; 1700, 1701, 1702, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1…
+$ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27, 47,…</code></pre>
+</div>
+</div>
+<ul>
+<li>This is an easy plot to make, just use <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line()</a></code> and specify the <code>x</code>, which is usually time, and <code>y</code> within the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_sun</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">sunspots</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-23" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/line-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-23" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="facets" class="level2" data-number="28.8"><h2 data-number="28.8" class="anchored" data-anchor-id="facets">
+<span class="header-section-number">28.8</span> Facets</h2>
+<section id="facets-1" class="level3" data-number="28.8.1"><h3 data-number="28.8.1" class="anchored" data-anchor-id="facets-1">
+<span class="header-section-number">28.8.1</span> Facets</h3>
+<ul>
+<li><p><em>Facets</em> (think subplots) are a data-driven feature that can be used to compare distributions based on the levels of other variables.</p></li>
+<li><p>Visually, this is done by splitting plots into different panels rather than one overall panel. There are multiple ways this can be done within ggplot2.</p></li>
+</ul></section><section id="facet_wrap" class="level3" data-number="28.8.2"><h3 data-number="28.8.2" class="anchored" data-anchor-id="facet_wrap">
+<span class="header-section-number">28.8.2</span> facet_wrap()</h3>
+<ul>
+<li><p>If we are facetting by <em>one categorical variable</em>, we want to use <code>facet_wrap(~ var)</code>.</p></li>
+<li><p>Note: the tilde <code>~</code> is used to make <strong>formula</strong> in R.</p></li>
+<li><p>Let’s create a scatterplot and add facets for <code>cut</code> to demonstrate this.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">table</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">depth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">cut</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-24" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/facet-wrap-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-24" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>We see that <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code> “wraps” the panels for a single factor rectangularly, which is ideal when there are many levels for the factor.</li>
+</ul></section><section id="controlling-rows-and-columns" class="level3" data-number="28.8.3"><h3 data-number="28.8.3" class="anchored" data-anchor-id="controlling-rows-and-columns">
+<span class="header-section-number">28.8.3</span> Controlling rows and columns</h3>
+<ul>
+<li>If we want to control how the panels are wrapped because we are trying to highlight some aspect, we can specify how many rows or columns of panels using the options <code>nrow</code> and <code>ncol</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">cut</span>,</span>
+<span>             ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-25" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/facet-wrap-1col-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-25" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Just be careful of overplotting, don’t want too many panels stacked together.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">clarity</span>,</span>
+<span>             ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-26" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/facet-wrap-bad-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-26" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="scales-for-facets" class="level3" data-number="28.8.4"><h3 data-number="28.8.4" class="anchored" data-anchor-id="scales-for-facets">
+<span class="header-section-number">28.8.4</span> Scales for facets</h3>
+<ul>
+<li>By default, all the panels will have the <em>same</em> scale for the numeric variable. This can distort some plots as shown below.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">cut</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-27" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/unnamed-chunk-4-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-27" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>To make the plots more readable, we can add an option to allow panels to have scales (min, max, tick marks, etc.) based on <em>only the data in the respective panel</em>, rather than the <em>collective data</em>.</p></li>
+<li><p>This is done via the <code>scales</code> argument; options are <code>"free_x"</code>, <code>"free_y"</code> or <code>"free"</code> (both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> scales are free).</p></li>
+<li><p>Now we can correct the above plot.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">cut</span>,</span>
+<span>             scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-28" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/facet-scales-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-28" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>This is another way to display numerical distributions for multiple groups. The advantage of creating multiple histograms is that they can show prevalence (i.e.&nbsp;frequencies) and modality of the distributions, whereas boxplots cannot.</li>
+</ul></section><section id="sec-facet-wrap-ex" class="level3" data-number="28.8.5"><h3 data-number="28.8.5" class="anchored" data-anchor-id="sec-facet-wrap-ex">
+<span class="header-section-number">28.8.5</span> Exercise</h3>
+<ul>
+<li>
+<p>Create a boxplots using the <code>iris</code> dataset that includes the following features:</p>
+<ol type="a">
+<li><p>Plots <code>Sepal.Length</code> faceted by <code>Species</code>;</p></li>
+<li><p>Stack the facets vertically to emphasize the differences between each Species;</p></li>
+<li><p>Think about if we want to adjust the scales of the panel, why or why not?</p></li>
+</ol>
+</li>
+<li><p>Note that we made this plot previously with comparitive boxplots by specifying <code>aes(y = Species)</code>; so this is an alternative.</p></li>
+</ul></section><section id="facet_grid" class="level3" data-number="28.8.6"><h3 data-number="28.8.6" class="anchored" data-anchor-id="facet_grid">
+<span class="header-section-number">28.8.6</span> facet_grid()</h3>
+<ul>
+<li><p>If we want to facet by <em>two categorical variables</em>, we should use <code>facet_grid(var1 ~ var 2)</code> as it can make a matrix of panels.</p></li>
+<li><p>Note that <code>var1</code> (before <code>~</code>) represents the rows and <code>var2</code> (after) is the columns.</p></li>
+<li><p>Lets create boxplots for each combination of <code>cut</code> and <code>color</code> for the <code>diamonds</code> dataset.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">table</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">cut</span> <span class="op">~</span> <span class="va">color</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-29" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/facet-grid-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-29" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Note that when using <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code>, we may need to fix the scales in the same way as with <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>. And just because we can make the plot means that it is good…</li>
+</ul></section><section id="sec-facet-grid-ex" class="level3" data-number="28.8.7"><h3 data-number="28.8.7" class="anchored" data-anchor-id="sec-facet-grid-ex">
+<span class="header-section-number">28.8.7</span> Exercise</h3>
+<ul>
+<li>Copy the code below that creates a sample from the <code>diamonds</code> dataset and create scatterplots of <code>carat</code> vs <code>price</code> that is colored by <code>cut</code> and facetted by <code>color</code> and <code>clarity</code>. Try a few different options for <code>scales</code> to see how they affect the plot.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a sample from of data with fewer levels (variety from ordinal scale of each)</span></span>
+<span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>         <span class="va">color</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">color</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>         <span class="va">clarity</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">clarity</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5000</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="density-histograms-and-density-curves" class="level2" data-number="28.9"><h2 data-number="28.9" class="anchored" data-anchor-id="density-histograms-and-density-curves">
+<span class="header-section-number">28.9</span> Density histograms and density curves</h2>
+<section id="density-histograms" class="level3" data-number="28.9.1"><h3 data-number="28.9.1" class="anchored" data-anchor-id="density-histograms">
+<span class="header-section-number">28.9.1</span> Density histograms</h3>
+<ul>
+<li><p>As we saw in the previous topic, if comparing a numeric distribution for a categorical explanatory variable, multiple histograms are a good option. But we had to allow varying scales between panels in order to have a readable plot.</p></li>
+<li><p>Another option if we are not concerned with counts (sample size), but rather <em>shape and modality</em> across groups, is to make the heights of bars <em>proportional</em>.</p></li>
+<li><p>We can think of this as each histogram having the same amount of “ink”, whcih is done by adding the condition that total heights must sum to 1. In essence, this standardizes heights.</p></li>
+<li><p>To do this, we map <code>y = after_stat(density)</code> in the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> statement (we won’t dig into how this works).</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>           y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">cut</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-30" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/density-hists-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-30" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>This can of course be done for a single histogram too.</li>
+</ul></section><section id="density-curves" class="level3" data-number="28.9.2"><h3 data-number="28.9.2" class="anchored" data-anchor-id="density-curves">
+<span class="header-section-number">28.9.2</span> Density curves</h3>
+<ul>
+<li><p>A density curve is related to the density histograms we just showed.</p></li>
+<li><p>As we have seen, (density) histograms are really choppy binned representations of data whose display can vary widely based on our selection of bin width / number of bins.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>           y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-31" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/density-hist_bins-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-31" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>A more objective way to represent the data is called a <strong>density curve</strong>, which is a <em>smooth curve</em> based off the observed data that has an area under the curve (AUC) of 1.</p></li>
+<li><p>We can think of this smooth curve as a blanket thrown over the top of our density histogram as shown below.</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-32" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/density-curve-hist-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-32" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Notice how the density curve still reflects the overall pattern of histograms, but it is much smoother.</p></li>
+<li><p>To create this by itself, use <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-33" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/density-curve-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-33" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-density-curve-ex" class="level3" data-number="28.9.3"><h3 data-number="28.9.3" class="anchored" data-anchor-id="sec-density-curve-ex">
+<span class="header-section-number">28.9.3</span> Exercise</h3>
+<ul>
+<li>
+<p>Use the <code>iris</code> dataset to do the following:</p>
+<ol type="a">
+<li><p>Create a density histogram of <code>Petal.Length</code>;</p></li>
+<li><p>Overlay a density curve of <code>Petal.Length</code>. <em>HINT: You can plot multiple geoms on the same plot simply by adding another layer.</em></p></li>
+</ol>
+</li>
+</ul></section><section id="multiple-density-curves" class="level3" data-number="28.9.4"><h3 data-number="28.9.4" class="anchored" data-anchor-id="multiple-density-curves">
+<span class="header-section-number">28.9.4</span> Multiple density curves</h3>
+<ul>
+<li><p>Density curves provide us with yet another way to visualize a quantitative distribution by group.</p></li>
+<li><p>Drawing multiple lines (density curves) on the same plot is often better than many histograms, because the histograms would have to be stacked.</p></li>
+<li><p>To distinguish between different groups when working with lines, we could use the aesthetics <code>linetype</code> or <code>color</code> (color will likely be easier to read, especially for several groups).</p></li>
+<li><p>We can also add some other options to make the lines stand out more.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>           color <span class="op">=</span> <span class="va">cut</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-34" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/density-curves-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-34" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Just be careful to not let the plot to get jumbled / messy with too many lines.</li>
+</ul></section><section id="amount-of-smoothing" class="level3" data-number="28.9.5"><h3 data-number="28.9.5" class="anchored" data-anchor-id="amount-of-smoothing">
+<span class="header-section-number">28.9.5</span> Amount of smoothing</h3>
+<ul>
+<li><p>One way to tweak the resulting curve is to change the amount of smoothing, which is a statistical parameter (not just a visual one like binwidth). To do this, use the <code>adjust</code> parameter.</p></li>
+<li><p>If adjustment is <em>larger</em> (e.g.&nbsp;<code>adjust = 2</code>), then the probability is more spread out and there is <em>less smoothing</em>; if <em>smaller</em> (e.g <code>adjust = 0.2</code>), then the smoothing is <em>more sensitive</em> and picks up on smaller patterns / spikes in the data.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>adjust <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-35" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/density-curve-adjust-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-35" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-density-curves-ex" class="level3" data-number="28.9.6"><h3 data-number="28.9.6" class="anchored" data-anchor-id="sec-density-curves-ex">
+<span class="header-section-number">28.9.6</span> Exercise</h3>
+<ul>
+<li>
+<p>Use the <code>iris</code> dataset to do the following:</p>
+<ol type="a">
+<li><p>Create density curves of a <code>Petal.Length</code> colored by each <code>Species</code>;</p></li>
+<li><p>Adjust the amount of smoothing to find a level that shows the overall trends well with some detail, but that is not overly exact (it’s a balance);</p></li>
+<li><p>Add <code>fill = Species</code> in the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> statement to see the result of this;</p></li>
+<li><p>Notice how the colors are completely opaque (not “see through”). To make them more transparent, add the following option locally <code>geom_density(alpha = 0.5)</code>. Try a few different values (<code>0 \le alpha \le 1</code>) to see the result. Note that this option can also be used with lots other <code>geom_*()</code> as well.</p></li>
+<li><p>What does this plot tell us about the petal lengths of the different species?</p></li>
+</ol>
+</li>
+</ul></section></section><section id="application" class="level2" data-number="28.10"><h2 data-number="28.10" class="anchored" data-anchor-id="application">
+<span class="header-section-number">28.10</span> Application</h2>
+<section id="recreating" class="level3" data-number="28.10.1"><h3 data-number="28.10.1" class="anchored" data-anchor-id="recreating">
+<span class="header-section-number">28.10.1</span> Recreating</h3>
+<ul>
+<li>Now we will return to the plots in the beginning of this section and recreate them.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load basketball data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"tutorials/visualizations/www/data-bsu-game.RData"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># filter to most recent season and take out the few neutral games</span></span>
+<span><span class="va">data_bsu_plot</span> <span class="op">&lt;-</span> <span class="va">bsu_game</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Season</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Season</span><span class="op">)</span>,</span>
+<span>         <span class="va">Location</span> <span class="op">!=</span> <span class="st">"Neutral"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># line plot of points over the season</span></span>
+<span><span class="co"># -&gt; specific colors by W/L and also take into account location with either the points (Visual 1)</span></span>
+<span><span class="co"># -&gt; add reference line for average points</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_bsu_plot</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">Points</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Outcome</span>,</span>
+<span>                 shape <span class="op">=</span> <span class="va">Location</span><span class="op">)</span>,</span>
+<span>             size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"lightgrey"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Points</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>             color <span class="op">=</span> <span class="st">"grey20"</span>,</span>
+<span>             linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"L"</span> <span class="op">=</span> <span class="st">"red"</span>, <span class="st">"W"</span> <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Home"</span> <span class="op">=</span> <span class="fl">19</span>, <span class="st">"Away"</span> <span class="op">=</span> <span class="fl">5</span>, <span class="st">"Neutral"</span> <span class="op">=</span> <span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Ball State Basketball 2012-13 Visual 1"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-36" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/application-ex1-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-36" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="sec-application-ex2" class="level3" data-number="28.10.2"><h3 data-number="28.10.2" class="anchored" data-anchor-id="sec-application-ex2">
+<span class="header-section-number">28.10.2</span> Exercise</h3>
+<ul>
+<li>Copy the final code used to create `Visual 1’ from above and modify it to recreate ‘Visual 2’.</li>
+</ul></section></section><section id="exercise-solutions" class="level2" data-number="28.11"><h2 data-number="28.11" class="anchored" data-anchor-id="exercise-solutions">
+<span class="header-section-number">28.11</span> Exercise solutions</h2>
+<p><a href="#sec-aes-ex" class="quarto-xref">Exercise&nbsp;<span>28.3.3</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">table</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">depth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-37" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/aes-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-37" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-aes-ex2" class="quarto-xref">Exercise&nbsp;<span>28.3.6</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create sample</span></span>
+<span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create scatterplot</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds_sample</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">table</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">depth</span>,</span>
+<span>           size <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-38" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/aes-ex2-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-38" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-hist-ex" class="quarto-xref">Exercise&nbsp;<span>28.4.2</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>                 fill <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-39" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/hist-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-39" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-hist-ex2" class="quarto-xref">Exercise&nbsp;<span>28.4.4</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>,</span>
+<span>           fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Sepal Length by Species"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Sepal Length (cm)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-40" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/hist-ex2-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-40" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-boxplot-ex" class="quarto-xref">Exercise&nbsp;<span>28.5.2</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">Sepal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-41" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/boxplot-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-41" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-boxplot-ex2" class="quarto-xref">Exercise&nbsp;<span>28.5.5</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># NOTE: if have X and Y aesthetics swapped, can use coord_flip() to get horizontal boxplots without changing your aes() statement</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">Sepal.Length</span> <span class="op">/</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Sepal Length (m)"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_light</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-42" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/boxplot-ex2-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-42" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-bargraph-ex" class="quarto-xref">Exercise&nbsp;<span>28.6.4</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a sample from of data and summarize</span></span>
+<span><span class="co"># -&gt; rename so in slightly different format than example and have to work with it</span></span>
+<span><span class="va">iris_sample</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Count <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># preview dataset to figure out structure</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">iris_sample</span><span class="op">)</span> <span class="co">#-&gt; count (summarized) data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 3
+Columns: 2
+$ Species &lt;fct&gt; setosa, versicolor, virginica
+$ Count   &lt;int&gt; 22, 16, 12</code></pre>
+</div>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create bar graph</span></span>
+<span><span class="co"># -&gt; way 1)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris_sample</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">Count</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-43" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-43" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># -&gt; way 2)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris_sample</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">Count</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-44" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-ex-solution-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-44" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-bargraph-2vars-ex" class="quarto-xref">Exercise&nbsp;<span>28.6.9</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># two of several plots that could be made</span></span>
+<span></span>
+<span><span class="co"># side-by-side bar graphs</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">color</span>,</span>
+<span>           fill <span class="op">=</span> <span class="va">cut</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-45" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-2vars-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-45" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># proportionally stacked bar graph</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>,</span>
+<span>           fill <span class="op">=</span> <span class="va">color</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-46" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/bargraph-2vars-solution-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-46" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># trends</span></span>
+<span><span class="co"># -&gt; colors E, F, amd G are the three most common</span></span>
+<span><span class="co"># -&gt; distributions of color are relatively the same across cuts (i.e. about same proportion of diamonds for each color regardless of cut)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="#sec-facet-wrap-ex" class="quarto-xref">Exercise&nbsp;<span>28.8.5</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">Species</span>,</span>
+<span>             ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-47" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/facet-wrap-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-47" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># we do NOT want to use scales = "free_x" because in order to have an equal comparison of the boxplots across species, we need them to be on the same scale</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="#sec-facet-grid-ex" class="quarto-xref">Exercise&nbsp;<span>28.8.7</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a sample from of data with fewer levels (variety from ordinal scale of each)</span></span>
+<span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>         <span class="va">color</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">color</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>         <span class="va">clarity</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">clarity</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5000</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create facetted scatterplots</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds_sample</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">price</span>,</span>
+<span>           color <span class="op">=</span> <span class="va">cut</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">color</span> <span class="op">~</span> <span class="va">clarity</span>,</span>
+<span>             scales <span class="op">=</span> <span class="st">"free"</span><span class="op">)</span> <span class="co"># both X and Y axes to be free (for the grid, not each individual panel)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-48" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/facet-grid-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-48" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-density-curve-ex" class="quarto-xref">Exercise&nbsp;<span>28.9.3</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span>,</span>
+<span>           y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-49" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/density-curve-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-49" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#sec-density-curves-ex" class="quarto-xref">Exercise&nbsp;<span>28.9.6</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span>,</span>
+<span>           color <span class="op">=</span> <span class="va">Species</span>,</span>
+<span>           fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>adjust <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>               alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-50" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/density-curves-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-50" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># two of the species have similar petal lengths, while one is well below the others</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="#sec-application-ex2" class="quarto-xref">Exercise&nbsp;<span>28.10.2</span></a></p>
+<div class="cell">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># line plot of points over the season</span></span>
+<span><span class="co"># -&gt; specific colors by W/L and also take into account location with facet (Visual 2)</span></span>
+<span><span class="co"># -&gt; add reference line for average points</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_bsu_plot</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">Points</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Outcome</span>,</span>
+<span>                 shape <span class="op">=</span> <span class="va">Location</span><span class="op">)</span>,</span>
+<span>             size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"lightgrey"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Points</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>             color <span class="op">=</span> <span class="st">"grey20"</span>,</span>
+<span>             linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"L"</span> <span class="op">=</span> <span class="st">"red"</span>, <span class="st">"W"</span> <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Home"</span> <span class="op">=</span> <span class="fl">19</span>, <span class="st">"Away"</span> <span class="op">=</span> <span class="fl">5</span>, <span class="st">"Neutral"</span> <span class="op">=</span> <span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Ball State Basketball 2012-13 Visual 1"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-51" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/application-ex2-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-51" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_bsu_plot</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">Points</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Outcome</span><span class="op">)</span>,</span>
+<span>             size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"lightgrey"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Points</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>             color <span class="op">=</span> <span class="st">"grey20"</span>,</span>
+<span>             linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"L"</span> <span class="op">=</span> <span class="st">"red"</span>, <span class="st">"W"</span> <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">Location</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Ball State Basketball 2012-13 Visual 2"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-52" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div>
+<img src="notes-r-visualizations_files/figure-html/application-ex2-solution-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-52" class="img-fluid figure-img" data-fig-pos="hold" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./intro-to-quarto.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./hw-r-visualizations.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

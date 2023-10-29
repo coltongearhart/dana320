@@ -5,7 +5,7 @@
 .DS_Store
 
 *.mp4
-*.html
+*SOLUTION.html
 *_cache/
 *_files/
 *_data/
