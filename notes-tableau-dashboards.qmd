@@ -1,4 +1,4 @@
-# Notes -- Parameters {#sec-notes-dashboards}
+# Notes -- Dashboards {#sec-notes-dashboards}
 
 ## Preface
 
