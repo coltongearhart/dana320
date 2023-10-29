@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.376">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>DANA 320 – Data Visualization - 31&nbsp; Notes – Reshaping and Combining Data</title>
+<title>DANA 320 –Data Visualization - 32&nbsp; Notes – Reshaping and Combining Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,17 +105,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-reshaping-and-combining-data.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Notes -- Reshaping and Combining Data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-reshaping-and-combining-data.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes -- Reshaping and Combining Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-reshaping-and-combining-data.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Notes -- Reshaping and Combining Data</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-reshaping-and-combining-data.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes -- Reshaping and Combining Data</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">
-<span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span>
+<span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span>
 </h1>
                       </div>
   </div>
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DANA 320 – Data Visualization</a> 
+      <a href="./">DANA 320 –<br>Data Visualization</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -172,8 +172,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./intro-how-to-navigate-this-course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Navigate this Course</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./intro-to-data-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
   </div>
 </li>
       </ul>
@@ -190,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quizzes-readings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reading Check Quizzes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reading Check Quizzes</span></span></a>
   </div>
 </li>
       </ul>
@@ -207,67 +213,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./install-excel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro-to-excel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-excel-basic-charts-in-excel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Notes – Basic Charts in Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Notes – Basic Charts in Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-excel-more-charts-in-excel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab – More Charts in Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab – More Charts in Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-excel-plots-for-analyses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">HW – Plots for Analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">HW – Plots for Analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-excel-reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Notes – Reports</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Notes – Reports</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-excel-pivot-tables-and-combining-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab – Pivot Tables and Combining Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lab – Pivot Tables and Combining Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-excel-creating-more-engaging-reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">HW – Creating More Engaging Reports</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">HW – Creating More Engaging Reports</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Notes – Dynamic Charts and Dashboards</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notes – Dynamic Charts and Dashboards</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lab – Dynamic Charts and Dashboards</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Lab – Dynamic Charts and Dashboards</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">HW – Dynamic Charts and Dashboards</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">HW – Dynamic Charts and Dashboards</span></span></a>
   </div>
 </li>
       </ul>
@@ -284,49 +290,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./install-tableau-and-tableau-prep-builder.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro-to-tableau.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Introduction to Tableau</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Tableau</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Notes – Working with Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Notes – Working with Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">HW – Working with Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">HW – Working with Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-tableau-parameters.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-tableau-parameters.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">HW – Parameters</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">HW – Parameters</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes – Dashboards</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">HW – Dashboards</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">HW – Dashboards</span></span></a>
   </div>
 </li>
       </ul>
@@ -343,67 +349,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./install-r-and-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Install R and RStudio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Install R and RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro-to-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro-to-quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-r-visualizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Notes – Visualizations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Notes – Visualizations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-r-visualizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-r-data-transformations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-r-data-transformations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-r-reshaping-and-combining-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-r-data-cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-r-data-manipulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">HW - Data Manipulations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">HW - Data Manipulations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
   </div>
 </li>
       </ul>
@@ -417,48 +423,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">31.1</span> Overview</a>
+<a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">32.1</span> Overview</a>
   <ul class="collapse">
-<li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">31.1.1</span> Materials</a></li>
-  <li><a href="#this-section" id="toc-this-section" class="nav-link" data-scroll-target="#this-section"><span class="header-section-number">31.1.2</span> This section</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><span class="header-section-number">31.1.3</span> Readings</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">31.1.4</span> Prerequisites</a></li>
+<li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">32.1.1</span> Materials</a></li>
+  <li><a href="#this-section" id="toc-this-section" class="nav-link" data-scroll-target="#this-section"><span class="header-section-number">32.1.2</span> This section</a></li>
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><span class="header-section-number">32.1.3</span> Readings</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">32.1.4</span> Prerequisites</a></li>
   </ul>
 </li>
   <li>
-<a href="#french-fry-example" id="toc-french-fry-example" class="nav-link" data-scroll-target="#french-fry-example"><span class="header-section-number">31.2</span> French fry example</a>
+<a href="#french-fry-example" id="toc-french-fry-example" class="nav-link" data-scroll-target="#french-fry-example"><span class="header-section-number">32.2</span> French fry example</a>
   <ul class="collapse">
-<li><a href="#importing-the-example-dataset" id="toc-importing-the-example-dataset" class="nav-link" data-scroll-target="#importing-the-example-dataset"><span class="header-section-number">31.2.1</span> Importing the example dataset</a></li>
-  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal"><span class="header-section-number">31.2.2</span> Goal</a></li>
-  <li><a href="#agreggating-and-plotting" id="toc-agreggating-and-plotting" class="nav-link" data-scroll-target="#agreggating-and-plotting"><span class="header-section-number">31.2.3</span> Agreggating and plotting</a></li>
-  <li><a href="#reshape-data" id="toc-reshape-data" class="nav-link" data-scroll-target="#reshape-data"><span class="header-section-number">31.2.4</span> Reshape data</a></li>
+<li><a href="#importing-the-example-dataset" id="toc-importing-the-example-dataset" class="nav-link" data-scroll-target="#importing-the-example-dataset"><span class="header-section-number">32.2.1</span> Importing the example dataset</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal"><span class="header-section-number">32.2.2</span> Goal</a></li>
+  <li><a href="#agreggating-and-plotting" id="toc-agreggating-and-plotting" class="nav-link" data-scroll-target="#agreggating-and-plotting"><span class="header-section-number">32.2.3</span> Agreggating and plotting</a></li>
+  <li><a href="#reshape-data" id="toc-reshape-data" class="nav-link" data-scroll-target="#reshape-data"><span class="header-section-number">32.2.4</span> Reshape data</a></li>
   </ul>
 </li>
   <li>
-<a href="#gapminder-example" id="toc-gapminder-example" class="nav-link" data-scroll-target="#gapminder-example"><span class="header-section-number">31.3</span> Gapminder example</a>
+<a href="#gapminder-example" id="toc-gapminder-example" class="nav-link" data-scroll-target="#gapminder-example"><span class="header-section-number">32.3</span> Gapminder example</a>
   <ul class="collapse">
-<li><a href="#read-in-datasets" id="toc-read-in-datasets" class="nav-link" data-scroll-target="#read-in-datasets"><span class="header-section-number">31.3.1</span> Read in datasets</a></li>
-  <li><a href="#reshape-datasets" id="toc-reshape-datasets" class="nav-link" data-scroll-target="#reshape-datasets"><span class="header-section-number">31.3.2</span> Reshape datasets</a></li>
-  <li><a href="#combine-datasets" id="toc-combine-datasets" class="nav-link" data-scroll-target="#combine-datasets"><span class="header-section-number">31.3.3</span> Combine datasets</a></li>
-  <li><a href="#visualize-data" id="toc-visualize-data" class="nav-link" data-scroll-target="#visualize-data"><span class="header-section-number">31.3.4</span> Visualize data</a></li>
+<li><a href="#read-in-datasets" id="toc-read-in-datasets" class="nav-link" data-scroll-target="#read-in-datasets"><span class="header-section-number">32.3.1</span> Read in datasets</a></li>
+  <li><a href="#reshape-datasets" id="toc-reshape-datasets" class="nav-link" data-scroll-target="#reshape-datasets"><span class="header-section-number">32.3.2</span> Reshape datasets</a></li>
+  <li><a href="#combine-datasets" id="toc-combine-datasets" class="nav-link" data-scroll-target="#combine-datasets"><span class="header-section-number">32.3.3</span> Combine datasets</a></li>
+  <li><a href="#visualize-data" id="toc-visualize-data" class="nav-link" data-scroll-target="#visualize-data"><span class="header-section-number">32.3.4</span> Visualize data</a></li>
   </ul>
 </li>
   <li>
-<a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">31.4</span> Application</a>
+<a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">32.4</span> Application</a>
   <ul class="collapse">
-<li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">31.4.1</span> Setup</a></li>
-  <li><a href="#sec-application-ex" id="toc-sec-application-ex" class="nav-link" data-scroll-target="#sec-application-ex"><span class="header-section-number">31.4.2</span> Part a)</a></li>
-  <li><a href="#sec-application2-ex" id="toc-sec-application2-ex" class="nav-link" data-scroll-target="#sec-application2-ex"><span class="header-section-number">31.4.3</span> Part b)</a></li>
+<li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">32.4.1</span> Setup</a></li>
+  <li><a href="#sec-application-ex" id="toc-sec-application-ex" class="nav-link" data-scroll-target="#sec-application-ex"><span class="header-section-number">32.4.2</span> Part a)</a></li>
+  <li><a href="#sec-application2-ex" id="toc-sec-application2-ex" class="nav-link" data-scroll-target="#sec-application2-ex"><span class="header-section-number">32.4.3</span> Part b)</a></li>
   </ul>
 </li>
-  <li><a href="#application-solutions" id="toc-application-solutions" class="nav-link" data-scroll-target="#application-solutions"><span class="header-section-number">31.5</span> Application solutions</a></li>
+  <li><a href="#application-solutions" id="toc-application-solutions" class="nav-link" data-scroll-target="#application-solutions"><span class="header-section-number">32.5</span> Application solutions</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="overview" class="level2" data-number="31.1"><h2 data-number="31.1" class="anchored" data-anchor-id="overview">
-<span class="header-section-number">31.1</span> Overview</h2>
-<section id="materials" class="level3" data-number="31.1.1"><h3 data-number="31.1.1" class="anchored" data-anchor-id="materials">
-<span class="header-section-number">31.1.1</span> Materials</h3>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="overview" class="level2" data-number="32.1"><h2 data-number="32.1" class="anchored" data-anchor-id="overview">
+<span class="header-section-number">32.1</span> Overview</h2>
+<section id="materials" class="level3" data-number="32.1.1"><h3 data-number="32.1.1" class="anchored" data-anchor-id="materials">
+<span class="header-section-number">32.1.1</span> Materials</h3>
 <ul>
 <li><p>Attached are all of the supplemental materials to this content! Feel free to check them out :)</p></li>
 <li>
@@ -472,8 +478,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>And finally here is the starter file mentioned and needed data for the content and exercises: <a href="https://github.com/coltongearhart/dana320/blob/main/tutorials/reshaping-and-combining-data/reshaping-and-combining-data-STARTER.qmd">reshaping-and-combining-data-STARTER.qmd</a> and <a href="https://github.com/coltongearhart/dana320/blob/main/tutorials/reshaping-and-combining-data/www/">data folder</a>
 </li>
-</ul></section><section id="this-section" class="level3" data-number="31.1.2"><h3 data-number="31.1.2" class="anchored" data-anchor-id="this-section">
-<span class="header-section-number">31.1.2</span> This section</h3>
+</ul></section><section id="this-section" class="level3" data-number="32.1.2"><h3 data-number="32.1.2" class="anchored" data-anchor-id="this-section">
+<span class="header-section-number">32.1.2</span> This section</h3>
 <ul>
 <li><p>In the previous tutorial, we learned how to transform our data for either for data cleaning, summarizing, or to get it into a form for different visualizations.</p></li>
 <li><p>Before either of these steps can be done, generally data needs to be worked with after importing.</p></li>
@@ -485,8 +491,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p><strong>tidyr</strong> is all about cleaning up messy data and turning it into well structured / organized objects. These objects are can be easily used across all packages in the <strong>tidyverse</strong> (e.g.&nbsp;<strong>ggplot2</strong>, <strong>dpylr</strong>, etc.), which makes common data analysis tasks flow much cleaner and smoother.</p>
-</section><section id="readings" class="level3" data-number="31.1.3"><h3 data-number="31.1.3" class="anchored" data-anchor-id="readings">
-<span class="header-section-number">31.1.3</span> Readings</h3>
+</section><section id="readings" class="level3" data-number="32.1.3"><h3 data-number="32.1.3" class="anchored" data-anchor-id="readings">
+<span class="header-section-number">32.1.3</span> Readings</h3>
 <ul>
 <li>
 <p>This section covers content from <a href="https://r4ds.hadley.nz/data-tidy">Chapter 6 - Data Tidying</a> of <em>R for Data Science (2e)</em>.</p>
@@ -495,18 +501,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </li>
 <li><p><a href="https://tidyr.tidyverse.org/index.html">tidyr help documentation</a> contains everything you need to know about <strong>tidyr</strong>, including a very helpful <a href="https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf">cheatsheet</a>.</p></li>
-</ul></section><section id="prerequisites" class="level3" data-number="31.1.4"><h3 data-number="31.1.4" class="anchored" data-anchor-id="prerequisites">
-<span class="header-section-number">31.1.4</span> Prerequisites</h3>
+</ul></section><section id="prerequisites" class="level3" data-number="32.1.4"><h3 data-number="32.1.4" class="anchored" data-anchor-id="prerequisites">
+<span class="header-section-number">32.1.4</span> Prerequisites</h3>
 <ul>
 <li>Before we can use the functions, datasets, and help pages within the <strong>tidyverse</strong> (which includes <strong>readr</strong>, <strong>tidyr</strong>, and <strong>dplyr</strong>), we need to load the package. We can do this by running:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="french-fry-example" class="level2" data-number="31.2"><h2 data-number="31.2" class="anchored" data-anchor-id="french-fry-example">
-<span class="header-section-number">31.2</span> French fry example</h2>
-<section id="importing-the-example-dataset" class="level3" data-number="31.2.1"><h3 data-number="31.2.1" class="anchored" data-anchor-id="importing-the-example-dataset">
-<span class="header-section-number">31.2.1</span> Importing the example dataset</h3>
+</section></section><section id="french-fry-example" class="level2" data-number="32.2"><h2 data-number="32.2" class="anchored" data-anchor-id="french-fry-example">
+<span class="header-section-number">32.2</span> French fry example</h2>
+<section id="importing-the-example-dataset" class="level3" data-number="32.2.1"><h3 data-number="32.2.1" class="anchored" data-anchor-id="importing-the-example-dataset">
+<span class="header-section-number">32.2.1</span> Importing the example dataset</h3>
 <ul>
 <li><p>The first step when working with data is to read it into R. There are functions to read in all types of data (Excel .csv and .xlsx. text files .txt, SAS files .sas7bdat, etc.).</p></li>
 <li><p>For an Excel .csv file, we will use <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code>, which has some advantages over the base R function <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code>.</p></li>
@@ -538,8 +544,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># alternative way to load in data with pre-specified attributes</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"tutorials/reshaping-and-combining-data/www/french_fries.RData"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="goal" class="level3" data-number="31.2.2"><h3 data-number="31.2.2" class="anchored" data-anchor-id="goal">
-<span class="header-section-number">31.2.2</span> Goal</h3>
+</section><section id="goal" class="level3" data-number="32.2.2"><h3 data-number="32.2.2" class="anchored" data-anchor-id="goal">
+<span class="header-section-number">32.2.2</span> Goal</h3>
 <ul>
 <li>The goal is to understand the data reshaping process to create the following visual.</li>
 </ul>
@@ -553,8 +559,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="agreggating-and-plotting" class="level3" data-number="31.2.3"><h3 data-number="31.2.3" class="anchored" data-anchor-id="agreggating-and-plotting">
-<span class="header-section-number">31.2.3</span> Agreggating and plotting</h3>
+</section><section id="agreggating-and-plotting" class="level3" data-number="32.2.3"><h3 data-number="32.2.3" class="anchored" data-anchor-id="agreggating-and-plotting">
+<span class="header-section-number">32.2.3</span> Agreggating and plotting</h3>
 <ul>
 <li><p>Before we can create the goal plot, lets create some simpler plots to build up to the goal.</p></li>
 <li><p>Lets start with a simple plot of the raw data.</p></li>
@@ -658,8 +664,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>When doing this, we want to think about the grouping variables and how can we visualize differences (if there are any).</p></li>
 <li><p>Aggregating to different levels reveals some information, but we also lose information because the data is based is now from a totally different perspective. So it’s important to keep this in mind when drawing conclusions.</p></li>
-</ul></section><section id="reshape-data" class="level3" data-number="31.2.4"><h3 data-number="31.2.4" class="anchored" data-anchor-id="reshape-data">
-<span class="header-section-number">31.2.4</span> Reshape data</h3>
+</ul></section><section id="reshape-data" class="level3" data-number="32.2.4"><h3 data-number="32.2.4" class="anchored" data-anchor-id="reshape-data">
+<span class="header-section-number">32.2.4</span> Reshape data</h3>
 <ul>
 <li><p>Currently, the dataset is in wide format. So the characteristics about a single observation are represented by many columns.</p></li>
 <li><p>However, the each of these characteristics are related in what they represent (i.e.&nbsp;different types of flavors). So it makes sense to instead have one column for type of flavor and another for respective flavor score (rather than one column for potato score, another for grassy score, etc.).</p></li>
@@ -744,13 +750,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [6,] TRUE      TRUE    TRUE TRUE   TRUE    TRUE   TRUE   TRUE   TRUE</code></pre>
 </div>
 </div>
-</section></section><section id="gapminder-example" class="level2" data-number="31.3"><h2 data-number="31.3" class="anchored" data-anchor-id="gapminder-example">
-<span class="header-section-number">31.3</span> Gapminder example</h2>
+</section></section><section id="gapminder-example" class="level2" data-number="32.3"><h2 data-number="32.3" class="anchored" data-anchor-id="gapminder-example">
+<span class="header-section-number">32.3</span> Gapminder example</h2>
 <ul>
 <li>To illustrate more examples of reshaping and also merging datasets, we will recreate the Hans Rosling Gapminder visualization.</li>
 </ul>
-<section id="read-in-datasets" class="level3" data-number="31.3.1"><h3 data-number="31.3.1" class="anchored" data-anchor-id="read-in-datasets">
-<span class="header-section-number">31.3.1</span> Read in datasets</h3>
+<section id="read-in-datasets" class="level3" data-number="32.3.1"><h3 data-number="32.3.1" class="anchored" data-anchor-id="read-in-datasets">
+<span class="header-section-number">32.3.1</span> Read in datasets</h3>
 <ul>
 <li>First we need to read in the multiple gapminder datasets (<a href="https://www.gapminder.org/data/">gapminder.org/data</a>) about life expectancy, income, population totals, and countries.</li>
 </ul>
@@ -797,8 +803,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="reshape-datasets" class="level3" data-number="31.3.2"><h3 data-number="31.3.2" class="anchored" data-anchor-id="reshape-datasets">
-<span class="header-section-number">31.3.2</span> Reshape datasets</h3>
+</section><section id="reshape-datasets" class="level3" data-number="32.3.2"><h3 data-number="32.3.2" class="anchored" data-anchor-id="reshape-datasets">
+<span class="header-section-number">32.3.2</span> Reshape datasets</h3>
 <ul>
 <li>Now the life expectancy, income and population totals need to be pivot to be long data, just like we did with the french fry data.</li>
 </ul>
@@ -840,8 +846,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="combine-datasets" class="level3" data-number="31.3.3"><h3 data-number="31.3.3" class="anchored" data-anchor-id="combine-datasets">
-<span class="header-section-number">31.3.3</span> Combine datasets</h3>
+</section><section id="combine-datasets" class="level3" data-number="32.3.3"><h3 data-number="32.3.3" class="anchored" data-anchor-id="combine-datasets">
+<span class="header-section-number">32.3.3</span> Combine datasets</h3>
 <ul>
 <li>Now that each dataset has been converted to long format, we can begin to combine each of them into a single dataset.</li>
 </ul>
@@ -882,8 +888,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="visualize-data" class="level3" data-number="31.3.4"><h3 data-number="31.3.4" class="anchored" data-anchor-id="visualize-data">
-<span class="header-section-number">31.3.4</span> Visualize data</h3>
+</section><section id="visualize-data" class="level3" data-number="32.3.4"><h3 data-number="32.3.4" class="anchored" data-anchor-id="visualize-data">
+<span class="header-section-number">32.3.4</span> Visualize data</h3>
 <ul>
 <li>Now that the data is merged, we can recreate the visual for a particular year.</li>
 </ul>
@@ -910,10 +916,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section></section><section id="application" class="level2" data-number="31.4"><h2 data-number="31.4" class="anchored" data-anchor-id="application">
-<span class="header-section-number">31.4</span> Application</h2>
-<section id="setup" class="level3" data-number="31.4.1"><h3 data-number="31.4.1" class="anchored" data-anchor-id="setup">
-<span class="header-section-number">31.4.1</span> Setup</h3>
+</section></section><section id="application" class="level2" data-number="32.4"><h2 data-number="32.4" class="anchored" data-anchor-id="application">
+<span class="header-section-number">32.4</span> Application</h2>
+<section id="setup" class="level3" data-number="32.4.1"><h3 data-number="32.4.1" class="anchored" data-anchor-id="setup">
+<span class="header-section-number">32.4.1</span> Setup</h3>
 <ul>
 <li>Load the halloween candy data (<a href="https://www.dataplusscience.com/HalloweenData.html">source</a>), which contains yearly data on the number of candies given to trick-or-treaters in Cincinnati, OH dating back to 2008 and the weather data from some of those dates.</li>
 </ul>
@@ -939,8 +945,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li>Note that the candy data is already in long format because the information is repeated for each time interval.</li>
-</ul></section><section id="sec-application-ex" class="level3" data-number="31.4.2"><h3 data-number="31.4.2" class="anchored" data-anchor-id="sec-application-ex">
-<span class="header-section-number">31.4.2</span> Part a)</h3>
+</ul></section><section id="sec-application-ex" class="level3" data-number="32.4.2"><h3 data-number="32.4.2" class="anchored" data-anchor-id="sec-application-ex">
+<span class="header-section-number">32.4.2</span> Part a)</h3>
 <ul>
 <li>If we want to recreate the following scatterplot which visualizes maximum temperatures and total candy count, we need to have the data in wide format so that there is a separate column for the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> variable.</li>
 </ul>
@@ -973,8 +979,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="3" type="1">
 <li><p>Pipe another statement to join the weather data to the updated <code>data_halloween_wide</code>. Be sure to pick the correct type of join so that we keep all of the candy data (there is not weather data for every year).</p></li>
 <li><p>Create the scatterplot of interest and try to add all of the extra features to make it a polished plot.</p></li>
-</ol></section><section id="sec-application2-ex" class="level3" data-number="31.4.3"><h3 data-number="31.4.3" class="anchored" data-anchor-id="sec-application2-ex">
-<span class="header-section-number">31.4.3</span> Part b)</h3>
+</ol></section><section id="sec-application2-ex" class="level3" data-number="32.4.3"><h3 data-number="32.4.3" class="anchored" data-anchor-id="sec-application2-ex">
+<span class="header-section-number">32.4.3</span> Part b)</h3>
 <ul>
 <li>Using the code chunk below, perform the necessary data steps and recreate the following plot that visualizes the candy count by time interval across years. Try to add all of the extra features to make it a polished plot. <em>HINT: To format the color of the lines, add <code><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer()</a></code> to your ggplot function call for the color palette used above.</em>
 </li>
@@ -989,9 +995,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section></section><section id="application-solutions" class="level2" data-number="31.5"><h2 data-number="31.5" class="anchored" data-anchor-id="application-solutions">
-<span class="header-section-number">31.5</span> Application solutions</h2>
-<p><a href="#sec-application-ex" class="quarto-xref">Application&nbsp;<span>31.4.2</span></a></p>
+</section></section><section id="application-solutions" class="level2" data-number="32.5"><h2 data-number="32.5" class="anchored" data-anchor-id="application-solutions">
+<span class="header-section-number">32.5</span> Application solutions</h2>
+<p><a href="#sec-application-ex" class="quarto-xref">Application&nbsp;<span>32.4.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># pivot to wide data, then calculate total candy count, and join with weather data</span></span>
 <span><span class="va">data_halloween_wide</span> <span class="op">&lt;-</span> <span class="va">data_candy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1021,7 +1027,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><a href="#sec-application2-ex" class="quarto-xref">Application&nbsp;<span>31.4.3</span></a></p>
+<p><a href="#sec-application2-ex" class="quarto-xref">Application&nbsp;<span>32.4.3</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># convert halloween data to long so can group by time interval for lines</span></span>
 <span><span class="va">data_halloween_long</span> <span class="op">&lt;-</span> <span class="va">data_halloween_wide</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1398,12 +1404,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./hw-r-data-transformations.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./lab-r-data-cleaning.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

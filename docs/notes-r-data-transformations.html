@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.376">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>DANA 320 – Data Visualization - 29&nbsp; Notes – Data Transformations</title>
+<title>DANA 320 –Data Visualization - 30&nbsp; Notes – Data Transformations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,17 +105,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-data-transformations.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Notes -- Data Transformations</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-data-transformations.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes -- Data Transformations</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-data-transformations.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Notes -- Data Transformations</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-data-transformations.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes -- Data Transformations</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">
-<span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span>
+<span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span>
 </h1>
                       </div>
   </div>
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DANA 320 – Data Visualization</a> 
+      <a href="./">DANA 320 –<br>Data Visualization</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -172,8 +172,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./intro-how-to-navigate-this-course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Navigate this Course</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./intro-to-data-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
   </div>
 </li>
       </ul>
@@ -190,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quizzes-readings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reading Check Quizzes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reading Check Quizzes</span></span></a>
   </div>
 </li>
       </ul>
@@ -207,67 +213,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./install-excel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro-to-excel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-excel-basic-charts-in-excel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Notes – Basic Charts in Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Notes – Basic Charts in Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-excel-more-charts-in-excel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab – More Charts in Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab – More Charts in Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-excel-plots-for-analyses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">HW – Plots for Analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">HW – Plots for Analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-excel-reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Notes – Reports</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Notes – Reports</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-excel-pivot-tables-and-combining-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab – Pivot Tables and Combining Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lab – Pivot Tables and Combining Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-excel-creating-more-engaging-reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">HW – Creating More Engaging Reports</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">HW – Creating More Engaging Reports</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Notes – Dynamic Charts and Dashboards</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notes – Dynamic Charts and Dashboards</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lab – Dynamic Charts and Dashboards</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Lab – Dynamic Charts and Dashboards</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">HW – Dynamic Charts and Dashboards</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">HW – Dynamic Charts and Dashboards</span></span></a>
   </div>
 </li>
       </ul>
@@ -284,49 +290,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./install-tableau-and-tableau-prep-builder.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro-to-tableau.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Introduction to Tableau</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Tableau</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Notes – Working with Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Notes – Working with Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">HW – Working with Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">HW – Working with Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-tableau-parameters.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-tableau-parameters.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">HW – Parameters</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">HW – Parameters</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes – Dashboards</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">HW – Dashboards</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">HW – Dashboards</span></span></a>
   </div>
 </li>
       </ul>
@@ -343,67 +349,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./install-r-and-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Install R and RStudio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Install R and RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro-to-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro-to-quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-r-visualizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Notes – Visualizations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Notes – Visualizations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-r-visualizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-r-data-transformations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-r-data-transformations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-r-reshaping-and-combining-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-r-data-cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hw-r-data-manipulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">HW - Data Manipulations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">HW - Data Manipulations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
   </div>
 </li>
       </ul>
@@ -417,116 +423,116 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">29.1</span> Overview</a>
+<a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">30.1</span> Overview</a>
   <ul class="collapse">
-<li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">29.1.1</span> Materials</a></li>
-  <li><a href="#this-section" id="toc-this-section" class="nav-link" data-scroll-target="#this-section"><span class="header-section-number">29.1.2</span> This section</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><span class="header-section-number">29.1.3</span> Readings</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">29.1.4</span> Prerequisites</a></li>
+<li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">30.1.1</span> Materials</a></li>
+  <li><a href="#this-section" id="toc-this-section" class="nav-link" data-scroll-target="#this-section"><span class="header-section-number">30.1.2</span> This section</a></li>
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><span class="header-section-number">30.1.3</span> Readings</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">30.1.4</span> Prerequisites</a></li>
   </ul>
 </li>
   <li>
-<a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics"><span class="header-section-number">29.2</span> Basics</a>
+<a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics"><span class="header-section-number">30.2</span> Basics</a>
   <ul class="collapse">
-<li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr"><span class="header-section-number">29.2.1</span> dplyr</a></li>
-  <li><a href="#dataframe-vs-tibble" id="toc-dataframe-vs-tibble" class="nav-link" data-scroll-target="#dataframe-vs-tibble"><span class="header-section-number">29.2.2</span> Dataframe vs Tibble</a></li>
-  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping"><span class="header-section-number">29.2.3</span> Piping</a></li>
+<li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr"><span class="header-section-number">30.2.1</span> dplyr</a></li>
+  <li><a href="#dataframe-vs-tibble" id="toc-dataframe-vs-tibble" class="nav-link" data-scroll-target="#dataframe-vs-tibble"><span class="header-section-number">30.2.2</span> Dataframe vs Tibble</a></li>
+  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping"><span class="header-section-number">30.2.3</span> Piping</a></li>
   </ul>
 </li>
   <li>
-<a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">29.3</span> Example</a>
+<a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">30.3</span> Example</a>
   <ul class="collapse">
-<li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset"><span class="header-section-number">29.3.1</span> Dataset</a></li>
-  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal"><span class="header-section-number">29.3.2</span> Goal</a></li>
+<li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset"><span class="header-section-number">30.3.1</span> Dataset</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal"><span class="header-section-number">30.3.2</span> Goal</a></li>
   </ul>
 </li>
   <li>
-<a href="#selecting-columns" id="toc-selecting-columns" class="nav-link" data-scroll-target="#selecting-columns"><span class="header-section-number">29.4</span> Selecting columns</a>
+<a href="#selecting-columns" id="toc-selecting-columns" class="nav-link" data-scroll-target="#selecting-columns"><span class="header-section-number">30.4</span> Selecting columns</a>
   <ul class="collapse">
-<li><a href="#select-basics" id="toc-select-basics" class="nav-link" data-scroll-target="#select-basics"><span class="header-section-number">29.4.1</span> select() basics</a></li>
-  <li><a href="#select-advanced" id="toc-select-advanced" class="nav-link" data-scroll-target="#select-advanced"><span class="header-section-number">29.4.2</span> select() advanced</a></li>
-  <li><a href="#sec-select-ex" id="toc-sec-select-ex" class="nav-link" data-scroll-target="#sec-select-ex"><span class="header-section-number">29.4.3</span> Exercise</a></li>
+<li><a href="#select-basics" id="toc-select-basics" class="nav-link" data-scroll-target="#select-basics"><span class="header-section-number">30.4.1</span> select() basics</a></li>
+  <li><a href="#select-advanced" id="toc-select-advanced" class="nav-link" data-scroll-target="#select-advanced"><span class="header-section-number">30.4.2</span> select() advanced</a></li>
+  <li><a href="#sec-select-ex" id="toc-sec-select-ex" class="nav-link" data-scroll-target="#sec-select-ex"><span class="header-section-number">30.4.3</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns"><span class="header-section-number">29.5</span> Renaming columns</a>
+<a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns"><span class="header-section-number">30.5</span> Renaming columns</a>
   <ul class="collapse">
-<li><a href="#rename-basics" id="toc-rename-basics" class="nav-link" data-scroll-target="#rename-basics"><span class="header-section-number">29.5.1</span> rename() basics</a></li>
-  <li><a href="#sec-rename-ex" id="toc-sec-rename-ex" class="nav-link" data-scroll-target="#sec-rename-ex"><span class="header-section-number">29.5.2</span> Exercise</a></li>
+<li><a href="#rename-basics" id="toc-rename-basics" class="nav-link" data-scroll-target="#rename-basics"><span class="header-section-number">30.5.1</span> rename() basics</a></li>
+  <li><a href="#sec-rename-ex" id="toc-sec-rename-ex" class="nav-link" data-scroll-target="#sec-rename-ex"><span class="header-section-number">30.5.2</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#relocating-columns" id="toc-relocating-columns" class="nav-link" data-scroll-target="#relocating-columns"><span class="header-section-number">29.6</span> Relocating columns</a>
+<a href="#relocating-columns" id="toc-relocating-columns" class="nav-link" data-scroll-target="#relocating-columns"><span class="header-section-number">30.6</span> Relocating columns</a>
   <ul class="collapse">
-<li><a href="#relocate-basics" id="toc-relocate-basics" class="nav-link" data-scroll-target="#relocate-basics"><span class="header-section-number">29.6.1</span> relocate() basics</a></li>
-  <li><a href="#sec-relocate-ex" id="toc-sec-relocate-ex" class="nav-link" data-scroll-target="#sec-relocate-ex"><span class="header-section-number">29.6.2</span> Exercise</a></li>
+<li><a href="#relocate-basics" id="toc-relocate-basics" class="nav-link" data-scroll-target="#relocate-basics"><span class="header-section-number">30.6.1</span> relocate() basics</a></li>
+  <li><a href="#sec-relocate-ex" id="toc-sec-relocate-ex" class="nav-link" data-scroll-target="#sec-relocate-ex"><span class="header-section-number">30.6.2</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows"><span class="header-section-number">29.7</span> Filtering rows</a>
+<a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows"><span class="header-section-number">30.7</span> Filtering rows</a>
   <ul class="collapse">
-<li><a href="#filter-basics" id="toc-filter-basics" class="nav-link" data-scroll-target="#filter-basics"><span class="header-section-number">29.7.1</span> filter() basics</a></li>
-  <li><a href="#sec-filter-ex" id="toc-sec-filter-ex" class="nav-link" data-scroll-target="#sec-filter-ex"><span class="header-section-number">29.7.2</span> Exercise</a></li>
+<li><a href="#filter-basics" id="toc-filter-basics" class="nav-link" data-scroll-target="#filter-basics"><span class="header-section-number">30.7.1</span> filter() basics</a></li>
+  <li><a href="#sec-filter-ex" id="toc-sec-filter-ex" class="nav-link" data-scroll-target="#sec-filter-ex"><span class="header-section-number">30.7.2</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#ordering-rows" id="toc-ordering-rows" class="nav-link" data-scroll-target="#ordering-rows"><span class="header-section-number">29.8</span> Ordering rows</a>
+<a href="#ordering-rows" id="toc-ordering-rows" class="nav-link" data-scroll-target="#ordering-rows"><span class="header-section-number">30.8</span> Ordering rows</a>
   <ul class="collapse">
-<li><a href="#arrange-basics" id="toc-arrange-basics" class="nav-link" data-scroll-target="#arrange-basics"><span class="header-section-number">29.8.1</span> arrange() basics</a></li>
-  <li><a href="#sec-arrange-ex" id="toc-sec-arrange-ex" class="nav-link" data-scroll-target="#sec-arrange-ex"><span class="header-section-number">29.8.2</span> Exercise</a></li>
+<li><a href="#arrange-basics" id="toc-arrange-basics" class="nav-link" data-scroll-target="#arrange-basics"><span class="header-section-number">30.8.1</span> arrange() basics</a></li>
+  <li><a href="#sec-arrange-ex" id="toc-sec-arrange-ex" class="nav-link" data-scroll-target="#sec-arrange-ex"><span class="header-section-number">30.8.2</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#finding-unique-rows" id="toc-finding-unique-rows" class="nav-link" data-scroll-target="#finding-unique-rows"><span class="header-section-number">29.9</span> Finding unique rows</a>
+<a href="#finding-unique-rows" id="toc-finding-unique-rows" class="nav-link" data-scroll-target="#finding-unique-rows"><span class="header-section-number">30.9</span> Finding unique rows</a>
   <ul class="collapse">
-<li><a href="#distinct-basics" id="toc-distinct-basics" class="nav-link" data-scroll-target="#distinct-basics"><span class="header-section-number">29.9.1</span> distinct() basics</a></li>
-  <li><a href="#sec-distinct-ex" id="toc-sec-distinct-ex" class="nav-link" data-scroll-target="#sec-distinct-ex"><span class="header-section-number">29.9.2</span> Exercise</a></li>
+<li><a href="#distinct-basics" id="toc-distinct-basics" class="nav-link" data-scroll-target="#distinct-basics"><span class="header-section-number">30.9.1</span> distinct() basics</a></li>
+  <li><a href="#sec-distinct-ex" id="toc-sec-distinct-ex" class="nav-link" data-scroll-target="#sec-distinct-ex"><span class="header-section-number">30.9.2</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#creating-editing-columns" id="toc-creating-editing-columns" class="nav-link" data-scroll-target="#creating-editing-columns"><span class="header-section-number">29.10</span> Creating / editing columns</a>
+<a href="#creating-editing-columns" id="toc-creating-editing-columns" class="nav-link" data-scroll-target="#creating-editing-columns"><span class="header-section-number">30.10</span> Creating / editing columns</a>
   <ul class="collapse">
-<li><a href="#mutate-basics" id="toc-mutate-basics" class="nav-link" data-scroll-target="#mutate-basics"><span class="header-section-number">29.10.1</span> mutate() basics</a></li>
-  <li><a href="#mutate-advanced" id="toc-mutate-advanced" class="nav-link" data-scroll-target="#mutate-advanced"><span class="header-section-number">29.10.2</span> mutate() advanced</a></li>
-  <li><a href="#sec-mutate-ex" id="toc-sec-mutate-ex" class="nav-link" data-scroll-target="#sec-mutate-ex"><span class="header-section-number">29.10.3</span> Exercise</a></li>
+<li><a href="#mutate-basics" id="toc-mutate-basics" class="nav-link" data-scroll-target="#mutate-basics"><span class="header-section-number">30.10.1</span> mutate() basics</a></li>
+  <li><a href="#mutate-advanced" id="toc-mutate-advanced" class="nav-link" data-scroll-target="#mutate-advanced"><span class="header-section-number">30.10.2</span> mutate() advanced</a></li>
+  <li><a href="#sec-mutate-ex" id="toc-sec-mutate-ex" class="nav-link" data-scroll-target="#sec-mutate-ex"><span class="header-section-number">30.10.3</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#summarize-columns" id="toc-summarize-columns" class="nav-link" data-scroll-target="#summarize-columns"><span class="header-section-number">29.11</span> Summarize columns</a>
+<a href="#summarize-columns" id="toc-summarize-columns" class="nav-link" data-scroll-target="#summarize-columns"><span class="header-section-number">30.11</span> Summarize columns</a>
   <ul class="collapse">
-<li><a href="#summarize-basics" id="toc-summarize-basics" class="nav-link" data-scroll-target="#summarize-basics"><span class="header-section-number">29.11.1</span> summarize() basics</a></li>
-  <li><a href="#summarize-advanced" id="toc-summarize-advanced" class="nav-link" data-scroll-target="#summarize-advanced"><span class="header-section-number">29.11.2</span> summarize() advanced</a></li>
-  <li><a href="#sec-summarize-ex" id="toc-sec-summarize-ex" class="nav-link" data-scroll-target="#sec-summarize-ex"><span class="header-section-number">29.11.3</span> Exercise</a></li>
+<li><a href="#summarize-basics" id="toc-summarize-basics" class="nav-link" data-scroll-target="#summarize-basics"><span class="header-section-number">30.11.1</span> summarize() basics</a></li>
+  <li><a href="#summarize-advanced" id="toc-summarize-advanced" class="nav-link" data-scroll-target="#summarize-advanced"><span class="header-section-number">30.11.2</span> summarize() advanced</a></li>
+  <li><a href="#sec-summarize-ex" id="toc-sec-summarize-ex" class="nav-link" data-scroll-target="#sec-summarize-ex"><span class="header-section-number">30.11.3</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#groups" id="toc-groups" class="nav-link" data-scroll-target="#groups"><span class="header-section-number">29.12</span> Groups</a>
+<a href="#groups" id="toc-groups" class="nav-link" data-scroll-target="#groups"><span class="header-section-number">30.12</span> Groups</a>
   <ul class="collapse">
-<li><a href="#group_by-basics" id="toc-group_by-basics" class="nav-link" data-scroll-target="#group_by-basics"><span class="header-section-number">29.12.1</span> group_by() basics</a></li>
-  <li><a href="#summarize-grouped-data" id="toc-summarize-grouped-data" class="nav-link" data-scroll-target="#summarize-grouped-data"><span class="header-section-number">29.12.2</span> Summarize grouped data</a></li>
-  <li><a href="#sec-groups-ex" id="toc-sec-groups-ex" class="nav-link" data-scroll-target="#sec-groups-ex"><span class="header-section-number">29.12.3</span> Exercise</a></li>
-  <li><a href="#ungroup-basics" id="toc-ungroup-basics" class="nav-link" data-scroll-target="#ungroup-basics"><span class="header-section-number">29.12.4</span> ungroup() basics</a></li>
-  <li><a href="#by-argument" id="toc-by-argument" class="nav-link" data-scroll-target="#by-argument"><span class="header-section-number">29.12.5</span> .by argument</a></li>
-  <li><a href="#group_by-with-other-functions" id="toc-group_by-with-other-functions" class="nav-link" data-scroll-target="#group_by-with-other-functions"><span class="header-section-number">29.12.6</span> group_by() with other functions</a></li>
-  <li><a href="#slice-and-slice_" id="toc-slice-and-slice_" class="nav-link" data-scroll-target="#slice-and-slice_"><span class="header-section-number">29.12.7</span> slice() and slice_*()</a></li>
-  <li><a href="#sec-groups-ex2" id="toc-sec-groups-ex2" class="nav-link" data-scroll-target="#sec-groups-ex2"><span class="header-section-number">29.12.8</span> Exercise</a></li>
+<li><a href="#group_by-basics" id="toc-group_by-basics" class="nav-link" data-scroll-target="#group_by-basics"><span class="header-section-number">30.12.1</span> group_by() basics</a></li>
+  <li><a href="#summarize-grouped-data" id="toc-summarize-grouped-data" class="nav-link" data-scroll-target="#summarize-grouped-data"><span class="header-section-number">30.12.2</span> Summarize grouped data</a></li>
+  <li><a href="#sec-groups-ex" id="toc-sec-groups-ex" class="nav-link" data-scroll-target="#sec-groups-ex"><span class="header-section-number">30.12.3</span> Exercise</a></li>
+  <li><a href="#ungroup-basics" id="toc-ungroup-basics" class="nav-link" data-scroll-target="#ungroup-basics"><span class="header-section-number">30.12.4</span> ungroup() basics</a></li>
+  <li><a href="#by-argument" id="toc-by-argument" class="nav-link" data-scroll-target="#by-argument"><span class="header-section-number">30.12.5</span> .by argument</a></li>
+  <li><a href="#group_by-with-other-functions" id="toc-group_by-with-other-functions" class="nav-link" data-scroll-target="#group_by-with-other-functions"><span class="header-section-number">30.12.6</span> group_by() with other functions</a></li>
+  <li><a href="#slice-and-slice_" id="toc-slice-and-slice_" class="nav-link" data-scroll-target="#slice-and-slice_"><span class="header-section-number">30.12.7</span> slice() and slice_*()</a></li>
+  <li><a href="#sec-groups-ex2" id="toc-sec-groups-ex2" class="nav-link" data-scroll-target="#sec-groups-ex2"><span class="header-section-number">30.12.8</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">29.13</span> Application</a>
+<a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">30.13</span> Application</a>
   <ul class="collapse">
-<li><a href="#recreating" id="toc-recreating" class="nav-link" data-scroll-target="#recreating"><span class="header-section-number">29.13.1</span> Recreating</a></li>
-  <li><a href="#sec-application-ex" id="toc-sec-application-ex" class="nav-link" data-scroll-target="#sec-application-ex"><span class="header-section-number">29.13.2</span> Exercise</a></li>
+<li><a href="#recreating" id="toc-recreating" class="nav-link" data-scroll-target="#recreating"><span class="header-section-number">30.13.1</span> Recreating</a></li>
+  <li><a href="#sec-application-ex" id="toc-sec-application-ex" class="nav-link" data-scroll-target="#sec-application-ex"><span class="header-section-number">30.13.2</span> Exercise</a></li>
   </ul>
 </li>
-  <li><a href="#exercise-solutions" id="toc-exercise-solutions" class="nav-link" data-scroll-target="#exercise-solutions"><span class="header-section-number">29.14</span> Exercise solutions</a></li>
+  <li><a href="#exercise-solutions" id="toc-exercise-solutions" class="nav-link" data-scroll-target="#exercise-solutions"><span class="header-section-number">30.14</span> Exercise solutions</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="overview" class="level2" data-number="29.1"><h2 data-number="29.1" class="anchored" data-anchor-id="overview">
-<span class="header-section-number">29.1</span> Overview</h2>
-<section id="materials" class="level3" data-number="29.1.1"><h3 data-number="29.1.1" class="anchored" data-anchor-id="materials">
-<span class="header-section-number">29.1.1</span> Materials</h3>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="overview" class="level2" data-number="30.1"><h2 data-number="30.1" class="anchored" data-anchor-id="overview">
+<span class="header-section-number">30.1</span> Overview</h2>
+<section id="materials" class="level3" data-number="30.1.1"><h3 data-number="30.1.1" class="anchored" data-anchor-id="materials">
+<span class="header-section-number">30.1.1</span> Materials</h3>
 <ul>
 <li><p>Attached are all of the supplemental materials to this content! Feel free to check them out :)</p></li>
 <li>
@@ -541,8 +547,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>And finally here is the starter file mentioned: <a href="https://github.com/coltongearhart/dana320/blob/main/tutorials/data-transformations/data-transformations-STARTER.qmd">data-transformations-STARTER.qmd</a>
 </li>
-</ul></section><section id="this-section" class="level3" data-number="29.1.2"><h3 data-number="29.1.2" class="anchored" data-anchor-id="this-section">
-<span class="header-section-number">29.1.2</span> This section</h3>
+</ul></section><section id="this-section" class="level3" data-number="30.1.2"><h3 data-number="30.1.2" class="anchored" data-anchor-id="this-section">
+<span class="header-section-number">30.1.2</span> This section</h3>
 <ul>
 <li><p>In the previous tutorial, we learned how to create many different visuals to display one or several quantitative and/or qualitative variables.</p></li>
 <li><p>However, creating visuals is one of the later steps in the process of data visualization.</p></li>
@@ -556,13 +562,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Nearly always we have to work with the data at least a little bit to get it into the form we need for the visuals we plan to make.</p></li>
 <li><p>Now in this section, we are going to learn the different data transformation methods provided by another core package of the <strong>tidyverse</strong> called <strong>dplyr</strong>. Specifically, we will learn how to subset data (both rows and columns), create new columns and summarize data.</p></li>
-</ul></section><section id="readings" class="level3" data-number="29.1.3"><h3 data-number="29.1.3" class="anchored" data-anchor-id="readings">
-<span class="header-section-number">29.1.3</span> Readings</h3>
+</ul></section><section id="readings" class="level3" data-number="30.1.3"><h3 data-number="30.1.3" class="anchored" data-anchor-id="readings">
+<span class="header-section-number">30.1.3</span> Readings</h3>
 <ul>
 <li><p>This section covers content from <a href="https://r4ds.hadley.nz/data-transform">Chapter 4 - Data Transformation</a> of <em>R for Data Science (2e)</em>.</p></li>
 <li><p><a href="https://dplyr.tidyverse.org/index.html">dplyr help documentation</a> contains everything you need to know about <strong>dplyr</strong>, including a very helpful <a href="https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf">cheatsheet</a>.</p></li>
-</ul></section><section id="prerequisites" class="level3" data-number="29.1.4"><h3 data-number="29.1.4" class="anchored" data-anchor-id="prerequisites">
-<span class="header-section-number">29.1.4</span> Prerequisites</h3>
+</ul></section><section id="prerequisites" class="level3" data-number="30.1.4"><h3 data-number="30.1.4" class="anchored" data-anchor-id="prerequisites">
+<span class="header-section-number">30.1.4</span> Prerequisites</h3>
 <ul>
 <li>
 <p>In addition to the <strong>tidyverse</strong> which includes <strong>dyplr</strong>, we need to load (and install if necessary) the following package:</p>
@@ -576,10 +582,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://CRAN.R-project.org/package=Lahman">Lahman</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="basics" class="level2" data-number="29.2"><h2 data-number="29.2" class="anchored" data-anchor-id="basics">
-<span class="header-section-number">29.2</span> Basics</h2>
-<section id="dplyr" class="level3" data-number="29.2.1"><h3 data-number="29.2.1" class="anchored" data-anchor-id="dplyr">
-<span class="header-section-number">29.2.1</span> dplyr</h3>
+</section></section><section id="basics" class="level2" data-number="30.2"><h2 data-number="30.2" class="anchored" data-anchor-id="basics">
+<span class="header-section-number">30.2</span> Basics</h2>
+<section id="dplyr" class="level3" data-number="30.2.1"><h3 data-number="30.2.1" class="anchored" data-anchor-id="dplyr">
+<span class="header-section-number">30.2.1</span> dplyr</h3>
 <ul>
 <li><p>Throughout this section we will demonstrate several <strong>dplyr</strong> functions that perform the big picture data transformations tasks like filtering, organizing columns, creating new columns, etc.</p></li>
 <li>
@@ -590,8 +596,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The output is always a new data frame (or tibble).</p></li>
 </ul>
 </li>
-</ul></section><section id="dataframe-vs-tibble" class="level3" data-number="29.2.2"><h3 data-number="29.2.2" class="anchored" data-anchor-id="dataframe-vs-tibble">
-<span class="header-section-number">29.2.2</span> Dataframe vs Tibble</h3>
+</ul></section><section id="dataframe-vs-tibble" class="level3" data-number="30.2.2"><h3 data-number="30.2.2" class="anchored" data-anchor-id="dataframe-vs-tibble">
+<span class="header-section-number">30.2.2</span> Dataframe vs Tibble</h3>
 <ul>
 <li><p>A <strong>dataframe</strong> is a data type in R that we have been working with (think of it as a table in Excel, rows and columns).</p></li>
 <li><p>All of the functions we will use / have used work perfectly fine with this data type.</p></li>
@@ -613,8 +619,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><code>&lt;dttm&gt;</code> for date-time.</p></li>
 </ul>
 </li>
-</ul></section><section id="piping" class="level3" data-number="29.2.3"><h3 data-number="29.2.3" class="anchored" data-anchor-id="piping">
-<span class="header-section-number">29.2.3</span> Piping</h3>
+</ul></section><section id="piping" class="level3" data-number="30.2.3"><h3 data-number="30.2.3" class="anchored" data-anchor-id="piping">
+<span class="header-section-number">30.2.3</span> Piping</h3>
 <ul>
 <li><p>Often, we want to perform multiple functions, i.e.&nbsp;take an object, do something to it, then do something to the output.</p></li>
 <li><p>One way to do this is with <em>nesting</em> functions → <code>f(x)</code>.</p></li>
@@ -644,10 +650,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li>There is a base R version of the pipe as well <code>|&gt;</code>, but we will continue to use <code>%&gt;%</code> (it has some better functionality that we won’t dive into).</li>
-</ul></section></section><section id="example" class="level2" data-number="29.3"><h2 data-number="29.3" class="anchored" data-anchor-id="example">
-<span class="header-section-number">29.3</span> Example</h2>
-<section id="dataset" class="level3" data-number="29.3.1"><h3 data-number="29.3.1" class="anchored" data-anchor-id="dataset">
-<span class="header-section-number">29.3.1</span> Dataset</h3>
+</ul></section></section><section id="example" class="level2" data-number="30.3"><h2 data-number="30.3" class="anchored" data-anchor-id="example">
+<span class="header-section-number">30.3</span> Example</h2>
+<section id="dataset" class="level3" data-number="30.3.1"><h3 data-number="30.3.1" class="anchored" data-anchor-id="dataset">
+<span class="header-section-number">30.3.1</span> Dataset</h3>
 <ul>
 <li><p>We are going to use <code><a href="https://rdrr.io/pkg/Lahman/man/Batting.html">Lahman::Batting</a></code> dataset, which contains Major League Baseball (MLB) batting statistics dating back to 1871.</p></li>
 <li><p>Here is a preview of the dataset.</p></li>
@@ -681,8 +687,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">batting</span> <span class="op">&lt;-</span> <span class="va">batting</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">CS</span><span class="op">:</span><span class="va">GIDP</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="goal" class="level3" data-number="29.3.2"><h3 data-number="29.3.2" class="anchored" data-anchor-id="goal">
-<span class="header-section-number">29.3.2</span> Goal</h3>
+</section><section id="goal" class="level3" data-number="30.3.2"><h3 data-number="30.3.2" class="anchored" data-anchor-id="goal">
+<span class="header-section-number">30.3.2</span> Goal</h3>
 <ul>
 <li><p>Suppose we are interested in the relationship between several of the batting statistics such as home runs (HR), runs batted in (RBI), etc. for the best home run hitters.</p></li>
 <li><p>The specific questions we can answer depend on what data we have and how it is structured (i.e.&nbsp;what each row represents).</p></li>
@@ -691,7 +697,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/hr-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -705,7 +711,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/griffey-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -718,7 +724,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/best-hr-hitters-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -726,10 +732,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section></section><section id="selecting-columns" class="level2" data-number="29.4"><h2 data-number="29.4" class="anchored" data-anchor-id="selecting-columns">
-<span class="header-section-number">29.4</span> Selecting columns</h2>
-<section id="select-basics" class="level3" data-number="29.4.1"><h3 data-number="29.4.1" class="anchored" data-anchor-id="select-basics">
-<span class="header-section-number">29.4.1</span> select() basics</h3>
+</section></section><section id="selecting-columns" class="level2" data-number="30.4"><h2 data-number="30.4" class="anchored" data-anchor-id="selecting-columns">
+<span class="header-section-number">30.4</span> Selecting columns</h2>
+<section id="select-basics" class="level3" data-number="30.4.1"><h3 data-number="30.4.1" class="anchored" data-anchor-id="select-basics">
+<span class="header-section-number">30.4.1</span> select() basics</h3>
 <ul>
 <li><p>Often there are unneeded columns in dataset. To focus on the columns of interest, we can use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>.</p></li>
 <li><p>There are many ways to specify the columns we want to keep or remove, a few are shown below. First we can get a complete list of the available columns with <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code>.</p></li>
@@ -843,8 +849,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="select-advanced" class="level3" data-number="29.4.2"><h3 data-number="29.4.2" class="anchored" data-anchor-id="select-advanced">
-<span class="header-section-number">29.4.2</span> select() advanced</h3>
+</section><section id="select-advanced" class="level3" data-number="30.4.2"><h3 data-number="30.4.2" class="anchored" data-anchor-id="select-advanced">
+<span class="header-section-number">30.4.2</span> select() advanced</h3>
 <ul>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> has <strong>helper functions</strong> to aide in selecting multiple variables at once (it can be cumbersome to have to type out each individual name or organize them so that we can use <code>:</code>). A few of them are explained below.</p></li>
 <li><p><code>where(&lt; function &gt;)</code> → Useful for selecting all variables of a certain data type.</p></li>
@@ -889,14 +895,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li>Note that these functions have to be used within a <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> statement (or in similar verbs).</li>
-</ul></section><section id="sec-select-ex" class="level3" data-number="29.4.3"><h3 data-number="29.4.3" class="anchored" data-anchor-id="sec-select-ex">
-<span class="header-section-number">29.4.3</span> Exercise</h3>
+</ul></section><section id="sec-select-ex" class="level3" data-number="30.4.3"><h3 data-number="30.4.3" class="anchored" data-anchor-id="sec-select-ex">
+<span class="header-section-number">30.4.3</span> Exercise</h3>
 <ul>
 <li>Use the <code>diamonds</code> dataset to create a new dataset that contains only the columns <code>carat</code>, <code>cut</code>, <code>color</code> and <code>price</code>. Try to do this <em>three</em> different ways.</li>
-</ul></section></section><section id="renaming-columns" class="level2" data-number="29.5"><h2 data-number="29.5" class="anchored" data-anchor-id="renaming-columns">
-<span class="header-section-number">29.5</span> Renaming columns</h2>
-<section id="rename-basics" class="level3" data-number="29.5.1"><h3 data-number="29.5.1" class="anchored" data-anchor-id="rename-basics">
-<span class="header-section-number">29.5.1</span> rename() basics</h3>
+</ul></section></section><section id="renaming-columns" class="level2" data-number="30.5"><h2 data-number="30.5" class="anchored" data-anchor-id="renaming-columns">
+<span class="header-section-number">30.5</span> Renaming columns</h2>
+<section id="rename-basics" class="level3" data-number="30.5.1"><h3 data-number="30.5.1" class="anchored" data-anchor-id="rename-basics">
+<span class="header-section-number">30.5.1</span> rename() basics</h3>
 <ul>
 <li>If want to keep the all of the variables, but just rename a few, we should use <code>rename(new_var = old_var)</code>.</li>
 </ul>
@@ -910,8 +916,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-rename-ex" class="level3" data-number="29.5.2"><h3 data-number="29.5.2" class="anchored" data-anchor-id="sec-rename-ex">
-<span class="header-section-number">29.5.2</span> Exercise</h3>
+</section><section id="sec-rename-ex" class="level3" data-number="30.5.2"><h3 data-number="30.5.2" class="anchored" data-anchor-id="sec-rename-ex">
+<span class="header-section-number">30.5.2</span> Exercise</h3>
 <ul>
 <li>
 <p>Rename the columns of the <code>iris</code> dataset so they match each of the following scenarios (<em>NOTE: each is a separate problem</em>):</p>
@@ -920,10 +926,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Same rules as (a), except we only want to keep the new columns <code>species</code> and <code>sepal_length</code> (in this order) in the resulting dataframe.</p></li>
 </ol>
 </li>
-</ul></section></section><section id="relocating-columns" class="level2" data-number="29.6"><h2 data-number="29.6" class="anchored" data-anchor-id="relocating-columns">
-<span class="header-section-number">29.6</span> Relocating columns</h2>
-<section id="relocate-basics" class="level3" data-number="29.6.1"><h3 data-number="29.6.1" class="anchored" data-anchor-id="relocate-basics">
-<span class="header-section-number">29.6.1</span> relocate() basics</h3>
+</ul></section></section><section id="relocating-columns" class="level2" data-number="30.6"><h2 data-number="30.6" class="anchored" data-anchor-id="relocating-columns">
+<span class="header-section-number">30.6</span> Relocating columns</h2>
+<section id="relocate-basics" class="level3" data-number="30.6.1"><h3 data-number="30.6.1" class="anchored" data-anchor-id="relocate-basics">
+<span class="header-section-number">30.6.1</span> relocate() basics</h3>
 <ul>
 <li><p>Use <code><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate()</a></code> to move variables around (rather than reordering all of them in a <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> statement).</p></li>
 <li><p>By default variables are placed in the front, but we can also specify a different location by using the <code>.before</code> or <code>.after</code> arguments.</p></li>
@@ -949,8 +955,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li>Generally it is a good idea to have all of the categorical (identifier) variables first and then the numerical variables, which is how the data was setup originally.</li>
-</ul></section><section id="sec-relocate-ex" class="level3" data-number="29.6.2"><h3 data-number="29.6.2" class="anchored" data-anchor-id="sec-relocate-ex">
-<span class="header-section-number">29.6.2</span> Exercise</h3>
+</ul></section><section id="sec-relocate-ex" class="level3" data-number="30.6.2"><h3 data-number="30.6.2" class="anchored" data-anchor-id="sec-relocate-ex">
+<span class="header-section-number">30.6.2</span> Exercise</h3>
 <ul>
 <li>
 <p>Reorganize the columns of the <code>diamonds</code> dataset so they match each of the following scenarios (<em>NOTE: each is a separate problem</em>):</p>
@@ -959,10 +965,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><code>x</code>, <code>y</code>, and <code>z</code> are located after <code>cut</code>; see if you can do this two different ways.</p></li>
 </ol>
 </li>
-</ul></section></section><section id="filtering-rows" class="level2" data-number="29.7"><h2 data-number="29.7" class="anchored" data-anchor-id="filtering-rows">
-<span class="header-section-number">29.7</span> Filtering rows</h2>
-<section id="filter-basics" class="level3" data-number="29.7.1"><h3 data-number="29.7.1" class="anchored" data-anchor-id="filter-basics">
-<span class="header-section-number">29.7.1</span> filter() basics</h3>
+</ul></section></section><section id="filtering-rows" class="level2" data-number="30.7"><h2 data-number="30.7" class="anchored" data-anchor-id="filtering-rows">
+<span class="header-section-number">30.7</span> Filtering rows</h2>
+<section id="filter-basics" class="level3" data-number="30.7.1"><h3 data-number="30.7.1" class="anchored" data-anchor-id="filter-basics">
+<span class="header-section-number">30.7.1</span> filter() basics</h3>
 <ul>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> is used to subset a dataframe to rows that meet the specified condition(s).</p></li>
 <li><p>These conditions are called <strong>logical tests</strong>. R has the following comparison operators that we can use to compare values: <code>&gt;</code>, <code>&gt;=</code> (greater than or equal), <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code> (not equal), and <code>==</code> (equal).</p></li>
@@ -1023,8 +1029,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-filter-ex" class="level3" data-number="29.7.2"><h3 data-number="29.7.2" class="anchored" data-anchor-id="sec-filter-ex">
-<span class="header-section-number">29.7.2</span> Exercise</h3>
+</section><section id="sec-filter-ex" class="level3" data-number="30.7.2"><h3 data-number="30.7.2" class="anchored" data-anchor-id="sec-filter-ex">
+<span class="header-section-number">30.7.2</span> Exercise</h3>
 <ul>
 <li>
 <p>Subset the <code>diamonds</code> dataset so that the result contains only rows that match each of the following scenarios (<em>NOTE: each is a separate problem</em>):</p>
@@ -1034,10 +1040,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The least expensive diamond, but it has to have a “Fair” or “Good” <code>cut</code>. <em>HINT: This may require more than <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> statement.</em></p></li>
 </ol>
 </li>
-</ul></section></section><section id="ordering-rows" class="level2" data-number="29.8"><h2 data-number="29.8" class="anchored" data-anchor-id="ordering-rows">
-<span class="header-section-number">29.8</span> Ordering rows</h2>
-<section id="arrange-basics" class="level3" data-number="29.8.1"><h3 data-number="29.8.1" class="anchored" data-anchor-id="arrange-basics">
-<span class="header-section-number">29.8.1</span> arrange() basics</h3>
+</ul></section></section><section id="ordering-rows" class="level2" data-number="30.8"><h2 data-number="30.8" class="anchored" data-anchor-id="ordering-rows">
+<span class="header-section-number">30.8</span> Ordering rows</h2>
+<section id="arrange-basics" class="level3" data-number="30.8.1"><h3 data-number="30.8.1" class="anchored" data-anchor-id="arrange-basics">
+<span class="header-section-number">30.8.1</span> arrange() basics</h3>
 <ul>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> sorts rows based on the values of the supplied columns. Each additional column gets sorted by <em>within</em> the values of the previous column.</p></li>
 <li><p>By default it orders <em>ascending</em> (smallest to largest); can sort <em>descending</em> by wrapping the column name in <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code>.</p></li>
@@ -1069,18 +1075,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-arrange-ex" class="level3" data-number="29.8.2"><h3 data-number="29.8.2" class="anchored" data-anchor-id="sec-arrange-ex">
-<span class="header-section-number">29.8.2</span> Exercise</h3>
+</section><section id="sec-arrange-ex" class="level3" data-number="30.8.2"><h3 data-number="30.8.2" class="anchored" data-anchor-id="sec-arrange-ex">
+<span class="header-section-number">30.8.2</span> Exercise</h3>
 <ul>
 <li>Use the code below and arrange the sample of the <code>diamonds</code> dataset by <code>price</code> (most expensive to least expensive) <em>within</em> <code>cut</code>.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">price</span>, <span class="va">carat</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="finding-unique-rows" class="level2" data-number="29.9"><h2 data-number="29.9" class="anchored" data-anchor-id="finding-unique-rows">
-<span class="header-section-number">29.9</span> Finding unique rows</h2>
-<section id="distinct-basics" class="level3" data-number="29.9.1"><h3 data-number="29.9.1" class="anchored" data-anchor-id="distinct-basics">
-<span class="header-section-number">29.9.1</span> distinct() basics</h3>
+</section></section><section id="finding-unique-rows" class="level2" data-number="30.9"><h2 data-number="30.9" class="anchored" data-anchor-id="finding-unique-rows">
+<span class="header-section-number">30.9</span> Finding unique rows</h2>
+<section id="distinct-basics" class="level3" data-number="30.9.1"><h3 data-number="30.9.1" class="anchored" data-anchor-id="distinct-basics">
+<span class="header-section-number">30.9.1</span> distinct() basics</h3>
 <ul>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code> finds (filters to) all <em>unique rows</em> in a dataset (across all variables); in essence, it removes the <em>duplicate rows</em>.</p></li>
 <li><p>More often, we are trying to see which unique combinations of certain variables exist in the dataset. To do this, just supply the column names of interest to <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code>.</p></li>
@@ -1105,8 +1111,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-distinct-ex" class="level3" data-number="29.9.2"><h3 data-number="29.9.2" class="anchored" data-anchor-id="sec-distinct-ex">
-<span class="header-section-number">29.9.2</span> Exercise</h3>
+</section><section id="sec-distinct-ex" class="level3" data-number="30.9.2"><h3 data-number="30.9.2" class="anchored" data-anchor-id="sec-distinct-ex">
+<span class="header-section-number">30.9.2</span> Exercise</h3>
 <ul>
 <li>
 <p>Use the <code>diamonds</code> dataset to do the following (<em>NOTE: each is a separate problem</em>):</p>
@@ -1116,10 +1122,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Find the unique combinations <code>cut</code> and <code>color</code>, keeping all variables like in (b), but we want the row that is kept to be the <em>most</em> expensive diamonds for each combination. <em>HINT: Can you use a function we learned previously to help?</em></p></li>
 </ol>
 </li>
-</ul></section></section><section id="creating-editing-columns" class="level2" data-number="29.10"><h2 data-number="29.10" class="anchored" data-anchor-id="creating-editing-columns">
-<span class="header-section-number">29.10</span> Creating / editing columns</h2>
-<section id="mutate-basics" class="level3" data-number="29.10.1"><h3 data-number="29.10.1" class="anchored" data-anchor-id="mutate-basics">
-<span class="header-section-number">29.10.1</span> mutate() basics</h3>
+</ul></section></section><section id="creating-editing-columns" class="level2" data-number="30.10"><h2 data-number="30.10" class="anchored" data-anchor-id="creating-editing-columns">
+<span class="header-section-number">30.10</span> Creating / editing columns</h2>
+<section id="mutate-basics" class="level3" data-number="30.10.1"><h3 data-number="30.10.1" class="anchored" data-anchor-id="mutate-basics">
+<span class="header-section-number">30.10.1</span> mutate() basics</h3>
 <ul>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> is used create new columns based on existing columns (or to overwrite existing columns).</p></li>
 <li><p>Can use simple algebra or any function of previous columns when creating new columns.</p></li>
@@ -1150,8 +1156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="mutate-advanced" class="level3" data-number="29.10.2"><h3 data-number="29.10.2" class="anchored" data-anchor-id="mutate-advanced">
-<span class="header-section-number">29.10.2</span> mutate() advanced</h3>
+</section><section id="mutate-advanced" class="level3" data-number="30.10.2"><h3 data-number="30.10.2" class="anchored" data-anchor-id="mutate-advanced">
+<span class="header-section-number">30.10.2</span> mutate() advanced</h3>
 <ul>
 <li>
 <p>Often we are only interested in the columns we are mutating or simply just the result, in which case we can optionally specify which variables to keep in the result using the <code>.keep</code> option.</p>
@@ -1215,8 +1221,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-mutate-ex" class="level3" data-number="29.10.3"><h3 data-number="29.10.3" class="anchored" data-anchor-id="sec-mutate-ex">
-<span class="header-section-number">29.10.3</span> Exercise</h3>
+</section><section id="sec-mutate-ex" class="level3" data-number="30.10.3"><h3 data-number="30.10.3" class="anchored" data-anchor-id="sec-mutate-ex">
+<span class="header-section-number">30.10.3</span> Exercise</h3>
 <ul>
 <li>
 <p>Use the sample of the <code>diamonds</code> dataset to create a new dataset matches each of the following scenarios (<em>NOTE: each is a separate problem</em>):</p>
@@ -1253,10 +1259,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="summarize-columns" class="level2" data-number="29.11"><h2 data-number="29.11" class="anchored" data-anchor-id="summarize-columns">
-<span class="header-section-number">29.11</span> Summarize columns</h2>
-<section id="summarize-basics" class="level3" data-number="29.11.1"><h3 data-number="29.11.1" class="anchored" data-anchor-id="summarize-basics">
-<span class="header-section-number">29.11.1</span> summarize() basics</h3>
+</section></section><section id="summarize-columns" class="level2" data-number="30.11"><h2 data-number="30.11" class="anchored" data-anchor-id="summarize-columns">
+<span class="header-section-number">30.11</span> Summarize columns</h2>
+<section id="summarize-basics" class="level3" data-number="30.11.1"><h3 data-number="30.11.1" class="anchored" data-anchor-id="summarize-basics">
+<span class="header-section-number">30.11.1</span> summarize() basics</h3>
 <ul>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> is used to calculate summary measures for columns of a dataframe.</p></li>
 <li>
@@ -1285,8 +1291,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="summarize-advanced" class="level3" data-number="29.11.2"><h3 data-number="29.11.2" class="anchored" data-anchor-id="summarize-advanced">
-<span class="header-section-number">29.11.2</span> summarize() advanced</h3>
+</section><section id="summarize-advanced" class="level3" data-number="30.11.2"><h3 data-number="30.11.2" class="anchored" data-anchor-id="summarize-advanced">
+<span class="header-section-number">30.11.2</span> summarize() advanced</h3>
 <ul>
 <li>Another pair of useful summaries are the <em>number</em> or <em>proportion</em> of observations that meet a certain condition. We can compute these using <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> and <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, respectively.</li>
 </ul>
@@ -1335,8 +1341,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-summarize-ex" class="level3" data-number="29.11.3"><h3 data-number="29.11.3" class="anchored" data-anchor-id="sec-summarize-ex">
-<span class="header-section-number">29.11.3</span> Exercise</h3>
+</section><section id="sec-summarize-ex" class="level3" data-number="30.11.3"><h3 data-number="30.11.3" class="anchored" data-anchor-id="sec-summarize-ex">
+<span class="header-section-number">30.11.3</span> Exercise</h3>
 <ul>
 <li>
 <p>Calculate the following summaries using the <code>diamonds</code> dataset (<em>NOTE: each is a separate problem</em>):</p>
@@ -1346,10 +1352,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><em>Number of</em> and the <em>proportion of</em> diamonds that have an “Ideal” <code>cut</code>.</p></li>
 </ol>
 </li>
-</ul></section></section><section id="groups" class="level2" data-number="29.12"><h2 data-number="29.12" class="anchored" data-anchor-id="groups">
-<span class="header-section-number">29.12</span> Groups</h2>
-<section id="group_by-basics" class="level3" data-number="29.12.1"><h3 data-number="29.12.1" class="anchored" data-anchor-id="group_by-basics">
-<span class="header-section-number">29.12.1</span> group_by() basics</h3>
+</ul></section></section><section id="groups" class="level2" data-number="30.12"><h2 data-number="30.12" class="anchored" data-anchor-id="groups">
+<span class="header-section-number">30.12</span> Groups</h2>
+<section id="group_by-basics" class="level3" data-number="30.12.1"><h3 data-number="30.12.1" class="anchored" data-anchor-id="group_by-basics">
+<span class="header-section-number">30.12.1</span> group_by() basics</h3>
 <ul>
 <li><p>As we saw above, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>, collapses the entire dataframe down into a single row based on some measure.</p></li>
 <li><p>Often, however, we are interested in doing a group-wise analysis on our data, where we aggregate / summarize for each <strong>group</strong> (i.e.&nbsp;level of a variable).</p></li>
@@ -1369,8 +1375,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Now that the data is grouped, it will affect how the subsequent functions like <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>, etc. work on the data.</p></li>
 <li><p>We can also group by multiple variables simply by specifying additional columns (order matters).</p></li>
 <li><p>These “second-level” groups are <em>within</em> the first grouping levels, and so on for each additional (just like when ordering by multiple variables with <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>).</p></li>
-</ul></section><section id="summarize-grouped-data" class="level3" data-number="29.12.2"><h3 data-number="29.12.2" class="anchored" data-anchor-id="summarize-grouped-data">
-<span class="header-section-number">29.12.2</span> Summarize grouped data</h3>
+</ul></section><section id="summarize-grouped-data" class="level3" data-number="30.12.2"><h3 data-number="30.12.2" class="anchored" data-anchor-id="summarize-grouped-data">
+<span class="header-section-number">30.12.2</span> Summarize grouped data</h3>
 <ul>
 <li><p>Pairing <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> is one of the most important capabilities of <strong>dplyr</strong>.</p></li>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> works the exact same as it did on ungrouped data, except that each summary is computed for <em>each group</em>, rather than for the <em>entire</em> dataset.</p></li>
@@ -1408,8 +1414,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-groups-ex" class="level3" data-number="29.12.3"><h3 data-number="29.12.3" class="anchored" data-anchor-id="sec-groups-ex">
-<span class="header-section-number">29.12.3</span> Exercise</h3>
+</section><section id="sec-groups-ex" class="level3" data-number="30.12.3"><h3 data-number="30.12.3" class="anchored" data-anchor-id="sec-groups-ex">
+<span class="header-section-number">30.12.3</span> Exercise</h3>
 <ul>
 <li>
 <p>Calculate the following summaries using the <code>diamonds</code> dataset (<em>NOTE: each is a separate problem</em>):</p>
@@ -1419,8 +1425,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Recreate the summary for the number of observations in each <code>cut</code> and <code>clarity</code> combination in (b) using the <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> function. Search the help page for tips.</p></li>
 </ol>
 </li>
-</ul></section><section id="ungroup-basics" class="level3" data-number="29.12.4"><h3 data-number="29.12.4" class="anchored" data-anchor-id="ungroup-basics">
-<span class="header-section-number">29.12.4</span> ungroup() basics</h3>
+</ul></section><section id="ungroup-basics" class="level3" data-number="30.12.4"><h3 data-number="30.12.4" class="anchored" data-anchor-id="ungroup-basics">
+<span class="header-section-number">30.12.4</span> ungroup() basics</h3>
 <ul>
 <li><p>Notice above how the result after the first <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> is <em>still grouped</em>; however once we aggregate again (over the remaining group), the result is back to a normal ungrouped dataframe.</p></li>
 <li><p>By default groups set by <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> stay active until all are aggregated over. Usually this won’t cause any problems, but if we wanted to remove the groups attribute, just use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup()</a></code>.</p></li>
@@ -1441,8 +1447,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="by-argument" class="level3" data-number="29.12.5"><h3 data-number="29.12.5" class="anchored" data-anchor-id="by-argument">
-<span class="header-section-number">29.12.5</span> .by argument</h3>
+</section><section id="by-argument" class="level3" data-number="30.12.5"><h3 data-number="30.12.5" class="anchored" data-anchor-id="by-argument">
+<span class="header-section-number">30.12.5</span> .by argument</h3>
 <ul>
 <li>If we know that we only want the groups for <em>one operation</em> instead of the <em>entire chain</em>, we can specify the grouping in the specific function using <code>.by</code>.</li>
 </ul>
@@ -1461,8 +1467,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li>This is equivalent to <code>data %&gt;% group_by(col1, col2) %&gt;% summarize(...) %&gt;% ungroup()</code> as we saw before.</li>
-</ul></section><section id="group_by-with-other-functions" class="level3" data-number="29.12.6"><h3 data-number="29.12.6" class="anchored" data-anchor-id="group_by-with-other-functions">
-<span class="header-section-number">29.12.6</span> group_by() with other functions</h3>
+</ul></section><section id="group_by-with-other-functions" class="level3" data-number="30.12.6"><h3 data-number="30.12.6" class="anchored" data-anchor-id="group_by-with-other-functions">
+<span class="header-section-number">30.12.6</span> group_by() with other functions</h3>
 <ul>
 <li><p>We can also use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code>.by</code> on functions like <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> as well.</p></li>
 <li><p>They perform the same way as <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> does for grouped data: the calculation or filtering will take place <em>for each group</em>.</p></li>
@@ -1492,8 +1498,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="slice-and-slice_" class="level3" data-number="29.12.7"><h3 data-number="29.12.7" class="anchored" data-anchor-id="slice-and-slice_">
-<span class="header-section-number">29.12.7</span> slice() and slice_*()</h3>
+</section><section id="slice-and-slice_" class="level3" data-number="30.12.7"><h3 data-number="30.12.7" class="anchored" data-anchor-id="slice-and-slice_">
+<span class="header-section-number">30.12.7</span> slice() and slice_*()</h3>
 <ul>
 <li>
 <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code> is used to select (filter to) certain row numbers of the dataset. In base R, we can use <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> to get the first or last <code>n</code> rows as well.</li>
@@ -1554,8 +1560,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-groups-ex2" class="level3" data-number="29.12.8"><h3 data-number="29.12.8" class="anchored" data-anchor-id="sec-groups-ex2">
-<span class="header-section-number">29.12.8</span> Exercise</h3>
+</section><section id="sec-groups-ex2" class="level3" data-number="30.12.8"><h3 data-number="30.12.8" class="anchored" data-anchor-id="sec-groups-ex2">
+<span class="header-section-number">30.12.8</span> Exercise</h3>
 <ul>
 <li>
 <p>Perform the following using the <code>diamonds</code> dataset (<em>NOTE: each is a separate problem</em>):</p>
@@ -1571,16 +1577,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 </ol>
 </li>
-</ul></section></section><section id="application" class="level2" data-number="29.13"><h2 data-number="29.13" class="anchored" data-anchor-id="application">
-<span class="header-section-number">29.13</span> Application</h2>
-<section id="recreating" class="level3" data-number="29.13.1"><h3 data-number="29.13.1" class="anchored" data-anchor-id="recreating">
-<span class="header-section-number">29.13.1</span> Recreating</h3>
+</ul></section></section><section id="application" class="level2" data-number="30.13"><h2 data-number="30.13" class="anchored" data-anchor-id="application">
+<span class="header-section-number">30.13</span> Application</h2>
+<section id="recreating" class="level3" data-number="30.13.1"><h3 data-number="30.13.1" class="anchored" data-anchor-id="recreating">
+<span class="header-section-number">30.13.1</span> Recreating</h3>
 <ul>
 <li>Now we will return to the plots that were our goals, and more specifically the data transformations to recreate them.</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/griffey-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -1590,7 +1596,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/best-hr-hitters-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -1627,7 +1633,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       alpha <span class="op">=</span> <span class="st">"Games played"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/application-plots-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -1650,7 +1656,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       y <span class="op">=</span> <span class="st">"Total home runs"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/application-plots-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -1658,8 +1664,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="sec-application-ex" class="level3" data-number="29.13.2"><h3 data-number="29.13.2" class="anchored" data-anchor-id="sec-application-ex">
-<span class="header-section-number">29.13.2</span> Exercise</h3>
+</section><section id="sec-application-ex" class="level3" data-number="30.13.2"><h3 data-number="30.13.2" class="anchored" data-anchor-id="sec-application-ex">
+<span class="header-section-number">30.13.2</span> Exercise</h3>
 <ul>
 <li>Study the plot below and determine how the data must have been structured behind the scenes. Then perform the necessary transformations and recreate the plot.</li>
 </ul>
@@ -1668,7 +1674,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>- To get the the <span class="math inline">\(x\)</span> scale to have the labels like shown, use <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></code> with the option <code>breaks</code> (which are the tick marks). Look into <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> as a shortcut for specifying the numbers.</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/top-teams-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -1676,9 +1682,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section></section><section id="exercise-solutions" class="level2" data-number="29.14"><h2 data-number="29.14" class="anchored" data-anchor-id="exercise-solutions">
-<span class="header-section-number">29.14</span> Exercise solutions</h2>
-<p><a href="#sec-select-ex" class="quarto-xref">Exercise&nbsp;<span>29.4.3</span></a></p>
+</section></section><section id="exercise-solutions" class="level2" data-number="30.14"><h2 data-number="30.14" class="anchored" data-anchor-id="exercise-solutions">
+<span class="header-section-number">30.14</span> Exercise solutions</h2>
+<p><a href="#sec-select-ex" class="quarto-xref">Exercise&nbsp;<span>30.4.3</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># three of many ways to do this</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">cut</span>, <span class="va">color</span>, <span class="va">price</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">head</span> <span class="co"># explicitly naming</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1706,7 +1712,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><a href="#sec-rename-ex" class="quarto-xref">Exercise&nbsp;<span>29.5.2</span></a></p>
+<p><a href="#sec-rename-ex" class="quarto-xref">Exercise&nbsp;<span>30.5.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>sepal_length <span class="op">=</span> <span class="va">Sepal.Length</span>, sepal_width <span class="op">=</span> <span class="va">Sepal.Width</span>,</span>
@@ -1730,7 +1736,7 @@ $ sepal_length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4
 $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</code></pre>
 </div>
 </div>
-<p><a href="#sec-relocate-ex" class="quarto-xref">Exercise&nbsp;<span>29.6.2</span></a></p>
+<p><a href="#sec-relocate-ex" class="quarto-xref">Exercise&nbsp;<span>30.6.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1759,7 +1765,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-filter-ex" class="quarto-xref">Exercise&nbsp;<span>29.7.2</span></a></p>
+<p><a href="#sec-filter-ex" class="quarto-xref">Exercise&nbsp;<span>30.7.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">price</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1797,7 +1803,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-arrange-ex" class="quarto-xref">Exercise&nbsp;<span>29.8.2</span></a></p>
+<p><a href="#sec-arrange-ex" class="quarto-xref">Exercise&nbsp;<span>30.8.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">price</span>, <span class="va">carat</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">head</span></span>
 <span><span class="va">diamonds_sample</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">cut</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1809,7 +1815,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-distinct-ex" class="quarto-xref">Exercise&nbsp;<span>29.9.2</span></a></p>
+<p><a href="#sec-distinct-ex" class="quarto-xref">Exercise&nbsp;<span>30.9.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1846,7 +1852,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-mutate-ex" class="quarto-xref">Exercise&nbsp;<span>29.10.3</span></a></p>
+<p><a href="#sec-mutate-ex" class="quarto-xref">Exercise&nbsp;<span>30.10.3</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create diamonds sample</span></span>
 <span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
@@ -1895,7 +1901,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price_level</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/mutate-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -1911,7 +1917,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Diamond price level"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/mutate-ex-solution-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -1919,7 +1925,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-summarize-ex" class="quarto-xref">Exercise&nbsp;<span>29.11.3</span></a></p>
+<p><a href="#sec-summarize-ex" class="quarto-xref">Exercise&nbsp;<span>30.11.3</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb89"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>med_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,</span>
@@ -1954,7 +1960,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-groups-ex" class="quarto-xref">Exercise&nbsp;<span>29.12.3</span></a></p>
+<p><a href="#sec-groups-ex" class="quarto-xref">Exercise&nbsp;<span>30.12.3</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1989,7 +1995,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-groups-ex2" class="quarto-xref">Exercise&nbsp;<span>29.12.8</span></a></p>
+<p><a href="#sec-groups-ex2" class="quarto-xref">Exercise&nbsp;<span>30.12.8</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -2044,7 +2050,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="notes-r-reshaping-and-combining-data.html#sec-application-ex" class="quarto-xref">Exercise&nbsp;<span>31.4.2</span></a></p>
+<p><a href="notes-r-reshaping-and-combining-data.html#sec-application-ex" class="quarto-xref">Exercise&nbsp;<span>32.4.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb99"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># summarize HRs per team and get recent data</span></span>
 <span><span class="va">team_stats</span> <span class="op">&lt;-</span> <span class="va">batting</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
@@ -2077,7 +2083,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <span>       color <span class="op">=</span> <span class="st">"Team"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="notes-r-data-transformations_files/figure-html/application-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -2432,12 +2438,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./hw-r-visualizations.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./hw-r-data-transformations.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
