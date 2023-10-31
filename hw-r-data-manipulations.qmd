@@ -18,7 +18,7 @@ What will be looked at for grading: Correct code, output and sufficient write-up
 
 This problem ties together concepts and functions from all the previous R notes for a comprehensive data analysis problem.
 
-We will be working with hypothetical student grade data `data-grades.csv`, which contains information on two test scores from students of multiple sections for a single professor, and enrollment data `data-majors.csv`, which has the students major.
+We will be working with hypothetical student grade data [data-grades.csv](https://github.com/coltongearhart/dana320/blob/main/r/data/data-grades.csv), which contains information on two test scores from students of multiple sections for a single professor, and enrollment data [data-majors.csv](https://github.com/coltongearhart/dana320/blob/main/r/data/data-majors.csv), which has the students major.
 
 ```{r}
 #| label: setup

@@ -18,7 +18,7 @@ What will be looked at for grading: Correct code, output and sufficient write-up
 
 These problems apply the ideas from the notes '3.3 -- Data Transformations', where we learned how to modify datasets plots using in R using **dplyr** and uses the transformed data to make visualizations learned in notes '3.2 -- Visualizations'.
 
-We will be working with the `shuffled-playlist.csv` data, which contains information about songs in a Spotify playlist. A subset is shown below:
+We will be working with the [shuffled-playlist.csv](https://github.com/coltongearhart/dana320/blob/main/r/data/shuffled-playlist.csv) data, which contains information about songs in a Spotify playlist. A subset is shown below:
 
 ```{r}
 #| label: setup

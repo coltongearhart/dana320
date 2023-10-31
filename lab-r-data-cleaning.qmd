@@ -18,9 +18,9 @@ What will be looked at for grading: Correct code, output and sufficient write-up
 
 This problem applies the ideas from the notes '3.4 -- Reshaping and Combining Data', where we learned to restructure datasets, and also uses functions from **dplyr** functions from '3.3 -- Data Transformations'.
 
-We will be working with the `midwest-gas-prices.csv` data, which contains the average weekly midwestern fuel prices for a gallon of regular unleaded gasoline from November 1994 to May 2012. We want to use this data to create a time series line-plot of the data that looks like the image below:
+We will be working with the [midwest-gas-prices.csv](https://github.com/coltongearhart/dana320/blob/main/r/data/midwest-gas-prices.csv) data which contains the average weekly midwestern fuel prices for a gallon of regular unleaded gasoline from November 1994 to May 2012. We want to use this data to create a time series line-plot of the data that looks like the image below:
 
-![](assignments/images/timeplot.png)
+![](r/images/timeplot.png)
 
 ```{r}
 #| label: setup
@@ -34,7 +34,7 @@ library(magrittr)
 
 The problem is that the data is very messy and improperly structured to create this visualization. Here is how the data file is structured in Excel and how it would read directly into R.
 
-![](assignments/images/gas-prices-raw-data.png)
+![](r/images/gas-prices-raw-data.png)
 
 ```{r}
 #| label: raw-data
