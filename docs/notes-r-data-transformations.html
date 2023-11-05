@@ -412,6 +412,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">HW – Interactive Plots</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -1684,7 +1690,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section></section><section id="exercise-solutions" class="level2" data-number="30.14"><h2 data-number="30.14" class="anchored" data-anchor-id="exercise-solutions">
 <span class="header-section-number">30.14</span> Exercise solutions</h2>
-<p><a href="#sec-select-ex" class="quarto-xref">Exercise&nbsp;<span>30.4.3</span></a></p>
+<p><a href="#sec-select-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-select-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># three of many ways to do this</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">cut</span>, <span class="va">color</span>, <span class="va">price</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">head</span> <span class="co"># explicitly naming</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1712,7 +1718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><a href="#sec-rename-ex" class="quarto-xref">Exercise&nbsp;<span>30.5.2</span></a></p>
+<p><a href="#sec-rename-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-rename-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>sepal_length <span class="op">=</span> <span class="va">Sepal.Length</span>, sepal_width <span class="op">=</span> <span class="va">Sepal.Width</span>,</span>
@@ -1736,7 +1742,7 @@ $ sepal_length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4
 $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</code></pre>
 </div>
 </div>
-<p><a href="#sec-relocate-ex" class="quarto-xref">Exercise&nbsp;<span>30.6.2</span></a></p>
+<p><a href="#sec-relocate-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-relocate-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1765,7 +1771,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-filter-ex" class="quarto-xref">Exercise&nbsp;<span>30.7.2</span></a></p>
+<p><a href="#sec-filter-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-filter-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">price</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1803,19 +1809,19 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-arrange-ex" class="quarto-xref">Exercise&nbsp;<span>30.8.2</span></a></p>
+<p><a href="#sec-arrange-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-arrange-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">price</span>, <span class="va">carat</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">head</span></span>
 <span><span class="va">diamonds_sample</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">cut</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["carat"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Good","2":"2254","3":"0.72"},{"1":"Very Good","2":"16188","3":"2.11"},{"1":"Very Good","2":"363","3":"0.31"},{"1":"Premium","2":"2510","3":"0.73"},{"1":"Premium","2":"772","3":"0.44"},{"1":"Ideal","2":"9698","3":"1.23"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["carat"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Good","2":"6246","3":"1.56"},{"1":"Very Good","2":"521","3":"0.24"},{"1":"Premium","2":"4077","3":"1.00"},{"1":"Premium","2":"746","3":"0.37"},{"1":"Premium","2":"630","3":"0.30"},{"1":"Ideal","2":"2568","3":"0.60"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
-<p><a href="#sec-distinct-ex" class="quarto-xref">Exercise&nbsp;<span>30.9.2</span></a></p>
+<p><a href="#sec-distinct-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-distinct-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1852,7 +1858,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-mutate-ex" class="quarto-xref">Exercise&nbsp;<span>30.10.3</span></a></p>
+<p><a href="#sec-mutate-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-mutate-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create diamonds sample</span></span>
 <span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
@@ -1863,7 +1869,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["price_per_carat"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["carat"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cut"],"name":[3],"type":["ord"],"align":["right"]},{"label":["color"],"name":[4],"type":["ord"],"align":["right"]},{"label":["clarity"],"name":[5],"type":["ord"],"align":["right"]},{"label":["depth"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["table"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[8],"type":["int"],"align":["right"]},{"label":["x"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"2822.152","2":"1.58","3":"Premium","4":"I","5":"I1","6":"60.2","7":"61","8":"4459","9":"7.55","10":"7.51","11":"4.53"},{"1":"2304.878","2":"0.41","3":"Ideal","4":"H","5":"VVS1","6":"61.5","7":"55","8":"945","9":"4.79","10":"4.81","11":"2.95"},{"1":"3516.667","2":"0.72","3":"Very Good","4":"I","5":"VVS2","6":"61.7","7":"55","8":"2532","9":"5.76","10":"5.81","11":"3.57"},{"1":"1488.095","2":"0.42","3":"Ideal","4":"H","5":"SI2","6":"61.4","7":"56","8":"625","9":"4.81","10":"4.86","11":"2.97"},{"1":"8039.604","2":"1.01","3":"Premium","4":"G","5":"IF","6":"63.0","7":"60","8":"8120","9":"6.35","10":"6.31","11":"3.99"},{"1":"5300.000","2":"0.91","3":"Very Good","4":"E","5":"VS2","6":"62.8","7":"59","8":"4823","9":"6.15","10":"6.17","11":"3.87"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["price_per_carat"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["carat"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cut"],"name":[3],"type":["ord"],"align":["right"]},{"label":["color"],"name":[4],"type":["ord"],"align":["right"]},{"label":["clarity"],"name":[5],"type":["ord"],"align":["right"]},{"label":["depth"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["table"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[8],"type":["int"],"align":["right"]},{"label":["x"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"3079.612","2":"1.03","3":"Ideal","4":"H","5":"I1","6":"61.5","7":"57","8":"3172","9":"6.48","10":"6.52","11":"4.00"},{"1":"6693.388","2":"2.42","3":"Premium","4":"J","5":"SI2","6":"58.5","7":"59","8":"16198","9":"8.85","10":"8.82","11":"5.17"},{"1":"3382.500","2":"0.40","3":"Ideal","4":"D","5":"VVS2","6":"60.9","7":"57","8":"1353","9":"4.74","10":"4.78","11":"2.90"},{"1":"4256.522","2":"0.92","3":"Good","4":"D","5":"SI2","6":"63.9","7":"55","8":"3916","9":"6.14","10":"6.09","11":"3.91"},{"1":"1796.774","2":"0.31","3":"Ideal","4":"I","5":"VVS1","6":"61.6","7":"55","8":"557","9":"4.36","10":"4.41","11":"2.70"},{"1":"9318.103","2":"1.16","3":"Premium","4":"F","5":"VVS1","6":"60.4","7":"60","8":"10809","9":"6.90","10":"6.77","11":"4.13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1881,7 +1887,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["table"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[3],"type":["int"],"align":["right"]},{"label":["within_budget"],"name":[4],"type":["chr"],"align":["left"]},{"label":["my_style"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Ideal","2":"55","3":"945","4":"yes","5":"yes"},{"1":"Ideal","2":"56","3":"625","4":"yes","5":"yes"},{"1":"Ideal","2":"56","3":"625","4":"yes","5":"yes"},{"1":"Ideal","2":"55","3":"556","4":"yes","5":"yes"},{"1":"Ideal","2":"57","3":"625","4":"yes","5":"yes"},{"1":"Very Good","2":"56","3":"756","4":"yes","5":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["table"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[3],"type":["int"],"align":["right"]},{"label":["within_budget"],"name":[4],"type":["chr"],"align":["left"]},{"label":["my_style"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Ideal","2":"55","3":"557","4":"yes","5":"yes"},{"1":"Ideal","2":"56","3":"694","4":"yes","5":"yes"},{"1":"Ideal","2":"56","3":"917","4":"yes","5":"yes"},{"1":"Ideal","2":"55","3":"514","4":"yes","5":"yes"},{"1":"Ideal","2":"55","3":"608","4":"yes","5":"yes"},{"1":"Ideal","2":"55","3":"421","4":"yes","5":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1925,7 +1931,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-summarize-ex" class="quarto-xref">Exercise&nbsp;<span>30.11.3</span></a></p>
+<p><a href="#sec-summarize-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-summarize-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb89"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>med_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,</span>
@@ -1960,7 +1966,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-groups-ex" class="quarto-xref">Exercise&nbsp;<span>30.12.3</span></a></p>
+<p><a href="#sec-groups-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-groups-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1995,7 +2001,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 </div>
 </div>
 </div>
-<p><a href="#sec-groups-ex2" class="quarto-xref">Exercise&nbsp;<span>30.12.8</span></a></p>
+<p><a href="#sec-groups-ex2" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-groups-ex2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a)</span></span>
 <span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -2031,7 +2037,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Fair","2":"2401","3":"3386.8"},{"1":"Fair","2":"6397","3":"3386.8"},{"1":"Fair","2":"2815","3":"3386.8"},{"1":"Fair","2":"1069","3":"3386.8"},{"1":"Fair","2":"4252","3":"3386.8"},{"1":"Good","2":"3033","3":"2896.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Fair","2":"3676","3":"2942.8"},{"1":"Fair","2":"1651","3":"2942.8"},{"1":"Fair","2":"3750","3":"2942.8"},{"1":"Fair","2":"2812","3":"2942.8"},{"1":"Fair","2":"2825","3":"2942.8"},{"1":"Good","2":"914","3":"3053.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2045,12 +2051,12 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ideal","2":"9471","3":"4156.0"},{"1":"Ideal","2":"1914","3":"4156.0"},{"1":"Ideal","2":"882","3":"4156.0"},{"1":"Ideal","2":"2718","3":"4156.0"},{"1":"Ideal","2":"5795","3":"4156.0"},{"1":"Premium","2":"10729","3":"3295.2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ideal","2":"1444","3":"6490.4"},{"1":"Ideal","2":"2275","3":"6490.4"},{"1":"Ideal","2":"4239","3":"6490.4"},{"1":"Ideal","2":"17009","3":"6490.4"},{"1":"Ideal","2":"7485","3":"6490.4"},{"1":"Premium","2":"6291","3":"3896.8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
-<p><a href="notes-r-reshaping-and-combining-data.html#sec-application-ex" class="quarto-xref">Exercise&nbsp;<span>32.4.2</span></a></p>
+<p><a href="#sec-application-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-application-ex</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb99"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># summarize HRs per team and get recent data</span></span>
 <span><span class="va">team_stats</span> <span class="op">&lt;-</span> <span class="va">batting</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>

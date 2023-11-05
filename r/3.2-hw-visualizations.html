@@ -3296,7 +3296,7 @@ vertical-align: -.125em;
 <p>Now that we have a readable, accurate plot type for several distributions. Lets investigate more interesting quantities. Suppose we are interested in which animals have the biggest brains (proportionally). To study this we will visualize the ratio of brain weight to body weight based on the classification of animal vore. Recreate the following plot.</p>
 <p><em>HINTS:</em></p>
 <p><em>- Remember we can do “algebra” with our variables within an <code>aes()</code> statement.</em></p>
-<p><em>- To remove the <code>NA</code> category, we need to filter then out of the dataset used by <code>ggplot()</code>. We will learn how this function works in more detail next section, but for now replace <code>msleep</code> with the following code: <code>filter(msleep, !is.na(vore))</code>.</em></p>
+<p><em>- To remove the <code>NA</code> category, we need to filter them out of the dataset used by <code>ggplot()</code>. We will learn how this function works in more detail next section, but for now replace <code>msleep</code> with the following code: <code>filter(msleep, !is.na(vore))</code>.</em></p>
 <p><em>- Essentially, <code>is.na(vore)</code> evaluates to <code>TRUE</code> when there is a missing value of <code>NA</code> and <code>FALSE</code> when not missing, then <code>!</code> flips the logical so that <code>filter()</code> keeps only the non-missing values.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create histogram of single variable</span></span>
@@ -3367,7 +3367,7 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<p>There appears to some kind of relationship between these two variables, which makes sense. The more total sleep an animal gets, the more REM sleep. Lets add model the relationship with a regression line. We can do this via the adding the following code to the previous plot.</p>
+<p>There appears to some kind of relationship between these two variables, which makes sense. The more total sleep an animal gets, the more REM sleep. Lets model the relationship with a regression line. We can do this via the adding the following code to the previous plot.</p>
 <p>Try commenting out <code>method = &quot;lm&quot;</code> to see the effect. Then change <code>se = TRUE</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create scatterplot</span></span>

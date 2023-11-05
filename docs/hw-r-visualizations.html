@@ -412,6 +412,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">HW – Interactive Plots</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -540,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now that we have a readable, accurate plot type for several distributions. Lets investigate more interesting quantities. Suppose we are interested in which animals have the biggest brains (proportionally). To study this we will visualize the ratio of brain weight to body weight based on the classification of animal vore. Recreate the following plot.</p>
 <p><em>HINTS:</em></p>
 <p><em>- Remember we can do “algebra” with our variables within an <code>aes()</code> statement.</em></p>
-<p><em>- To remove the <code>NA</code> category, we need to filter then out of the dataset used by <code>ggplot()</code>. We will learn how this function works in more detail next section, but for now replace <code>msleep</code> with the following code: <code>filter(msleep, !is.na(vore))</code>.</em></p>
+<p><em>- To remove the <code>NA</code> category, we need to filter them out of the dataset used by <code>ggplot()</code>. We will learn how this function works in more detail next section, but for now replace <code>msleep</code> with the following code: <code>filter(msleep, !is.na(vore))</code>.</em></p>
 <p><em>- Essentially, <code>is.na(vore)</code> evaluates to <code>TRUE</code> when there is a missing value of <code>NA</code> and <code>FALSE</code> when not missing, then <code>!</code> flips the logical so that <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> keeps only the non-missing values.</em></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -561,10 +567,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">29.2.4</span> Part d – Scatterplots</h3>
 <p>Now we will visualize two quantitative variables. Recreate the following scatterplot, which investigates the hours of rem sleep compared to the total sleep hours.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create scatterplot</span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">msleep</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sleep_total</span>,</span>
-<span>                 y <span class="op">=</span> <span class="va">sleep_rem</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
 <figure class="quarto-float quarto-float-fig figure"><div>
@@ -574,13 +576,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>There appears to some kind of relationship between these two variables, which makes sense. The more total sleep an animal gets, the more REM sleep. Lets add model the relationship with a regression line. We can do this via the adding the following code to the previous plot.</p>
+<p>There appears to some kind of relationship between these two variables, which makes sense. The more total sleep an animal gets, the more REM sleep. Lets model the relationship with a regression line. We can do this via the adding the following code to the previous plot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span> previous scatterplot <span class="cf">function</span> call <span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> sleep_total,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> sleep_rem),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span> previous scatterplot <span class="cf">function</span> call <span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> sleep_total,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> sleep_rem),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Try commenting out <code>method = "lm"</code> to see the effect. Then change <code>se = TRUE</code>.</p>
 <p>Be sure to add nice titles and axis labels.</p>

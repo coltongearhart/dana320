@@ -68,10 +68,6 @@ To make this plot more readable, a first step we could do is sort the bars accor
 # -> sorted by decreasing frequency
 ggplot(data = msleep) + 
   geom_bar(aes(x = fct_infreq(vore))) + 
-  stat_count(aes(x = vore,
-                 y = after_stat(count) + 2,
-                 label = after_stat(count)),
-             geom ="text") + 
   labs(x = "Vore",
        y = "Count")
 
@@ -186,7 +182,7 @@ Now that we have a readable, accurate plot type for several distributions. Lets 
 
 *- Remember we can do "algebra" with our variables within an `aes()` statement.*
 
-*- To remove the `NA` category, we need to filter then out of the dataset used by `ggplot()`. We will learn how this function works in more detail next section, but for now replace `msleep` with the following code: `filter(msleep, !is.na(vore))`.*
+*- To remove the `NA` category, we need to filter them out of the dataset used by `ggplot()`. We will learn how this function works in more detail next section, but for now replace `msleep` with the following code: `filter(msleep, !is.na(vore))`.*
 
 *- Essentially, `is.na(vore)` evaluates to `TRUE` when there is a missing value of `NA` and `FALSE` when not missing, then `!` flips the logical so that `filter()` keeps only the non-missing values.*
 
@@ -203,12 +199,14 @@ g <- ggplot(data = filter(msleep, !is.na(vore))) +
 if (solutions) {
   g + 
     labs(title = "Relative brain size by vore type",
-       x = "Brain weight as proportion of bodyweight")
+       x = "Brain weight as proportion of body weight")
 } else {
   g + 
     labs(title = "< insert nice title >",
          x = "< insert nice axis label >")
 }
+
+# write-up: carnivores and herbivores are much more likely to have smaller brains relative to their body weight, potentially because their bodies weigh more than insectivores and omnivore on average (this is confimed with a summary calculation)
 
 ```
 
@@ -233,11 +231,27 @@ ggplot(data = msleep) +
 
 Now convert this to a vertical comparative boxplots. Note that there are two ways this can be done. Be sure to add nice title and axis labels and change the overall color scheme of the boxplots to match the context of sleep. Write a sentence comparing the sleep totals for the different kind of vores.
 
+```{r include = solutions}
+#| label: comparative-boxplots-vert
+
+# create vertical comparative boxplots
+ggplot(data = msleep) + 
+  geom_boxplot(aes(x = sleep_total,
+                   y = vore),
+               fill = "purple", color = "darkblue") + 
+  labs(title = "Sleep total by vore",
+       x = "Sleep total (hours / day)") + 
+  coord_flip()
+
+# write-up: insectivores have the highest median sleep by far, at around 18 hours per day carnivores and herbivores have similar distributions in sleep total, with carnivores being slightly more variable
+
+```
+
 ### Part d -- Scatterplots
 
 Now we will visualize two quantitative variables. Recreate the following scatterplot, which investigates the hours of rem sleep compared to the total sleep hours.
 
-```{r}
+```{r echo = solutions}
 #| label: scatterplot
 
 # create scatterplot
@@ -247,7 +261,7 @@ ggplot(data = msleep) +
 
 ```
 
-There appears to some kind of relationship between these two variables, which makes sense. The more total sleep an animal gets, the more REM sleep. Lets add model the relationship with a regression line. We can do this via the adding the following code to the previous plot.
+There appears to some kind of relationship between these two variables, which makes sense. The more total sleep an animal gets, the more REM sleep. Lets model the relationship with a regression line. We can do this via the adding the following code to the previous plot.
 
 ```{r echo = !solutions}
 #| label: geom-smooth-code
@@ -298,6 +312,8 @@ ggplot(data = msleep) +
   labs(title = "Sleep total by relative REM sleep",
        x = "Sleep total (hours / day)",
        y = "Ratio of REM sleep / Sleep total")
+
+# write-up: the more sleep hours in total, the more REM sleep hours mammals get; when correcting REM sleep to be relative to the sleep total, there is a minimal positive trend indicating as sleep totals increase, there is a slight increase in the relative amount of REM sleep
 
 ```
 

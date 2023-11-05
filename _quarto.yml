@@ -46,7 +46,6 @@ book:
         - notes-tableau-dashboards.qmd
         - hw-tableau-dashboards.qmd
 
-
     - part: module-r.qmd
       chapters:
         - install-r-and-rstudio.qmd
@@ -60,6 +59,7 @@ book:
         - lab-r-data-cleaning.qmd
         - hw-r-data-manipulations.qmd
         - notes-r-interactive-plots.qmd
+        - hw-r-interactive-plots.qmd
 
 format:
   html:
