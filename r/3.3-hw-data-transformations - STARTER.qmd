@@ -20,7 +20,7 @@ library(tidyverse)
 ```{r data}
 
 # load data
-data_music <- read.csv(file = "Data/shuffled-playlist.csv")
+data_music <- read.csv(file = "data/shuffled-playlist.csv")
 
 # preview data
 head(data_music)

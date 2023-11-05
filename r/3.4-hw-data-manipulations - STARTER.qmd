@@ -20,8 +20,8 @@ library(tidyverse)
 ```{r data}
 
 # load data
-data_raw <- read_csv(file = "Data/data-grades.csv")
-data_majors <- read_csv(file = "Data/data-majors.csv")
+data_raw <- read_csv(file = "data/data-grades.csv")
+data_majors <- read_csv(file = "data/data-majors.csv")
 
 # preview data
 head(data_raw)

@@ -82,5 +82,27 @@
       "R",
       "<span class='chapter-number'>29</span>  <span class='chapter-title'>HW - Visualizations</span>"
     ]
+  },
+  {
+    "objectID": "hw-r-data-manipulations.html#overview",
+    "href": "hw-r-data-manipulations.html#overview",
+    "title": "\n34  HW - Data Manipulations\n",
+    "section": "\n34.1 Overview",
+    "text": "34.1 Overview\nThis problem ties together concepts and functions from all the previous R notes for a comprehensive data analysis problem.\nWe will be working with hypothetical student grade data data-grades.csv, which contains information on two test scores from students of multiple sections for a single professor, and enrollment data data-majors.csv, which has the students major.\n\n\n\n\n ID \n    Student \n    Test_1 \n    Test_2 \n  \n\n\n 1381 \n    LZ-1 \n    20 \n    55 \n  \n\n 2027 \n    KO-1 \n    30 \n    40 \n  \n\n 6077 \n    DD-1 \n    28 \n    68 \n  \n\n 6869 \n    IG-2 \n    14 \n    42 \n  \n\n 4171 \n    VS-1 \n    28 \n    50 \n  \n\n\n\n\n\n\n ID \n    Major \n  \n\n\n 9810 \n    Physics \n  \n\n 9718 \n    Physics \n  \n\n 9685 \n    Chemisty \n  \n\n 9618 \n    Chemisty \n  \n\n 9520 \n    Physics \n  \n\n\n\n\nTo read in the data, first download it from Canvas and then change the path in the read_csv() statement above to where you have saved the data relative to the location of the your homework file.\nThis assignment will take you through steps to clean, organize and analyze these the test scores.",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>HW - Data Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "hw-r-data-manipulations.html#assignment",
+    "href": "hw-r-data-manipulations.html#assignment",
+    "title": "\n34  HW - Data Manipulations\n",
+    "section": "\n34.2 Assignment",
+    "text": "34.2 Assignment\nThe goal of this assignment is to demonstrate common data manipulation tasks using packages from the tidyverse.\n\n34.2.1 Part a – Data manipulations\nThe goal is to have a single dataset with the following columns:\n\nID\n\nStudent: just two initials\nMajor\n\nClass: 1 or 2\n\nTest_1: % out of 100\n\nTest_2: % out of 100\n\n\nFor the grades data, we need to split the current student column into two variables, one of their initials and one for the class they are in. Use tidyr::separate_wider_delim() to do so.\nConvert the test scores to percentages (Test 1 is out of 30 points and Test 2 is out of 70 points).\nCombine grades data and majors data and then sort alphabetically by student initials within each class.\n\n34.2.2 Part b – Visualize data\nNow that the data is cleaned and organized, lets visualize the Test 1 scores to start with.\nCreate two polished plots to visualize Test 1 scores, at least one of which should include a class comparison or major comparison.\n\n34.2.3 Part c – Summarize data\nNow that we have an idea of the distributions for Test 1, let’s summarize them, specifically we want to create an overall summary and a summary by class.\n\nCreate a test 1 dataset that contains only the Class, Student initials and Test 1 score.\nCreate an object named data_summary_overall that summarizes Test 1 scores with the sample size, average and standard deviation. Then add the following lines of code to add an indicator column and rearrange the columns.\n\n\ndata_summary_overall &lt;- &lt; previous summary function call &gt; %&gt;% \n  mutate(Class = \"Overall\") %&gt;% \n  select(4, 1:3)\n\n\nCreate another object called data_summary_section that performs the same summary functions the previous step, except by Class.\nCombine the overall summary with the class summary rowwise.\n\n34.2.4 Part d – More manipulations and visualizations 1\nIf we want to visualize both tests and class at the same time, some more data restructuring is necessary. Specifically, we need the data to have the following columns:\n\nID\n\nStudent: just two initials\nMajor\n\nClass: 1 or 2\n\nTest: 1 or 2\n\nGrade: % out of 100\n\nThus, there is two rows per student, one for each test grade.\nPerform the necessary data steps and then recreate the following visual. Note that two have the labels for Test 1 and Test 2 nicely formatted, the values need to be cleaned in the data.\n\n\n\n\n\n\n\n\n\n\n\n34.2.5 Part e – More manipulations and visualizations 2\nNow the professor wants to investigate applying a curve by major for Test 1 grades.\n\nUsing the Test 1 data from Part c, create a new dataset that also contains curved grades for Test 1 according to the following scheme:\n\n\nClass 1 receives 3 additional points.\nClass 2 receives a 30% of their missed points back (HINT: On paper work out an algebra function that accomplishes this and spot check a few values to make sure they are correct).\n\nHINT: Use case_when().\n\nUsing the curved data, perform the necessary data steps and then recreate the following visual.",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>HW - Data Manipulations</span>"
+    ]
   }
 ]

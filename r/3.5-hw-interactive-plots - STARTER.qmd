@@ -1,0 +1,47 @@
+---
+title: "3.5 HW -- Interactive Plots STARTER"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+execute: 
+  warning: false # clean up output
+  message: false # clean up output
+---
+
+```{r setup}
+
+# load packages
+library(tidyverse)
+library(plotly)
+
+```
+
+```{r data}
+
+# load data
+data_madden <- read_csv(file = "data/madden-23.csv")
+
+# preview data
+head(data_madden)
+
+```
+
+### Part a -- Scatterplot
+
+```{r}
+
+```
+
+### Part b -- Dumbell chart
+
+```{r}
+
+```
+
+### Part c -- Visualize data
+
+```{r}
+
+```

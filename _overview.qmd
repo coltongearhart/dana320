@@ -1,0 +1,956 @@
+---
+title: "Course Overview"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 3
+---
+
+# Module 0 --- Introduction to Course
+
+\< add descriptions of intro videos later when have more time \>
+
+\< and meet your instructor page \>
+
+\< add introduce yourself discussion post and course overview quiz descriptions / where to put the full instructions and quiz questions?? \>
+
+< add excel file names under videos >
+
+# Module 1 --- Excel
+
+## 1.0 --- Install Excel
+
+-   How to Install Excel instructions page: [link](https://bsu.service-now.com/helpdesk?id=kb_article&sys_id=d94161fcdb5a3a401e8c3c8f9d961949)
+
+## 1.1 --- Introduction to Excel
+
+### Assignments
+
+*DataCamp: Introduction to Excel*
+
+-   Submission: Upload 'Statement of Accomplishment'
+
+-   DOWNLOAD workbooks and datasets: [link](https://assets.datacamp.com/production/repositories/6291/datasets/d835da019de0c7a6cb5d7efdf6f8be022321d6cf/Exercises%20and%20Datasets.pdf)
+
+### Chapter 1 --- Getting started with Excel
+
+-   Navigating excel
+
+    -   Terminology: Cells, formulas, ribbon, etc, summarizing column with #s at bottom
+
+    -   Opening files, selecting cells and columns / rows
+
+    -   Formulas: Start with =, arithmetic formulas with cell references, copying formulas
+
+-   Tables
+
+    -   Structure of table: header, body, totals
+
+    -   How to create table, add and delete columns
+
+    -   Structured references for column formulas (by column name, dynamic)
+
+    -   Filtering (from table header drop down)
+
+    -   Sorting: custom sort by multiple columns
+
+    -   Formatting: changing data display format, decimals, table style
+
+### Chapter 2 --- Managing data and applying aggregate functions
+
+-   Named ranges
+
+    -   How to create (formulas tab) and view current named ranges, how to use in a formula
+
+-   Subtotals
+
+    -   Sort and filter data first
+
+    -   How to generate subtotals (Data ribbon), different views of subtotals (1,2,3)
+
+-   Data validation
+
+    -   How to create (Data tab), how to set, error message, and entering data
+
+-   Data formatting
+
+    -   Changing format from standard options, custom format
+
+    -   Conditional formatting (only top/bottom rule)
+
+-   Formulas and functions
+
+    -   Order of operations (math and excel), aggregate functions (including count) and how to write (or select them from formulas tab with formula builder) / reference cells (or columns)
+
+### Chapter 3 --- Other functions and visualizing data
+
+-   Types of functions and examples
+
+    -   Text functions: left(), right(), lower(), upper(), len(), combining functions for more complex string subsetting
+
+    -   Date functions: date(), year(), month(), day()
+
+    -   Math and trig functions: round(), rounddown(), roundup(), abs(), sum()
+
+    -   Statistical functions: \< aggregate ones earlier \>
+
+-   Data visualization
+
+    -   Brief data viz overview, intro of different types of plots
+
+    -   Area chart (time series plot filled underneath): how to insert from table
+
+    -   Column (bar graph): correct from select data, remove series, select horizontal labels, add data labels (right click on any bar)
+
+    -   Pie chart: Recommended chart button
+
+    -   Line plot: more editing series and labels
+
+## 1.2 --- Basic Charts in Excel
+
+### Assignments
+
+*Lab: More Charts in Excel*
+
+-   Part 1: Multiple Variable Charts
+
+    -   Comparative boxplots and histograms, manually filtering rows to copy and paste subsets of table for new plots, scatterplot
+
+    -   Source for data is from this [site](https://regressit.com/data.html)
+
+-   Part 2: Waterfall Chart
+
+    -   Setup of data for waterfall chart, creating and modifying waterfall chart
+
+    -   Source: [Article](https://journalistsresource.org/home/regression-analysis-primer-for-journalists/) that uses data and [data](https://journalistsresource.org/wp-content/uploads/2014/11/Sample-data-sets-for-linear-regression1.xlsx)
+
+*HW: Plots for Analyses*
+
+-   Part 1: Simple Linear Regression
+
+    -   Summary stats table (COUNTIF, AVERAGEIF, and SUMIF), scatterplots with trendline lines and regression info
+
+    -   Same data as Part 2 of 1.2 Lab
+
+-   Part 2: Plots of Aggregated Data
+
+    -   Calculating month from a date and converting to month abb, SUMIF to aggregate data, line chart with two series, calculate quarter from date algebraically and combine text to format result, comparative boxplot with connected mean lines
+
+### Basic Charts in Excel
+
+**Content: My video**
+
+Mini overview: Creating and styling basic charts in Excel; Working with Excel tables
+
+-   Formulas
+
+    -   Creating new column, autofill, absolute vs relative reference, inserting formula different ways (typing, formula menu), summary stats, frequency table manually with sumif()
+
+-   Plots
+
+    -   Histogram (bin width effect), boxplot, line plot, bar graph, two variable bar graph, how to interpret all plots (distribution ones with shape, mode, etc.)
+
+-   Styling plots
+
+    -   Adding / removing elements (gridlines, legends, etc.), add and customize data labels (position, different label options, font), combo chart (change chart series, line series with bar graph), changing appearance of series (line, markers and marker options, fill of bar chart), edit axis lines and font
+
+-   Design thinking
+
+    -   Why side-by-side is not ideal, ways to improve it with demo (line chart with just labels and markers that are customized, making elements stand out (bold font, brighter color, darker color, thicker line) and others not (neutral colors)
+
+-   Tables
+
+    -   How to create, how to reference, total row, subtotals, slicer
+
+-   Exercises
+
+    -   Design thinking of quick layouts and if they add value to plot, pie chart (show proportions vs counts), comparing bar graph to pie chart
+
+## 1.3 --- Reports
+
+### Assignments
+
+*Lab: Combining Data and more on Pivot Tables*
+
+-   Part 1: Recreate pivot table report
+
+    -   Organizing pivot table with several summary stats for same measures, different layout settings, slicer and modifying appearance, styling report to be more presentable (extra headers, borders, empty background)
+
+    -   Problem based on this [tutorial](https://www.contextures.com/exceldatahockeyplayeranalysis.html)
+
+-   Part 2: Combine data with XLOOKUP and create simple reports with Map chart
+
+    -   Data quality checking when merging, sorting pivot table, map chart
+
+*HW: Creating More Engaging Reports*
+
+-   Part 1: Create report with different displays for measures, including custom formatting
+
+    -   Standard pivot table, group date by quarters, use % difference from for sum measure (based on quarters), custom formatting for summary (colored symbol), styling report for better display
+
+    -   Source for custom formatting and data bars for part 2 ([video](https://youtu.be/yHzT_BUggQk) and [tutorial](https://www.xelplus.com/excel-advanced-pivot-tables/))
+
+-   Part 2: Combining data with XLOOKUP and creating report with added visual via data bars
+
+    -   Creating report based on regular data (not aggregated), remove duplicates to create unique list (before they know UNIQUE()), XLOOKUP with different search mode (last-to-first) to bring in multiple columns, XLOOKUP with different match mode (next smallest), display function of columns raw value and with colored data bars for negative and positive
+
+    -   Source for data is from the workbook in this [tutorial](https://www.datacamp.com/blog/working-with-pivot-tables-excel)
+
+### Introduction to Pivot Tables
+
+**Content: Her [video](https://youtu.be/UsdedFoTA68) and [tutorial](http://xelplus.com/pivot-tables-in-10-minutes/)**
+
+Mini overview: Creating pivot tables; Customizing summary measures and pivot table features
+
+-   Insert pivot table
+
+    -   Make source data table, how to insert pivot table, insert copy of existing pivot table to easily create another one (formatting comes in), demo how they are dynamic and update with new data
+
+-   Summary measures
+
+    -   Change summary measure from 'Values' in Filed List, change from right click in pivot table and 'Show Value As', format measure (format cells vs number format), sort by measure, bringing in same column twice as value, converting measure by 'Show Value As'
+
+-   Customizing pivot table structure
+
+    -   Adding filters, adding field to columns or rows, turn grand / subtotals on and off, report layouts (tabular form gives column headers), collapse / expand fields (and how to remove this ability +/- button)
+
+-   Customize pivot table design
+
+    -   Updating headers, update pivot table style, turn off autofit columns with update
+
+-   Slicers
+
+    -   What they do, how to insert, customize design, connect slicer to multiple pivot tables (click on one that doesn't have it and go to filter connections)
+
+-   Exercise
+
+    -   Creating own report from goal of what final report should include
+
+    -   Think about: what variables, where do they go, in what order, what summary measures, how to format them, need subtotals / grand totals based on context, format of headers
+
+### Combining Data and More on Pivot Tables
+
+**Content: My video**
+
+Mini overview: Data setup; XLOOKUP; Additional pivot table features
+
+-   Overview of problem
+
+    -   Why need this method (need report with information from multiple tables), how going to solve problem (adding columns by bringing in information from master data table)
+
+-   XLOOKUP
+
+    -   What arguments mean, how to use it, bringing in more than one column, blanks in return array
+
+-   Strategy of building report
+
+    -   Think about sketch and how to get there
+
+-   Fancier pivot table methods
+
+    -   Date groups, creating and editing regular groups, expand and collapse all groups, break out by filter, show details of measure and categorical variables, timelines, calculated fields
+
+-   Exercise
+
+    -   Just repeating stuff from video
+
+-   Additional resources
+
+    -   [Tutorial](https://www.automateexcel.com/formulas/xlookup-return-blank-not-zero/) for how to fix XLOOKUP bringing in zeros instead of blanks
+
+        -   PREFACE: When learning / applying new methods, will probably keep running into specific mini problems. So when searching solutions, be sure to use solutions that you can understand as much as possible so you learn more and can reapply it later.
+
+    -   Combining data via Data models and PowerPivot ([video](https://youtu.be/mTdIEhtcqlo) and [tutorial](https://www.xelplus.com/relationships-pivot-tables-multiple-sheets/))
+
+        -   PREFACE: Currently this can't be done in Excel on Mac or Excel Online, but pretty much all companies have Windows Excel (so it will likely be available to you). And more importantly, a lot of software and technology is knowing what can be done, then deciding if it is useful for your application. So this is still a GREAT WATCH!
+
+### More on XLOOKUP
+
+**Content: Her [video](https://youtu.be/4c0CLUER6nw) and [tutorial](https://www.xelplus.com/excel-xlookup-5-examples/)**
+
+Mini overview: How to use XLOOKUP; When to use XLOOKUP optional arguments
+
+-   Basic XLOOKUPs
+
+    -   What arguments mean and what to supply, absolute references (fixing) the lookup and return arrays, skipping optional arguments o Vertical lookup example first, then horizontal lookup, why organization of master table doesn't matter
+
+-   Optional arguments
+
+    -   If_not_found: why happens and supplying value
+
+    -   Match_mode: Default is EXACT match = 0, WILDCARD character match = 2 and how to specify using "\*"&, APPROXIMATE match = -1 (exact or next smallest) or 1 (exact or next largest)
+
+    -   (Not demonstrated) Search_Mode: Default is FIRST match = 1 (first-to-last), =-1 (last-to-first = -1)
+
+-   Two-way lookup
+
+    -   Adding data validation lists to select items to lookup, how to nest XLOOKUPS, demo, showing that inside XLOOKUP returns entire array (using F9) which is why can do 2-way lookup
+
+-   Exercises
+
+    -   XLOOKUP with wildcards and a different pattern, different return value when not found, return multiple columns, return value when not found for two-way (nested) lookup
+
+    -   Think about: what to include in data validation list and how to improve when there are multiple records that aren't found
+
+    -   Data used for exercises from early XLOOKUP explained ([video](https://youtu.be/xnLvEhXWSas) and [tutorial](https://www.xelplus.com/excel-xlookup-explained/))
+
+### Panel Chart
+
+**Content: My video ([tutorial](https://www.automateexcel.com/charts/panel-template/) for setting up hers and just beginning of her [video](https://youtu.be/5nf8rucx80E) and [tutorial](https://www.xelplus.com/excel-panel-charts-matrix-excel-chart/))**
+
+Mini overview: Setup of panel chart data using pivot table; Creating panel chart
+
+-   Overview
+
+    -   Pivot table application to organize data for the panel chart video, but only doing the basics of the plot (stopping at the dividers, too convoluted and not possible in Excel Mac)
+
+-   Pivot table setup
+
+    -   One off application of pivot table to organize data a certain way for a specific plot, manually adding values for a new column using filter and autofill, cell styles (for header)
+
+-   Panel chart
+
+    -   Multiple series appearing in legend, how line plots connect with consecutive data, changing colors to be consistent and make sense with context, how this plot could be improved with dividers but will be much easier later with different software (another decision to make when planning a visualization)
+
+## 1.4 --- Dynamic Charts and Dashboards 
+
+### Assignments
+
+*Lab: Dynamic Charts and Dashboards*
+
+-   Part 1: Line chart with highlighting multiple points
+
+    -   Fancier IF() checking for additional two series to highlight smallest and largest 2 points
+
+-   Part 2: Dynamic dashboard via pivot table and chart
+
+    -   Add new column to table, simple pivot table (but reorganize rows) with line chart, adding slicers
+
+*HW: Dynamic Charts and Dashboards*
+
+-   Part 1: Dynamic bar chart ([video](https://youtu.be/C9beIaL-cBA) and [tutorial](https://www.xelplus.com/excel-infocharts-special-excel-graphs/)) that colors based on relationship to dynamic target line
+
+    -   Creating two conditional formatting series (one for target line and one for colored bars)
+
+-   Part 2: Dynamic dashboard using Excel Functions
+
+    -   Create dynamic dropdown, dynamic target line based on XLOOKUP, line chart with title dynamic ([tutorial](https://trumpexcel.com/dynamic-chart-titles-in-excel/)) and dynamic target line where all is based on dropdown, move to new tab and hide for dashboard effect ([video](https://youtu.be/p2bFHuAR8Z0) and [tutorial](https://www.xelplus.com/excel-hidden-dashboard-tips/))
+
+    -   Data setup from this example (video and tutorial)
+
+    -   Additional resource -\> locking excel sheet (could use for dashboard)
+
+<!--# look into? -->
+
+### Dynamic Charts Part 1 and Part 2
+
+**Content: Her videos (Part 1 [video](https://youtu.be/OqtFvB6B7E4) and [tutorial](https://www.xelplus.com/highlight-max-min-values-in-an-excel-line-chart/); Part 2 [video](https://youtu.be/tp9OXKcn7sA))**
+
+Part 1 -- Highlight min and max on line plot
+
+Mini overview: Line chart with markers; Conditional formatting logic and implementation
+
+-   Insert line chart with markers
+
+-   Strategy of conditionally changing color of points
+
+    -   Format points individually, logic of conditionally formatting color to be dynamic -\> conditional formatting = add new data series (two different colors / styles means two different series)
+
+-   Implementing above
+
+    -   if() to test if have max or min and set everything else to NA() (not "" which means zero), format entire min or max series, change marker (marker options) using built in type with bigger size and no fill, border color and thicker border, change original series to have neutral color and markers with no border to not stand out, add data labels to min and max in correct position
+
+-   Formatting helper table / series
+
+    -   Want to avoid errors in sheets (#N/A)s, group instead of hide, then correct plot to not hide hidden rows / columns, or just change the color to lighter for the min / max series
+
+-   Exercise
+
+    -   Conditional formatting series based on greater than target, formatting new series to highlight relationship to target based on context, hiding helper series with font change and grouping
+
+Part 2 -- Dynamic target line
+
+Mini overview: Dynamic target line logic and implementation
+
+-   Logic of target line
+
+    -   How not to do it (manually), **You picked the wrong thing to be good at (work hard to be lazy) -\> Dynamic / automate as much as possible**
+
+-   Implementing above
+
+    -   Want to make dynamic and make data in to table to update with new data, new series for target, change series chart type to line, formatting line (thickness, adding arrows), data label of single point of target line and format (position and font), group target series and have plot show hidden cells, result when adding data and updated target
+
+-   Horizontal bar graph
+
+    -   Why excel 'bar chart' doesn't work (tough with two series), hack (linked picture), formatting of new linked picture via the formatting of the original (thinner, gap width to make bars closer, rotating axis labels and all data labels), show still dynamic
+
+-   Exercise
+
+    -   Average line, adding series name and value data label for single point, manually moving data label and formatting it
+
+    -   Think about: indicate average line on plot without legend, data label from first dataset when new data applied and how to generalize the label to work with all new data
+
+### Dynamic Dashboards Part 1
+
+**Content: My video from her [video](https://youtu.be/G6ImRBn3cQk) and [tutorial](https://www.xelplus.com/pivot-slicer-excel/)**
+
+Mini overview: Pivot charts and customizing dashboards
+
+-   Pivot chart logic
+
+    -   If ever need aggregated data for a chart, make pivot table then make the plot
+
+    -   If just are making one static plot (data for the most part is not going to change), then can copy data to new tab like in panel chart. Else if want the flexibility can make pivot chart
+
+-   Pivot table
+
+    -   Pivot chart needs pivot table, which should be based on excel table
+
+    -   Change summary measure to average and number format
+
+-   Pivot chart
+
+    -   How to insert, removing elements, adding data labels, editing chart title, want slicer to make it dynamic, slice by date but have to group by months, temporarily using pivot table to get month field (putting in columns), how to group by month
+
+-   Slicer
+
+    -   Slice by month, using slicer, greyed out values and how to remove them from slicer settings, remove slicer caption (to keep filtering buttons)
+
+-   Dashboard
+
+    -   Organize together, format bars (gap width, color), color background of cells, remove background and border of chart, customize slicer format (columns, creating new style and applying specific format like changing background color and removing border), confirm dynamic with new data using find and replace, refreshing pivot table to update
+
+-   Exercise
+
+    -   Dashboard with line pivot chart instead with multiple series, add and format data labels for all points but different label (with series name) for specific point o thinking about: overplotting with all data labels, other plot features needed (gridlines, vertical axis)
+
+### 5 Excel Functions
+
+**Content: Her [video](https://youtu.be/_EWcAR_Hkvg) and [tutorial](https://www.xelplus.com/excel-functions-office-365/)**
+
+Mini overview: Sort and sortby; Unique; Xlookup; Filter; Sequence
+
+-   PRAFACE
+
+    -   Using these as another way to make dynamic reports and charts (which combined we will call dashboards)
+
+    -   Already covered XLOOKUP, but included here as well. So extra practice
+
+-   Sort
+
+    -   Purpose: Dynamically sort dataset based on a column (always returns entire dataset), if add new data, gets resorted accordingly
+
+    -   Arguments: array = dataset to be sorted and returned (formatting does not come with), \[sort_index\] = what to sort by (index of column number in array, default sorting is ascending by first column), \[sort_order\] = 1 (ascending) or -1 (descending), \[by_col\] = FALSE (data is in rows) or TRUE (data is in columns, horizontal)
+
+-   Sortby
+
+    -   Purpose: Sort dataset by column that isn't in end result
+
+    -   Arguments: array = columns to get back, by_array1 = sorting column, \[sort_order1\] = ascending or descending (same as sort), (not demonstrated) can add additional \[by_array2, sort_order2\] pairs
+
+-   Unique
+
+    -   Purpose: get a dynamic list of distinct values
+
+    -   Arguments: array = column or columns (which gives unique combinations), \[by_col\] = FALSE (data is in rows) or TRUE (data is in columns, horizontal), \[exactly_once\] = FALSE (return every distinct item) or TRUE (return items that only appear only once)
+
+-   Xlookup
+
+    -   Purpose: returns
+
+    -   Arguments: lookup_value = value searching for, lookup_array = array where searching, return_array = array to return, \[if_not_found\] = what to return when not found
+
+-   Filter
+
+    -   Purpose: Dynamically filter results based on some condition
+
+    -   Arguments: array = range to return (formatting does not come with), include = condition (not demonstrated: can involve columns not in return range)
+
+    -   Pair with sort to get filtered results automatically sorted -\> sort(array = filter(), \[sort_index\], \[sort_order\])
+
+-   Sequence
+
+    -   Purpose: gives numbers in order that want (total number of numbers = rows x cols)
+
+    -   Arguments: rows = \# number of rows to fill, \[columns\] = \# of columns to fill (default = 1, just gives rows of numbers), \[start\] = number to start from (default = 1), \[step\] = accumulator (default = 1)
+
+    -   A practical use in reports: giving indices to dynamic list of rows -\> this application uses counta() because counting text and also spill ranges (# suffix)
+
+-   Exercise
+
+    -   sortby() with multiple sorting columns (and still returning one of them)
+
+    -   xlookup() with different search modes (first-to-last and last-to-first), creating data validation list using sort(unique())
+
+    -   Using counta() and a spill range of unique() to count the number of duplicates (unique list - only once list)
+
+### Dynamic Dashboards Part 2
+
+**Content: Her [video](https://youtu.be/ehrXyFPljBo)**
+
+Mini overview: Using Excel functions to create dynamic reports and dashboards
+
+Example 1
+
+-   Goal
+
+    -   Create dynamic chart where can switch view based on dropdown and chart only shows the corresponding information with no extra blank spaces
+
+-   Creating data
+
+    -   Use filter to conditionally show rows of interest (checking condition based on column that isn't returned and if_empty argument, just mentioned), copy formats (don't come with results), sorting results with sort(filter())
+
+-   Chart
+
+    -   Insert chart based on dynamic range, demo changing dropdown and chart updates, adding new data updates in data and chart because Excel Table
+
+-   Exercise
+
+    -   Build to creating dynamic dropdown, then repeating chart based on dropdown like the video
+
+Example 2
+
+-   Goal
+
+    -   Create dynamic chart that automatically updates based on from date and to date (two conditions)
+
+-   Creating data and chart
+
+    -   Additional explanation for data validation note o How to filter for more than one condition: include = (condition 1) \* (condition 2) = {T, F, T, ...} \* {F, T, T} = {1, 0, 1, ...} \* {0, 1, 1} = {0, 0, 1} = {F, F, T}, F9 to evaluate formula for debugging and then pressing esc to not hardcode, demo updating dates and chart, adding new data and everything updates
+
+    -   Dashboard formatting tips (put data on different sheet or put out of view, just mentioned)
+
+-   Exercise
+
+    -   Dynamic bar chart to show values only outside of a variable range (less than X and greater than Y), checking OR condition with (cond 1) + (cond 2), demo optional argument for cases when no matches are returned, formatting chart and input spots for more dashboard feel
+
+-   Additional resources (for extra stuff to learn)
+
+    -   Dynamic arrays to use for drop down ([video](https://youtu.be/2USJsIyIzvo) and [tutorial](https://www.xelplus.com/excel-dynamic-arrays-how-excel-will-change/))
+
+# Module 2 --- Tableau
+
+## 2.0 --- Install Tableau
+
+-   How to Install Tableau (and register) instructions page: <https://www.tableau.com/academic/students>
+
+## 2.1 --- Introduction to Tableau
+
+### Assignments
+
+-   DataCamp: Introduction to Tableau
+
+    -   Submission: Upload 'Statement of Accomplishment'
+
+    -   DOWNLOAD [workbooks and datasets](https://assets.datacamp.com/production/repositories/5521/datasets/252be949ed79b41d80a1560d5a3615545edfaac2/Workbooks%20and%20Datasources.pdf)
+
+### Chapter 1 --- Getting started with Tableau
+
+-   Navigating Tableau
+
+    -   Data source: Connecting to data source (opening a csv / text file), changing column names and data types
+
+    -   Worksheet is where we work with the data
+
+    -   Data pane: Shows loaded data files and available fields and their data types, blue = discrete (categorical) or green = continuous, automatically generated data fields (in italics)
+
+    -   Canvas: Where visuals appear, drag and drop fields, columns = X axis and rows = Y axis, pages = visuals for each subset on different page, filter shelf to filter data, marks cards summarize measures to add context and detail (can change how displayed with different cards), legend for visual cards are automatically generated
+
+-   Data roles
+
+    -   Data roles: Indicated by position in data pane, dimensions (qualitative) are first, measures (quantitative) are next, converting between dim and measure and discrete or continuous
+
+    -   Impact: Affects types of visuals, dimensions segment / group, measures summarize / can be aggregated
+
+-   Filter
+
+    <!--# - look into -->
+
+    -   Filter: Can filter based on aggregation or the default of considering all values, then set criteria
+
+-   Creating visualizations
+
+    -   "Show me": Suggested plots based on data types, easy to switch between, more info shows when hovering over parts of plot (this is called a tool tip)
+
+    -   Types of visuals: Easy to switch between, just suggestions of what can be built (not what should be built, still have to think about visual)
+
+    -   Customizing: Show mark labels button (looks like \[T\]) which adds data labels
+
+### Chapter 2 --- Building and Customizing Visualizations
+
+-   Order of operations for types of filters
+
+    -   (written first to last below)
+
+    -   Extract and data source filters: Connecting / loading data (usually occurs before opening worksheet)
+
+    -   Context filter: Not covered here
+
+    -   Dimension filters: Selecting categories, defining pattern with a wildcard, conditions based on other fields, top / bottom records
+
+    -   Measure filters: Ranges, null, etc.
+
+-   How to filter
+
+    -   Filter by selection: Highlight items of interest on visual -\> right click -\> Keep Only or Exclude), these selections get recorded in the filter card
+
+    -   Drag to filter card: For dimension can choose which values we want, for measure get option for aggregation (skipped for now), then can select range or min / max, default range is the actual range in the view currently)
+
+    -   Remove filter: Drag off filter card
+
+    -   Show Filter from filter card: Shows interactive filter cards to side (can customize appearance, dimensions get checklists and can choose if single or multiple values)
+
+-   Useful filters
+
+    -   Null values: Indicator of how many nulll in corner of plot, can filter out with Filter card -\> Special tab -\> Non-null values
+
+    -   Top / bottom filter for dimensions: How to (Filter card -\> Top tab), example is top $x$ levels based on a measure
+
+-   Sort
+
+    -   Default: Alphabetic sorting on dimensions
+
+    -   Alternatives: Sort by metric (ascending or descending)
+
+    -   How to sort: Click on header or icon on toolbar
+
+-   Aggregating
+
+    -   What is aggregating
+
+    -   Measures: Default aggregate for measures is sum
+
+    -   Dimensions: can aggregate dimensions, 4 options (min, max, count and distinct count), when aggregate by dimension a temporary measure is created (not added to data pane, just for canvas)
+
+-   Creating plots
+
+    -   How to create scatterplot: Drag variables to correct rows / columns (this just sets up the axes), to get the points have to drag what would correspond to a "row" in R to marks
+
+    -   How to customize plots: Changing aggregration of measures for axes (right click in rows / columns up top), edit axes ranges (right click axes -\> Fixed -\> set range)
+
+    -   Visualizing dimensions: Make bar graph by adding dimension to rows and columns -\> to add data points need to add aggregation to one of them (the other variable is the groups), add another variable to marks to further segment bars (stacked bar chart), number of occurences (individual data points in bar) vs unique number of the grouping variable
+
+-   Calculated fields
+
+    -   What they are: Creating new data (columns) from existing data (underlying data is unaffected), examples (can be algebra, use functions, use more than one field), can result in measures or dimensions
+
+    -   Creating them: How to (Analysis tab -\> Create Calculated Field, specify name of new field and then write formula), result gets added to data pane (formula can be edited and field can be edited with dropdown like usual, e.g. switch data role), can look at documentation of Tableau functions when adding formula (click right arrow on side of box), syntax of using columns in formula \[col name\]
+
+    -   Tree map: Data setp (table of list of groups summarized by numerical measures), how to read (boxes whose size is proportional to value of numerical measure, upper left corner is largest and bottom right is smallest)
+
+### Chapter 3 --- Digging Deeper
+
+-   Maps overview
+
+    -   Two types of maps: Filled map (boundaries of geographic region filled with color), symbol map (boudaries with symbol in center, great for displaying two measures (size and color))
+
+    -   Recognized geographic types: Tableau automatically assigns coordinates to things like US area codes, cities worldwide, countries, etc; these are called geocodes and have a specifi Geographic data role (globe symbol data type)
+
+-   Symbol map
+
+    -   Creating: When drag geocoded field to view -\> field is automatically put in detail on marks card and generates lat / long, symbol map created with measure to marks card (smallest value gets smallest circle (same for largest) then rest are proportional to measure, don't use measures with negative values cause unclear what smallest circle represents)
+
+    -   Customizing: Can add another measure to color marks card (which works well with negative values), edit format of circles (e.g. outline, relative / baseline size that then changes by measure value, do both of these by click the respective marks card), map appearence (Map menu -\> Map layers -\> select / unselect items to change view)
+
+-   Dates
+
+    -   Dates: Another data type (calendar, automatically dimension), date hierarchy (can group by year, quarter, month, day)
+
+    -   Preview data: Show preview of raw data (with data types) from worksheet (right click data source name at top of data pane -\> View Data), can select number of rows to display and columns to see in the preview
+
+    -   Visualizing with dates: Right click date field from row / column to change aggregation level (year, month, etc), two sections in menu related to time granularity (first section is dimensions, so groups; and second is continuous; for years doesn't change appearance cause years aren't repeated, but for months it will combine all the Jnauary's from all the different years rather than making a continous range of month after month)
+
+-   Reference lines, trend lines and forecasting
+
+    -   Referene lines: A line drawn on chart representing another measure or point of reference, useful for providing context (such as an average line, can see relative differences from average)
+
+    -   Trendlines: Predict continuation of trend (e.g. downward trend), created from time dimenstion and measure field
+
+    -   Forecasting: Predicting future values of a measure, math models capture trend and or seasonality to extrapoate, created from time dimenstion and measure field
+
+-   Adding reference lines, trend lines and forecasting
+
+    -   Start: Build line chart with time as continuous
+
+    -   Add reference line: How (Analytics pane -\> (under Custom) Reference Line -\> drag into view, then grid of options appears), options for line (Table = over all time periods, Pane or Cell are more granular, have to drag under the desired one and for the desired measure), then dialog box opens (set calculation and formatting of line), can remove by clicking -\> Remove
+
+    -   Add trendline: How (Analytics pane -\> (under Model) Trendline -\> drag -\> drag to type of model)
+
+    -   Add forecast: How (Tableau has built in analytics; (Analytics pane -\> (under Model) Forecast -\> drag -\> drag to Forecast)), shows mean and confidence band on predictions
+
+### Chapter 4 --- Presenting Your Data
+
+-   Design (formatting tips) and Tableau structure
+
+    -   Write informative titles, use colors and fonts to increase legibility, add a legen, adjust axes (titles) if ncecessary, create tooltips, shows example
+
+    -   Different levels of formatting: Workbooks (contain multiple sheets, analgous to excel workbook), sheet (excel tab), three different kinds of sheet (worksheet, dashboard and story)
+
+-   Designing line plots
+
+    -   Dual axis chart: What it is in this example (line chart with lines for different measures (rather than different groups), how to create (if have standard line chart -\> can drag second measure to right until dotted line appears; now two measures in rows), second axis (has independent scale from first one (misleading, can synchronize (same scale, different context) -\> right click -\> Synchronize Axes)
+
+    -   Improve structure: Want different aesthetic (bars) to distinguish total from individual groups (lines), how (in marks card can change type), add other measures (NOTE: data setup is wide, so one column of values for each group) -\> drag Measure Values over the second measure to replace it (adds all measures, remove unnecessary and repeat ones)
+
+    -   Improve format: Rename worksheet, center title (right click header), hide right (second) axis -\> uncheck Show Header, rename left axis title, improve tooltips by adding all measures, can format tooltips
+
+-   Dashboards and stories
+
+    -   Dashboard: What is is (collection of several views), data is automatically connected to worksheets (changes on one will affect the other), dashboards are interactive, views can be connected (one view acts as interactive filter), users can drill down to do additional analyses
+
+    -   Stories: Contain useful dashboard / worksheet insights, they are a sequence of visualizations to tell a narrative (can cycle through them), each individual visualization is called a story point
+
+    -   Structure: Worksheet \< Dashboard \< Story
+
+-   Creating dashboards and stories
+
+    -   How to create dashboard: Add new at bottom, drag sheets on canvas to organize
+
+    -   Filters on dashboards: All cards (legend and filters) from sheets are automatically brought into dashboard, organize quick cards by dragging (can make floating so can be moved around freely (to be with respective sheet) -\> click more options in corner), filters apply to everything in the dashboard (this is why interactive), even better filters is using visualizations as filter (click on more options for sheet in dashboard -\> Use as Filter, now when click on part of this visual all other visuals filter to the selected data, click again to remove filter), can add filters from the dashboard (click on plot -\> Analysis menu (in toolbar) -\> Filters, these affect the worksheet)
+
+    -   Stories: How to create (add new at bottom), add dashboards by dragging in or double clicking, can rename tabs
+
+-   NOT SHOWN
+
+    -   1: Sort by mark within plots or tables, switch row / column, modifying visual features of plot (just colors and stuff, not data driven stuff)
+
+    -   3: not sure how to use map layers (check other version of tableau), reference average and trend lines (quick summarize ones under analytics pane, different formatting options for lines, applying lines not to whole table)
+
+    -   4: Panels instead of dual axis (drag second measure to rows), measure names identify which line is which, appearance of bubbles in rows up top when dual axis vs panels, dashboard filters (can set to apply to only a certain sheet or all of them)
+
+## 2.2 --- Working with Data
+
+### Assignments
+
+**Content: My video from this [video](https://youtu.be/GuJHbHdYUnM?si=yGC-YKlf5iQ7it3w) about live vs extracts data and I figured out .twb vs .twbx files for submitting HW**
+
+Mini overview: Live vs extract data source and .twb vs .twbx files for homework submission
+
+*HW: Working with Data*
+
+-   Tableau Prep Builder to join data in order to recreate visualization and create dashboard showing patterns
+
+    -   Create flow to pivot, clean and join two Gapminder data sources to the life expectancy, population and region data, then output and load into Tableau
+    
+    -   Recreate Hans Rosling visualization with new data
+    
+    -   Create two plots visualizing trends in data, create dashboard with polished plots and "Big Idea" title from Storytelling with Data capturing the narrative from the plots
+
+### Recreating Gapminder Visualization
+
+**Content: Hans Rosling [video](https://youtu.be/jbkSRLYSojo?si=bcDl-XCB3R0E_pjs)**
+
+Mini overview: Mini TED Talk using a cool data visualization
+
+**Content: My videos (one for data connecting and one for recreating visual) from this [video](https://youtu.be/wyEVusiomjA?si=VwqA2c9wKgmaONX2) and [data](https://github.com/parulnith/Recreating-Gapminder-in-Tableau)**
+
+Mini overview: Connecting to multiple data sources, data cleaning including first row as header, pivoting,renaming, and hiding fields
+
+- Connecting to multiple data sources
+
+    - Data source -> Bring up field names from first row (from data interpreter too), pivot fields, rename columns, hide columns from preview (then don't show up in field list)
+    
+Mini overview: Blending data (linking data sources across common fields), using pages shelf for animation
+
+- Recreating visualization
+    
+    - Blend data from multiple sources (primary data source because dragged on canvas first), secondary data source, link fields from secondary to primary data source, change aggregation measure, scatterplot by adding detail, exclude null values from color, add field to pages shelf and demo animations (show history), format title, make fixed axis scale, show overlapping labels
+    
+    - ADDITIONAL RESOURCE: [video](https://youtu.be/dC10teRrv-k?si=fVmE6ufWp7BF5jJd) on data blending
+
+### Tableau Prep Builder 
+
+**Content: This intro [video](https://youtu.be/1tpgs5hCr2o?si=__h4Mst86oyBgRif) about what Tableau prep is**
+
+Mini overview: Challenges in data quality and demo of Tableau Prep Builder
+
+- Making data prep more visual
+
+    - Businesses store data in lots of places in lots of levels of aggregation, data warehouse teams typically take care of issues that reveal themselves when attempting to visualize, example of when to use Tableau Prep Builder
+    
+    - Flow: Start with data, do steps (clean, aggregate, pivot, join, union, etc.) in a visual way (showing summary of data after each step), then end at an output, demos join (matched and mismatched color coded rows) and clean step of adding calculated field and removing columns and output, naming and describing steps
+
+### Joining Data and Improving Visualization
+
+**Content: My original video using Tableau prep and adding to previous visual**
+
+Mini overview: Load, pivot, rename, join, clean and output data in Tableau Prep Builder; adding formatted reference lines to pane
+
+- Creating flow
+
+    - Bringing in data sources, field names in first row, pivot step, rename pivoted columns, naming steps
+    
+    - Joins: (inner) Join pivoted data (not the original), applied join clause (multiple keys), clean step to remove duplicated columns from join, left join (explain what difference is compared to inner join), preview in Tableau Desktop, save flow, output step saving .hyper file, why we wanted to join data (easier to work with in one source)
+    
+    - Recreate visual, add reference line to pane (not table and why) demo, format custom label and alignment
+    
+    - ADDITIONAL RESOURCE: [video](https://youtu.be/FtyVMvfzn1I?si=SJMqT7vxIft46QKl) on data joining and relationships
+
+## 2.3 --- Parameters
+
+### Assignments
+
+*HW: Parameters*
+
+-   Create dashboard of plots utilizing parameters to visual trends in Halloween candy, weather and economic data
+
+    -   Exploratory data analysis to find trends and create narrative. Create polished plots incorportatin parameters in multiple ways. Create dashboard with polished plots and "Big Idea" title from Storytelling with Data capturing the narrative from the plots
+
+    -   Data described in assignment
+    
+    -   Assignment based off Assignment 1 from Module 1 of Data Visualization cirriculum
+
+### 10+3 Use Cases of Parameters
+
+**Content: Her video (Part 1 [video](https://youtu.be/0Uar_D57QhU?si=Km_qTMSze9lUgHA_) and first two examples of his [video](https://youtu.be/opfVV1maNVw?si=Kui3dllFKv-l80LY) and [tutorial](https://www.vizwiz.com/2016/05/tableau-tip-tuesday-12-use-cases-for.html)**
+
+Mini overview: Creating / using parameters and calculated fields
+
+- What are parameters and how to use them
+
+    - Parameters are variables (placeholders), at workbook level, can be used in calculated fields, in tableau parameters are fields (similar to all fields in sidebar) except they can take input (usually from the user)
+    
+    - Typical steps in using: Create, show control (optional), create calculated field (optional), use (parameters don't do anything by themselves, they have to be wired in)
+    
+- Top N
+
+    - Creating parameter from filter shelf for top (options when creating, this way it is already wired in), showing parammeter and using slider and effect, creating parameter from dropdown (this way have to then select in the filter top shelf)
+    
+    - Index (double click in marks card and type index, then convert to discrete cause want to show as column in row shelf (so drag it)), to use index need to create calculated field determining if index <= top N parameter, then drag new field to filter and show only true, then hide index column
+    
+- Moving Average
+
+    - Purpose is to smooth out data of busy line charts to expose patterns, duplicate field in shelf by control + drag over, quick table calculate (moving average), dual axis chart and change color of moving average, synchronize axis and hide secondary axis, default MA is 3 days, edit table calculation (to make dynamic n day MA, need calculated field), drag MA pill to sidebar to make available field (it automatically has a formula), creaeting parameter for previous N days and editing formula to use parameter value (drag field from side), shows affect of more days in moving average
+    
+- Date Range in Reference Line/Band
+
+    - Highlight date intervals by creating to parameters (from and to date; options: date data type, current (default) value, display format (custom notes added), allowable values as all = calendar), show two parameters
+    
+    - Adding reference band: analytics pane -> table level -> select parameters (don't need calculated field if just showing parameter on ref ine), formatting of bands
+    
+    - Adding parameters to title: if want calculation using parameters in title need calculated field with formula as total(sum(if dates in range then value)) (double aggregation to sum over the already summed points in line plot), triange on field indicates table calculation
+    
+- Sort Stacked Bar Chart
+
+    - Show totals of subcategories, select region and move to first bar to better be able to compare them, create parameter from field to automatically have the options pre-populated (fixed = only current values, when workbook opens = updates each time open)
+    
+    - Create calculated field to capture value of selected parameter sum(if field = parameter then value)), sort colors by calculated field (right click color mark -> set sort to by field, not data source order), sort category by selected paramter (right click pill and by field again)
+    
+- Filter unrelated data sources
+
+    - Within data range calculated field (if date >= from data and data <= to data -> returns T/F), add to filter shelf and show true, repeat for second plot, show parameter in dashboard and both charts are affected
+    
+- CASE vs IF/ELSE 
+
+    - Parameter matching: Use to check what value the parameter is and determine the appropriate value / logic to be applied (when comparing text / strings, the values of the calcaulated field must match exactly to the values in the parameter list or else wont work), equivalent to if then elseif then 
+    
+- Choose dimension
+
+    - Let user select which dimensions are being shown, create parameter (choose a dimension) of list of strings (intuitive naems, they get matched to fields in calculated field), create calculated field (chosen dimension), case when match paramter value to field name (case parameter when value then field..., use new dimension in row shelf, add parameter to title as well (color differently indicating that value can change), hide field labels 
+    
+- Choose measure and aggregation
+
+    - Same thing as above (choose measure parameter and chosen measure calculated field (here is where can change the aggregation measure)), choose string as parameter data type so can use it as simulated axis title, drag parameter to row shelf (rotate label and hide field label of chosen measure)
+    
+- Choose chart (dynamic sheet swapping)
+
+    - Needs to happend at the dashboard level, have a vertical or horizontal container, make sure all sheets are in same container because when the other plots disappear the remaining one(s) fill the space (hide titles of charts for better swapping), create parameter choose chart (types of charts as string + all)
+    
+    - Add calculated field (chosen chart) to evaluate to true if selection is all or the specific chart (filter shelf doesn't accept parameter values), field is just the parameter, then drag to filter shelf and evaluate based on custom value list to return true if all or the specific chart, repeat for other charts but different value lists
+    
+- Parameter vs Filter summary
+
+    - Dependency: parameter (independent of data, can set own values and boundaries) where filter is data-dependent
+    
+    - Scope: parameters are workbook level, filters are worksheet
+    
+    - Purpose: paramters are interactive filter narrow down data
+    
+    - Paramters can be used in calculated fields and actions, filters cannot
+    
+- Parameter Actions
+
+    - Dynmamic reference line, creating a horizontal and vertical threshold parameter, then add reference lines for each after showing, label = Custom -> Label name: <Value>, format shade below lightly, repeat for other line, move labels to right and top (right click label and format -> aligment), can change lines manually with parameter controls
+    
+    - Dynamic reference line changing, need action: change parameter (run on hover, target threshold paramter, use x axis field), repeat for next one  
+    
+- Reference line
+
+    - Pick a date parameter, show, add reference line for parameeter (table level)
+
+- Reference line with calc
+
+    - Create calculated field (is older than date) if <= pick a date, returns boolean T/F, drag to color shelf
+    
+- Sales forecast
+
+    - Create parameter -100% to 100% (display format, range from -1 to 1), create calculated field sales forecast (sum(field)*(1+sales forecast)), drag to row shelf and color shelf
+    
+## 2.4 --- Dashboards
+
+### Assignments
+
+**Content: My video explaining assignment**
+
+Mini overview: Describe the assignment and the features of the final dashboard to recreate
+
+*HW: Dashboards*
+
+-   Recreating dashboard using the tutorials in previous notes
+
+    -   Applying same methods to new data and new problem. Recreating an effective dashboard with dynamic overall summary statistics, action filters, plots that utilize parameters for a sliding window of date range (with dynamic title and summary stats for date range) and N day moving average.
+    
+    - Have to create the individual worksheets and then organize the final dashboard
+
+### Tableau Dashboard Tutorial 
+
+**Content: Her videos (Part 1 [video](https://youtu.be/cGa7QDeueTA?si=jLIDr4O3lk40abgs) and Part 2 [video](https://youtu.be/pVOJ1LM5cX0?si=VYf8_yfwfMzV2d-M))**
+
+Mini overviews: Creating the worksheets for a dashboard; Organizing an effective, well-designed dashboard
+
+- Creating the individual sheets
+
+    - Overall setup: Default properties of fields to currency, turning off gridlines for workbook
+    
+    - Action filter menu: Adding shape icons to My Tableau Repository, changing marks to shape, editing shape icons and assigning, editing size of shapes, editing tooltips options to not show options other than show tooltip, 
+    
+    - Summary stats banner: Big numbers to highlight most important metrics, creating table (drag first field, then double click next fields, option+drag to open drop field to summarize dimensions by count distinct (CNTD()), reordering fields in table, editing aliases of fields, command+drag to duplicate a pill (field) to text to show measure names, change text (text mark -> ellipses, then set alignment), hide header, editing title, change shading of worksheet (format -> shading, and turn off boarders for row divider and column divider)
+    
+    - Title for action filter for specific plots: Adding fields to detail so can use it in the dynamic title, decreasing the size and color to 0% opacity so we can't see anything (just want the title)
+    
+    - Map: Double click geo field to get map then drag field to color, editing colors
+    
+    - Time series plot with moving average: Creating line plot of measure date field then adding measure, add moving average by duplicating the measure and quick table calculation (-> edit table calculation to change number of previous to average + current value (so 5 with current value checked = 6 week MA)), dual axis chart with synchronized axis -> hide header, change colors to colorblind palette, edit title and remove borders of worksheet
+    
+    - Footer: Show meta data for data source and when it was last updated, need blank calculated field ("") so can add it to text so datasource and update time will actually update (once we add blank calculated field to canvas, Tableau knows which datasource to refer to), change title to "Data source: < Data Source Name> as of < Data Update Time >", right align and smaller
+    
+- Creating the dashboard
+
+    - Organzation: Vertical layout containers cause items will be stacked above each other, insert blanks just as placeholders to keep orientation good while adding pieces, horizontal layout container for things to be side by side
+    
+    - First banner: Adding image (fit and center), add text container and edit font and alignment, add menu (remove extra legends that were imported and fit to entire view), then resize for spacing, select parent horizontal container (double click on handle bar) then fix height (won't be affected by moving other objects around)
+    
+    - Banner and footer: Drag into spots, footer -> fit to entire view, fix height of banner
+    
+    - Dynamic title: Horizontal layout container, place on left (fit to entire view) and place blank to right as placeholder where filter dropdown will go
+    
+    - Map and time series plot: Want map to be filtered by region (so need to add region to detail in the original worksheet), place map and time series plot to horizontal container, hide title of map (just in the dashboard, not the worksheet), map filter (dropdown, select region), change filter to multiple values dropdown and place next to dynamic title, remove placeholder and resize, want filter to affect specific worksheets (dropdown -> Apply to worksheets -> Selected worksheets -> Select Title, Map and Time series plot), then add new < filter > in dynamic title instead of hardcoded (same calcuated field for region / regions), change tooltips of map and time series plots
+    
+    - Action filter: Use menu in top right as filter (by default it filters entire workbook, sends category down to all worksheets), change title to show which category has been selected (insert < Category >) and format color so indicates dynamic, category / cotegories (need to create calculated field to use in title -> if COUNTD([Category]) > 1 THEN "Categories" ELSE "Category" END -> then place in detail and replace the hardcoded category for < AGG(Category/Categories)>), Action (Category) shows up in worksheets on filter shelf
+    
+    - Hide individual sheets and publish dashboard to server: (skipped)
+    
+## Other
+
+Future assignment
+
+-   Tableau (depending on what can do in Tableau) and when readings in SWD get assigned (do this here to take up a week of Tableau instead of R)
+
+    -   Have SWD week (with some videos) and assignment below
+    -   SWD, hand draw plot based on setup and post in discussion board; respond with two things did well and two suggestions
+    -   Do this after learn the basics of tableau (basics from me)
+
+Resources
+
+-   Tableau performance [checklist](https://interworks.com/blog/bfair/2015/02/23/tableau-performance-checklist)

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3.4 HW – Data Manipulations STARTER</title>
+<title>3.5 HW – Interactive Plots STARTER</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -2981,11 +2981,9 @@ vertical-align: -.125em;
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#part-a-data-manipulations" id="toc-part-a-data-manipulations" class="nav-link active" data-scroll-target="#part-a-data-manipulations">Part a – Data manipulations</a></li>
-  <li><a href="#part-b-visualize-data" id="toc-part-b-visualize-data" class="nav-link" data-scroll-target="#part-b-visualize-data">Part b – Visualize data</a></li>
-  <li><a href="#part-c-summarize-data" id="toc-part-c-summarize-data" class="nav-link" data-scroll-target="#part-c-summarize-data">Part c – Summarize data</a></li>
-  <li><a href="#part-d-more-manipulations-and-visualizations-1" id="toc-part-d-more-manipulations-and-visualizations-1" class="nav-link" data-scroll-target="#part-d-more-manipulations-and-visualizations-1">Part d – More manipulations and visualizations 1</a></li>
-  <li><a href="#part-e-more-manipulations-and-visualizations-2" id="toc-part-e-more-manipulations-and-visualizations-2" class="nav-link" data-scroll-target="#part-e-more-manipulations-and-visualizations-2">Part e – More manipulations and visualizations 2</a></li>
+  <li><a href="#part-a-scatterplot" id="toc-part-a-scatterplot" class="nav-link active" data-scroll-target="#part-a-scatterplot">Part a – Scatterplot</a></li>
+  <li><a href="#part-b-dumbell-chart" id="toc-part-b-dumbell-chart" class="nav-link" data-scroll-target="#part-b-dumbell-chart">Part b – Dumbell chart</a></li>
+  <li><a href="#part-c-visualize-data" id="toc-part-c-visualize-data" class="nav-link" data-scroll-target="#part-c-visualize-data">Part c – Visualize data</a></li>
   </ul>
 </nav>
 </div>
@@ -2995,7 +2993,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">3.4 HW – Data Manipulations STARTER</h1>
+<h1 class="title">3.5 HW – Interactive Plots STARTER</h1>
 </div>
 
 
@@ -3013,53 +3011,42 @@ vertical-align: -.125em;
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data/data-grades.csv&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data_majors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data/data-majors.csv&quot;</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># preview data</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_madden <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data/madden-23.csv&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># preview data</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_madden)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  ID    Student Test_1 Test_2
-  &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-1 1381  LZ-1        20     55
-2 2027  KO-1        30     40
-3 6077  DD-1        28     68
-4 6869  IG-2        14     42
-5 4171  VS-1        28     50
-6 3054  BF-1        20     49</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_majors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-  ID    Major   
-  &lt;chr&gt; &lt;chr&gt;   
-1 9810  Physics 
-2 9718  Physics 
-3 9685  Chemisty
-4 9618  Chemisty
-5 9520  Physics 
-6 9310  Physics </code></pre>
+<pre><code># A tibble: 6 × 80
+  `Full Name`    Team    Position college     awareness_rating throwPower_rating
+  &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;                  &lt;dbl&gt;             &lt;dbl&gt;
+1 Aaron Donald   Rams    RE       Pittsburgh                99                20
+2 Davante Adams  Raiders WR       Fresno Sta…               99                45
+3 Myles Garrett  Browns  RE       Texas AM                  98                55
+4 Trent Williams 49ers   LT       Oklahoma                  99                12
+5 Cooper Kupp    Rams    WR       Eastern Wa…               99                59
+6 Jalen Ramsey   Rams    CB       Florida St…               98                27
+# ℹ 74 more variables: kickReturn_rating &lt;dbl&gt;, leadBlock_rating &lt;dbl&gt;,
+#   strength_rating &lt;dbl&gt;, bCVision_rating &lt;dbl&gt;, catchInTraffic_rating &lt;dbl&gt;,
+#   playAction_rating &lt;dbl&gt;, pursuit_rating &lt;dbl&gt;, plyrAssetname &lt;chr&gt;,
+#   mediumRouteRunning_rating &lt;dbl&gt;, catching_rating &lt;dbl&gt;,
+#   acceleration_rating &lt;dbl&gt;, spinMove_rating &lt;dbl&gt;, height &lt;dbl&gt;,
+#   finesseMoves_rating &lt;dbl&gt;, spectacularCatch_rating &lt;dbl&gt;,
+#   runBlock_rating &lt;dbl&gt;, tackle_rating &lt;dbl&gt;, injury_rating &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
-<section id="part-a-data-manipulations" class="level3">
-<h3 class="anchored" data-anchor-id="part-a-data-manipulations">Part a – Data manipulations</h3>
+<section id="part-a-scatterplot" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-scatterplot">Part a – Scatterplot</h3>
 </section>
-<section id="part-b-visualize-data" class="level3">
-<h3 class="anchored" data-anchor-id="part-b-visualize-data">Part b – Visualize data</h3>
+<section id="part-b-dumbell-chart" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-dumbell-chart">Part b – Dumbell chart</h3>
 </section>
-<section id="part-c-summarize-data" class="level3">
-<h3 class="anchored" data-anchor-id="part-c-summarize-data">Part c – Summarize data</h3>
-</section>
-<section id="part-d-more-manipulations-and-visualizations-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-d-more-manipulations-and-visualizations-1">Part d – More manipulations and visualizations 1</h3>
-</section>
-<section id="part-e-more-manipulations-and-visualizations-2" class="level3">
-<h3 class="anchored" data-anchor-id="part-e-more-manipulations-and-visualizations-2">Part e – More manipulations and visualizations 2</h3>
+<section id="part-c-visualize-data" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-visualize-data">Part c – Visualize data</h3>
 </section>
 
 </main>
