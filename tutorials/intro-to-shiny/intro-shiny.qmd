@@ -1,4 +1,7 @@
 ---
+title: "Introduction to Shiny"
+date: 11/24/2023
+author: Colton Gearhart
 format: 
   revealjs:
     slide-number: true
@@ -164,7 +167,10 @@ So we need to start thinking about partitioning our design process into what the
 ::: columns
 ::: {.column width="40%"}
 
-```{{r}}
+```{r} 
+#| echo: true
+#| eval: false
+
 ### ----- Load packages ----
 
 library(shiny)
@@ -207,7 +213,10 @@ shinyApp(ui, server)
 ::: columns
 ::: {.column width="40%"}
 
-```{{r}}
+```{r}
+#| echo: true
+#| eval: false
+
 ### ----- Load packages ----
 
 library(shiny)
@@ -288,7 +297,10 @@ Replace your empty `server` function with the following code:
 :::: columns
 ::: {.column width="40%"}
 
-```{{r}}
+```{r}
+#| echo: true
+#| eval: false
+
 ### ---- Define server ----
 
 server <- function(input, output) {
@@ -339,7 +351,10 @@ Modify your `server` function to the following:
 :::: columns
 ::: {.column width="40%"}
 
-```{{r}}
+```{r}
+#| echo: true
+#| eval: false
+
 ### ---- Define server ----
 
 server <- function(input, output) {
@@ -381,7 +396,10 @@ Modify your `server` function to the following:
 :::: columns
 ::: {.column width="40%"}
 
-```{{r}}
+```{r}
+#| echo: true
+#| eval: false
+
 ### ---- Define server ----
 
 server <- function(input, output) {
@@ -476,7 +494,10 @@ Modify just the `vars` statement before the `ui` and the `server` function to th
 :::: columns
 ::: {.column width="40%"}
 
-```{{r}}
+```{r}
+#| echo: true
+#| eval: false
+
 ### ---- Define UI ----
 
 # create named vector for mapping of labels to variable names
@@ -544,7 +565,10 @@ Add just the following to the `server` function to the following:
 :::: columns
 ::: {.column width="40%"}
 
-```{{r}}
+```{r}
+#| echo: true
+#| eval: false
+
 ### ---- Define server ----
 
 server <- function(input, output) {
@@ -592,6 +616,495 @@ Creating an arbitrary number of or type of controls.
 - For example, creating a control for each column of a general dataset.
 
 - This involves functional programming functions from the `purrr` package, which we have not covered (but something to learn in the future!).
+## Plotly in Shiny -- UI {.smaller}
 
-## Plotly in Shiny
+Now let's add to our app to demonstrate more UI features and how to introduce `plotly` into our Shiny app.
+
+Replace the beginning of the code in your app with the following:
+
+:::: columns
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+#| eval: false
+
+### ----- Load packages ----
+
+library(shiny)
+library(tidyverse)
+library(plotly)
+
+### ---- Define UI ----
+
+# create named vector for mapping of labels to variable names
+vars <- c("Sepal Length (cm)" = "Sepal.Length",
+          "Sepal Width (cm)" = "Sepal.Width",
+          "Petal Length (cm)" = "Petal.Length",
+          "Petal Width (cm)" = "Petal.Width")
+
+ui <- fluidPage(
+  
+  titlePanel(title = "Shiny Iris Explorer App!"),
+  
+  sidebarPanel(
+  
+    # create dropdowns of variable names to plot
+    selectInput(inputId = "yvar",
+                label = "Choose Y Variable",
+                choices = vars),
+    selectInput(inputId = "xvar",
+                label = "Choose X Variable",
+                choices = vars,
+                selected = vars[[2]]),
+
+    # create checkbox to optionally color by a categorical variable
+    checkboxInput(inputId = "species",
+                  label = "Color by Species",
+                  value = TRUE)
+  ),
+  
+  # create tabs with spots for plots
+  mainPanel(
+    tabsetPanel(
+      tabPanel(title = "ggplot",
+               plotOutput(outputId = "plot1")),
+      tabPanel(title = "plotly",
+               plotlyOutput(outputId = "plot2"))
+    )
+  )
+)
+
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-plotly-ui.png){width=80%}
+
+:::
+:::
+
+Make sure to load the new package at the top: `library(plotly)`.
+
+`tabsetPanel()` and `tabPanel()` combo is the easiest way to break a page into pieces.
+
+- `tabsetPanel()` creates a container for any number of `tabPanels()`, which can be titled and include any output that would have gone in `mainPanel()` by itself.
+
+We will do this to include two different plots:
+
+- One regular plot like before with `plotOutput()` and another that we will make with plotly; so, we need to have a different output container `plotlyOutput()`.
+
+## Plotly in Shiny -- Server {.smaller}
+ 
+ Now within the `server` function, we just need to add the new `output$plot2`.
+ 
+ Add the following code below `output$plot1` in the `server` function:
+ 
+:::: columns
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+#| eval: false
+
+### ---- Define server ----
+
+server <- function(input, output) {
+  
+  # < ... update dropdown code .... >
+  
+  # < ... output$plot1 code ... >
+  
+  output$plot2 <- renderPlotly({
+
+    # build base plot
+    p2 <- iris %>%
+      plot_ly()
+
+    # build points layer with plotly
+    # -> conditionally colored variable -> selected via user input
+    if(input$species == TRUE){
+      p2 <- p2 %>%
+        add_markers(x = ~Petal.Width,
+                    y = ~Petal.Length,
+                    color = ~Species)
+    }else{
+      p2 <- p2 %>%
+        add_markers(x = ~Petal.Width,
+                    y = ~Petal.Length,
+                    color = I("black")) %>% 
+        hide_legend()
+    }
+
+    print(p2)
+
+  })
+}
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-plotly-server-static.png){width=80%}
+
+:::
+:::
+
+This plotly version has a similar flow to the `ggplot` version.
+
+- We again build the plot in stages, first just setting up the `plot_ly()` with the data.
+
+- Then conditionally adding markers based on colored or not.
+
+- To make sure it works, first we will hardcode in the variable names `Petal.Width` and `Petal.Length` and specify to color by `Species` or a constant `I("black")` based on the condition.
+
+## Plotly in Shiny -- Server {.smaller}
+
+Now to get dynamic variable selection, we need to use the following technique.
+
+Change your `output$plot2` code to the following:
+
+:::: columns
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+#| eval: false
+
+### ---- Define server ----
+
+server <- function(input, output) {
+  
+  # < ... update dropdown code .... >
+  
+  # < ... output$plot1 code ... >
+  
+  output$plot2 <- renderPlotly({
+
+    # build base plot
+    p2 <- iris %>%
+      plot_ly()
+
+    # build points layer with plotly
+    # -> conditionally colored variable -> selected via user input
+    if(input$species == TRUE){
+      p2 <- p2 %>%
+        add_markers(x = paste0("~", input$xvar) %>% as.formula,
+                    y = paste0("~", input$yvar) %>% as.formula,
+                    color = ~Species)
+    }else{
+      p2 <- p2 %>%
+        add_markers(x = paste0("~", input$xvar) %>% as.formula,
+                    y = paste0("~", input$yvar) %>% as.formula,
+                    color = I("black")) %>% 
+        hide_legend()
+    }
+
+    print(p2)
+
+  })
+}
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-plotly-server-dynamic.png){width=80%}
+
+:::
+:::
+
+It was easy to just get a "static" plotly (i.e. with set variables)
+
+- In `ggplot`, we just needed to use `aes(x = .data[[input$xvar]])` for exaple because `input$xvar` returns a string. 
+
+For plotly, this argument needs to be a formula.
+
+- So we can use `x = paste0("~", input$xvar) %>% as.formula`, for example (it could also be nested `x = as.formula(paste0("~", input$xvar))`).
+
+## Additional Shiny features {.smaller}
+
+:::: columns
+::: {.column width="46%"}
+
+UI 
+
+- So far we have only worked with some simple layout structures.
+
+- Now that we have the basics of how to program the UI, we could use more complex layouts and incorporate more features into our app at once.
+
+- The diagrams to the right show some of the possible functions and the structures they create.
+
+Server
+
+- On the server side, there is one very important element that we haven't covered: **reactive programming**.
+
+- So far, Shiny updates (i.e. sends bundles of data to the server, runs the necessary code, and returns the appropriate output), whenever the user changes an input.
+
+- With reactive expressions, we can control *when* Shiny evaluated things.
+
+- This is a useful strategy to reduce the amount of duplicated code (i.e. resuing calculations) and making apps much more efficient (only what needs recalculated is recalculated).
+
+:::
+::: {.column width="40%"}
+
+![](images/shiny-ui-layouts.png)
+
+![](images/shiny-reactive.png){width=80%}
+
+:::
+:::
+
+## Big picture revisisted {.smaller}
+
+Very important points!!
+
+- When making an app, you should come up with the STORY (narrative) FIRST, and then make the plots to show that.
+
+- Don't make the plots first, then figure out a story!
+
+Here is the recommended flow of a full analysis:
+
+1. Data cleaning and organizing.
+
+2. EDA.
+
+3. Start with STATIC plots.
+
+4. Then see if intertactivity aids the story.
+
+5. Figure out how to incorporate user input.
+
+6. Organize the "dashboard" with a sketch.
+
+7. Incorporate UI features.
+
+8. Add server behavior.
+
+9. Communicate!
+
+COMMUNICATION IS SUPER IMPORTANT!
+
+- Being able to work with the data is important, but almost more important is to be able to communicate with both experts and lay people
+
+- If we have a big solutions to a big problem, it is unlikely that our solo efforts will be able to fix it.
+
+- We need to be able to make our solution understandable and be able to communicate it easily.
+
+## Alternative approach to building applications
+
+As data scientists, we want our time and effort to be spent on actually doing good data science (working with the data, transforming data, creating insightful plots, telling stories) rather than things like formatting the UI.
+
+Click the link or image below to watch the video as an alternative approach to building Shiny apps:
+
+[Shiny UI Editor Project Walkthrough](https://youtu.be/gYPnLiudtGU?si=MWXwSyf_JYinE3eo)
+
+[![](images/shiny-ui-editor-video.png){width=60%}](https://youtu.be/gYPnLiudtGU?si=MWXwSyf_JYinE3eo)
+
+## Installing the necessary packages
+
+Run the following lines of code to install the packages we need:
+
+```{r}
+#| echo: true
+#| eval: false
+
+install.packages("devtools") # needed for the following function
+devtools::install_github("rstudio/shinyuieditor")
+
+```
+
+## Shiny UI editor
+
+Now lets recreate the Iris Explorer App using shinyuieditor.
+
+Lets start a new R script with the following code:
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(shinyuieditor)
+
+# !! setwd() to current location first
+
+launch_editor(app_loc = "iris-explorer-2")
+
+```
+
+Now go back and forth between the `app.R` file and the shinyuieditor, borrowing code from the previous iris explorer app when needed.
+
+![](images/iris-explorer-app-shinyuieditor.png){width=70%}
+
+## Comparison of methods {.smaller}
+
+> ### Differences
+
+:::: columns
+::: {.column width="46%"}
+
+> #### "Manual" code
+
+```{r}
+#| echo: true
+#| eval: false
+
+### ----- Load packages ----
+
+library(shiny)
+library(tidyverse)
+library(plotly)
+
+### ---- Define UI ----
+
+# create named vector for mapping of labels to variable names
+vars <- c("Sepal Length (cm)" = "Sepal.Length",
+          "Sepal Width (cm)" = "Sepal.Width",
+          "Petal Length (cm)" = "Petal.Length",
+          "Petal Width (cm)" = "Petal.Width")
+
+ui <- fluidPage(
+  
+  titlePanel(title = "Shiny Iris Explorer App!"),
+  
+  sidebarPanel(
+  
+    # create dropdowns of variable names to plot
+    selectInput(inputId = "yvar",
+                label = "Choose Y Variable",
+                choices = vars),
+    selectInput(inputId = "xvar",
+                label = "Choose X Variable",
+                choices = vars,
+                selected = vars[[2]]),
+
+    # create checkbox to optionally color by a categorical variable
+    checkboxInput(inputId = "species",
+                  label = "Color by Species",
+                  value = TRUE)
+  ),
+  
+  # create tabs with spots for plots
+  mainPanel(
+    tabsetPanel(
+      tabPanel(title = "ggplot",
+               plotOutput(outputId = "plot1")),
+      tabPanel(title = "plotly",
+               plotlyOutput(outputId = "plot2"))
+    )
+  )
+)
+
+```
+
+Uses:
+
+- `fluidPage()`, `sidebarPanel()`, `mainPanel()` and `tabsetPanel()` to define the structure of the page(s).
+
+:::
+::: {.column width="40%"}
+
+> #### "Automated" code (shinyuieditor)
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(shiny)
+library(plotly)
+library(gridlayout)
+library(bslib)
+
+# create named vector for mapping of labels to variable names
+vars <- c("Sepal Length (cm)" = "Sepal.Length",
+          "Sepal Width (cm)" = "Sepal.Width",
+          "Petal Length (cm)" = "Petal.Length",
+          "Petal Width (cm)" = "Petal.Width")
+
+ui <- grid_page(
+  layout = c(
+    "header  header",
+    "sidebar plot  "
+  ),
+  row_sizes = c(
+    "100px",
+    "1fr"
+  ),
+  col_sizes = c(
+    "205px",
+    "1fr"
+  ),
+  gap_size = "1rem",
+  grid_card(
+    area = "sidebar",
+    card_body(
+      selectInput(
+        inputId = "yvar",
+        label = "Choose Y Variable",
+        choices = vars,
+        selected = vars
+      ),
+      selectInput(
+        inputId = "xvar",
+        label = "Choose X Variable",
+        choices = vars[[2]]
+      ),
+      checkboxInput(
+        inputId = "species",
+        label = "Color by Species",
+        value = TRUE
+      )
+    )
+  ),
+  grid_card_text(
+    area = "header",
+    content = "Shiny Iris Explorer App!",
+    alignment = "start",
+    is_title = FALSE
+  ),
+  grid_card(
+    area = "plot",
+    card_body(
+      tabsetPanel(
+        nav_panel(
+          title = "ggplot",
+          plotOutput(outputId = "plot1")
+        ),
+        nav_panel(
+          title = "plotly",
+          plotlyOutput(outputId = "plot2")
+        )
+      )
+    )
+  )
+)
+
+```
+
+Uses:
+
+- Functions from `gridlayout` and `bslib` packages to define the structure of the page(s). These include `grid_page()`, `grid_card()`, etc.
+
+:::
+:::
+
+## Comparison of methods {.smaller}
+
+> ### Commonalities
+
+`server`s are the EXACT SAME in both methods.
+
+Both use:
+
+- `{Type}Output()` functions.
+- `{Type}Input()` functions.
+
+> ### Strategy
+
+- Let `shinyuieditor` do the heavy lifting for the UI (e.g. tasks like adding defining the structure of the page, adding input controls, specifying where plots go, etc.) and step into the code when necessary for fine tuning.
+
+    - We don't have to worry about how it does this, just need to know how to modify what we need.
+
+- Code the `server` function as we normally would and easily add it to our app!
 

@@ -2,6 +2,7 @@
 
 library(shiny)
 library(tidyverse)
+library(plotly)
 
 ### ---- Define UI ----
 
@@ -31,10 +32,15 @@ ui <- fluidPage(
                   label = "Color by Species",
                   value = TRUE)
   ),
-    
-  # create spot for plot
+  
+  # create tabs with spots for plots
   mainPanel(
-    plotOutput(outputId = "plot1")
+    tabsetPanel(
+      tabPanel(title = "ggplot",
+               plotOutput(outputId = "plot1")),
+      tabPanel(title = "plotly",
+               plotlyOutput(outputId = "plot2"))
+    )
   )
 )
 
@@ -111,6 +117,45 @@ server <- function(input, output) {
     
     print(p1)
     
+  })
+  
+  output$plot2 <- renderPlotly({
+
+    # build base plot
+    p2 <- iris %>%
+      plot_ly()
+
+    # V1 -> static variables with coloring
+    # build points layer with plotly
+    # -> conditionally colored variable -> selected via user input
+    # if(input$species == TRUE){
+    #   p2 <- p2 %>%
+    #     add_markers(x = ~Petal.Width,
+    #                 y = ~Petal.Length,
+    #                 color = ~Species)
+    # }else{
+    #   p2 <- p2 %>%
+    #     add_markers(x = ~Petal.Width,
+    #                 y = ~Petal.Length,
+    #                 color = I("black"))
+    # }
+    
+    # V2 -> dynamic variables
+    if(input$species == TRUE){
+      p2 <- p2 %>%
+        add_markers(x = paste0("~", input$xvar) %>% as.formula,
+                    y = paste0("~", input$yvar) %>% as.formula,
+                    color = ~Species)
+    }else{
+      p2 <- p2 %>%
+        add_markers(x = paste0("~", input$xvar) %>% as.formula,
+                    y = paste0("~", input$yvar) %>% as.formula,
+                    color = I("black")) %>% 
+        hide_legend()
+    }
+
+    print(p2)
+
   })
 }
 

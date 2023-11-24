@@ -10,7 +10,9 @@
 <link href="intro-shiny_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.376">
 
-  <title>intro-shiny</title>
+  <meta name="author" content="Colton Gearhart">
+  <meta name="dcterms.date" content="2023-11-24">
+  <title>Introduction to Shiny</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -389,7 +391,19 @@
   <div class="reveal">
     <div class="slides">
 
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Introduction to Shiny</h1>
 
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Colton Gearhart 
+</div>
+</div>
+</div>
+
+  <p class="date">2023-11-24</p>
+</section>
 <section id="so-what-is-shiny" class="slide level2">
 <h2>So what is Shiny?</h2>
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center" width="500px">
@@ -553,27 +567,26 @@
 <h2>Your first Shiny app</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="in">### ----- Load packages ----</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="in">library(shiny)</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="in">### ---- Define UI ----</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="in">ui &lt;- fluidPage(</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="in">  "Hello, world!"</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="in">)</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="in">### ---- Define server ----</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="in">server &lt;- function(input, output) {</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="in">}</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="in">### ---- Run app ----</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="in">shinyApp(ui, server)</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">### ----- Load packages ----</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="do">### ---- Define UI ----</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="st">"Hello, world!"</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb1-14"><a href="#cb1-14"></a>}</span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="do">### ---- Run app ----</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center" width="60%">
 <figure class="quarto-float quarto-float-fig">
@@ -595,55 +608,54 @@
 <h2>Adding UI controls</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="in">### ----- Load packages ----</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="in">library(shiny)</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="in">### ---- Define UI ----</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="in"># create vector of variable names</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="in"># -&gt; take out the categorical variables</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="in">vars &lt;- setdiff(names(iris), "Species")</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="in">ui &lt;- fluidPage(</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="in">  titlePanel(title = "Shiny Iris Explorer App!"),</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="in">  </span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="in">  sidebarPanel(</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="in">  </span></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="in">    # create dropdowns of variable names to plot</span></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="in">    selectInput(inputId = "yvar",</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="in">                label = "Choose Y Variable",</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="in">                choices = vars),</span></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="in">    selectInput(inputId = "xvar",</span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="in">                label = "Choose X Variable",</span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="in">                choices = vars,</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="in">                selected = vars[[2]]),</span></span>
-<span id="cb2-27"><a href="#cb2-27"></a><span class="in">      </span></span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="in">    # create checkbox to optionally color by a categorical variable</span></span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="in">    checkboxInput(inputId = "species",</span></span>
-<span id="cb2-30"><a href="#cb2-30"></a><span class="in">                  label = "Color by Species",</span></span>
-<span id="cb2-31"><a href="#cb2-31"></a><span class="in">                  value = TRUE)</span></span>
-<span id="cb2-32"><a href="#cb2-32"></a><span class="in">  ),</span></span>
-<span id="cb2-33"><a href="#cb2-33"></a><span class="in">  </span></span>
-<span id="cb2-34"><a href="#cb2-34"></a><span class="in">  # create spot for plot</span></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="in">  mainPanel(</span></span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="in">    plotOutput(outputId = "plot1")</span></span>
-<span id="cb2-37"><a href="#cb2-37"></a><span class="in">  )</span></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="in">)</span></span>
-<span id="cb2-39"><a href="#cb2-39"></a></span>
-<span id="cb2-40"><a href="#cb2-40"></a><span class="in">### ---- Define server ----</span></span>
-<span id="cb2-41"><a href="#cb2-41"></a></span>
-<span id="cb2-42"><a href="#cb2-42"></a><span class="in">server &lt;- function(input, output) {</span></span>
-<span id="cb2-43"><a href="#cb2-43"></a><span class="in">}</span></span>
-<span id="cb2-44"><a href="#cb2-44"></a></span>
-<span id="cb2-45"><a href="#cb2-45"></a><span class="in">### ---- Run app ----</span></span>
-<span id="cb2-46"><a href="#cb2-46"></a></span>
-<span id="cb2-47"><a href="#cb2-47"></a><span class="in">shinyApp(ui, server)</span></span>
-<span id="cb2-48"><a href="#cb2-48"></a></span>
-<span id="cb2-49"><a href="#cb2-49"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="do">### ----- Load packages ----</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="do">### ---- Define UI ----</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># create vector of variable names</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co"># -&gt; take out the categorical variables</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>vars <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(iris), <span class="st">"Species"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a>  <span class="fu">titlePanel</span>(<span class="at">title =</span> <span class="st">"Shiny Iris Explorer App!"</span>),</span>
+<span id="cb2-15"><a href="#cb2-15"></a>  </span>
+<span id="cb2-16"><a href="#cb2-16"></a>  <span class="fu">sidebarPanel</span>(</span>
+<span id="cb2-17"><a href="#cb2-17"></a>  </span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="co"># create dropdowns of variable names to plot</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>    <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"yvar"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>                <span class="at">label =</span> <span class="st">"Choose Y Variable"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21"></a>                <span class="at">choices =</span> vars),</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"xvar"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23"></a>                <span class="at">label =</span> <span class="st">"Choose X Variable"</span>,</span>
+<span id="cb2-24"><a href="#cb2-24"></a>                <span class="at">choices =</span> vars,</span>
+<span id="cb2-25"><a href="#cb2-25"></a>                <span class="at">selected =</span> vars[[<span class="dv">2</span>]]),</span>
+<span id="cb2-26"><a href="#cb2-26"></a>      </span>
+<span id="cb2-27"><a href="#cb2-27"></a>    <span class="co"># create checkbox to optionally color by a categorical variable</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a>    <span class="fu">checkboxInput</span>(<span class="at">inputId =</span> <span class="st">"species"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29"></a>                  <span class="at">label =</span> <span class="st">"Color by Species"</span>,</span>
+<span id="cb2-30"><a href="#cb2-30"></a>                  <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-31"><a href="#cb2-31"></a>  ),</span>
+<span id="cb2-32"><a href="#cb2-32"></a>  </span>
+<span id="cb2-33"><a href="#cb2-33"></a>  <span class="co"># create spot for plot</span></span>
+<span id="cb2-34"><a href="#cb2-34"></a>  <span class="fu">mainPanel</span>(</span>
+<span id="cb2-35"><a href="#cb2-35"></a>    <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"plot1"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36"></a>  )</span>
+<span id="cb2-37"><a href="#cb2-37"></a>)</span>
+<span id="cb2-38"><a href="#cb2-38"></a></span>
+<span id="cb2-39"><a href="#cb2-39"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a></span>
+<span id="cb2-41"><a href="#cb2-41"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb2-42"><a href="#cb2-42"></a>}</span>
+<span id="cb2-43"><a href="#cb2-43"></a></span>
+<span id="cb2-44"><a href="#cb2-44"></a><span class="do">### ---- Run app ----</span></span>
+<span id="cb2-45"><a href="#cb2-45"></a></span>
+<span id="cb2-46"><a href="#cb2-46"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center" width="60%">
 <figure class="quarto-float quarto-float-fig">
@@ -674,23 +686,22 @@
 <p>Replace your empty <code>server</code> function with the following code:</p>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="in">### ---- Define server ----</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="in">server &lt;- function(input, output) {</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="in">  </span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="in">  # create static plot</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="in">  output$plot1 &lt;- renderPlot(</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="in">    ggplot() +</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="in">      geom_point(aes(x = Sepal.Width,</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="in">                     y = Sepal.Length),</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="in">                 data = iris) +</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="in">      theme_bw()</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="in">  )</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="in">  </span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="in">}</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  </span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="co"># create static plot</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  output<span class="sc">$</span>plot1 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>(</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width,</span>
+<span id="cb3-9"><a href="#cb3-9"></a>                     <span class="at">y =</span> Sepal.Length),</span>
+<span id="cb3-10"><a href="#cb3-10"></a>                 <span class="at">data =</span> iris) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>      <span class="fu">theme_bw</span>()</span>
+<span id="cb3-12"><a href="#cb3-12"></a>  )</span>
+<span id="cb3-13"><a href="#cb3-13"></a>  </span>
+<span id="cb3-14"><a href="#cb3-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center" width="80%">
 <figure class="quarto-float quarto-float-fig">
@@ -722,22 +733,21 @@
 <p>Modify your <code>server</code> function to the following:</p>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="in">### ---- Define server ----</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="in">server &lt;- function(input, output) {</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="in">  # create dynamic plot</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="in">  # -&gt; variables selected based on user input</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="in">  ggplot() +</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="in">    geom_point(aes(x = .data[[input$xvar]],</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="in">                   y = .data[[input$yvar]]),</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="in">               data = iris) +</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="in">    theme_bw()</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="in">}</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="co"># create dynamic plot</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="co"># -&gt; variables selected based on user input</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
+<span id="cb4-9"><a href="#cb4-9"></a>                   <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]]),</span>
+<span id="cb4-10"><a href="#cb4-10"></a>               <span class="at">data =</span> iris) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb4-12"><a href="#cb4-12"></a></span>
+<span id="cb4-13"><a href="#cb4-13"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center" width="80%">
 <figure class="quarto-float quarto-float-fig">
@@ -763,35 +773,34 @@
 <p>Modify your <code>server</code> function to the following:</p>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="in">### ---- Define server ----</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="in">server &lt;- function(input, output) {</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="in">  # create base plot</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="in">  p1 &lt;- ggplot() + </span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="in">    theme_bw()</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="in">  </span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="in">  # add points layer</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="in">  # -&gt; conditionally colored variable -&gt; selected via user input</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="in">  if(input$species == TRUE){</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="in">    p1 &lt;- p1 +</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="in">      geom_point(aes(x = .data[[input$xvar]],</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="in">                     y = .data[[input$yvar]],</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="in">                     color = Species),</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="in">                data = iris)</span></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="in">  }else{</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="in">    p1 &lt;- p1 +</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="in">      geom_point(aes(x = .data[[input$xvar]],</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a><span class="in">                     y = .data[[input$yvar]]),</span></span>
-<span id="cb5-22"><a href="#cb5-22"></a><span class="in">      data = iris)</span></span>
-<span id="cb5-23"><a href="#cb5-23"></a><span class="in">  }</span></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="in">  </span></span>
-<span id="cb5-25"><a href="#cb5-25"></a><span class="in">  print(p1)</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a></span>
-<span id="cb5-27"><a href="#cb5-27"></a><span class="in">}</span></span>
-<span id="cb5-28"><a href="#cb5-28"></a></span>
-<span id="cb5-29"><a href="#cb5-29"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="co"># create base plot</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb5-8"><a href="#cb5-8"></a>  </span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="co"># add points layer</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="co"># -&gt; conditionally colored variable -&gt; selected via user input</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="cf">if</span>(input<span class="sc">$</span>species <span class="sc">==</span> <span class="cn">TRUE</span>){</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    p1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
+<span id="cb5-14"><a href="#cb5-14"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]],</span>
+<span id="cb5-15"><a href="#cb5-15"></a>                     <span class="at">color =</span> Species),</span>
+<span id="cb5-16"><a href="#cb5-16"></a>                <span class="at">data =</span> iris)</span>
+<span id="cb5-17"><a href="#cb5-17"></a>  }<span class="cf">else</span>{</span>
+<span id="cb5-18"><a href="#cb5-18"></a>    p1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
+<span id="cb5-20"><a href="#cb5-20"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]]),</span>
+<span id="cb5-21"><a href="#cb5-21"></a>      <span class="at">data =</span> iris)</span>
+<span id="cb5-22"><a href="#cb5-22"></a>  }</span>
+<span id="cb5-23"><a href="#cb5-23"></a>  </span>
+<span id="cb5-24"><a href="#cb5-24"></a>  <span class="fu">print</span>(p1)</span>
+<span id="cb5-25"><a href="#cb5-25"></a></span>
+<span id="cb5-26"><a href="#cb5-26"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center" width="80%">
 <figure class="quarto-float quarto-float-fig">
@@ -858,50 +867,49 @@
 <p>Modify just the <code>vars</code> statement before the <code>ui</code> and the <code>server</code> function to the following:</p>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="in">### ---- Define UI ----</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="in"># create named vector for mapping of labels to variable names</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="in">vars &lt;- c("Sepal Length (cm)" = "Sepal.Length",</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="in">          "Sepal Width (cm)" = "Sepal.Width",</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="in">          "Petal Length (cm)" = "Petal.Length",</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="in">          "Petal Width (cm)" = "Petal.Width")</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="in"># &lt; ... same previous UI code ... &gt;</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="in">### ---- Define server ----</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="in">server &lt;- function(input, output) {</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="in">  </span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="in">  output$plot1 &lt;- renderPlot({  </span></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="in">  </span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="in">    # build points layer</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="in">    # -&gt; conditionally colored variable -&gt; selected via user input</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="in">    if(input$species == TRUE){</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="in">      p1 &lt;- ggplot() +</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="in">        geom_point(aes(x = .data[[input$xvar]],</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="in">                     y = .data[[input$yvar]],</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="in">                     color = Species),</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="in">                 data = iris)</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="in">    }else{</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="in">      p1 &lt;- ggplot() +</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="in">        geom_point(aes(x = .data[[input$xvar]],</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a><span class="in">                       y = .data[[input$yvar]]),</span></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="in">                   data = iris)</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a><span class="in">    }</span></span>
-<span id="cb6-32"><a href="#cb6-32"></a><span class="in">    </span></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="in">    # add nice labels and theme</span></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="in">    p1 &lt;- p1 + </span></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="in">      labs(x = names(vars)[vars == input$xvar],</span></span>
-<span id="cb6-36"><a href="#cb6-36"></a><span class="in">           y = names(vars)[vars == input$yvar]) + </span></span>
-<span id="cb6-37"><a href="#cb6-37"></a><span class="in">      theme_bw()</span></span>
-<span id="cb6-38"><a href="#cb6-38"></a><span class="in">    </span></span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="in">    print(p1)</span></span>
-<span id="cb6-40"><a href="#cb6-40"></a><span class="in">    </span></span>
-<span id="cb6-41"><a href="#cb6-41"></a><span class="in">  })</span></span>
-<span id="cb6-42"><a href="#cb6-42"></a><span class="in">}</span></span>
-<span id="cb6-43"><a href="#cb6-43"></a></span>
-<span id="cb6-44"><a href="#cb6-44"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="do">### ---- Define UI ----</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co"># create named vector for mapping of labels to variable names</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sepal Length (cm)"</span> <span class="ot">=</span> <span class="st">"Sepal.Length"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>          <span class="st">"Sepal Width (cm)"</span> <span class="ot">=</span> <span class="st">"Sepal.Width"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6"></a>          <span class="st">"Petal Length (cm)"</span> <span class="ot">=</span> <span class="st">"Petal.Length"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7"></a>          <span class="st">"Petal Width (cm)"</span> <span class="ot">=</span> <span class="st">"Petal.Width"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co"># &lt; ... same previous UI code ... &gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb6-14"><a href="#cb6-14"></a>  </span>
+<span id="cb6-15"><a href="#cb6-15"></a>  output<span class="sc">$</span>plot1 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({  </span>
+<span id="cb6-16"><a href="#cb6-16"></a>  </span>
+<span id="cb6-17"><a href="#cb6-17"></a>    <span class="co"># build points layer</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a>    <span class="co"># -&gt; conditionally colored variable -&gt; selected via user input</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a>    <span class="cf">if</span>(input<span class="sc">$</span>species <span class="sc">==</span> <span class="cn">TRUE</span>){</span>
+<span id="cb6-20"><a href="#cb6-20"></a>      p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a>        <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
+<span id="cb6-22"><a href="#cb6-22"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]],</span>
+<span id="cb6-23"><a href="#cb6-23"></a>                     <span class="at">color =</span> Species),</span>
+<span id="cb6-24"><a href="#cb6-24"></a>                 <span class="at">data =</span> iris)</span>
+<span id="cb6-25"><a href="#cb6-25"></a>    }<span class="cf">else</span>{</span>
+<span id="cb6-26"><a href="#cb6-26"></a>      p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a>        <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
+<span id="cb6-28"><a href="#cb6-28"></a>                       <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]]),</span>
+<span id="cb6-29"><a href="#cb6-29"></a>                   <span class="at">data =</span> iris)</span>
+<span id="cb6-30"><a href="#cb6-30"></a>    }</span>
+<span id="cb6-31"><a href="#cb6-31"></a>    </span>
+<span id="cb6-32"><a href="#cb6-32"></a>    <span class="co"># add nice labels and theme</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a>    p1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> </span>
+<span id="cb6-34"><a href="#cb6-34"></a>      <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">names</span>(vars)[vars <span class="sc">==</span> input<span class="sc">$</span>xvar],</span>
+<span id="cb6-35"><a href="#cb6-35"></a>           <span class="at">y =</span> <span class="fu">names</span>(vars)[vars <span class="sc">==</span> input<span class="sc">$</span>yvar]) <span class="sc">+</span> </span>
+<span id="cb6-36"><a href="#cb6-36"></a>      <span class="fu">theme_bw</span>()</span>
+<span id="cb6-37"><a href="#cb6-37"></a>    </span>
+<span id="cb6-38"><a href="#cb6-38"></a>    <span class="fu">print</span>(p1)</span>
+<span id="cb6-39"><a href="#cb6-39"></a>    </span>
+<span id="cb6-40"><a href="#cb6-40"></a>  })</span>
+<span id="cb6-41"><a href="#cb6-41"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center" width="80%">
 <figure class="quarto-float quarto-float-fig">
@@ -926,20 +934,20 @@
 <p>Add just the following to the <code>server</code> function to the following:</p>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="in">### ---- Define server ----</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="in">server &lt;- function(input, output) {</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="in">  # updated dropdown</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="in">  observeEvent(input$yvar, {</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="in">    updateSelectInput(inputId = "xvar", choices = vars[vars != input$yvar])</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="in">  })</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="in">  </span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="in">  # &lt; ... same output$plot1 code as before ... &gt;</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="in">}</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="co"># updated dropdown</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>yvar, {</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    <span class="fu">updateSelectInput</span>(<span class="at">inputId =</span> <span class="st">"xvar"</span>, <span class="at">choices =</span> vars[vars <span class="sc">!=</span> input<span class="sc">$</span>yvar])</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  })</span>
+<span id="cb7-9"><a href="#cb7-9"></a>  </span>
+<span id="cb7-10"><a href="#cb7-10"></a>  <span class="co"># &lt; ... same output$plot1 code as before ... &gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center" width="80%">
 <figure class="quarto-float quarto-float-fig">
@@ -955,7 +963,477 @@
 <li><p>In the server above the <code>output$plot1</code>, use the combo of <code>observeEvent(input$ID, {update{Type}Input()}</code> to modify the parameters of input controls, which is triggered by a change in <code>input$ID</code>.</p></li>
 </ol>
 <ul>
-<li>Then within <code>update{Type}Input()</code>, the choices of X should be indexed on not equaling the Y choice: <code>choices = vars[vars != input$yvar]</code>. In essence, we make it conditionally update based on Y. 
+<li>Then within <code>update{Type}Input()</code>, the choices of X should be indexed on not equaling the Y choice: <code>choices = vars[vars != input$yvar]</code>. In essence, we make it conditionally update based on Y.</li>
+</ul>
+</section>
+<section id="polishing-app-2" class="slide level2">
+<h2>Polishing app</h2>
+<blockquote>
+<h3 id="what-else-is-possible">What else is possible?</h3>
+</blockquote>
+<p><code>conditionalPanel()</code> in the UI allows you to create a panel that is visible or not, depending on the value of an expression.</p>
+<ul>
+<li>This can be useful when you don’t want something to show up until the user selects something.</li>
+</ul>
+<p><code>uiOutput()</code> and <code>renderUI()</code> pair allows you to create UI with code.</p>
+<ul>
+<li><p>This is useful when you need to create different types or numbers of inputs (or outputs), depending on other inputs (dynamically generated UI).</p></li>
+<li><p>This technique gives you the ability to create and modify the user interface while the app is running (not just at the start like we have been doing).</p></li>
+</ul>
+<p>Creating an arbitrary number of or type of controls.</p>
+<ul>
+<li><p>For example, creating a control for each column of a general dataset.</p></li>
+<li><p>This involves functional programming functions from the <code>purrr</code> package, which we have not covered (but something to learn in the future!). ## Plotly in Shiny – UI {.smaller}</p></li>
+</ul>
+<p>Now let’s add to our app to demonstrate more UI features and how to introduce <code>plotly</code> into our Shiny app.</p>
+<p>Replace the beginning of the code in your app with the following:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="do">### ----- Load packages ----</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="do">### ---- Define UI ----</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co"># create named vector for mapping of labels to variable names</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sepal Length (cm)"</span> <span class="ot">=</span> <span class="st">"Sepal.Length"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11"></a>          <span class="st">"Sepal Width (cm)"</span> <span class="ot">=</span> <span class="st">"Sepal.Width"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12"></a>          <span class="st">"Petal Length (cm)"</span> <span class="ot">=</span> <span class="st">"Petal.Length"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13"></a>          <span class="st">"Petal Width (cm)"</span> <span class="ot">=</span> <span class="st">"Petal.Width"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb8-16"><a href="#cb8-16"></a>  </span>
+<span id="cb8-17"><a href="#cb8-17"></a>  <span class="fu">titlePanel</span>(<span class="at">title =</span> <span class="st">"Shiny Iris Explorer App!"</span>),</span>
+<span id="cb8-18"><a href="#cb8-18"></a>  </span>
+<span id="cb8-19"><a href="#cb8-19"></a>  <span class="fu">sidebarPanel</span>(</span>
+<span id="cb8-20"><a href="#cb8-20"></a>  </span>
+<span id="cb8-21"><a href="#cb8-21"></a>    <span class="co"># create dropdowns of variable names to plot</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a>    <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"yvar"</span>,</span>
+<span id="cb8-23"><a href="#cb8-23"></a>                <span class="at">label =</span> <span class="st">"Choose Y Variable"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24"></a>                <span class="at">choices =</span> vars),</span>
+<span id="cb8-25"><a href="#cb8-25"></a>    <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"xvar"</span>,</span>
+<span id="cb8-26"><a href="#cb8-26"></a>                <span class="at">label =</span> <span class="st">"Choose X Variable"</span>,</span>
+<span id="cb8-27"><a href="#cb8-27"></a>                <span class="at">choices =</span> vars,</span>
+<span id="cb8-28"><a href="#cb8-28"></a>                <span class="at">selected =</span> vars[[<span class="dv">2</span>]]),</span>
+<span id="cb8-29"><a href="#cb8-29"></a></span>
+<span id="cb8-30"><a href="#cb8-30"></a>    <span class="co"># create checkbox to optionally color by a categorical variable</span></span>
+<span id="cb8-31"><a href="#cb8-31"></a>    <span class="fu">checkboxInput</span>(<span class="at">inputId =</span> <span class="st">"species"</span>,</span>
+<span id="cb8-32"><a href="#cb8-32"></a>                  <span class="at">label =</span> <span class="st">"Color by Species"</span>,</span>
+<span id="cb8-33"><a href="#cb8-33"></a>                  <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-34"><a href="#cb8-34"></a>  ),</span>
+<span id="cb8-35"><a href="#cb8-35"></a>  </span>
+<span id="cb8-36"><a href="#cb8-36"></a>  <span class="co"># create tabs with spots for plots</span></span>
+<span id="cb8-37"><a href="#cb8-37"></a>  <span class="fu">mainPanel</span>(</span>
+<span id="cb8-38"><a href="#cb8-38"></a>    <span class="fu">tabsetPanel</span>(</span>
+<span id="cb8-39"><a href="#cb8-39"></a>      <span class="fu">tabPanel</span>(<span class="at">title =</span> <span class="st">"ggplot"</span>,</span>
+<span id="cb8-40"><a href="#cb8-40"></a>               <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"plot1"</span>)),</span>
+<span id="cb8-41"><a href="#cb8-41"></a>      <span class="fu">tabPanel</span>(<span class="at">title =</span> <span class="st">"plotly"</span>,</span>
+<span id="cb8-42"><a href="#cb8-42"></a>               <span class="fu">plotlyOutput</span>(<span class="at">outputId =</span> <span class="st">"plot2"</span>))</span>
+<span id="cb8-43"><a href="#cb8-43"></a>    )</span>
+<span id="cb8-44"><a href="#cb8-44"></a>  )</span>
+<span id="cb8-45"><a href="#cb8-45"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="quarto-figure quarto-figure-center" width="80%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/iris-explorer-app-plotly-ui.png" id="fig-539a35d47e664c97a50115a146a7f1bd-11" style="width:80.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>Make sure to load the new package at the top: <code>library(plotly)</code>.</p>
+<p><code>tabsetPanel()</code> and <code>tabPanel()</code> combo is the easiest way to break a page into pieces.</p>
+<ul>
+<li><code>tabsetPanel()</code> creates a container for any number of <code>tabPanels()</code>, which can be titled and include any output that would have gone in <code>mainPanel()</code> by itself.</li>
+</ul>
+<p>We will do this to include two different plots:</p>
+<ul>
+<li>One regular plot like before with <code>plotOutput()</code> and another that we will make with plotly; so, we need to have a different output container <code>plotlyOutput()</code>.</li>
+</ul>
+</section>
+<section id="plotly-in-shiny-server" class="slide level2 smaller">
+<h2>Plotly in Shiny – Server</h2>
+<p>Now within the <code>server</code> function, we just need to add the new <code>output$plot2</code>.</p>
+<p>Add the following code below <code>output$plot1</code> in the <code>server</code> function:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb9-4"><a href="#cb9-4"></a>  </span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="co"># &lt; ... update dropdown code .... &gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  </span>
+<span id="cb9-7"><a href="#cb9-7"></a>  <span class="co"># &lt; ... output$plot1 code ... &gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  </span>
+<span id="cb9-9"><a href="#cb9-9"></a>  output<span class="sc">$</span>plot2 <span class="ot">&lt;-</span> <span class="fu">renderPlotly</span>({</span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a>    <span class="co"># build base plot</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a>    p2 <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>      <span class="fu">plot_ly</span>()</span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a>    <span class="co"># build points layer with plotly</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a>    <span class="co"># -&gt; conditionally colored variable -&gt; selected via user input</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a>    <span class="cf">if</span>(input<span class="sc">$</span>species <span class="sc">==</span> <span class="cn">TRUE</span>){</span>
+<span id="cb9-18"><a href="#cb9-18"></a>      p2 <span class="ot">&lt;-</span> p2 <span class="sc">%&gt;%</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a>        <span class="fu">add_markers</span>(<span class="at">x =</span> <span class="sc">~</span>Petal.Width,</span>
+<span id="cb9-20"><a href="#cb9-20"></a>                    <span class="at">y =</span> <span class="sc">~</span>Petal.Length,</span>
+<span id="cb9-21"><a href="#cb9-21"></a>                    <span class="at">color =</span> <span class="sc">~</span>Species)</span>
+<span id="cb9-22"><a href="#cb9-22"></a>    }<span class="cf">else</span>{</span>
+<span id="cb9-23"><a href="#cb9-23"></a>      p2 <span class="ot">&lt;-</span> p2 <span class="sc">%&gt;%</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a>        <span class="fu">add_markers</span>(<span class="at">x =</span> <span class="sc">~</span>Petal.Width,</span>
+<span id="cb9-25"><a href="#cb9-25"></a>                    <span class="at">y =</span> <span class="sc">~</span>Petal.Length,</span>
+<span id="cb9-26"><a href="#cb9-26"></a>                    <span class="at">color =</span> <span class="fu">I</span>(<span class="st">"black"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-27"><a href="#cb9-27"></a>        <span class="fu">hide_legend</span>()</span>
+<span id="cb9-28"><a href="#cb9-28"></a>    }</span>
+<span id="cb9-29"><a href="#cb9-29"></a></span>
+<span id="cb9-30"><a href="#cb9-30"></a>    <span class="fu">print</span>(p2)</span>
+<span id="cb9-31"><a href="#cb9-31"></a></span>
+<span id="cb9-32"><a href="#cb9-32"></a>  })</span>
+<span id="cb9-33"><a href="#cb9-33"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="quarto-figure quarto-figure-center" width="80%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/iris-explorer-app-plotly-server-static.png" id="fig-539a35d47e664c97a50115a146a7f1bd-12" style="width:80.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>This plotly version has a similar flow to the <code>ggplot</code> version.</p>
+<ul>
+<li><p>We again build the plot in stages, first just setting up the <code>plot_ly()</code> with the data.</p></li>
+<li><p>Then conditionally adding markers based on colored or not.</p></li>
+<li><p>To make sure it works, first we will hardcode in the variable names <code>Petal.Width</code> and <code>Petal.Length</code> and specify to color by <code>Species</code> or a constant <code>I("black")</code> based on the condition.</p></li>
+</ul>
+</section>
+<section id="plotly-in-shiny-server-1" class="slide level2 smaller">
+<h2>Plotly in Shiny – Server</h2>
+<p>Now to get dynamic variable selection, we need to use the following technique.</p>
+<p>Change your <code>output$plot2</code> code to the following:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="do">### ---- Define server ----</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb10-4"><a href="#cb10-4"></a>  </span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="co"># &lt; ... update dropdown code .... &gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>  </span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="co"># &lt; ... output$plot1 code ... &gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9"></a>  output<span class="sc">$</span>plot2 <span class="ot">&lt;-</span> <span class="fu">renderPlotly</span>({</span>
+<span id="cb10-10"><a href="#cb10-10"></a></span>
+<span id="cb10-11"><a href="#cb10-11"></a>    <span class="co"># build base plot</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a>    p2 <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>      <span class="fu">plot_ly</span>()</span>
+<span id="cb10-14"><a href="#cb10-14"></a></span>
+<span id="cb10-15"><a href="#cb10-15"></a>    <span class="co"># build points layer with plotly</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a>    <span class="co"># -&gt; conditionally colored variable -&gt; selected via user input</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a>    <span class="cf">if</span>(input<span class="sc">$</span>species <span class="sc">==</span> <span class="cn">TRUE</span>){</span>
+<span id="cb10-18"><a href="#cb10-18"></a>      p2 <span class="ot">&lt;-</span> p2 <span class="sc">%&gt;%</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a>        <span class="fu">add_markers</span>(<span class="at">x =</span> <span class="fu">paste0</span>(<span class="st">"~"</span>, input<span class="sc">$</span>xvar) <span class="sc">%&gt;%</span> as.formula,</span>
+<span id="cb10-20"><a href="#cb10-20"></a>                    <span class="at">y =</span> <span class="fu">paste0</span>(<span class="st">"~"</span>, input<span class="sc">$</span>yvar) <span class="sc">%&gt;%</span> as.formula,</span>
+<span id="cb10-21"><a href="#cb10-21"></a>                    <span class="at">color =</span> <span class="sc">~</span>Species)</span>
+<span id="cb10-22"><a href="#cb10-22"></a>    }<span class="cf">else</span>{</span>
+<span id="cb10-23"><a href="#cb10-23"></a>      p2 <span class="ot">&lt;-</span> p2 <span class="sc">%&gt;%</span></span>
+<span id="cb10-24"><a href="#cb10-24"></a>        <span class="fu">add_markers</span>(<span class="at">x =</span> <span class="fu">paste0</span>(<span class="st">"~"</span>, input<span class="sc">$</span>xvar) <span class="sc">%&gt;%</span> as.formula,</span>
+<span id="cb10-25"><a href="#cb10-25"></a>                    <span class="at">y =</span> <span class="fu">paste0</span>(<span class="st">"~"</span>, input<span class="sc">$</span>yvar) <span class="sc">%&gt;%</span> as.formula,</span>
+<span id="cb10-26"><a href="#cb10-26"></a>                    <span class="at">color =</span> <span class="fu">I</span>(<span class="st">"black"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-27"><a href="#cb10-27"></a>        <span class="fu">hide_legend</span>()</span>
+<span id="cb10-28"><a href="#cb10-28"></a>    }</span>
+<span id="cb10-29"><a href="#cb10-29"></a></span>
+<span id="cb10-30"><a href="#cb10-30"></a>    <span class="fu">print</span>(p2)</span>
+<span id="cb10-31"><a href="#cb10-31"></a></span>
+<span id="cb10-32"><a href="#cb10-32"></a>  })</span>
+<span id="cb10-33"><a href="#cb10-33"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="quarto-figure quarto-figure-center" width="80%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/iris-explorer-app-plotly-server-dynamic.png" id="fig-539a35d47e664c97a50115a146a7f1bd-13" style="width:80.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>It was easy to just get a “static” plotly (i.e.&nbsp;with set variables)</p>
+<ul>
+<li>In <code>ggplot</code>, we just needed to use <code>aes(x = .data[[input$xvar]])</code> for exaple because <code>input$xvar</code> returns a string.</li>
+</ul>
+<p>For plotly, this argument needs to be a formula.</p>
+<ul>
+<li>So we can use <code>x = paste0("~", input$xvar) %&gt;% as.formula</code>, for example (it could also be nested <code>x = as.formula(paste0("~", input$xvar))</code>).</li>
+</ul>
+</section>
+<section id="additional-shiny-features" class="slide level2 smaller">
+<h2>Additional Shiny features</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<p>UI</p>
+<ul>
+<li><p>So far we have only worked with some simple layout structures.</p></li>
+<li><p>Now that we have the basics of how to program the UI, we could use more complex layouts and incorporate more features into our app at once.</p></li>
+<li><p>The diagrams to the right show some of the possible functions and the structures they create.</p></li>
+</ul>
+<p>Server</p>
+<ul>
+<li><p>On the server side, there is one very important element that we haven’t covered: <strong>reactive programming</strong>.</p></li>
+<li><p>So far, Shiny updates (i.e.&nbsp;sends bundles of data to the server, runs the necessary code, and returns the appropriate output), whenever the user changes an input.</p></li>
+<li><p>With reactive expressions, we can control <em>when</em> Shiny evaluated things.</p></li>
+<li><p>This is a useful strategy to reduce the amount of duplicated code (i.e.&nbsp;resuing calculations) and making apps much more efficient (only what needs recalculated is recalculated).</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/shiny-ui-layouts.png" id="fig-539a35d47e664c97a50115a146a7f1bd-14">
+</div>
+</figure>
+</div>
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="quarto-figure quarto-figure-center" width="80%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/shiny-reactive.png" id="fig-539a35d47e664c97a50115a146a7f1bd-15" style="width:80.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="big-picture-revisisted" class="slide level2 smaller">
+<h2>Big picture revisisted</h2>
+<p>Very important points!!</p>
+<ul>
+<li><p>When making an app, you should come up with the STORY (narrative) FIRST, and then make the plots to show that.</p></li>
+<li><p>Don’t make the plots first, then figure out a story!</p></li>
+</ul>
+<p>Here is the recommended flow of a full analysis:</p>
+<ol type="1">
+<li><p>Data cleaning and organizing.</p></li>
+<li><p>EDA.</p></li>
+<li><p>Start with STATIC plots.</p></li>
+<li><p>Then see if intertactivity aids the story.</p></li>
+<li><p>Figure out how to incorporate user input.</p></li>
+<li><p>Organize the “dashboard” with a sketch.</p></li>
+<li><p>Incorporate UI features.</p></li>
+<li><p>Add server behavior.</p></li>
+<li><p>Communicate!</p></li>
+</ol>
+<p>COMMUNICATION IS SUPER IMPORTANT!</p>
+<ul>
+<li><p>Being able to work with the data is important, but almost more important is to be able to communicate with both experts and lay people</p></li>
+<li><p>If we have a big solutions to a big problem, it is unlikely that our solo efforts will be able to fix it.</p></li>
+<li><p>We need to be able to make our solution understandable and be able to communicate it easily.</p></li>
+</ul>
+</section>
+<section id="alternative-approach-to-building-applications" class="slide level2">
+<h2>Alternative approach to building applications</h2>
+<p>As data scientists, we want our time and effort to be spent on actually doing good data science (working with the data, transforming data, creating insightful plots, telling stories) rather than things like formatting the UI.</p>
+<p>Click the link or image below to watch the video as an alternative approach to building Shiny apps:</p>
+<p><a href="https://youtu.be/gYPnLiudtGU?si=MWXwSyf_JYinE3eo">Shiny UI Editor Project Walkthrough</a></p>
+<p><a href="https://youtu.be/gYPnLiudtGU?si=MWXwSyf_JYinE3eo"><img data-src="images/shiny-ui-editor-video.png" style="width:60.0%"></a></p>
+</section>
+<section id="installing-the-necessary-packages" class="slide level2">
+<h2>Installing the necessary packages</h2>
+<p>Run the following lines of code to install the packages we need:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>) <span class="co"># needed for the following function</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"rstudio/shinyuieditor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="shiny-ui-editor" class="slide level2">
+<h2>Shiny UI editor</h2>
+<p>Now lets recreate the Iris Explorer App using shinyuieditor.</p>
+<p>Lets start a new R script with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">library</span>(shinyuieditor)</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># !! setwd() to current location first</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="fu">launch_editor</span>(<span class="at">app_loc =</span> <span class="st">"iris-explorer-2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now go back and forth between the <code>app.R</code> file and the shinyuieditor, borrowing code from the previous iris explorer app when needed.</p>
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-16" class="quarto-figure quarto-figure-center" width="70%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/iris-explorer-app-shinyuieditor.png" id="fig-539a35d47e664c97a50115a146a7f1bd-16" style="width:70.0%">
+</div>
+</figure>
+</div>
+</section>
+<section id="comparison-of-methods" class="slide level2 smaller">
+<h2>Comparison of methods</h2>
+<blockquote>
+<h3 id="differences">Differences</h3>
+</blockquote>
+<div class="columns">
+<div class="column" style="width:46%;">
+<blockquote>
+<h4 id="manual-code">“Manual” code</h4>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="do">### ----- Load packages ----</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="do">### ---- Define UI ----</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="co"># create named vector for mapping of labels to variable names</span></span>
+<span id="cb13-10"><a href="#cb13-10"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sepal Length (cm)"</span> <span class="ot">=</span> <span class="st">"Sepal.Length"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11"></a>          <span class="st">"Sepal Width (cm)"</span> <span class="ot">=</span> <span class="st">"Sepal.Width"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12"></a>          <span class="st">"Petal Length (cm)"</span> <span class="ot">=</span> <span class="st">"Petal.Length"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13"></a>          <span class="st">"Petal Width (cm)"</span> <span class="ot">=</span> <span class="st">"Petal.Width"</span>)</span>
+<span id="cb13-14"><a href="#cb13-14"></a></span>
+<span id="cb13-15"><a href="#cb13-15"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb13-16"><a href="#cb13-16"></a>  </span>
+<span id="cb13-17"><a href="#cb13-17"></a>  <span class="fu">titlePanel</span>(<span class="at">title =</span> <span class="st">"Shiny Iris Explorer App!"</span>),</span>
+<span id="cb13-18"><a href="#cb13-18"></a>  </span>
+<span id="cb13-19"><a href="#cb13-19"></a>  <span class="fu">sidebarPanel</span>(</span>
+<span id="cb13-20"><a href="#cb13-20"></a>  </span>
+<span id="cb13-21"><a href="#cb13-21"></a>    <span class="co"># create dropdowns of variable names to plot</span></span>
+<span id="cb13-22"><a href="#cb13-22"></a>    <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"yvar"</span>,</span>
+<span id="cb13-23"><a href="#cb13-23"></a>                <span class="at">label =</span> <span class="st">"Choose Y Variable"</span>,</span>
+<span id="cb13-24"><a href="#cb13-24"></a>                <span class="at">choices =</span> vars),</span>
+<span id="cb13-25"><a href="#cb13-25"></a>    <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"xvar"</span>,</span>
+<span id="cb13-26"><a href="#cb13-26"></a>                <span class="at">label =</span> <span class="st">"Choose X Variable"</span>,</span>
+<span id="cb13-27"><a href="#cb13-27"></a>                <span class="at">choices =</span> vars,</span>
+<span id="cb13-28"><a href="#cb13-28"></a>                <span class="at">selected =</span> vars[[<span class="dv">2</span>]]),</span>
+<span id="cb13-29"><a href="#cb13-29"></a></span>
+<span id="cb13-30"><a href="#cb13-30"></a>    <span class="co"># create checkbox to optionally color by a categorical variable</span></span>
+<span id="cb13-31"><a href="#cb13-31"></a>    <span class="fu">checkboxInput</span>(<span class="at">inputId =</span> <span class="st">"species"</span>,</span>
+<span id="cb13-32"><a href="#cb13-32"></a>                  <span class="at">label =</span> <span class="st">"Color by Species"</span>,</span>
+<span id="cb13-33"><a href="#cb13-33"></a>                  <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-34"><a href="#cb13-34"></a>  ),</span>
+<span id="cb13-35"><a href="#cb13-35"></a>  </span>
+<span id="cb13-36"><a href="#cb13-36"></a>  <span class="co"># create tabs with spots for plots</span></span>
+<span id="cb13-37"><a href="#cb13-37"></a>  <span class="fu">mainPanel</span>(</span>
+<span id="cb13-38"><a href="#cb13-38"></a>    <span class="fu">tabsetPanel</span>(</span>
+<span id="cb13-39"><a href="#cb13-39"></a>      <span class="fu">tabPanel</span>(<span class="at">title =</span> <span class="st">"ggplot"</span>,</span>
+<span id="cb13-40"><a href="#cb13-40"></a>               <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"plot1"</span>)),</span>
+<span id="cb13-41"><a href="#cb13-41"></a>      <span class="fu">tabPanel</span>(<span class="at">title =</span> <span class="st">"plotly"</span>,</span>
+<span id="cb13-42"><a href="#cb13-42"></a>               <span class="fu">plotlyOutput</span>(<span class="at">outputId =</span> <span class="st">"plot2"</span>))</span>
+<span id="cb13-43"><a href="#cb13-43"></a>    )</span>
+<span id="cb13-44"><a href="#cb13-44"></a>  )</span>
+<span id="cb13-45"><a href="#cb13-45"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Uses:</p>
+<ul>
+<li><code>fluidPage()</code>, <code>sidebarPanel()</code>, <code>mainPanel()</code> and <code>tabsetPanel()</code> to define the structure of the page(s).</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<blockquote>
+<h4 id="automated-code-shinyuieditor">“Automated” code (shinyuieditor)</h4>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">library</span>(gridlayout)</span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">library</span>(bslib)</span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co"># create named vector for mapping of labels to variable names</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sepal Length (cm)"</span> <span class="ot">=</span> <span class="st">"Sepal.Length"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>          <span class="st">"Sepal Width (cm)"</span> <span class="ot">=</span> <span class="st">"Sepal.Width"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>          <span class="st">"Petal Length (cm)"</span> <span class="ot">=</span> <span class="st">"Petal.Length"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>          <span class="st">"Petal Width (cm)"</span> <span class="ot">=</span> <span class="st">"Petal.Width"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a></span>
+<span id="cb14-12"><a href="#cb14-12"></a>ui <span class="ot">&lt;-</span> <span class="fu">grid_page</span>(</span>
+<span id="cb14-13"><a href="#cb14-13"></a>  <span class="at">layout =</span> <span class="fu">c</span>(</span>
+<span id="cb14-14"><a href="#cb14-14"></a>    <span class="st">"header  header"</span>,</span>
+<span id="cb14-15"><a href="#cb14-15"></a>    <span class="st">"sidebar plot  "</span></span>
+<span id="cb14-16"><a href="#cb14-16"></a>  ),</span>
+<span id="cb14-17"><a href="#cb14-17"></a>  <span class="at">row_sizes =</span> <span class="fu">c</span>(</span>
+<span id="cb14-18"><a href="#cb14-18"></a>    <span class="st">"100px"</span>,</span>
+<span id="cb14-19"><a href="#cb14-19"></a>    <span class="st">"1fr"</span></span>
+<span id="cb14-20"><a href="#cb14-20"></a>  ),</span>
+<span id="cb14-21"><a href="#cb14-21"></a>  <span class="at">col_sizes =</span> <span class="fu">c</span>(</span>
+<span id="cb14-22"><a href="#cb14-22"></a>    <span class="st">"205px"</span>,</span>
+<span id="cb14-23"><a href="#cb14-23"></a>    <span class="st">"1fr"</span></span>
+<span id="cb14-24"><a href="#cb14-24"></a>  ),</span>
+<span id="cb14-25"><a href="#cb14-25"></a>  <span class="at">gap_size =</span> <span class="st">"1rem"</span>,</span>
+<span id="cb14-26"><a href="#cb14-26"></a>  <span class="fu">grid_card</span>(</span>
+<span id="cb14-27"><a href="#cb14-27"></a>    <span class="at">area =</span> <span class="st">"sidebar"</span>,</span>
+<span id="cb14-28"><a href="#cb14-28"></a>    <span class="fu">card_body</span>(</span>
+<span id="cb14-29"><a href="#cb14-29"></a>      <span class="fu">selectInput</span>(</span>
+<span id="cb14-30"><a href="#cb14-30"></a>        <span class="at">inputId =</span> <span class="st">"yvar"</span>,</span>
+<span id="cb14-31"><a href="#cb14-31"></a>        <span class="at">label =</span> <span class="st">"Choose Y Variable"</span>,</span>
+<span id="cb14-32"><a href="#cb14-32"></a>        <span class="at">choices =</span> vars,</span>
+<span id="cb14-33"><a href="#cb14-33"></a>        <span class="at">selected =</span> vars</span>
+<span id="cb14-34"><a href="#cb14-34"></a>      ),</span>
+<span id="cb14-35"><a href="#cb14-35"></a>      <span class="fu">selectInput</span>(</span>
+<span id="cb14-36"><a href="#cb14-36"></a>        <span class="at">inputId =</span> <span class="st">"xvar"</span>,</span>
+<span id="cb14-37"><a href="#cb14-37"></a>        <span class="at">label =</span> <span class="st">"Choose X Variable"</span>,</span>
+<span id="cb14-38"><a href="#cb14-38"></a>        <span class="at">choices =</span> vars[[<span class="dv">2</span>]]</span>
+<span id="cb14-39"><a href="#cb14-39"></a>      ),</span>
+<span id="cb14-40"><a href="#cb14-40"></a>      <span class="fu">checkboxInput</span>(</span>
+<span id="cb14-41"><a href="#cb14-41"></a>        <span class="at">inputId =</span> <span class="st">"species"</span>,</span>
+<span id="cb14-42"><a href="#cb14-42"></a>        <span class="at">label =</span> <span class="st">"Color by Species"</span>,</span>
+<span id="cb14-43"><a href="#cb14-43"></a>        <span class="at">value =</span> <span class="cn">TRUE</span></span>
+<span id="cb14-44"><a href="#cb14-44"></a>      )</span>
+<span id="cb14-45"><a href="#cb14-45"></a>    )</span>
+<span id="cb14-46"><a href="#cb14-46"></a>  ),</span>
+<span id="cb14-47"><a href="#cb14-47"></a>  <span class="fu">grid_card_text</span>(</span>
+<span id="cb14-48"><a href="#cb14-48"></a>    <span class="at">area =</span> <span class="st">"header"</span>,</span>
+<span id="cb14-49"><a href="#cb14-49"></a>    <span class="at">content =</span> <span class="st">"Shiny Iris Explorer App!"</span>,</span>
+<span id="cb14-50"><a href="#cb14-50"></a>    <span class="at">alignment =</span> <span class="st">"start"</span>,</span>
+<span id="cb14-51"><a href="#cb14-51"></a>    <span class="at">is_title =</span> <span class="cn">FALSE</span></span>
+<span id="cb14-52"><a href="#cb14-52"></a>  ),</span>
+<span id="cb14-53"><a href="#cb14-53"></a>  <span class="fu">grid_card</span>(</span>
+<span id="cb14-54"><a href="#cb14-54"></a>    <span class="at">area =</span> <span class="st">"plot"</span>,</span>
+<span id="cb14-55"><a href="#cb14-55"></a>    <span class="fu">card_body</span>(</span>
+<span id="cb14-56"><a href="#cb14-56"></a>      <span class="fu">tabsetPanel</span>(</span>
+<span id="cb14-57"><a href="#cb14-57"></a>        <span class="fu">nav_panel</span>(</span>
+<span id="cb14-58"><a href="#cb14-58"></a>          <span class="at">title =</span> <span class="st">"ggplot"</span>,</span>
+<span id="cb14-59"><a href="#cb14-59"></a>          <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"plot1"</span>)</span>
+<span id="cb14-60"><a href="#cb14-60"></a>        ),</span>
+<span id="cb14-61"><a href="#cb14-61"></a>        <span class="fu">nav_panel</span>(</span>
+<span id="cb14-62"><a href="#cb14-62"></a>          <span class="at">title =</span> <span class="st">"plotly"</span>,</span>
+<span id="cb14-63"><a href="#cb14-63"></a>          <span class="fu">plotlyOutput</span>(<span class="at">outputId =</span> <span class="st">"plot2"</span>)</span>
+<span id="cb14-64"><a href="#cb14-64"></a>        )</span>
+<span id="cb14-65"><a href="#cb14-65"></a>      )</span>
+<span id="cb14-66"><a href="#cb14-66"></a>    )</span>
+<span id="cb14-67"><a href="#cb14-67"></a>  )</span>
+<span id="cb14-68"><a href="#cb14-68"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Uses:</p>
+<ul>
+<li>Functions from <code>gridlayout</code> and <code>bslib</code> packages to define the structure of the page(s). These include <code>grid_page()</code>, <code>grid_card()</code>, etc.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="comparison-of-methods-1" class="slide level2 smaller">
+<h2>Comparison of methods</h2>
+<blockquote>
+<h3 id="commonalities">Commonalities</h3>
+</blockquote>
+<p><code>server</code>s are the EXACT SAME in both methods.</p>
+<p>Both use:</p>
+<ul>
+<li><code>{Type}Output()</code> functions.</li>
+<li><code>{Type}Input()</code> functions.</li>
+</ul>
+<blockquote>
+<h3 id="strategy">Strategy</h3>
+</blockquote>
+<ul>
+<li><p>Let <code>shinyuieditor</code> do the heavy lifting for the UI (e.g.&nbsp;tasks like adding defining the structure of the page, adding input controls, specifying where plots go, etc.) and step into the code when necessary for fine tuning.</p>
+<ul>
+<li>We don’t have to worry about how it does this, just need to know how to modify what we need.</li>
+</ul></li>
+<li><p>Code the <code>server</code> function as we normally would and easily add it to our app!</p></li>
+</ul>
+<p>
 <script type="application/shiny-prerendered" data-context="server-start">
 library(tidyverse)
 </script>
@@ -1014,8 +1492,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
   invisible()
 }
 </script>
-</li>
-</ul>
+</p>
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="dependencies">
 {"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]}]}
