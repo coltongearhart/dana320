@@ -3,7 +3,7 @@ title: "3.3 HW -- Data Transformations"
 format:
   html:
     #output-file: "3.3 HW - Data Transformations.html"
-    #output-file: "3.3 HW - Data Transformations SOLUTION.html"
+    output-file: "3.3 HW - Data Transformations SOLUTION.html"
     embed-resources: true
     toc: true
     toc-location: left
@@ -19,7 +19,7 @@ What will be looked at for grading: Correct code, output and sufficient write-up
 
 ## Overview
 
-These problems apply the ideas from the notes '3.3 -- Data Transformations', where we learned how to modify datasets plots using in R using **dplyr** and uses the transformed data to make visualizations learned in notes '3.2 -- Visualizations'.
+These problems apply the ideas from the notes '3.3 -- Data Transformations', where we learned how to modify datasets using in R using **dplyr** and uses the transformed data to make visualizations learned in notes '3.2 -- Visualizations'.
 
 We will be working with the `shuffled-playlist.csv` data, which contains information about songs in a Spotify playlist. A subset is shown below:
 
@@ -55,11 +55,11 @@ The goal of this assignment is to demonstrate common data manipulation tasks usi
 
 ### Part a -- Data cleaning
 
-First we will do some data cleaning. Notice in the above preview how the spaces are ` ` are actually plus signs `+` in the artist names. Use a `mutate()` statement to overwrite `artist` with the following line of code: `str_replace_all(string = artist, pattern =  "\\+", replacement = " ")`. Also overwrite `data_music` so that it is updated with the cleaned artist information.
+First we will do some data cleaning. Notice in the above preview how the spaces ` ` are actually plus signs `+` in the artist names. Use a `mutate()` statement to overwrite `artist` with the following line of code: `str_replace_all(string = artist, pattern =  "\\+", replacement = " ")`. Also overwrite `data_music` so that it is updated with the cleaned artist information.
 
 *Explanation of code:*
 
-*- `str_replace_all()` is part of a package very useful for working with strings. This function in particular finds all occurrences of `+` and replaces them with a space `" "`.*
+*- `stringr::str_replace_all()` is part of a package very useful for working with strings. This function in particular finds all occurrences of `+` and replaces them with a space `" "`.*
 
 *- Note that the pattern matching is done via what is called "regular expressions". And `+` is a special character in regular expressions, so we have to preface it with a double escape character in R `\\`. If you are curious about more regular expression patterns, see this [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) and the documentation for `?str_replace`.*
 
@@ -111,7 +111,7 @@ data_music %>%
 # -> filter to genre of interest and then calculate summary
 data_music %>%
   filter(genre == "hip hop") %>%
-  summarize(avg_energy = (mean(energy)))
+  summarize(avg_energy = mean(energy))
 
 ```
     
@@ -183,7 +183,7 @@ data_music %>%
 
 ```
 
-5. Use the same strategy to determine which which Adele song has the lowest energy.
+5. Use the same strategy as 5 to determine which which Adele song has the lowest energy.
 
 ```{r include = solutions}
 #| label: min-energy-adele
@@ -234,7 +234,7 @@ data_music %>%
 
 ```
 
-2. Find which three artists have the most songs in this playlist. To do this create a dataframe in descending order according to song count. Then create a scatterplot of `speechiness` vs `liveness` for only the top three artists. Include a sentence write-up describing the relationship in the scatterplot.
+2. Find which three artists have the most songs in this playlist. To do this create a dataframe in descending order according of song count. Then create a scatterplot of `speechiness` vs `liveness` for only the top three artists. Include a sentence write-up describing the relationship in the scatterplot.
 
 *CHALLENGE: Setup the code in such a way to create the scatterplot without ever explicitly naming the top 3 artists, e.g. never coding `Fleetwood Mac`. This makes your code much more dynamic.*
 
@@ -255,8 +255,9 @@ data_music %>%
                  y = liveness)) +
   labs(title = "Speechiness vs liveness")
 
-```
+# write-up: there is a weak positive association between speechiness and liveness, with clusters at low values of both and low speechiness / high liveness
 
+```
 
 3. How do the tempos compare for the artist within the ska genre? Create comparative boxplots to display this and include a sentence write-up summarizing the results.
 
@@ -267,8 +268,10 @@ data_music %>%
 data_music %>% 
   filter(genre == "ska") %>% 
   ggplot() +
-  geom_boxplot(aes(x = energy,
+  geom_boxplot(aes(x = tempo,
                    y = artist))
+
+# write-up: Streetlight Manifesto and No Doubt had similar medians, with No Doubt having the much larger spread. Less Than Jake had the lowest median and moderate spread with two high outliers
 
 ```
 
@@ -320,7 +323,7 @@ scale_color_discrete(labels = c("Ed Sheeran",
 labs(title = "Comparison of acousticness and energy of similar artists",
      color = "Artist")
 
-# We can see that there is a cluster of data points for Taylor Swift located at the lower end of acousticness and higher end of energy. This indicates that the majority of her songs in this dataset had similar charactertics. Perhaps this is because of a running theme / style throughout her album 1989. As for Ed Sheeran, his songs from the album ÷ covered a wider spectrum when it comes to acousticness and energy. Some of his songs were similar to Taylor Swift’s; however, some of them were low in energy with varying amounts of acousticness. Overall, these differences shed light on the contrasting styles of these two artists.
+# write-up: e can see that there is a cluster of data points for Taylor Swift located at the lower end of acousticness and higher end of energy. This indicates that the majority of her songs in this dataset had similar charactertics. Perhaps this is because of a running theme / style throughout her album 1989. As for Ed Sheeran, his songs from the album ÷ covered a wider spectrum when it comes to acousticness and energy. Some of his songs were similar to Taylor Swift’s; however, some of them were low in energy with varying amounts of acousticness. Overall, these differences shed light on the contrasting styles of these two artists.
 
 ```
 

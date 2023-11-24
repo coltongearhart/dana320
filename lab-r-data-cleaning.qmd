@@ -90,9 +90,10 @@ display_nice(data_raw, nrow = 5)
 
 ```
 
+
 ### Part b -- Reshape data
 
-The first column has the year/month combined followed by five pairs of columns for the dates and prices associated with weeks 1 through 5 of each month. Each of these five column pairs will need to be moved from wide format to long format using functions in the _tidyr_ package.
+The first column has the year/month combined followed by five pairs of columns for the dates and prices associated with weeks 1 through 5 of each month. Each of these five column pairs will need to be moved from wide format to long format using functions in the **tidyr** package.
 
 Note that this will be made much easier if you:
 
@@ -100,7 +101,7 @@ Note that this will be made much easier if you:
 
 2. Then pivot the columns in each
 
-3. Then recombine after they have both been reformatted wide-to-long.
+3. Then recombine after they have both been reformatted wide-to-long
 
 Here is what the price information should look like:
 
@@ -193,7 +194,6 @@ Now we can combine the date and price data back together with base R `cbind()` o
 
 ```{r echo = solutions}
 #| label: combine-data
-#| echo: false
 
 # combine datasets back together
 data_prices <- bind_cols(data_dates, data_values)

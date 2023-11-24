@@ -56,7 +56,6 @@ theme_set(theme_bw())
 ggplot(data = msleep) + 
   geom_bar(aes(x = vore))
 
-
 ```
 
 To make this plot more readable, a first step we could do is sort the bars according to decreasing frequency (when we do this, it is technically called a "Pareto chart"). To do so, replace `vore` with the following line of code in your `aes()` statement: `fct_infreq(vore)`. Check the help documentation of `forcats::fct_infreq()` to see what this function does.
@@ -251,7 +250,7 @@ ggplot(data = msleep) +
 
 Now we will visualize two quantitative variables. Recreate the following scatterplot, which investigates the hours of rem sleep compared to the total sleep hours.
 
-```{r echo = solutions}
+```{r include = solutions}
 #| label: scatterplot
 
 # create scatterplot
@@ -340,4 +339,3 @@ ggplot(data = msleep) +
 # write-up: slight decreasing trend in REM sleep as length of sleep cycle increases
 
 ```
-

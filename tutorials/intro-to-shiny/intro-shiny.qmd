@@ -1,0 +1,597 @@
+---
+format: 
+  revealjs:
+    slide-number: true
+    width: 1920
+    height: 1080
+    auto-stretch: false
+server: shiny
+editor: source
+---
+
+## So what is Shiny?
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+![](images/shinys.png){width="500px"}
+
+. . .
+
+> Shiny is an open source R package that provides an elegant and powerful web framework for building web applications using R.
+
+. . .
+
+> Shiny helps you turn your analyses into interactive web applications without requiring HTML, CSS, or JavaScript knowledge.
+
+. . .
+
+> shinyuieditor lets us build Shiny application UIs by dragging-and-dropping. Generates clean and proper code as you build.
+
+## Demo
+
+> Our goal is to be able to have an interactive tool that allows our intended audience to have a deep look at the data, rather than just a single snapshot that we provide.
+
+```{r}
+#| panel: sidebar
+
+# create title
+titlePanel(title = "Shiny Iris Explorer App!")
+
+# create vector of variable names
+# -> take out the categorical variables
+vars <- setdiff(names(iris), "Species")
+
+# create dropdowns of variable names to plot
+selectInput(inputId = "yvar",
+            label = "Choose Y Variable",
+            choices = vars)
+selectInput(inputId = "xvar",
+            label = "Choose X Variable",
+            choices = vars,
+            selected = vars[[2]])
+
+# create checkbox to optionally color by a categorical variable
+checkboxInput(inputId = "species",
+              label = "Color by Species",
+              value = TRUE)
+```
+
+```{r}
+#| panel: fill
+plotOutput("plot1")
+```
+
+```{r}
+#| context: server
+
+output$plot1 <- renderPlot({
+  
+  # create base plot
+  p1 <- ggplot() +
+    theme_bw()
+  
+  # add points layer
+  # -> conditionally colored variable -> selected via user input
+  if(input$species == TRUE){
+    p1 <- p1 +
+      geom_point(aes(x = .data[[input$xvar]],
+                     y = .data[[input$yvar]],
+                     color = Species),
+                 data = iris)
+  }
+  else{
+    p1 <- p1 +
+      geom_point(aes(x = .data[[input$xvar]],
+                     y = .data[[input$yvar]]),
+                 data = iris)
+  }
+  
+  print(p1)
+})
+
+```
+
+## Big picture
+
+Shiny can be very frustrating :(
+
+. . .
+
+But we can make it better with a smart approach!
+
+. . .
+
+1. The first step is understanding the data, cleaning the data, and the story that we want to tell (i.e. which plots are worth building into a dynamic image).
+
+-  For this lesson, we are skipping to right after this step.
+
+. . .
+
+2. The next step is to think about how we can hand over the control to the user without just giving them our code and telling them to manually change it.
+
+-  We want an intuitive way for the user to explore and click through different images (i.e. the interface).
+
+-  It's a good idea to sketch out on paper what we want the interface to look like (so what the plot should be and the different controls, and psuedocode structure, etc.).
+
+## Sketches
+
+![](images/app-iris.png)
+
+## Sketches
+
+![](images/app-simulation.png)
+
+## How Shiny works {.smaller}
+
+Shiny uses **reactive programming** to automatically update outputs when inputs change.
+
+. . .
+
+> ### User interface (UI)
+
+UI defines how your app *looks*.
+
+- It is running java script.
+- When something is clicked, it bundles peice of data (e.g. inputs) and sends it off to the server.
+
+. . .
+
+> ### Server
+
+The server defines how your app *works*.
+
+- It is then running R in the background.
+- Once the server receives the inputs, it then modifies the code to include the sent inputs
+- Then then reruns the code and gives it to the output object, which gets sent back to the UI where it re-renders the output object.
+
+. . .
+
+> ###  Reactive loop
+
+So essentially, Shiny implements a big listening loop.
+
+- When a user changes something, a message is sent to the server.
+- And it reruns the necessary code and sends it back to update the display.
+
+. . .
+
+So we need to start thinking about partitioning our design process into what the user sees and how to get it with code.
+
+## Your first Shiny app {.smaller}
+
+::: columns
+::: {.column width="40%"}
+
+```{{r}}
+### ----- Load packages ----
+
+library(shiny)
+
+### ---- Define UI ----
+
+ui <- fluidPage(
+  "Hello, world!"
+)
+
+### ---- Define server ----
+
+server <- function(input, output) {
+}
+
+### ---- Run app ----
+
+shinyApp(ui, server)
+
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/first-shiny-app.png){width=60%}
+
+:::
+:::
+
+1. It calls `library(shiny)` to load the shiny package.
+
+2. It defines the user interface, the HTML webpage that humans interact with. In this case, it’s a page containing the words “Hello, world!”.
+
+3. It specifies the behaviour of our app by defining a server function. It’s currently empty, so our app doesn’t do anything, but we’ll be back to revisit this shortly.
+
+4. It executes `shinyApp(ui, server)` to construct and start a Shiny application from UI and server.
+
+## Adding UI controls {.smaller}
+
+::: columns
+::: {.column width="40%"}
+
+```{{r}}
+### ----- Load packages ----
+
+library(shiny)
+library(tidyverse)
+
+### ---- Define UI ----
+
+# create vector of variable names
+# -> take out the categorical variables
+vars <- setdiff(names(iris), "Species")
+
+ui <- fluidPage(
+
+  titlePanel(title = "Shiny Iris Explorer App!"),
+  
+  sidebarPanel(
+  
+    # create dropdowns of variable names to plot
+    selectInput(inputId = "yvar",
+                label = "Choose Y Variable",
+                choices = vars),
+    selectInput(inputId = "xvar",
+                label = "Choose X Variable",
+                choices = vars,
+                selected = vars[[2]]),
+      
+    # create checkbox to optionally color by a categorical variable
+    checkboxInput(inputId = "species",
+                  label = "Color by Species",
+                  value = TRUE)
+  ),
+  
+  # create spot for plot
+  mainPanel(
+    plotOutput(outputId = "plot1")
+  )
+)
+
+### ---- Define server ----
+
+server <- function(input, output) {
+}
+
+### ---- Run app ----
+
+shinyApp(ui, server)
+
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-ui-only.png){width=60%}
+
+:::
+:::
+
+`fluidPage()` is one way to show the UI.
+
+-  It is a **layout function** that sets up the basic visual structure of the page. The left hand side is where the sidebar / controls go and output goes on the right.
+
+-  `fluidPage()` is a big nested function. So all of the arguments need to be separated by commas.
+
+`selectInput()` is an **input control** that lets the user interact with the app by providing a value.
+
+- Other input controls (widgets) and their code can be hound here: <https://shiny.posit.co/r/gallery/widgets/widget-gallery/>.
+
+`mainPanel()` creates a placeholder for a plot. To actually render a plot that we have made, we need to add code to create the plot in server function.
+
+## Adding content {.smaller}
+
+> ### Good strategy: Part 1
+
+First we can put in the static plot that we made to make sure that it worked.
+
+Replace your empty `server` function with the following code:
+
+:::: columns
+::: {.column width="40%"}
+
+```{{r}}
+### ---- Define server ----
+
+server <- function(input, output) {
+  
+  # create static plot
+  output$plot1 <- renderPlot(
+    ggplot() +
+      geom_point(aes(x = Sepal.Width,
+                     y = Sepal.Length),
+                 data = iris) +
+      theme_bw()
+  )
+  
+}
+
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-server-static.png){width=80%}
+
+:::
+:::
+
+Because of the reactive programming, `server <- function(input, output){}` is where we tell Shiny *how* to perform a computation (rather than ordering Shiny to actually go do it).
+
+- So we are essentially telling Shiny how to fill in the plot outputs in the app by providing the "recipes" for those outputs.
+
+The left-hand side of the assignment operator (`<-`), `output$ID`, indicates that you’re providing the recipe for the Shiny output with that ID.
+
+The right-hand side of the assignment uses a specific render function to wrap some code that you provide.
+
+- Each `render{Type}` function is designed to produce a particular type of output (e.g. text, tables, and plots), and is often paired with a `{type}Output` function.
+
+- For example, in this app, `renderPlot()` is paired with `plotOutput()` to display a plot.
+
+## Adding behavior {.smaller}
+
+When we change an X variable in the UI, the plot didn't change because the variable names were hardcoded and there were no connections to facilitate the change.
+
+> ### Good strategy: Part 2
+
+We can continue our Shiny app development by incorporating the user input.
+
+Modify your `server` function to the following:
+
+:::: columns
+::: {.column width="40%"}
+
+```{{r}}
+### ---- Define server ----
+
+server <- function(input, output) {
+
+  # create dynamic plot
+  # -> variables selected based on user input
+  ggplot() +
+    geom_point(aes(x = .data[[input$xvar]],
+                   y = .data[[input$yvar]]),
+               data = iris) +
+    theme_bw()
+
+}
+
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-server-variables.png){width=80%}
+
+:::
+:::
+
+`input$ID` is part of the bundled input data sent from the UI.
+
+- `input$xvar` and `input$yvar` specifically return character vectors of the results of the dropdowns, which have variable names.
+
+To correctly map the character vector to the `aes()` statement in a `ggplot()` call, we need to use the `.data[[col]]` pronoun for it to correctly work.
+
+## Adding behavior {.smaller}
+
+Last feature: To get the checkbox to work, we need a conditional statement.
+
+- So we have to build our plot in stages.
+
+Modify your `server` function to the following:
+
+:::: columns
+::: {.column width="40%"}
+
+```{{r}}
+### ---- Define server ----
+
+server <- function(input, output) {
+
+  # create base plot
+  p1 <- ggplot() + 
+    theme_bw()
+  
+  # add points layer
+  # -> conditionally colored variable -> selected via user input
+  if(input$species == TRUE){
+    p1 <- p1 +
+      geom_point(aes(x = .data[[input$xvar]],
+                     y = .data[[input$yvar]],
+                     color = Species),
+                data = iris)
+  }else{
+    p1 <- p1 +
+      geom_point(aes(x = .data[[input$xvar]],
+                     y = .data[[input$yvar]]),
+      data = iris)
+  }
+  
+  print(p1)
+
+}
+
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-server-color.png){width=80%}
+
+:::
+:::
+
+`input$ID` from a `checkboxInput()` returns a `TRUE` or `FALSE`.
+
+- Starting with the base plot, we can conditionally add more layers, one of which will have another `aes()` statement and the other will not.
+
+- Then we display the final built plot.
+
+Thus we have a working version of the Iris explorer app!
+
+## Furthering app design {.smaller}
+
+> ### Another way to test app
+
+1. Sketch the blueprint of the app.
+
+2. Try to use code to make the static visualization that we want.
+
+3. Then act like Shiny and create an input list, in essence simulating the user input.
+
+- We can then modify the above code to change based on different values of the input list.
+- Then just tinker with different values to make sure it works and then can put code into app when satisfied that it works.
+
+> ### Input list
+
+The input list is just a flexible grouping of data objects (can have nested objects and many different objects).
+
+- Recall lists are just unspecific structure of data, while dataframes are just a group of data in a very specific format).
+
+How the input list works:
+
+- When the user clicks something, in the background the javascript throws the new data into the input list and passes it along.
+
+> ### Software design principles
+
+Whenever we hand over a software to users, there are more things that we have to consider so that they have a seamless experience using it
+
+- Examples include:
+
+- Renaming variables so that users see intuitive names, but still allowing R access to the variable names
+- Conditional dropdowns (based on other dropdowns) so users can only create plots that make sense.
+
+## Polishing app {.smaller}
+
+> ### Labels
+
+Goal is to translate variable values to the labels.
+
+- The solution is named vectors, where the names are just referencing tools that are displayed to the user instead of the actual value.
+
+- To do this, we just need to define our named vector, say `vars`, outside of `server`, then use the `choices = vars` argument of `selectInput`.
+
+- These nice labels can then be accessed for axes titles by subsetting the `vars` vector to the one that is selected and pulling the name: `names(vars[vars == input$xvar])`.
+
+Modify just the `vars` statement before the `ui` and the `server` function to the following:
+
+:::: columns
+::: {.column width="40%"}
+
+```{{r}}
+### ---- Define UI ----
+
+# create named vector for mapping of labels to variable names
+vars <- c("Sepal Length (cm)" = "Sepal.Length",
+          "Sepal Width (cm)" = "Sepal.Width",
+          "Petal Length (cm)" = "Petal.Length",
+          "Petal Width (cm)" = "Petal.Width")
+
+# < ... same previous UI code ... >
+
+### ---- Define server ----
+
+server <- function(input, output) {
+  
+  output$plot1 <- renderPlot({  
+  
+    # build points layer
+    # -> conditionally colored variable -> selected via user input
+    if(input$species == TRUE){
+      p1 <- ggplot() +
+        geom_point(aes(x = .data[[input$xvar]],
+                     y = .data[[input$yvar]],
+                     color = Species),
+                 data = iris)
+    }else{
+      p1 <- ggplot() +
+        geom_point(aes(x = .data[[input$xvar]],
+                       y = .data[[input$yvar]]),
+                   data = iris)
+    }
+    
+    # add nice labels and theme
+    p1 <- p1 + 
+      labs(x = names(vars)[vars == input$xvar],
+           y = names(vars)[vars == input$yvar]) + 
+      theme_bw()
+    
+    print(p1)
+    
+  })
+}
+
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-polish-names.png){width=80%}
+
+:::
+:::
+
+## Polishing app {.smaller}
+
+> ### Conditional dropdowns
+
+Goal: Options for one input (independent X) depend on the value of the other input (response Y).
+
+Logic: To do this we have to update the input after the Y variable is selected.
+
+- After the inputs are created like normal, the server has to do all of the thinking in order for it to update actively.
+
+Add just the following to the `server` function to the following:
+
+:::: columns
+::: {.column width="40%"}
+
+```{{r}}
+### ---- Define server ----
+
+server <- function(input, output) {
+
+  # updated dropdown
+  observeEvent(input$yvar, {
+    updateSelectInput(inputId = "xvar", choices = vars[vars != input$yvar])
+  })
+  
+  # < ... same output$plot1 code as before ... >
+
+}
+```
+
+:::
+::: {.column width="60%"}
+
+![](images/iris-explorer-app-polish-dropdown.png){width=80%}
+
+:::
+:::
+
+1. Create the inputs like normal in the UI (same code as before).
+
+2. In the server above the `output$plot1`, use the combo of `observeEvent(input$ID, {update{Type}Input()}` to modify the parameters of input controls, which is triggered by a change in `input$ID`.
+
+- Then within `update{Type}Input()`, the choices of X should be indexed on not equaling the Y choice: `choices = vars[vars != input$yvar]`. In essence, we make it conditionally update based on Y.
+
+## Polishing app
+
+> ### What else is possible?
+
+`conditionalPanel()` in the UI allows you to create a panel that is visible or not, depending on the value of an expression.
+
+- This can be useful when you don't want something to show up until the user selects something.
+
+`uiOutput()` and `renderUI()` pair allows you to create UI with code.
+
+- This is useful when you need to create different types or numbers of inputs (or outputs), depending on other inputs (dynamically generated UI).
+
+- This technique gives you the ability to create and modify the user interface while the app is running (not just at the start like we have been doing).
+
+Creating an arbitrary number of or type of controls.
+
+- For example, creating a control for each column of a general dataset.
+
+- This involves functional programming functions from the `purrr` package, which we have not covered (but something to learn in the future!).
+
+## Plotly in Shiny
+

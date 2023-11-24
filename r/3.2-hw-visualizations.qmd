@@ -63,7 +63,6 @@ theme_set(theme_bw())
 ggplot(data = msleep) + 
   geom_bar(aes(x = vore))
 
-
 ```
 
 To make this plot more readable, a first step we could do is sort the bars according to decreasing frequency (when we do this, it is technically called a "Pareto chart"). To do so, replace `vore` with the following line of code in your `aes()` statement: `fct_infreq(vore)`. Check the help documentation of `forcats::fct_infreq()` to see what this function does.
@@ -214,7 +213,6 @@ if (solutions) {
 }
 
 # write-up: carnivores and herbivores are much more likely to have smaller brains relative to their body weight, potentially because their bodies weigh more than insectivores and omnivore on average (this is confimed with a summary calculation)
-
 
 ```
 

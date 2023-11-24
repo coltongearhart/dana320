@@ -3358,16 +3358,70 @@ border: 0;
 <p>Now that we have an idea of the distributions for Test 1, let’s summarize them, specifically we want to create an overall summary and a summary by class.</p>
 <ol type="1">
 <li><p>Create a test 1 dataset that contains only the Class, Student initials and Test 1 score.</p></li>
-<li><p>Create an object named <code>data_summary_overall</code> that summarizes Test 1 scores with the sample size, average and standard deviation. Then add the following lines of code to add an indicator column and rearrange the columns.</p></li>
+<li><p>Create an object named <code>data_summary_overall</code> that summarizes Test 1 scores with the sample size, average and standard deviation. Then pipe the following lines of code to the end of your summary function call to add an indicator column and rearrange the columns.</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data_summary_overall <span class="ot">&lt;-</span> <span class="er">&lt;</span> previous summary <span class="cf">function</span> call <span class="sc">&gt;</span> <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data_summary_overall <span class="ot">&lt;-</span> <span class="er">&lt;</span> summary <span class="cf">function</span> call <span class="sc">&gt;</span> <span class="sc">%&gt;%</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Class =</span> <span class="st">&quot;Overall&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-disable-processing="true" class="table table-striped" style="width: auto !important; ">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Class </th>
+   <th style="text-align:right;"> n </th>
+   <th style="text-align:right;"> avg </th>
+   <th style="text-align:right;"> sd </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Overall </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 67.4 </td>
+   <td style="text-align:right;"> 20.3 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
 <ol start="3" type="1">
-<li><p>Create another object called <code>data_summary_section</code> that performs the same summary functions the previous step, except by Class.</p></li>
-<li><p>Combine the overall summary with the class summary rowwise.</p></li>
+<li>Create another object called <code>data_summary_section</code> that performs the same summary functions the previous step, except by Class.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-disable-processing="true" class="table table-striped" style="width: auto !important; ">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Class </th>
+   <th style="text-align:right;"> n </th>
+   <th style="text-align:right;"> avg </th>
+   <th style="text-align:right;"> sd </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 69.8 </td>
+   <td style="text-align:right;"> 18.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 63.8 </td>
+   <td style="text-align:right;"> 22.6 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<ol start="4" type="1">
+<li>Combine the overall summary with the class summary rowwise.</li>
 </ol>
 </section>
 <section id="part-d-more-manipulations-and-visualizations-1" class="level3">
@@ -3382,7 +3436,7 @@ border: 0;
 <li><code>Grade</code>: % out of 100</li>
 </ul>
 <p>Thus, there is two rows per student, one for each test grade.</p>
-<p>Perform the necessary data steps and then recreate the following visual. Note that two have the labels for Test 1 and Test 2 nicely formatted, the values need to be cleaned in the data.</p>
+<p>Perform the necessary data steps and then recreate the following visual. Note that to have the labels for Test 1 and Test 2 nicely formatted, the values need to be cleaned in the data.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="672">
@@ -3407,7 +3461,7 @@ border: 0;
 </ul>
 <p><em>HINT: Use <code>case_when()</code>.</em></p>
 <ol start="2" type="1">
-<li>Using the curved data, perform the necessary data steps and then recreate the following visual.</li>
+<li>Using the curved data, perform the necessary data steps and then recreate the following visual, which compares the original and curved grades for each class.</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">

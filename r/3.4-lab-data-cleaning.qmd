@@ -2,7 +2,7 @@
 title: "3.4 Lab -- Data Cleaning"
 format:
   html:
-    #output-file: "3.4 Lab - Data Cleaning.html"
+    output-file: "3.4 Lab - Data Cleaning.html"
     #output-file: "3.4 Lab - Data Cleaning SOLUTION.html"
     embed-resources: true
     toc: true
@@ -66,7 +66,7 @@ display_nice <- function(df, col.names = NA, nrow = 10, digits = 3) {
 
 The problem is that the data is very messy and improperly structured to create this visualization. Here is how the data file is structured in Excel and how it would read directly into R.
 
-![](Images/gas-prices-raw-data.png)
+![](images/gas-prices-raw-data.png)
 
 ```{r}
 #| label: raw-data
@@ -124,7 +124,7 @@ display_nice(data_raw, nrow = 5)
 
 ### Part b -- Reshape data
 
-The first column has the year/month combined followed by five pairs of columns for the dates and prices associated with weeks 1 through 5 of each month. Each of these five column pairs will need to be moved from wide format to long format using functions in the _tidyr_ package.
+The first column has the year/month combined followed by five pairs of columns for the dates and prices associated with weeks 1 through 5 of each month. Each of these five column pairs will need to be moved from wide format to long format using functions in the **tidyr** package.
 
 Note that this will be made much easier if you:
 
@@ -132,7 +132,7 @@ Note that this will be made much easier if you:
 
 2. Then pivot the columns in each
 
-3. Then recombine after they have both been reformatted wide-to-long.
+3. Then recombine after they have both been reformatted wide-to-long
 
 Here is what the price information should look like:
 
@@ -225,7 +225,6 @@ Now we can combine the date and price data back together with base R `cbind()` o
 
 ```{r echo = solutions}
 #| label: combine-data
-#| echo: false
 
 # combine datasets back together
 data_prices <- bind_cols(data_dates, data_values)

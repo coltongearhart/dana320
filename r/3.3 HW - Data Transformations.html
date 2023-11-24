@@ -3019,11 +3019,11 @@ vertical-align: -.125em;
 <p>What will be looked at for grading: Correct code, output and sufficient write-ups where indicated.</p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>These problems apply the ideas from the notes ‘3.3 – Data Transformations’, where we learned how to modify datasets plots using in R using <strong>dplyr</strong> and uses the transformed data to make visualizations learned in notes ‘3.2 – Visualizations’.</p>
+<p>These problems apply the ideas from the notes ‘3.3 – Data Transformations’, where we learned how to modify datasets using in R using <strong>dplyr</strong> and uses the transformed data to make visualizations learned in notes ‘3.2 – Visualizations’.</p>
 <p>We will be working with the <code>shuffled-playlist.csv</code> data, which contains information about songs in a Spotify playlist. A subset is shown below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data_music <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;Data/shuffled-playlist.csv&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data_music <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;data/shuffled-playlist.csv&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># preview data</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_music)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3165,9 +3165,9 @@ vertical-align: -.125em;
 <p>The goal of this assignment is to demonstrate common data manipulation tasks using <strong>dplyr</strong> and creating more plots from transformed data with <strong>ggplot2</strong>. You will be asked several questions about the music dataset that can be answered by working with the data and then you will create some simple plots focused on particular aspects of the data.</p>
 <section id="part-a-data-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="part-a-data-cleaning">Part a – Data cleaning</h3>
-<p>First we will do some data cleaning. Notice in the above preview how the spaces are <code></code> are actually plus signs <code>+</code> in the artist names. Use a <code>mutate()</code> statement to overwrite <code>artist</code> with the following line of code: <code>str_replace_all(string = artist, pattern =  &quot;\\+&quot;, replacement = &quot; &quot;)</code>. Also overwrite <code>data_music</code> so that it is updated with the cleaned artist information.</p>
+<p>First we will do some data cleaning. Notice in the above preview how the spaces <code></code> are actually plus signs <code>+</code> in the artist names. Use a <code>mutate()</code> statement to overwrite <code>artist</code> with the following line of code: <code>str_replace_all(string = artist, pattern =  &quot;\\+&quot;, replacement = &quot; &quot;)</code>. Also overwrite <code>data_music</code> so that it is updated with the cleaned artist information.</p>
 <p><em>Explanation of code:</em></p>
-<p><em>- <code>str_replace_all()</code> is part of a package very useful for working with strings. This function in particular finds all occurrences of <code>+</code> and replaces them with a space <code>&quot; &quot;</code>.</em></p>
+<p><em>- <code>stringr::str_replace_all()</code> is part of a package very useful for working with strings. This function in particular finds all occurrences of <code>+</code> and replaces them with a space <code>&quot; &quot;</code>.</em></p>
 <p><em>- Note that the pattern matching is done via what is called “regular expressions”. And <code>+</code> is a special character in regular expressions, so we have to preface it with a double escape character in R <code>\\</code>. If you are curious about more regular expression patterns, see this <a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf">cheatsheet</a> and the documentation for <code>?str_replace</code>.</em></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -3321,7 +3321,7 @@ vertical-align: -.125em;
 <li><p>Now repeat the calculation using <code>across()</code>, which allows us to apply the same function to a set of variables. This is much less cumbersome than typing each mean statement out like before.</p></li>
 <li><p>Use the same technique as above to calculate the mean of all numeric variable by <code>genre</code>.</p></li>
 <li><p>Determine which pop song is the most danceable (highest danceability). Display only the categorical information about the song and its respective danceability score. <em>HINT: Think about the series of pipes that we need to do.</em></p></li>
-<li><p>Use the same strategy to determine which which Adele song has the lowest energy.</p></li>
+<li><p>Use the same strategy as 5 to determine which which Adele song has the lowest energy.</p></li>
 <li><p>CHALLENGE: Find the artists with the lowest average acousticness for each genre.</p></li>
 </ol>
 </section>
@@ -3330,7 +3330,7 @@ vertical-align: -.125em;
 <p>Now we will create some plots based on subsets of the data.</p>
 <ol type="1">
 <li><p>Create a dataset of only hip hop songs and make bar graph for the number of songs by each artist. Add data labels atop the bars and change the color scheme of the bars.</p></li>
-<li><p>Find which three artists have the most songs in this playlist. To do this create a dataframe in descending order according to song count. Then create a scatterplot of <code>speechiness</code> vs <code>liveness</code> for only the top three artists. Include a sentence write-up describing the relationship in the scatterplot.</p></li>
+<li><p>Find which three artists have the most songs in this playlist. To do this create a dataframe in descending order according of song count. Then create a scatterplot of <code>speechiness</code> vs <code>liveness</code> for only the top three artists. Include a sentence write-up describing the relationship in the scatterplot.</p></li>
 </ol>
 <p><em>CHALLENGE: Setup the code in such a way to create the scatterplot without ever explicitly naming the top 3 artists, e.g. never coding <code>Fleetwood Mac</code>. This makes your code much more dynamic.</em></p>
 <ol start="3" type="1">

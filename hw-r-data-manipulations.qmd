@@ -120,7 +120,6 @@ ggplot(aes(x = Test_1),
   theme(axis.ticks.y = element_blank(),
         axis.text.y = element_blank())
 
-
 # by class
 ggplot(aes(x = Test_1,
            y = Class),
@@ -154,14 +153,14 @@ data_test1 <- data_grades %>%
 
 ```
 
-2. Create an object named `data_summary_overall` that summarizes Test 1 scores with the sample size, average and standard deviation. Then add the following lines of code to add an indicator column and rearrange the columns.
+2. Create an object named `data_summary_overall` that summarizes Test 1 scores with the sample size, average and standard deviation. Then pipe the following lines of code to the end of your summary function call to add an indicator column and rearrange the columns.
 
 ```{r echo = !solutions}
 #| label: summary-indicator-code
 #| eval: false
 #| error: true
 
-data_summary_overall <- < previous summary function call > %>% 
+data_summary_overall <- < summary function call > %>% 
   mutate(Class = "Overall") %>% 
   select(4, 1:3)
 
@@ -180,6 +179,15 @@ data_summary_overall <- data_test1 %>%
 
 ```
 
+```{r}
+#| label: preview-summary-overall-test-1
+#| echo: false
+
+# preview data
+display_nice(data_summary_overall)
+
+```
+
 3. Create another object called `data_summary_section` that performs the same summary functions the previous step, except by Class.
 
 ```{r include = solutions}
@@ -191,6 +199,15 @@ data_summary_class <- data_test1 %>%
             n = n(),
             avg = round(mean(Test_1), 1),
             sd = round(sd(Test_1), 1))
+
+```
+
+```{r}
+#| label: preview-summary-class-test-1
+#| echo: false
+
+# preview data
+display_nice(data_summary_class)
 
 ```
 
@@ -219,7 +236,7 @@ If we want to visualize both tests and class at the same time, some more data re
 
 Thus, there is two rows per student, one for each test grade.
 
-Perform the necessary data steps and then recreate the following visual. Note that two have the labels for Test 1 and Test 2 nicely formatted, the values need to be cleaned in the data.
+Perform the necessary data steps and then recreate the following visual. Note that to have the labels for Test 1 and Test 2 nicely formatted, the values need to be cleaned in the data.
 
 ```{r echo = solutions}
 #| label: long-data-visual
@@ -252,9 +269,9 @@ Now the professor wants to investigate applying a curve by major for Test 1 grad
 
 1. Using the Test 1 data from Part c, create a new dataset that also contains curved grades for Test 1 according to the following scheme:
 
-- Class 1 receives 3 additional points.
+- Class 1 receives 3 additional percentage points (e.g. a 70% becomes a 73%).
 
-- Class 2 receives a 30% of their missed points back (*HINT: On paper work out an algebra function that accomplishes this and spot check a few values to make sure they are correct*).
+- Class 2 receives a 30% of their missed points back (e.g. a 70% becomes a 79%; *HINT: On paper work out an algebra function that accomplishes this and spot check a few values to make sure they are correct*).
 
 *HINT: Use `case_when()`.*
 
@@ -270,7 +287,7 @@ data_test1_curved <- data_test1 %>%
 
 ```
 
-2. Using the curved data, perform the necessary data steps and then recreate the following visual.
+2. Using the curved data, perform the necessary data steps and then recreate the following visual, which compares the original and curved grades for each class.
 
 ```{r echo = solutions}
 #| label: curved-data-visual
