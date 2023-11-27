@@ -60,6 +60,7 @@ book:
         - hw-r-data-manipulations.qmd
         - notes-r-interactive-plots.qmd
         - hw-r-interactive-plots.qmd
+        - notes-r-apps.qmd
 
 format:
   html:

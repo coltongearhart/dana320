@@ -1,0 +1,31 @@
+# Notes -- Apps
+
+```{r}
+#| label: load-prereqs
+#| echo: false
+#| message: false
+
+# knitr options
+source("_common.R")
+
+```
+
+## Overview
+
+### Materials
+
+-   Attached are all of the supplemental materials to this content! Feel free to check them out :)
+
+- SLIDES: Click the image below or follow the link to access the slides tutorial that corresponds to this video: <https://coltongearhart.github.io/intro-shiny/#/title-slide>
+
+    [![](images/intro-to-shiny.png){width="500"}]https://coltongearhart.github.io/intro-shiny/#/title-slide)
+    
+-   Here is the video that goes through the slides:
+
+<!-- {{< video https://youtu.be/0QlevjackzM >}} -->
+
+- Final applications
+
+-    Here are the final applications built in the comparison at the end:
+
+-    "Manual" [iris-explorer-app.R](https://github.com/coltongearhart/dana320/blob/main/tutorials/intro-to-shiny/apps/iris-explorer-app.R) and "Automated" [app.R](https://github.com/coltongearhart/dana320/blob/main/tutorials/intro-to-shiny/apps/iris-explorer-2/app.R)

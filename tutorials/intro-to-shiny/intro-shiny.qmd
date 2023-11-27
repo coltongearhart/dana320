@@ -12,6 +12,12 @@ server: shiny
 editor: source
 ---
 
+## Resources
+
+These slides cover an assortment of topics from [Mastering Shiny](https://mastering-shiny.org/index.html) by Hadley Wickham.
+
+[![](images/mastering-shiny.png){width=20%}](https://mastering-shiny.org/index.html)
+
 ## So what is Shiny?
 
 ```{r setup, include = FALSE}
@@ -864,6 +870,8 @@ Very important points!!
 
 - Don't make the plots first, then figure out a story!
 
+. . .
+
 Here is the recommended flow of a full analysis:
 
 1. Data cleaning and organizing.
@@ -883,6 +891,8 @@ Here is the recommended flow of a full analysis:
 8. Add server behavior.
 
 9. Communicate!
+
+. . .
 
 COMMUNICATION IS SUPER IMPORTANT!
 
@@ -1095,10 +1105,14 @@ Uses:
 
 `server`s are the EXACT SAME in both methods.
 
+. . .
+
 Both use:
 
 - `{Type}Output()` functions.
 - `{Type}Input()` functions.
+
+. . .
 
 > ### Strategy
 

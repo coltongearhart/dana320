@@ -48,6 +48,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   
+  # V5 -> adding dynamic dropdown
   # update dropdown
   observeEvent(input$yvar, {
     updateSelectInput(inputId = "xvar", choices = vars[vars != input$yvar])
@@ -55,6 +56,44 @@ server <- function(input, output) {
   
   output$plot1 <- renderPlot({  
 
+    # V1 -> static plot
+    # create static plot
+    # ggplot() +
+    #   geom_point(aes(x = Sepal.Width,
+    #                  y = Sepal.Length),
+    #              data = iris) +
+    #   theme_bw()
+
+    # V2 -> dynamic variables
+    # create dynamic plot
+    # -> variables selected based on user input
+    # ggplot() +
+    #   geom_point(aes(x = .data[[input$xvar]],
+    #                  y = .data[[input$yvar]]),
+    #              data = iris) +
+    #   theme_bw()
+    
+    # V3 -> built in stages to conditionally add colors
+    # create base plot
+    # p1 <- ggplot() + 
+    #   theme_bw()
+    # 
+    # # add points layer
+    # # -> conditionally colored variable -> selected via user input
+    # if(input$species == TRUE){
+    #   p1 <- p1 +
+    #     geom_point(aes(x = .data[[input$xvar]],
+    #                    y = .data[[input$yvar]],
+    #                    color = Species),
+    #                data = iris)
+    # }else{
+    #   p1 <- p1 +
+    #     geom_point(aes(x = .data[[input$xvar]],
+    #                    y = .data[[input$yvar]]),
+    #                data = iris)
+    # }
+    
+    # V4 -> shifted stages to add nice labels
     # build points layer
     # -> conditionally colored variable -> selected via user input
     if(input$species == TRUE){
@@ -86,8 +125,22 @@ server <- function(input, output) {
     p2 <- iris %>%
       plot_ly()
 
+    # V1 -> static variables with coloring
     # build points layer with plotly
     # -> conditionally colored variable -> selected via user input
+    # if(input$species == TRUE){
+    #   p2 <- p2 %>%
+    #     add_markers(x = ~Petal.Width,
+    #                 y = ~Petal.Length,
+    #                 color = ~Species)
+    # }else{
+    #   p2 <- p2 %>%
+    #     add_markers(x = ~Petal.Width,
+    #                 y = ~Petal.Length,
+    #                 color = I("black"))
+    # }
+    
+    # V2 -> dynamic variables
     if(input$species == TRUE){
       p2 <- p2 %>%
         add_markers(x = paste0("~", input$xvar) %>% as.formula,
