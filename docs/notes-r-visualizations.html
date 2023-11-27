@@ -418,6 +418,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">HW – Interactive Plots</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Notes – Apps</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -883,8 +889,8 @@ $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
--2.7746 -1.0126 -0.2795 -0.1902  0.4907  2.4022 </code></pre>
+<pre><code>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-2.26007 -0.45897  0.01663  0.05388  0.65907  2.16247 </code></pre>
 </div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1571,7 +1577,7 @@ $ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27,
 <li>Copy the final code used to create `Visual 1’ from above and modify it to recreate ‘Visual 2’.</li>
 </ul></section></section><section id="exercise-solutions" class="level2" data-number="28.11"><h2 data-number="28.11" class="anchored" data-anchor-id="exercise-solutions">
 <span class="header-section-number">28.11</span> Exercise solutions</h2>
-<p><a href="#sec-aes-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-aes-ex</span></a></p>
+<p><a href="#sec-aes-ex" class="quarto-xref">Exercise&nbsp;<span>28.3.3</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">table</span>,</span>
@@ -1586,7 +1592,7 @@ $ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27,
 </div>
 </div>
 </div>
-<p><a href="#sec-aes-ex2" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-aes-ex2</span></a></p>
+<p><a href="#sec-aes-ex2" class="quarto-xref">Exercise&nbsp;<span>28.3.6</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create sample</span></span>
 <span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">diamonds</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
@@ -1606,7 +1612,7 @@ $ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27,
 </div>
 </div>
 </div>
-<p><a href="#sec-hist-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-hist-ex</span></a></p>
+<p><a href="#sec-hist-ex" class="quarto-xref">Exercise&nbsp;<span>28.4.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">diamonds</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -1622,7 +1628,7 @@ $ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27,
 </div>
 </div>
 </div>
-<p><a href="#sec-hist-ex2" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-hist-ex2</span></a></p>
+<p><a href="#sec-hist-ex2" class="quarto-xref">Exercise&nbsp;<span>28.4.4</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>,</span>
@@ -1639,7 +1645,7 @@ $ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27,
 </div>
 </div>
 </div>
-<p><a href="#sec-boxplot-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-boxplot-ex</span></a></p>
+<p><a href="#sec-boxplot-ex" class="quarto-xref">Exercise&nbsp;<span>28.5.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">Sepal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -1653,7 +1659,7 @@ $ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27,
 </div>
 </div>
 </div>
-<p><a href="#sec-boxplot-ex2" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-boxplot-ex2</span></a></p>
+<p><a href="#sec-boxplot-ex2" class="quarto-xref">Exercise&nbsp;<span>28.5.5</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># NOTE: if have X and Y aesthetics swapped, can use coord_flip() to get horizontal boxplots without changing your aes() statement</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
@@ -1671,7 +1677,7 @@ $ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27,
 </div>
 </div>
 </div>
-<p><a href="#sec-bargraph-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-bargraph-ex</span></a></p>
+<p><a href="#sec-bargraph-ex" class="quarto-xref">Exercise&nbsp;<span>28.6.4</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a sample from of data and summarize</span></span>
 <span><span class="co"># -&gt; rename so in slightly different format than example and have to work with it</span></span>
@@ -1686,7 +1692,7 @@ $ sunspots &lt;dbl&gt; 5, 11, 16, 23, 36, 58, 29, 20, 10, 8, 3, 0, 0, 2, 11, 27,
 <pre><code>Rows: 3
 Columns: 2
 $ Species &lt;fct&gt; setosa, versicolor, virginica
-$ Count   &lt;int&gt; 12, 19, 19</code></pre>
+$ Count   &lt;int&gt; 20, 15, 15</code></pre>
 </div>
 <div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create bar graph</span></span>
 <span><span class="co"># -&gt; way 1)</span></span>
@@ -1716,7 +1722,7 @@ $ Count   &lt;int&gt; 12, 19, 19</code></pre>
 </div>
 </div>
 </div>
-<p><a href="#sec-bargraph-2vars-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-bargraph-2vars-ex</span></a></p>
+<p><a href="#sec-bargraph-2vars-ex" class="quarto-xref">Exercise&nbsp;<span>28.6.9</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># two of several plots that could be made</span></span>
 <span></span>
@@ -1750,7 +1756,7 @@ $ Count   &lt;int&gt; 12, 19, 19</code></pre>
 <span><span class="co"># -&gt; colors E, F, amd G are the three most common</span></span>
 <span><span class="co"># -&gt; distributions of color are relatively the same across cuts (i.e. about same proportion of diamonds for each color regardless of cut)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="#sec-facet-wrap-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-facet-wrap-ex</span></a></p>
+<p><a href="#sec-facet-wrap-ex" class="quarto-xref">Exercise&nbsp;<span>28.8.5</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  </span>
@@ -1767,7 +1773,7 @@ $ Count   &lt;int&gt; 12, 19, 19</code></pre>
 </div>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># we do NOT want to use scales = "free_x" because in order to have an equal comparison of the boxplots across species, we need them to be on the same scale</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="#sec-facet-grid-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-facet-grid-ex</span></a></p>
+<p><a href="#sec-facet-grid-ex" class="quarto-xref">Exercise&nbsp;<span>28.8.7</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a sample from of data with fewer levels (variety from ordinal scale of each)</span></span>
 <span><span class="va">diamonds_sample</span> <span class="op">&lt;-</span> <span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1793,7 +1799,7 @@ $ Count   &lt;int&gt; 12, 19, 19</code></pre>
 </div>
 </div>
 </div>
-<p><a href="#sec-density-curve-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-density-curve-ex</span></a></p>
+<p><a href="#sec-density-curve-ex" class="quarto-xref">Exercise&nbsp;<span>28.9.3</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span>,</span>
@@ -1809,7 +1815,7 @@ $ Count   &lt;int&gt; 12, 19, 19</code></pre>
 </div>
 </div>
 </div>
-<p><a href="#sec-density-curves-ex" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-density-curves-ex</span></a></p>
+<p><a href="#sec-density-curves-ex" class="quarto-xref">Exercise&nbsp;<span>28.9.6</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span>,</span>
@@ -1827,7 +1833,7 @@ $ Count   &lt;int&gt; 12, 19, 19</code></pre>
 </div>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># two of the species have similar petal lengths, while one is well below the others</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="#sec-application-ex2" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-application-ex2</span></a></p>
+<p><a href="#sec-application-ex2" class="quarto-xref">Exercise&nbsp;<span>28.10.2</span></a></p>
 <div class="cell">
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># line plot of points over the season</span></span>
 <span><span class="co"># -&gt; specific colors by W/L and also take into account location with facet (Visual 2)</span></span>

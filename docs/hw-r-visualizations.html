@@ -418,6 +418,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">HW – Interactive Plots</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Notes – Apps</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -465,7 +471,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Note this used the <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">ggplot2::theme_bw()</a></code> theme. To run a single command and set the theme for all the subsequent created plots, use <code><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">ggplot2::theme_set()</a></code> (check the documentation for more details).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="hw-r-visualizations_files/figure-html/bargraph-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -476,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To make this plot more readable, a first step we could do is sort the bars according to decreasing frequency (when we do this, it is technically called a “Pareto chart”). To do so, replace <code>vore</code> with the following line of code in your <code>aes()</code> statement: <code>fct_infreq(vore)</code>. Check the help documentation of <code><a href="https://forcats.tidyverse.org/reference/fct_inorder.html">forcats::fct_infreq()</a></code> to see what this function does.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="hw-r-visualizations_files/figure-html/pareto-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -501,7 +507,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Recreate the following histogram of <code>sleep_total</code>, paying attention to the changed aesthetics of the histogram.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="hw-r-visualizations_files/figure-html/hist-default-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -513,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Perhaps a smooth curve would be a more accurate representation of this data than a histogram. Recreate the following density curve.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="hw-r-visualizations_files/figure-html/denisty-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -524,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Lets add grouping information to the previous histogram to visualize <code>sleep_total</code> for each different type of <code>vore</code>. To do so, use the <code>fill = vore</code> to the <code>aes()</code> statement.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="hw-r-visualizations_files/figure-html/hist-multiple-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -535,7 +541,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>It is nearly impossible to glean any information from this plot. So let’s switch to a density curve, which is better for displaying several distributions on the same plot. Recreate the following plot, pay attention to which aesthetic <code>vore</code> needs to be mapped to.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="hw-r-visualizations_files/figure-html/denisty-multiple-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -550,7 +556,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>- Essentially, <code>is.na(vore)</code> evaluates to <code>TRUE</code> when there is a missing value of <code>NA</code> and <code>FALSE</code> when not missing, then <code>!</code> flips the logical so that <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> keeps only the non-missing values.</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
 <figure class="quarto-float quarto-float-fig figure"><div>
 <img src="hw-r-visualizations_files/figure-html/denisty-multiple2-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="img-fluid figure-img" data-fig-pos="hold" width="672">
 </div>
@@ -566,16 +572,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section><section id="part-d-scatterplots" class="level3" data-number="29.2.4"><h3 data-number="29.2.4" class="anchored" data-anchor-id="part-d-scatterplots">
 <span class="header-section-number">29.2.4</span> Part d – Scatterplots</h3>
 <p>Now we will visualize two quantitative variables. Recreate the following scatterplot, which investigates the hours of rem sleep compared to the total sleep hours.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" data-fig-pos="hold" width="672">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="hw-r-visualizations_files/figure-html/scatterplot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
-</figure>
-</div>
-</div>
-</div>
 <p>There appears to some kind of relationship between these two variables, which makes sense. The more total sleep an animal gets, the more REM sleep. Lets model the relationship with a regression line. We can do this via the adding the following code to the previous plot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span> previous scatterplot <span class="cf">function</span> call <span class="sc">&gt;</span> <span class="sc">+</span></span>

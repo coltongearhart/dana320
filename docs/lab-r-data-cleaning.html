@@ -385,6 +385,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">HW – Interactive Plots</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Notes – Apps</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -618,12 +624,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section><section id="part-b-reshape-data" class="level3" data-number="33.2.2"><h3 data-number="33.2.2" class="anchored" data-anchor-id="part-b-reshape-data">
 <span class="header-section-number">33.2.2</span> Part b – Reshape data</h3>
-<p>The first column has the year/month combined followed by five pairs of columns for the dates and prices associated with weeks 1 through 5 of each month. Each of these five column pairs will need to be moved from wide format to long format using functions in the <em>tidyr</em> package.</p>
+<p>The first column has the year/month combined followed by five pairs of columns for the dates and prices associated with weeks 1 through 5 of each month. Each of these five column pairs will need to be moved from wide format to long format using functions in the <strong>tidyr</strong> package.</p>
 <p>Note that this will be made much easier if you:</p>
 <ol type="1">
 <li><p>First create separate data frames with the columns of dates and columns of prices</p></li>
 <li><p>Then pivot the columns in each</p></li>
-<li><p>Then recombine after they have both been reformatted wide-to-long.</p></li>
+<li><p>Then recombine after they have both been reformatted wide-to-long</p></li>
 </ol>
 <p>Here is what the price information should look like:</p>
 <div class="cell">
