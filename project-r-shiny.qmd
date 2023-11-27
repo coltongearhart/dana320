@@ -1,0 +1,153 @@
+# Group Project -- Shiny
+
+```{r}
+#| label: load-prereqs
+#| echo: false
+#| message: false
+
+# knitr options
+source("_common.R")
+
+```
+
+## Overview
+
+{{< video https://youtu.be/whgrQoheEBQ >}}
+
+In this project your group will construct a shiny application that allows for visual exploration of a data set (your choice from options below). The final shiny tool should give the user the ability to manipulate and control of plot features in a way that allows for powerful, complex stories to be uncovered through visual display of the data.
+
+-   The interactivity needs to add significant value beyond what could be accomplished in a static visualization.
+
+-   The solution must be aesthetically appropriate.
+
+-   The documentation and R code must be thorough, clean and efficient. The user interface needs to be user friendly and agile.
+
+You will then use the app as the visual aid for your group to tell the data story in a final presentation. Group members will evaluate each other's contribution to the final product. Your instructor will evaluate your submitted application and presentation.
+
+## Data choices
+
+The two available data sources for the project that your team can select or you can find your own dataset. Each source may have unique challenges for data cleaning, visualization and construction of user interface.
+
+1.  NBA player games:
+
+-   Description: Player game data from <https://www.basketball-reference.com/players/>.
+
+-   Data file: [basketball.RData](https://github.com/coltongearhart/dana320/blob/main/r//data/basketball.RData)
+
+-   Game statistics for each player in the NBA who played at least three years throughout the 2015-2018 seasons. 120,000 player games with 32 variables.
+
+2.  Spotify music attributes
+
+-   Data file: [data-music.RData](https://github.com/coltongearhart/dana320/blob/main/r//data/data-music.RData)
+
+-   Description: Expanded version of the data from '3.3 HW -- Data Transformations'. This data contains information about nearly 160,000 songs in a Spotify's song library.
+
+3.  Select your own data
+
+-   Below are a list of data repositories that might be of interest to browse. You're not limited to these resources, and in fact you're encouraged to venture beyond them. But you might find something interesting there.
+
+-   Try to find "biggish data" so that there can be lots of exploration.
+
+    -   [TidyTuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data) (navigate through the folders to find the .csv (or similar) files)
+    -   [Kaggle datasets](https://www.kaggle.com/datasets)
+    -   [Awesome public datasets](https://github.com/awesomedata/awesome-public-datasets) (scroll down on page)
+    -   Any other source you can find!
+
+## Deliverables
+
+### Group contract and Pick a dataset
+
+Submission: Completed word file via Canvas (one per group).
+
+Instructions: With your group member(s), complete the following template document which contains a group contract and a final decision about which dataset you will be using.
+
+FILE:
+
+-   [group-contract-and-pick-dataset.docx](https://github.com/coltongearhart/dana320/blob/main/r/group-contract-and-pick-dataset.docx)
+
+<embed src="r/group-contract-and-pick-dataset.pdf" type="application/pdf" width="100%" height="1000px">
+
+### App sketch
+
+Submission: Completed sketch via Canvas (one per group). A clear scan or picture may be submitted or, if completed digitally, the respective file.
+
+Instructions: With your group member(s), create a preliminary sketch of your application according to the following specifications.
+
+-   These sketches do not have to be beautiful, but they should be clear and effective.
+-   It should display the general layout of the user interface, including page structure, what input controls will be used, corresponding plots and how they are connected to the input controls.
+-   It should be very clear what plot styles you intent to build (static gpplot vs interactive plotly), the attributes that are constant, and the attributes that change based on user actions.
+
+Final points: Your group does not have to stick to the layout, plot types, etc. in the sketch for the final submission. This is just a detailed preliminary sketch to get your group thinking about possible ways to design your final application.
+
+Below is *rough, starting example*. Your submission should be far more detailed.
+
+![](r/images/app-iris.png){width=60%}
+
+### App check-in meeting
+
+Each group will need to schedule a 15 minute meeting with your instructor to demonstrate a **working version of the app** and get feedback.
+
+Select a timeslot on the following document, first come first serve (please do not edit your peers' entries): [meeting time slots](https://docs.google.com/spreadsheets/d/1a8CuC5qdgBJviNbon4udS412X_2i_NS7dluAnXrzydM/edit?usp=sharing)
+
+### Final application
+
+Submission: Completed R file via Canvas.
+
+The final shiny application's and it's R code will be graded according to the following rubric.
+
+FILE:
+
+-   [group-shiny-project-app-rubric.docx](https://github.com/coltongearhart/dana320/blob/main/r/group-shiny-project-app-rubric.docx)
+
+<embed src="r/group-shiny-project-app-rubric.pdf" type="application/pdf" width="100%" height="1000px">
+
+### Final presentation
+
+Submission: Completed mp4 (or similar) file via Canvas.
+
+Presentation requirements:
+
+- In total, the presentation should be between 8-10 min long and cover each of the following aspects (with recommended flow / length):
+
+    - 1 min: Introduction of the problem (research question) and dataset. Can answer the following questions about the data as a guide:
+    
+        - Who: Who are the data about (who are the subjects)?
+        - What: What is the data about (what variables do you have)?
+        - When: When was the data collected (if available)?
+        - Where: Where was the data collected (if available)?
+        - Why: Why was the data collected (if applicable)?
+        - How: How was the data collected (if available)?
+        
+    - 2-3 min: Description of data preparation / transformations performed.
+    - 4-6 min: Demonstration of the application and how it answers the research question.
+    
+- Slides (e.g. google slides or powerpoint) should be prepared to cover the introduction and description of the data preparation / transformations. Then you may switch to running the application.
+
+    - Example slides shown below (**note this was for a simulation application, so slightly different context than this project, but you get the jist):
+    
+    <embed src="r/example-presentation-slides.pdf" type="application/pdf" width="100%" height="500px">
+    
+- Recording the presentation
+
+    - Logistics: I recommend getting together with your group member(s) and recording a zoom session on one computer with the slides and application running and switching off who is presenting. Feel free to use another platform if you would like.
+    - **Things to help me: If you are comfortable with it (not a requirement), keep the camera on so I can see who is presenting. Else, please announce who is speaking.**
+
+The demonstration of the final shiny application (including the introduction of the problem / data and data processing work) will be graded according to the following rubric.
+
+FILE:
+
+-   [group-shiny-project-presentation-rubric.docx](https://github.com/coltongearhart/dana320/blob/main/r/group-shiny-project-presentation-rubric.docx)
+
+<embed src="r/group-shiny-project-presentation-rubric.pdf" type="application/pdf" width="100%" height="1000px">
+
+### Peer evaluation
+
+Submission: Completed word file via Canvas (or clear scan if completed by hand).
+
+Instructions: Once the project and presentation are submitted, complete the following template document which contains a peer evaluation form. If you have more than one additional group member, please complete separate forms for each group member
+
+FILE:
+
+-   [group-shiny-project-peer-evaluation-form.docx](https://github.com/coltongearhart/dana320/blob/main/r/group-shiny-project-peer-evaluation-form.docx)
+
+<embed src="r/group-shiny-project-peer-evaluation-form.pdf" type="application/pdf" width="100%" height="1000px">

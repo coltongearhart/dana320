@@ -1,8 +1,0 @@
-## Placeholder
-
-Hello world
-
-```{r}
-2+2
-```
-

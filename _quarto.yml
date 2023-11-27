@@ -61,6 +61,7 @@ book:
         - notes-r-interactive-plots.qmd
         - hw-r-interactive-plots.qmd
         - notes-r-apps.qmd
+        - project-r-shiny.qmd
 
 format:
   html:

@@ -1642,10 +1642,54 @@
     "href": "notes-r-apps.html#overview",
     "title": "\n37  Notes – Apps\n",
     "section": "\n37.1 Overview",
-    "text": "37.1 Overview\n\n37.1.1 Materials\n\nAttached are all of the supplemental materials to this content! Feel free to check them out :)\n\nSLIDES: Click the image below or follow the link to access the slides tutorial that corresponds to this video: https://coltongearhart.github.io/intro-shiny/#/title-slide\n[]https://coltongearhart.github.io/intro-shiny/#/title-slide)\n\nHere is the video that goes through the slides:\n\n\nFinal applications\nHere are the final applications built in the comparison at the end:\n“Manual” iris-explorer-app.R and “Automated” app.R",
+    "text": "37.1 Overview\n\n37.1.1 This section\n\nThis tutorial introduces shiny and shinyuieditor, which are used to create interactive applications (dashboards) using R. These notes will incorporate ideas and techniques from all of the previous tutorials and display them in applications that allow users to dive deeper into and answer their own questions about the data.\n\n37.1.2 Materials\n\nAttached are all of the supplemental materials to this content! Feel free to check them out :)\n\nSLIDES: Click the image below or follow the link to access the slides tutorial that corresponds to this video: https://coltongearhart.github.io/intro-shiny/\n[(https://coltongearhart.github.io/intro-shiny/)\n\nHere is the video that goes through the slides:\n\n\n\nFinal applications\n\nHere are the code files for the final applications built in the comparison at the end:\n“Manual” iris-explorer-app.R and “Automated” app.R",
     "crumbs": [
       "R",
       "<span class='chapter-number'>37</span>  <span class='chapter-title'>Notes -- Apps</span>"
+    ]
+  },
+  {
+    "objectID": "project-r-shiny.html#overview",
+    "href": "project-r-shiny.html#overview",
+    "title": "\n38  Group Project – Shiny\n",
+    "section": "\n38.1 Overview",
+    "text": "38.1 Overview\n\nIn this project your group will construct a shiny application that allows for visual exploration of a data set (your choice from options below). The final shiny tool should give the user the ability to manipulate and control of plot features in a way that allows for powerful, complex stories to be uncovered through visual display of the data.\n\nThe interactivity needs to add significant value beyond what could be accomplished in a static visualization.\nThe solution must be aesthetically appropriate.\nThe documentation and R code must be thorough, clean and efficient. The user interface needs to be user friendly and agile.\n\nYou will then use the app as the visual aid for your group to tell the data story in a final presentation. Group members will evaluate each other’s contribution to the final product. Your instructor will evaluate your submitted application and presentation.",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Group Project -- Shiny</span>"
+    ]
+  },
+  {
+    "objectID": "project-r-shiny.html#final-app-submission-rubric",
+    "href": "project-r-shiny.html#final-app-submission-rubric",
+    "title": "\n38  Group Project – Shiny\n",
+    "section": "\n38.2 Final App Submission – Rubric",
+    "text": "38.2 Final App Submission – Rubric\nFILE:\n\ngroup-shiny-project-final-submission-rubric.docx",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Group Project -- Shiny</span>"
+    ]
+  },
+  {
+    "objectID": "project-r-shiny.html#data-choices",
+    "href": "project-r-shiny.html#data-choices",
+    "title": "\n38  Group Project – Shiny\n",
+    "section": "\n38.2 Data choices",
+    "text": "38.2 Data choices\nThe two available data sources for the project that your team can select or you can find your own dataset. Each source may have unique challenges for data cleaning, visualization and construction of user interface.\n\nNBA player games:\n\n\nDescription: Player game data from https://www.basketball-reference.com/players/.\nData file: basketball.RData\nGame statistics for each player in the NBA who played at least three years throughout the 2015-2018 seasons. 120,000 player games with 32 variables.\n\n\nSpotify music attributes\n\n\nData file: data-music.RData\nDescription: Expanded version of the data from ‘3.3 HW – Data Transformations’. This data contains information about nearly 160,000 songs in a Spotify’s song library.\n\n\nSelect your own data\n\n\nBelow are a list of data repositories that might be of interest to browse. You’re not limited to these resources, and in fact you’re encouraged to venture beyond them. But you might find something interesting there.\n\nTry to find “biggish data” so that there can be lots of exploration.\n\n\nTidyTuesday (navigate through the folders to find the .csv (or similar) files)\nKaggle datasets\n\nAwesome public datasets (scroll down on page)\nAny other source you can find!",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Group Project -- Shiny</span>"
+    ]
+  },
+  {
+    "objectID": "project-r-shiny.html#deliverables",
+    "href": "project-r-shiny.html#deliverables",
+    "title": "\n38  Group Project – Shiny\n",
+    "section": "\n38.3 Deliverables",
+    "text": "38.3 Deliverables\n\n38.3.1 Group contract and Pick a dataset\nSubmission: Completed word file via Canvas (one per group).\nInstructions: With your group member(s), complete the following template document which contains a group contract and a final decision about which dataset you will be using.\nFILE:\n\ngroup-contract-and-pick-dataset.docx\n\n\n38.3.2 App sketch\nSubmission: Completed sketch via Canvas (one per group). A clear scan or picture may be submitted or, if completed digitally, the respective file.\nInstructions: With your group member(s), create a preliminary sketch of your application according to the following specifications.\n\nThese sketches do not have to be beautiful, but they should be clear and effective.\nIt should display the general layout of the user interface, including page structure, what input controls will be used, corresponding plots and how they are connected to the input controls.\nIt should be very clear what plot styles you intent to build (static gpplot vs interactive plotly), the attributes that are constant, and the attributes that change based on user actions.\n\nFinal points: Your group does not have to stick to the layout, plot types, etc. in the sketch for the final submission. This is just a detailed preliminary sketch to get your group thinking about possible ways to design your final application.\nBelow is rough, starting example. Your submission should be far more detailed.\n\n\n\n\n\n\n\n38.3.3 App check-in meeting\nEach group will need to schedule a 15 minute meeting with your instructor to demonstrate a working version of the app and get feedback.\nSelect a timeslot on the following document, first come first serve (please do not edit your peers’ entries): meeting time slots\n\n38.3.4 Final application\nSubmission: Completed R file via Canvas.\nThe final shiny application’s and it’s R code will be graded according to the following rubric.\nFILE:\n\ngroup-shiny-project-app-rubric.docx\n\n\n38.3.5 Final presentation\nSubmission: Completed mp4 (or similar) file via Canvas.\nPresentation requirements:\n\n\nIn total, the presentation should be between 8-10 min long and cover each of the following aspects (with recommended flow / length):\n\n\n1 min: Introduction of the problem (research question) and dataset. Can answer the following questions about the data as a guide:\n\nWho: Who are the data about (who are the subjects)?\nWhat: What is the data about (what variables do you have)?\nWhen: When was the data collected (if available)?\nWhere: Where was the data collected (if available)?\nWhy: Why was the data collected (if applicable)?\nHow: How was the data collected (if available)?\n\n\n2-3 min: Description of data preparation / transformations performed.\n4-6 min: Demonstration of the application and how it answers the research question.\n\n\n\nSlides (e.g. google slides or powerpoint) should be prepared to cover the introduction and description of the data preparation / transformations. Then you may switch to running the application.\n\nExample slides shown below (**note this was for a simulation application, so slightly different context than this project, but you get the jist):\n\n\n\n\nRecording the presentation\n\nLogistics: I recommend getting together with your group member(s) and recording a zoom session on one computer with the slides and application running and switching off who is presenting. Feel free to use another platform if you would like.\nThings to help me: If you are comfortable with it (not a requirement), keep the camera on so I can see who is presenting. Else, please announce who is speaking.\n\n\n\nThe demonstration of the final shiny application (including the introduction of the problem / data and data processing work) will be graded according to the following rubric.\nFILE:\n\ngroup-shiny-project-presentation-rubric.docx\n\n\n38.3.6 Peer evaluation\nSubmission: Completed word file via Canvas (or clear scan if completed by hand).\nInstructions: Once the project and presentation are submitted, complete the following template document which contains a peer evaluation form. If you have more than one additional group member, please complete separate forms for each group member\nFILE:\n\ngroup-shiny-project-peer-evaluation-form.docx",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Group Project -- Shiny</span>"
     ]
   }
 ]
