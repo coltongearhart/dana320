@@ -365,13 +365,17 @@ Modify your `server` function to the following:
 
 server <- function(input, output) {
 
-  # create dynamic plot
-  # -> variables selected based on user input
-  ggplot() +
-    geom_point(aes(x = .data[[input$xvar]],
-                   y = .data[[input$yvar]]),
-               data = iris) +
-    theme_bw()
+  output$plot1 <- renderPlot({
+    
+    # create dynamic plot
+    # -> variables selected based on user input
+    ggplot() +
+      geom_point(aes(x = .data[[input$xvar]],
+                     y = .data[[input$yvar]]),
+                 data = iris) +
+      theme_bw()
+    
+  })
 
 }
 
@@ -410,26 +414,30 @@ Modify your `server` function to the following:
 
 server <- function(input, output) {
 
-  # create base plot
-  p1 <- ggplot() + 
-    theme_bw()
-  
-  # add points layer
-  # -> conditionally colored variable -> selected via user input
-  if(input$species == TRUE){
-    p1 <- p1 +
-      geom_point(aes(x = .data[[input$xvar]],
-                     y = .data[[input$yvar]],
-                     color = Species),
-                data = iris)
-  }else{
-    p1 <- p1 +
-      geom_point(aes(x = .data[[input$xvar]],
-                     y = .data[[input$yvar]]),
-      data = iris)
-  }
-  
-  print(p1)
+  output$plot1 <- renderPlot({
+
+    # create base plot
+    p1 <- ggplot() + 
+      theme_bw()
+    
+    # add points layer
+    # -> conditionally colored variable -> selected via user input
+    if(input$species == TRUE){
+      p1 <- p1 +
+        geom_point(aes(x = .data[[input$xvar]],
+                       y = .data[[input$yvar]],
+                       color = Species),
+                   data = iris)
+    }else{
+      p1 <- p1 +
+        geom_point(aes(x = .data[[input$xvar]],
+                       y = .data[[input$yvar]]),
+                   data = iris)
+    }
+    
+    print(p1)
+    
+  })
 
 }
 
@@ -491,7 +499,7 @@ Goal is to translate variable values to the labels.
 
 - The solution is named vectors, where the names are just referencing tools that are displayed to the user instead of the actual value.
 
-- To do this, we just need to define our named vector, say `vars`, outside of `server`, then use the `choices = vars` argument of `selectInput`.
+- To do this, we just need to define our named vector, say `vars`, outside of `ui`(and `server`), then use the `choices = vars` argument of `selectInput`.
 
 - These nice labels can then be accessed for axes titles by subsetting the `vars` vector to the one that is selected and pulling the name: `names(vars[vars == input$xvar])`.
 
@@ -603,7 +611,7 @@ server <- function(input, output) {
 
 - Then within `update{Type}Input()`, the choices of X should be indexed on not equaling the Y choice: `choices = vars[vars != input$yvar]`. In essence, we make it conditionally update based on Y.
 
-## Polishing app
+## Polishing app {.smaller}
 
 > ### What else is possible?
 
@@ -622,6 +630,7 @@ Creating an arbitrary number of or type of controls.
 - For example, creating a control for each column of a general dataset.
 
 - This involves functional programming functions from the `purrr` package, which we have not covered (but something to learn in the future!).
+
 ## Plotly in Shiny -- UI {.smaller}
 
 Now let's add to our app to demonstrate more UI features and how to introduce `plotly` into our Shiny app.
@@ -821,13 +830,13 @@ server <- function(input, output) {
 :::
 :::
 
-It was easy to just get a "static" plotly (i.e. with set variables)
+It was easy to just get a "static" plotly (i.e. with set variables).
 
-- In `ggplot`, we just needed to use `aes(x = .data[[input$xvar]])` for exaple because `input$xvar` returns a string. 
+- In `ggplot`, we just needed to use `aes(x = .data[[input$xvar]])` for example because `input$xvar` returns a string. 
 
-For plotly, this argument needs to be a formula.
+For `plotly`, this argument needs to be a formula.
 
-- So we can use `x = paste0("~", input$xvar) %>% as.formula`, for example (it could also be nested `x = as.formula(paste0("~", input$xvar))`).
+- So we can use `x = paste0("~", input$xvar) %>% as.formula` for example (it could also be nested `x = as.formula(paste0("~", input$xvar))`).
 
 ## Additional Shiny features {.smaller}
 
@@ -1107,7 +1116,7 @@ Uses:
 
 . . .
 
-Both use:
+In the UI, both use:
 
 - `{Type}Output()` functions.
 - `{Type}Input()` functions.

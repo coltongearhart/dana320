@@ -743,15 +743,19 @@ Colton Gearhart
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="co"># create dynamic plot</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>  <span class="co"># -&gt; variables selected based on user input</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
-<span id="cb4-9"><a href="#cb4-9"></a>                   <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]]),</span>
-<span id="cb4-10"><a href="#cb4-10"></a>               <span class="at">data =</span> iris) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb4-12"><a href="#cb4-12"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5"></a>  output<span class="sc">$</span>plot1 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    </span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co"># create dynamic plot</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="co"># -&gt; variables selected based on user input</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
+<span id="cb4-11"><a href="#cb4-11"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]]),</span>
+<span id="cb4-12"><a href="#cb4-12"></a>                 <span class="at">data =</span> iris) <span class="sc">+</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>      <span class="fu">theme_bw</span>()</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    </span>
+<span id="cb4-15"><a href="#cb4-15"></a>  })</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center" width="80%">
@@ -783,28 +787,32 @@ Colton Gearhart
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
 <span id="cb5-4"><a href="#cb5-4"></a></span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="co"># create base plot</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>  p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb5-8"><a href="#cb5-8"></a>  </span>
-<span id="cb5-9"><a href="#cb5-9"></a>  <span class="co"># add points layer</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>  <span class="co"># -&gt; conditionally colored variable -&gt; selected via user input</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>  <span class="cf">if</span>(input<span class="sc">$</span>species <span class="sc">==</span> <span class="cn">TRUE</span>){</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    p1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
-<span id="cb5-14"><a href="#cb5-14"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]],</span>
-<span id="cb5-15"><a href="#cb5-15"></a>                     <span class="at">color =</span> Species),</span>
-<span id="cb5-16"><a href="#cb5-16"></a>                <span class="at">data =</span> iris)</span>
-<span id="cb5-17"><a href="#cb5-17"></a>  }<span class="cf">else</span>{</span>
-<span id="cb5-18"><a href="#cb5-18"></a>    p1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
-<span id="cb5-20"><a href="#cb5-20"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]]),</span>
-<span id="cb5-21"><a href="#cb5-21"></a>      <span class="at">data =</span> iris)</span>
-<span id="cb5-22"><a href="#cb5-22"></a>  }</span>
-<span id="cb5-23"><a href="#cb5-23"></a>  </span>
-<span id="cb5-24"><a href="#cb5-24"></a>  <span class="fu">print</span>(p1)</span>
-<span id="cb5-25"><a href="#cb5-25"></a></span>
-<span id="cb5-26"><a href="#cb5-26"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5"></a>  output<span class="sc">$</span>plot1 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="co"># create base plot</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>    p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9"></a>      <span class="fu">theme_bw</span>()</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    </span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="co"># add points layer</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="co"># -&gt; conditionally colored variable -&gt; selected via user input</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>    <span class="cf">if</span>(input<span class="sc">$</span>species <span class="sc">==</span> <span class="cn">TRUE</span>){</span>
+<span id="cb5-14"><a href="#cb5-14"></a>      p1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>        <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
+<span id="cb5-16"><a href="#cb5-16"></a>                       <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]],</span>
+<span id="cb5-17"><a href="#cb5-17"></a>                       <span class="at">color =</span> Species),</span>
+<span id="cb5-18"><a href="#cb5-18"></a>                   <span class="at">data =</span> iris)</span>
+<span id="cb5-19"><a href="#cb5-19"></a>    }<span class="cf">else</span>{</span>
+<span id="cb5-20"><a href="#cb5-20"></a>      p1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>        <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[input<span class="sc">$</span>xvar]],</span>
+<span id="cb5-22"><a href="#cb5-22"></a>                       <span class="at">y =</span> .data[[input<span class="sc">$</span>yvar]]),</span>
+<span id="cb5-23"><a href="#cb5-23"></a>                   <span class="at">data =</span> iris)</span>
+<span id="cb5-24"><a href="#cb5-24"></a>    }</span>
+<span id="cb5-25"><a href="#cb5-25"></a>    </span>
+<span id="cb5-26"><a href="#cb5-26"></a>    <span class="fu">print</span>(p1)</span>
+<span id="cb5-27"><a href="#cb5-27"></a>    </span>
+<span id="cb5-28"><a href="#cb5-28"></a>  })</span>
+<span id="cb5-29"><a href="#cb5-29"></a></span>
+<span id="cb5-30"><a href="#cb5-30"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center" width="80%">
@@ -866,7 +874,7 @@ Colton Gearhart
 <p>Goal is to translate variable values to the labels.</p>
 <ul>
 <li><p>The solution is named vectors, where the names are just referencing tools that are displayed to the user instead of the actual value.</p></li>
-<li><p>To do this, we just need to define our named vector, say <code>vars</code>, outside of <code>server</code>, then use the <code>choices = vars</code> argument of <code>selectInput</code>.</p></li>
+<li><p>To do this, we just need to define our named vector, say <code>vars</code>, outside of <code>ui</code>(and <code>server</code>), then use the <code>choices = vars</code> argument of <code>selectInput</code>.</p></li>
 <li><p>These nice labels can then be accessed for axes titles by subsetting the <code>vars</code> vector to the one that is selected and pulling the name: <code>names(vars[vars == input$xvar])</code>.</p></li>
 </ul>
 <p>Modify just the <code>vars</code> statement before the <code>ui</code> and the <code>server</code> function to the following:</p>
@@ -971,7 +979,7 @@ Colton Gearhart
 <li>Then within <code>update{Type}Input()</code>, the choices of X should be indexed on not equaling the Y choice: <code>choices = vars[vars != input$yvar]</code>. In essence, we make it conditionally update based on Y.</li>
 </ul>
 </section>
-<section id="polishing-app-2" class="slide level2">
+<section id="polishing-app-2" class="slide level2 smaller">
 <h2>Polishing app</h2>
 <blockquote>
 <h3 id="what-else-is-possible">What else is possible?</h3>
@@ -988,8 +996,11 @@ Colton Gearhart
 <p>Creating an arbitrary number of or type of controls.</p>
 <ul>
 <li><p>For example, creating a control for each column of a general dataset.</p></li>
-<li><p>This involves functional programming functions from the <code>purrr</code> package, which we have not covered (but something to learn in the future!). ## Plotly in Shiny – UI {.smaller}</p></li>
+<li><p>This involves functional programming functions from the <code>purrr</code> package, which we have not covered (but something to learn in the future!).</p></li>
 </ul>
+</section>
+<section id="plotly-in-shiny-ui" class="slide level2 smaller">
+<h2>Plotly in Shiny – UI</h2>
 <p>Now let’s add to our app to demonstrate more UI features and how to introduce <code>plotly</code> into our Shiny app.</p>
 <p>Replace the beginning of the code in your app with the following:</p>
 <div class="columns">
@@ -1170,13 +1181,13 @@ Colton Gearhart
 </div>
 </div>
 </div>
-<p>It was easy to just get a “static” plotly (i.e.&nbsp;with set variables)</p>
+<p>It was easy to just get a “static” plotly (i.e.&nbsp;with set variables).</p>
 <ul>
-<li>In <code>ggplot</code>, we just needed to use <code>aes(x = .data[[input$xvar]])</code> for exaple because <code>input$xvar</code> returns a string.</li>
+<li>In <code>ggplot</code>, we just needed to use <code>aes(x = .data[[input$xvar]])</code> for example because <code>input$xvar</code> returns a string.</li>
 </ul>
-<p>For plotly, this argument needs to be a formula.</p>
+<p>For <code>plotly</code>, this argument needs to be a formula.</p>
 <ul>
-<li>So we can use <code>x = paste0("~", input$xvar) %&gt;% as.formula</code>, for example (it could also be nested <code>x = as.formula(paste0("~", input$xvar))</code>).</li>
+<li>So we can use <code>x = paste0("~", input$xvar) %&gt;% as.formula</code> for example (it could also be nested <code>x = as.formula(paste0("~", input$xvar))</code>).</li>
 </ul>
 </section>
 <section id="additional-shiny-features" class="slide level2 smaller">
@@ -1428,7 +1439,7 @@ Colton Gearhart
 </blockquote>
 <p><code>server</code>s are the EXACT SAME in both methods.</p>
 <div class="fragment">
-<p>Both use:</p>
+<p>In the UI, both use:</p>
 <ul>
 <li><code>{Type}Output()</code> functions.</li>
 <li><code>{Type}Input()</code> functions.</li>
@@ -1512,7 +1523,7 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]}},"value":[{"type":"character","attributes":{},"value":["base","bslib","cachem","cli","colorspace","compiler","datasets","digest","dplyr","ellipsis","evaluate","fansi","fastmap","forcats","generics","ggplot2","glue","graphics","grDevices","grid","gtable","hms","htmltools","httpuv","jquerylib","jsonlite","knitr","later","lifecycle","lubridate","magrittr","memoise","methods","mime","munsell","pillar","pkgconfig","promises","purrr","R6","Rcpp","readr","rlang","rmarkdown","sass","scales","shiny","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","timechange","tools","tzdb","utf8","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["4.3.2","0.6.0","1.0.8","3.6.1","2.1-0","4.3.2","4.3.2","0.6.33","1.1.4","0.3.2","0.23","1.0.5","1.1.1","1.0.0","0.1.3","3.4.4","1.6.2","4.3.2","4.3.2","4.3.2","0.3.4","1.1.3","0.5.7.9000","1.6.12","0.1.4","1.8.7","1.45","1.3.1","1.0.4","1.9.3","2.0.3","2.0.1","4.3.2","0.12","0.5.0","1.9.0","2.0.3","1.2.1","1.0.2","2.5.1","1.0.11","2.1.4","1.1.2","2.25","0.4.7","1.2.1","1.8.0","4.3.2","1.8.1","1.5.1","3.2.1","1.3.0","1.2.0","2.0.0","0.2.0","4.3.2","0.4.0","1.2.4","4.3.2","0.6.4","2.5.2","0.41","1.8-4","2.3.7"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65]}},"value":[{"type":"character","attributes":{},"value":["base","bslib","cachem","cli","colorspace","compiler","datasets","digest","dplyr","ellipsis","evaluate","fansi","fastmap","forcats","generics","ggplot2","glue","graphics","grDevices","grid","gtable","hms","htmltools","httpuv","jquerylib","jsonlite","knitr","later","lifecycle","lubridate","magrittr","memoise","methods","mime","munsell","pillar","pkgconfig","promises","purrr","R6","Rcpp","readr","rlang","rmarkdown","rstudioapi","sass","scales","shiny","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","timechange","tools","tzdb","utf8","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["4.3.2","0.6.0","1.0.8","3.6.1","2.1-0","4.3.2","4.3.2","0.6.33","1.1.4","0.3.2","0.23","1.0.5","1.1.1","1.0.0","0.1.3","3.4.4","1.6.2","4.3.2","4.3.2","4.3.2","0.3.4","1.1.3","0.5.7.9000","1.6.12","0.1.4","1.8.7","1.45","1.3.1","1.0.4","1.9.3","2.0.3","2.0.1","4.3.2","0.12","0.5.0","1.9.0","2.0.3","1.2.1","1.0.2","2.5.1","1.0.11","2.1.4","1.1.2","2.25","0.15.0","0.4.7","1.2.1","1.8.0","4.3.2","1.8.1","1.5.1","3.2.1","1.3.0","1.2.0","2.0.0","0.2.0","4.3.2","0.4.0","1.2.4","4.3.2","0.6.4","2.5.2","0.41","1.8-4","2.3.7"]}]}]}
 </script>
 <!--/html_preserve-->
 <div class="footer footer-default">

@@ -32,13 +32,13 @@ The two available data sources for the project that your team can select or you 
 
 -   Description: Player game data from <https://www.basketball-reference.com/players/>.
 
--   Data file: [basketball.RData](https://github.com/coltongearhart/dana320/blob/main/r//data/basketball.RData)
+-   Data file: [basketball.RData](https://github.com/coltongearhart/dana320/blob/main/r/data/basketball.RData)
 
 -   Game statistics for each player in the NBA who played at least three years throughout the 2015-2018 seasons. 120,000 player games with 32 variables.
 
 2.  Spotify music attributes
 
--   Data file: [data-music.RData](https://github.com/coltongearhart/dana320/blob/main/r//data/data-music.RData)
+-   Data file: [data-music.RData](https://github.com/coltongearhart/dana320/blob/main/r/data/data-music.RData)
 
 -   Description: Expanded version of the data from '3.3 HW -- Data Transformations'. This data contains information about nearly 160,000 songs in a Spotify's song library.
 
