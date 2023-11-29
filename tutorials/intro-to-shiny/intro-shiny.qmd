@@ -311,8 +311,9 @@ Replace your empty `server` function with the following code:
 
 server <- function(input, output) {
   
-  # create static plot
   output$plot1 <- renderPlot(
+    
+    # create static plot
     ggplot() +
       geom_point(aes(x = Sepal.Width,
                      y = Sepal.Length),
@@ -1061,13 +1062,13 @@ ui <- grid_page(
       selectInput(
         inputId = "yvar",
         label = "Choose Y Variable",
-        choices = vars,
-        selected = vars
+        choices = vars
       ),
       selectInput(
         inputId = "xvar",
         label = "Choose X Variable",
-        choices = vars[[2]]
+        choices = vars,
+        selected = vars[[2]]
       ),
       checkboxInput(
         inputId = "species",

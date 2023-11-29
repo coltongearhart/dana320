@@ -30,12 +30,12 @@ ui <- grid_page(
         inputId = "yvar",
         label = "Choose Y Variable",
         choices = vars,
-        selected = vars
       ),
       selectInput(
         inputId = "xvar",
         label = "Choose X Variable",
-        choices = vars[[2]]
+        choices = vars,
+        selected = vars[[2]]
       ),
       checkboxInput(
         inputId = "species",

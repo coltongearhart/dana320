@@ -22,11 +22,13 @@ source("_common.R")
 
 - SLIDES: Click the image below or follow the link to access the slides tutorial that corresponds to this video: <https://coltongearhart.github.io/intro-shiny/>
 
-    [![](images/intro-to-shiny.png){width="500"}(https://coltongearhart.github.io/intro-shiny/)
+    [![](images/intro-to-shiny.png){width="500"}](https://coltongearhart.quarto.pub/introduction-to-shiny/)
     
--   Here is the video that goes through the slides:
+-   Here are the videos that goes through the slides:
 
-<!-- {{< video https://youtu.be/0QlevjackzM >}} -->
+{{< video https://youtu.be/hb32Gvk777M >}}
+
+{{< video https://youtu.be/AboazsrVv58 >}}
 
 -   Final applications
 

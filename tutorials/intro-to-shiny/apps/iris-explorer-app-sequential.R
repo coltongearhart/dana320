@@ -6,6 +6,11 @@ library(plotly)
 
 ### ---- Define UI ----
 
+# create vector of variable names
+# -> take out the categorical variables
+#vars <- setdiff(names(iris), "Species")
+
+# polished plots
 # create named vector for mapping of labels to variable names
 vars <- c("Sepal Length (cm)" = "Sepal.Length",
           "Sepal Width (cm)" = "Sepal.Width",
@@ -33,6 +38,12 @@ ui <- fluidPage(
                   value = TRUE)
   ),
   
+  # create spot for plot
+  # mainPanel(
+  #   plotOutput(outputId = "plot1")
+  # )
+  
+  # plotly
   # create tabs with spots for plots
   mainPanel(
     tabsetPanel(
@@ -48,13 +59,13 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   
-  # V5 -> adding dynamic dropdown
+  #V5 -> adding dynamic dropdown
   # update dropdown
   observeEvent(input$yvar, {
     updateSelectInput(inputId = "xvar", choices = vars[vars != input$yvar])
   })
-  
-  output$plot1 <- renderPlot({  
+
+  output$plot1 <- renderPlot({
 
     # V1 -> static plot
     # create static plot
@@ -75,11 +86,11 @@ server <- function(input, output) {
     
     # V3 -> built in stages to conditionally add colors
     # create base plot
-    # p1 <- ggplot() + 
+    # p1 <- ggplot() +
     #   theme_bw()
-    # 
-    # # add points layer
-    # # -> conditionally colored variable -> selected via user input
+
+    # add points layer
+    # -> conditionally colored variable -> selected via user input
     # if(input$species == TRUE){
     #   p1 <- p1 +
     #     geom_point(aes(x = .data[[input$xvar]],
@@ -92,7 +103,9 @@ server <- function(input, output) {
     #                    y = .data[[input$yvar]]),
     #                data = iris)
     # }
-    
+    # 
+    # print(p1)
+
     # V4 -> shifted stages to add nice labels
     # build points layer
     # -> conditionally colored variable -> selected via user input
@@ -108,23 +121,23 @@ server <- function(input, output) {
                        y = .data[[input$yvar]]),
                    data = iris)
     }
-    
+
     # add nice labels and theme
-    p1 <- p1 + 
+    p1 <- p1 +
       labs(x = names(vars)[vars == input$xvar],
-           y = names(vars)[vars == input$yvar]) + 
+           y = names(vars)[vars == input$yvar]) +
       theme_bw()
-    
+
     print(p1)
-    
+
   })
   
   output$plot2 <- renderPlotly({
-
+    
     # build base plot
     p2 <- iris %>%
       plot_ly()
-
+    
     # V1 -> static variables with coloring
     # build points layer with plotly
     # -> conditionally colored variable -> selected via user input
@@ -150,12 +163,12 @@ server <- function(input, output) {
       p2 <- p2 %>%
         add_markers(x = paste0("~", input$xvar) %>% as.formula,
                     y = paste0("~", input$yvar) %>% as.formula,
-                    color = I("black")) %>% 
+                    color = I("black")) %>%
         hide_legend()
     }
-
+    
     print(p2)
-
+    
   })
 }
 

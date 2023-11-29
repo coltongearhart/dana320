@@ -1,0 +1,4 @@
+- source: intro-shiny.qmd
+  quarto-pub:
+    - id: c44f0012-e391-4009-a2d2-ea5f09042d0f
+      url: 'https://coltongearhart.quarto.pub/introduction-to-shiny'

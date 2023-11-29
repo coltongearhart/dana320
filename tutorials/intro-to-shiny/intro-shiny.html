@@ -696,16 +696,17 @@ Colton Gearhart
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
 <span id="cb3-4"><a href="#cb3-4"></a>  </span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="co"># create static plot</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>  output<span class="sc">$</span>plot1 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>(</span>
-<span id="cb3-7"><a href="#cb3-7"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width,</span>
-<span id="cb3-9"><a href="#cb3-9"></a>                     <span class="at">y =</span> Sepal.Length),</span>
-<span id="cb3-10"><a href="#cb3-10"></a>                 <span class="at">data =</span> iris) <span class="sc">+</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>      <span class="fu">theme_bw</span>()</span>
-<span id="cb3-12"><a href="#cb3-12"></a>  )</span>
-<span id="cb3-13"><a href="#cb3-13"></a>  </span>
-<span id="cb3-14"><a href="#cb3-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5"></a>  output<span class="sc">$</span>plot1 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>(</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    </span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="co"># create static plot</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width,</span>
+<span id="cb3-10"><a href="#cb3-10"></a>                     <span class="at">y =</span> Sepal.Length),</span>
+<span id="cb3-11"><a href="#cb3-11"></a>                 <span class="at">data =</span> iris) <span class="sc">+</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>      <span class="fu">theme_bw</span>()</span>
+<span id="cb3-13"><a href="#cb3-13"></a>  )</span>
+<span id="cb3-14"><a href="#cb3-14"></a>  </span>
+<span id="cb3-15"><a href="#cb3-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center" width="80%">
@@ -1387,13 +1388,13 @@ Colton Gearhart
 <span id="cb14-29"><a href="#cb14-29"></a>      <span class="fu">selectInput</span>(</span>
 <span id="cb14-30"><a href="#cb14-30"></a>        <span class="at">inputId =</span> <span class="st">"yvar"</span>,</span>
 <span id="cb14-31"><a href="#cb14-31"></a>        <span class="at">label =</span> <span class="st">"Choose Y Variable"</span>,</span>
-<span id="cb14-32"><a href="#cb14-32"></a>        <span class="at">choices =</span> vars,</span>
-<span id="cb14-33"><a href="#cb14-33"></a>        <span class="at">selected =</span> vars</span>
-<span id="cb14-34"><a href="#cb14-34"></a>      ),</span>
-<span id="cb14-35"><a href="#cb14-35"></a>      <span class="fu">selectInput</span>(</span>
-<span id="cb14-36"><a href="#cb14-36"></a>        <span class="at">inputId =</span> <span class="st">"xvar"</span>,</span>
-<span id="cb14-37"><a href="#cb14-37"></a>        <span class="at">label =</span> <span class="st">"Choose X Variable"</span>,</span>
-<span id="cb14-38"><a href="#cb14-38"></a>        <span class="at">choices =</span> vars[[<span class="dv">2</span>]]</span>
+<span id="cb14-32"><a href="#cb14-32"></a>        <span class="at">choices =</span> vars</span>
+<span id="cb14-33"><a href="#cb14-33"></a>      ),</span>
+<span id="cb14-34"><a href="#cb14-34"></a>      <span class="fu">selectInput</span>(</span>
+<span id="cb14-35"><a href="#cb14-35"></a>        <span class="at">inputId =</span> <span class="st">"xvar"</span>,</span>
+<span id="cb14-36"><a href="#cb14-36"></a>        <span class="at">label =</span> <span class="st">"Choose X Variable"</span>,</span>
+<span id="cb14-37"><a href="#cb14-37"></a>        <span class="at">choices =</span> vars,</span>
+<span id="cb14-38"><a href="#cb14-38"></a>        <span class="at">selected =</span> vars[[<span class="dv">2</span>]]</span>
 <span id="cb14-39"><a href="#cb14-39"></a>      ),</span>
 <span id="cb14-40"><a href="#cb14-40"></a>      <span class="fu">checkboxInput</span>(</span>
 <span id="cb14-41"><a href="#cb14-41"></a>        <span class="at">inputId =</span> <span class="st">"species"</span>,</span>
