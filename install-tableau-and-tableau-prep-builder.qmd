@@ -1,4 +1,4 @@
-# Install Excel
+# Install Tableau and Tableau Prep Builder
 
 ![](images/logo-tableau.png){fig-align="left"}
 

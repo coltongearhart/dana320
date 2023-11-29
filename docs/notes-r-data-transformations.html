@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./install-tableau-and-tableau-prep-builder.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Install Tableau and Tableau Prep Builder</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -422,6 +422,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./notes-r-apps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Notes – Apps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project-r-shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Group Project – Shiny</span></span></a>
   </div>
 </li>
       </ul>
@@ -1822,7 +1828,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["carat"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Good","2":"4580","3":"0.90"},{"1":"Very Good","2":"579","3":"0.33"},{"1":"Premium","2":"10219","3":"1.54"},{"1":"Premium","2":"5659","3":"1.05"},{"1":"Ideal","2":"5866","3":"1.24"},{"1":"Ideal","2":"820","3":"0.33"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["carat"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Good","2":"6192","3":"1.00"},{"1":"Very Good","2":"473","3":"0.30"},{"1":"Premium","2":"6782","3":"1.04"},{"1":"Premium","2":"2636","3":"0.70"},{"1":"Premium","2":"1974","3":"0.51"},{"1":"Ideal","2":"871","3":"0.38"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1875,7 +1881,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["price_per_carat"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["carat"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cut"],"name":[3],"type":["ord"],"align":["right"]},{"label":["color"],"name":[4],"type":["ord"],"align":["right"]},{"label":["clarity"],"name":[5],"type":["ord"],"align":["right"]},{"label":["depth"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["table"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[8],"type":["int"],"align":["right"]},{"label":["x"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"2925.000","2":"0.32","3":"Ideal","4":"G","5":"VVS2","6":"61.1","7":"55","8":"936","9":"4.45","10":"4.42","11":"2.71"},{"1":"3157.500","2":"0.40","3":"Premium","4":"D","5":"VVS2","6":"60.8","7":"59","8":"1263","9":"4.76","10":"4.81","11":"2.91"},{"1":"2451.282","2":"0.39","3":"Premium","4":"F","5":"VS1","6":"61.7","7":"58","8":"956","9":"4.71","10":"4.69","11":"2.90"},{"1":"2702.564","2":"0.39","3":"Very Good","4":"E","5":"VVS2","6":"59.5","7":"58","8":"1054","9":"4.74","10":"4.77","11":"2.83"},{"1":"1840.000","2":"0.30","3":"Ideal","4":"I","5":"VVS1","6":"61.1","7":"57","8":"552","9":"4.32","10":"4.36","11":"2.65"},{"1":"3010.000","2":"0.70","3":"Ideal","4":"H","5":"SI1","6":"61.1","7":"58","8":"2107","9":"5.69","10":"5.70","11":"3.48"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["price_per_carat"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["carat"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cut"],"name":[3],"type":["ord"],"align":["right"]},{"label":["color"],"name":[4],"type":["ord"],"align":["right"]},{"label":["clarity"],"name":[5],"type":["ord"],"align":["right"]},{"label":["depth"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["table"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[8],"type":["int"],"align":["right"]},{"label":["x"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"6776.000","2":"2.00","3":"Premium","4":"J","5":"VS2","6":"61.5","7":"59","8":"13552","9":"8.06","10":"8.11","11":"4.97"},{"1":"4036.449","2":"1.07","3":"Ideal","4":"I","5":"VS2","6":"61.1","7":"57","8":"4319","9":"6.66","10":"6.60","11":"4.05"},{"1":"3421.918","2":"0.73","3":"Premium","4":"D","5":"SI1","6":"60.5","7":"58","8":"2498","9":"5.85","10":"5.82","11":"3.53"},{"1":"3141.739","2":"1.15","3":"Ideal","4":"G","5":"SI2","6":"62.8","7":"57","8":"3613","9":"6.70","10":"6.65","11":"4.19"},{"1":"4250.000","2":"0.92","3":"Premium","4":"F","5":"SI1","6":"62.0","7":"60","8":"3910","9":"6.26","10":"6.19","11":"3.86"},{"1":"2860.000","2":"0.35","3":"Ideal","4":"G","5":"IF","6":"61.7","7":"55","8":"1001","9":"4.52","10":"4.55","11":"2.80"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1893,7 +1899,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["table"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[3],"type":["int"],"align":["right"]},{"label":["within_budget"],"name":[4],"type":["chr"],"align":["left"]},{"label":["my_style"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Ideal","2":"55","3":"936","4":"yes","5":"yes"},{"1":"Ideal","2":"57","3":"552","4":"yes","5":"yes"},{"1":"Ideal","2":"56","3":"537","4":"yes","5":"yes"},{"1":"Ideal","2":"57","3":"776","4":"yes","5":"yes"},{"1":"Very Good","2":"58","3":"453","4":"yes","5":"yes"},{"1":"Ideal","2":"57","3":"814","4":"yes","5":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["table"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[3],"type":["int"],"align":["right"]},{"label":["within_budget"],"name":[4],"type":["chr"],"align":["left"]},{"label":["my_style"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Ideal","2":"55","3":"666","4":"yes","5":"yes"},{"1":"Ideal","2":"56","3":"891","4":"yes","5":"yes"},{"1":"Ideal","2":"57","3":"781","4":"yes","5":"yes"},{"1":"Ideal","2":"54","3":"605","4":"yes","5":"yes"},{"1":"Ideal","2":"55","3":"454","4":"yes","5":"yes"},{"1":"Very Good","2":"58","3":"478","4":"yes","5":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2043,7 +2049,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Fair","2":"3473","3":"3395.2"},{"1":"Fair","2":"2235","3":"3395.2"},{"1":"Fair","2":"1998","3":"3395.2"},{"1":"Fair","2":"4566","3":"3395.2"},{"1":"Fair","2":"4704","3":"3395.2"},{"1":"Good","2":"717","3":"3141.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Fair","2":"4295","3":"3600.0"},{"1":"Fair","2":"5488","3":"3600.0"},{"1":"Fair","2":"2805","3":"3600.0"},{"1":"Fair","2":"3011","3":"3600.0"},{"1":"Fair","2":"2401","3":"3600.0"},{"1":"Good","2":"827","3":"2396.6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2057,7 +2063,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ideal","2":"1580","3":"1912.6"},{"1":"Ideal","2":"3423","3":"1912.6"},{"1":"Ideal","2":"3321","3":"1912.6"},{"1":"Ideal","2":"687","3":"1912.6"},{"1":"Ideal","2":"552","3":"1912.6"},{"1":"Premium","2":"1115","3":"1831.4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ideal","2":"5807","3":"4615.2"},{"1":"Ideal","2":"6672","3":"4615.2"},{"1":"Ideal","2":"7893","3":"4615.2"},{"1":"Ideal","2":"1088","3":"4615.2"},{"1":"Ideal","2":"1616","3":"4615.2"},{"1":"Premium","2":"9580","3":"3736.4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
