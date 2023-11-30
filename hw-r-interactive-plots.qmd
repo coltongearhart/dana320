@@ -42,7 +42,7 @@ head(data_madden)
 
 ## Assignment
 
-The goal is to recreate some interactive plots with minimal guideance and some plots of your creation in order to understand the structure of **plotly** function calls. It is designed to be open ended so you can explore a variety of different plot types and interactive plot techniques.
+The goal is to recreate some interactive plots with minimal guidance and some plots of your creation in order to understand the structure of **plotly** function calls. It is designed to be open ended so you can explore a variety of different plot types and interactive plot techniques.
 
 ### Part a -- Scatterplot
 
@@ -106,7 +106,7 @@ Recreate the following dumbell chart to the best of your ability. Features of th
 
 - Data needs to be pre-summarized to get the average `totalSalary` and `signingBonus` by `Position`. Calculate the number of players included in each average calculation as well.
 - Sorted by increasing average `totalSalary`. *HINT: This requires a `mutate()` statement, not an `arrange()` statement.*
-- For each position, the dark green plots the average `totalSalary` and light green adds the average `signingBonus`. Thus we can interpret the ending value as the average total money earned during the first year of the contract.
+- For each position, the dark green point plots the average `totalSalary` and light green point adds the average `signingBonus`. Thus we can interpret the ending value as the average total money earned during the first year of the contract.
 - Well formatted mouse-over interactivity features. *HINT: Use html formatting and `scales::comma()`.*
 
 Try to get your plot as close as you can to this plot (with a reasonable amount of effort :)
@@ -141,19 +141,59 @@ data_madden %>%
 
 ### Part c -- Visualize data
 
-Create a mimimum of one additional *interactive plot* using `plot_ly()` (not `ggplotly()`). It can be as simple or complex as you would like. Create additional plots and find a narrative if you wish! Include a short write-up explaining your visual.
+Create a mimimum of one additional *interactive plot* using `plot_ly()` (not `ggplotly()`). It can be as simple or complex as you would like. Create additional plots and find a narrative if you wish! Include a short write-up explaining your visual(s).
 
 ```{r include = solutions}
 #| label: additional-plot
 
-# option 1: alpha blending with plotky
+# alpha blended bubble plot
 data_madden %>% 
   plot_ly(x = ~jerseyNum,
           y = ~speed_rating,
           size = ~weight,
           text = ~Position) %>% 
-  add_markers(alpha = 0.3)
+  add_markers(alpha = 0.3) %>% 
+  layout(title = "Bubbleplot of Jersey Number vs Speed Rating, sized by Weight",
+         xaxis = list(title = "Jersey Number"),
+         yaxis = list(title = "Speed Rating"))
 
 # write-up: there seems to be a relationship between jersey number and the physical attributes of a player and their position, plotted in this case is speed and weight
+
+```
+
+```{r include = solutions}
+#| label: additional-plot2
+
+data_madden %>%
+  mutate(Position = fct_reorder(.f = Position, .x = overall_rating, .fun = median)) %>%
+  plot_ly() %>%
+  add_boxplot(x = ~overall_rating,
+              y = ~Position,
+              boxpoints = "suspectedoutliers",
+              color = I("orange")) %>%
+  layout(title = "Overall Rating by Position",
+         xaxis = list(title = "Overall Rating"))
+
+# write-up: QBs have the lowest median and largest spread (excluding outliers), with punters and kickers having the most consistently high ratings. All other posisions are fairly similar in terms of distribution of overall rating
+
+```
+
+```{r include = solutions}
+#| label: additional-plot3
+
+data_madden %>% 
+  group_by(Team) %>%
+  summarise(across(c(overall_rating, yearsPro, totalSalary), mean),
+            team_size = n()) %>%
+  plot_ly() %>%
+  add_markers(x = ~yearsPro,
+              y = ~totalSalary,
+              size = ~overall_rating,
+              text = ~paste0("Average salary for ", Team, ": ", scales::comma(totalSalary, prefix = "$"), "\nAverage years of experience: ", round(yearsPro, digits = 2), "\nTeam average rating: ", round(overall_rating, digits = 2))) %>%
+  layout(title = "Years of professional experience vs Salary sized by Rating",
+         xaxis = list(title = "Average years pro"),
+         yaxis = list(title = "Average total salary"))
+
+# write-up: the largest points tend to be in the upper right, which indicates that the best teams are the most experienced and have the highest payrolls
 
 ```
