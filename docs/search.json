@@ -134,14 +134,25 @@
     ]
   },
   {
-    "objectID": "quizzes-readings.html",
-    "href": "quizzes-readings.html",
-    "title": "5  Reading Check Quizzes",
-    "section": "",
-    "text": "Check Canvas for the weekly Reading Check Quizzes (RCQs) and discussion posts.",
+    "objectID": "reading-assignments.html#reading-check-quizzes",
+    "href": "reading-assignments.html#reading-check-quizzes",
+    "title": "5  Reading Assignments",
+    "section": "5.1 Reading Check Quizzes",
+    "text": "5.1 Reading Check Quizzes\nCheck Canvas for the weekly Reading Check Quizzes (RCQs).",
     "crumbs": [
       "Readings",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reading Check Quizzes</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reading Assignments</span>"
+    ]
+  },
+  {
+    "objectID": "reading-assignments.html#discussion-post",
+    "href": "reading-assignments.html#discussion-post",
+    "title": "5  Reading Assignments",
+    "section": "5.2 Discussion Post",
+    "text": "5.2 Discussion Post\nDiscussions of Stories Told Through Data Viz\nSubmission: Completed discussion post + replies.\nPart 1 – Discussion Post (10 Points)\n\nFor this discussion I would like for you to post a link to a story that includes data visualization that effectively supports a narrative. This can be from any form of digital media (newspapers, blogs, video journalism, etc.).\nYou will also include written argument in your post about why the data visualization is compelling and effective within the broader narrative, from the perspective of the Storytelling with Data book concepts: effective visual for data context (Chapter 2), uncluttered display (Chapter 3), features that focus attention (Chapter 4).\nYou may find that some of these areas could be improved. This will not affect your grade for the discussion; so, please be critical and honest in your assessment. If the article contains several data visualizations, you should focus your discussion on the design of one specific plot.\n\nPart 2 – Replies (10 Points)\n\nIn addition, I would like for you to comment on at least TWO other student submissions to discuss your agreement or disagreement about the efficacy of the plots, and what could be done to adapt them.\nKeep your comments on topic and respectful. Ideally everyone will receive peer feedback; so, if possible, make your replies on the posts that have not yet been discussed.\n\nExample post (for an example of the quality / depth expected)\nArticle link: https://www.bbc.com/news/world-us-canada-44201444\n\n\n\n\n\n\n\nAn incident in Montana with border patrol and two women sparked controversy over the status of Spanish speakers in the eyes of law authority. Two women were questioned and detained for merely speaking Spanish. After describing this event, the article dove into the growing number of Spanish speakers within the United States.\nTo visualize these numbers, they showed a bar chart of the number of Spanish speakers in the U.S. for recent years. Based on the principles discussed in Storytelling with Data, this was a very effective visual. As an audience, we tend to move across visuals in a “z” shape. In accordance with this, the important information that we need to know before even seeing the data was placed at the top left (i.e. the title, legend and axis). The placement of these elements prepped me to be able to understand the data.\nIn addition, the axis borders and grid lines were a very faint grey, so they kind of just faded into the background. This allowed the data to pop out and be the main attention grabber, which allowed me to clearly see and pick up on the increasing trend as years increased. Thus, their claim of increasing amount of Spanish speakers in the U.S. was backed up with their visual. Because this is a fairly simplistic chart, I did not see any aspects that needed improving.\nExample reply\nIt’s definitely a nice and simple chart, which makes it easy to read. However, since I think the trend is the main point, I wonder if perhaps a line chart would have been better, especially since time is a continuous variable. On the other hand, I think you could also argue that by creating a line graph we are sort of imputing information about the time between the years that we just don’t have. So in a sense a bar chart is more honest.",
+    "crumbs": [
+      "Readings",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reading Assignments</span>"
     ]
   },
   {
@@ -645,7 +656,7 @@
     "text": "17.1 How to Install Tableau and Tableau Prep Builder\n\nTableau offers free one-year Tableau licenses to students, which includes access to entire eLearning platform.\n\n\n\n\n\n\n\n\n\nNavigate to this link and click “Get Tableau for Free”. Then follow the registration instructions. After which you will receive an email with further information, where you will need to do the following:\n\nDownload and install “Tableau Desktop” AND “Tableau Prep”.\nOpen Tableau Desktop application and enter the product key given in the email to activate the license. Note that this will be valid for one year, but it can be renewed / applied for again.\nCreate an account for eLearning and register with the given access code.",
     "crumbs": [
       "Tableau",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Install Excel</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Install Tableau and Tableau Prep Builder</span>"
     ]
   },
   {
@@ -656,7 +667,7 @@
     "text": "17.2 Next Assignment\n\nOur first work with Tableau will be the DataCamp assignment “Introduction to Tableau”.\nEven if it takes a while for Tableau to respond to your application, this assignment can be completed without Tableau installed on your computer.\nAs you will see, within DataCamp there is a version called Tableau Public, which would be sufficient for starting out.",
     "crumbs": [
       "Tableau",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Install Excel</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Install Tableau and Tableau Prep Builder</span>"
     ]
   },
   {
@@ -667,7 +678,7 @@
     "text": "17.3 Tableau eLearning\n\nThis is Tableau’s online teaching platform that contains tons of great resources in the form of interactive courses or learning paths (kinda like a plan of courses).\n\n\n\n\n\n\n\n\n\nThese would be great supplementary resources as we are working through Tableau or a great way to continue learning Tableau outside of our class.\nI encourage you to browse around here to see what is available!",
     "crumbs": [
       "Tableau",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Install Excel</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Install Tableau and Tableau Prep Builder</span>"
     ]
   },
   {
@@ -678,7 +689,7 @@
     "text": "17.4 Having Trouble?\n\nPlease reach out to me or the BSU Technology Help Desk as soon as possible.",
     "crumbs": [
       "Tableau",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Install Excel</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Install Tableau and Tableau Prep Builder</span>"
     ]
   },
   {
@@ -1158,7 +1169,7 @@
     "href": "notes-r-visualizations.html#boxplots",
     "title": "\n28  Notes – Visualizations\n",
     "section": "\n28.5 Boxplots",
-    "text": "28.5 Boxplots\n\n28.5.1 geom_boxplot()\n\nBoxplots are another common plot, which are used to visualize the distribution of a numeric variable. However, they no longer map the raw data.\nInstead, geom_boxplot() maps the five number summary that is computed from the raw data.\n\n\nx &lt;- rnorm(50)\nsummary(x)\n\n    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \n-2.13266 -0.60548  0.15284  0.05535  0.67586  2.28861 \n\nboxplot(x)\n\n\n\n\n\n\n\n\nhist(x)\n\n\n\n\n\n\n\n\n\n\nThis is an example of when an aesthetic has an implicit transformation, which is then used to build the plot rather than straight from the raw data.\ngeom_boxplot() requires a continuous variable to be mapped to either the x or y argument, depending on the desired orientation of the boxplot.\n\n\nggplot(data = diamonds,\n       aes(x = carat)) + \n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\n28.5.2 Exercise\n\nCreate a vertical boxplot of Sepal.Length using the iris dataset.\n\n28.5.3 Comparitive boxplots\n\nWe can also make comparative (side-by-side) boxplots by mapping a categorical variable to the other axis. Lets see how to this works.\n\n\nggplot(data = diamonds,\naes(x = carat,\n    y = cut)) + \n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\nThis results in boxplots based on a single continuous variable, but grouped by the levels of the categorical variable. This is one way to plot a numerical response with a categorical explanatory variable.\nAn advantage of this is that they are easier for comparing centers (medians) and spread (IQR), and can also highlights outliers. However with big data, it will often show many outliers that aren’t actually outliers (because the spread gets smaller and smaller as \\(n\\) increases).\n\n28.5.4 Transformations and more customizations\n\nWe can do transformations of the input variables directly within the ggplot() call, without having to modify the data object itself.\nJust like the other geoms, we can modify some visual aspects of the layer.\nThen if we want to swap the axes, we can use coord_flip(); this is one of many functions that can be used for further customization of most ggplots (others include scale_*(), theme_*(), etc.).\n\n\nggplot(data = diamonds,\n       aes(x = cut,\n           y = price/1000)) + \n  geom_boxplot(fill = \"darkblue\",\n               color = \"lightblue\") + \n  coord_flip() + \n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n28.5.5 Exercise\n\n\nCreate a comparative boxplot using the iris dataset that includes the following features:\n\nCompares Sepal.Length for each Species;\nHorizontal boxplots (more than one way to do this);\nSepal.Length is originally measured in millimeters (mm); convert this to meters (m) for this plot;\nMore informative axis label for Sepal.Length based on new scale;\nA cool theme (try a few!).",
+    "text": "28.5 Boxplots\n\n28.5.1 geom_boxplot()\n\nBoxplots are another common plot, which are used to visualize the distribution of a numeric variable. However, they no longer map the raw data.\nInstead, geom_boxplot() maps the five number summary that is computed from the raw data.\n\n\nx &lt;- rnorm(50)\nsummary(x)\n\n    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \n-2.48888 -0.59991  0.04274  0.13992  0.91324  1.79278 \n\nboxplot(x)\n\n\n\n\n\n\n\n\nhist(x)\n\n\n\n\n\n\n\n\n\n\nThis is an example of when an aesthetic has an implicit transformation, which is then used to build the plot rather than straight from the raw data.\ngeom_boxplot() requires a continuous variable to be mapped to either the x or y argument, depending on the desired orientation of the boxplot.\n\n\nggplot(data = diamonds,\n       aes(x = carat)) + \n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\n28.5.2 Exercise\n\nCreate a vertical boxplot of Sepal.Length using the iris dataset.\n\n28.5.3 Comparitive boxplots\n\nWe can also make comparative (side-by-side) boxplots by mapping a categorical variable to the other axis. Lets see how to this works.\n\n\nggplot(data = diamonds,\naes(x = carat,\n    y = cut)) + \n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\nThis results in boxplots based on a single continuous variable, but grouped by the levels of the categorical variable. This is one way to plot a numerical response with a categorical explanatory variable.\nAn advantage of this is that they are easier for comparing centers (medians) and spread (IQR), and can also highlights outliers. However with big data, it will often show many outliers that aren’t actually outliers (because the spread gets smaller and smaller as \\(n\\) increases).\n\n28.5.4 Transformations and more customizations\n\nWe can do transformations of the input variables directly within the ggplot() call, without having to modify the data object itself.\nJust like the other geoms, we can modify some visual aspects of the layer.\nThen if we want to swap the axes, we can use coord_flip(); this is one of many functions that can be used for further customization of most ggplots (others include scale_*(), theme_*(), etc.).\n\n\nggplot(data = diamonds,\n       aes(x = cut,\n           y = price/1000)) + \n  geom_boxplot(fill = \"darkblue\",\n               color = \"lightblue\") + \n  coord_flip() + \n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n28.5.5 Exercise\n\n\nCreate a comparative boxplot using the iris dataset that includes the following features:\n\nCompares Sepal.Length for each Species;\nHorizontal boxplots (more than one way to do this);\nSepal.Length is originally measured in millimeters (mm); convert this to meters (m) for this plot;\nMore informative axis label for Sepal.Length based on new scale;\nA cool theme (try a few!).",
     "crumbs": [
       "R",
       "<span class='chapter-number'>28</span>  <span class='chapter-title'>Notes -- Visualizations</span>"

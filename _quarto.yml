@@ -19,7 +19,7 @@ book:
 
     - part: module-readings.qmd
       chapters:
-        - quizzes-readings.qmd
+        - reading-assignments.qmd
 
     - part: module-excel.qmd
       chapters:
