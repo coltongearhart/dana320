@@ -30,11 +30,9 @@ The two available data sources for the project that your team can select or you 
 
 1.  NBA player games:
 
--   Description: Player game data from <https://www.basketball-reference.com/players/>.
+-   Data available on Canvas.
 
--   Data file: [basketball.RData](https://github.com/coltongearhart/dana320/blob/main/r/data/basketball.RData)
-
--   Game statistics for each player in the NBA who played at least three years throughout the 2015-2018 seasons. 120,000 player games with 32 variables.
+-   Description: Player game data from <https://www.basketball-reference.com/players/>. Game statistics for each player in the NBA who played at least three years throughout the 2015-2018 seasons. 120,000 player games with 32 variables.
 
 2.  Spotify music attributes:
 

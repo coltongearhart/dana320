@@ -20,7 +20,7 @@ source("_common.R")
 
 -   Attached are all of the supplemental materials to this content! Feel free to check them out :)
 
-- SLIDES: Click the image below or follow the link to access the slides tutorial that corresponds to this video: <https://coltongearhart.github.io/intro-shiny/>
+- SLIDES: Click the image below or follow the link to access the slides tutorial that corresponds to this video: <https://coltongearhart.quarto.pub/introduction-to-shiny/>
 
     [![](images/intro-to-shiny.png){width="500"}](https://coltongearhart.quarto.pub/introduction-to-shiny/)
     
