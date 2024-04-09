@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.376">
+<meta name="generator" content="quarto-1.4.545">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>DANA 320 –Data Visualization - 30&nbsp; Notes – Data Transformations</title>
 <style>
@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -91,32 +91,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-data-transformations.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes -- Data Transformations</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-data-transformations.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-data-transformations.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes -- Data Transformations</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-data-transformations.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">
-<span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span>
-</h1>
+      <h1 class="title"><span id="sec-notes-data-transformations" class="quarto-section-identifier"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></span></h1>
                       </div>
   </div>
     
@@ -131,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">DANA 320 –<br>Data Visualization</a> 
     </div>
@@ -434,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -571,12 +595,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>In the previous tutorial, we learned how to create many different visuals to display one or several quantitative and/or qualitative variables.</p></li>
 <li><p>However, creating visuals is one of the later steps in the process of data visualization.</p></li>
 </ul>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="50%">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="tutorials/data-transformations/images/data-science-project-workflow.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img" style="width:50.0%">
-</div>
-</figure>
-</div>
+<p><img src="tutorials/data-transformations/images/data-science-project-workflow.png" class="img-fluid" style="width:50.0%"></p>
 <ul>
 <li><p>Nearly always we have to work with the data at least a little bit to get it into the form we need for the visuals we plan to make.</p></li>
 <li><p>Now in this section, we are going to learn the different data transformation methods provided by another core package of the <strong>tidyverse</strong> called <strong>dplyr</strong>. Specifically, we will learn how to subset data (both rows and columns), create new columns and summarize data.</p></li>
@@ -715,10 +734,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/hr-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/hr-plot-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -729,10 +746,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/griffey-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/griffey-plot-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -742,10 +757,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/best-hr-hitters-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/best-hr-hitters-plot-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1604,20 +1617,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/griffey-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/griffey-plot-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/best-hr-hitters-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/best-hr-hitters-plot-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1651,10 +1660,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       alpha <span class="op">=</span> <span class="st">"Games played"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/application-plots-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/application-plots-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1674,10 +1681,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       y <span class="op">=</span> <span class="st">"Total home runs"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/application-plots-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/application-plots-2.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1692,10 +1697,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>- To get the the <span class="math inline">\(x\)</span> scale to have the labels like shown, use <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></code> with the option <code>breaks</code> (which are the tick marks). Look into <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> as a shortcut for specifying the numbers.</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/top-teams-plot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/top-teams-plot-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1828,7 +1831,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["carat"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Premium","2":"14328","3":"2.16"},{"1":"Premium","2":"2196","3":"0.62"},{"1":"Premium","2":"1814","3":"0.54"},{"1":"Ideal","2":"900","3":"0.32"},{"1":"Ideal","2":"663","3":"0.36"},{"1":"Ideal","2":"584","3":"0.34"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["carat"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Fair","2":"6002","3":"2.03"},{"1":"Very Good","2":"4851","3":"1.00"},{"1":"Very Good","2":"4559","3":"1.01"},{"1":"Premium","2":"2818","3":"0.70"},{"1":"Ideal","2":"5143","3":"1.06"},{"1":"Ideal","2":"982","3":"0.55"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1881,7 +1884,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["price_per_carat"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["carat"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cut"],"name":[3],"type":["ord"],"align":["right"]},{"label":["color"],"name":[4],"type":["ord"],"align":["right"]},{"label":["clarity"],"name":[5],"type":["ord"],"align":["right"]},{"label":["depth"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["table"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[8],"type":["int"],"align":["right"]},{"label":["x"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"5108.333","2":"1.20","3":"Very Good","4":"E","5":"SI2","6":"61.4","7":"58","8":"6130","9":"6.81","10":"6.88","11":"4.20"},{"1":"2251.515","2":"0.33","3":"Ideal","4":"G","5":"VS2","6":"62.2","7":"56","8":"743","9":"4.44","10":"4.43","11":"2.76"},{"1":"3744.643","2":"0.56","3":"Ideal","4":"F","5":"VS1","6":"62.1","7":"56","8":"2097","9":"5.32","10":"5.28","11":"3.29"},{"1":"6177.193","2":"1.14","3":"Ideal","4":"G","5":"VS2","6":"61.5","7":"57","8":"7042","9":"6.68","10":"6.72","11":"4.12"},{"1":"4581.000","2":"1.00","3":"Good","4":"I","5":"VS1","6":"63.9","7":"56","8":"4581","9":"6.37","10":"6.18","11":"4.01"},{"1":"3412.857","2":"0.70","3":"Very Good","4":"I","5":"VVS1","6":"58.8","7":"61","8":"2389","9":"5.78","10":"5.82","11":"3.41"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["price_per_carat"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["carat"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cut"],"name":[3],"type":["ord"],"align":["right"]},{"label":["color"],"name":[4],"type":["ord"],"align":["right"]},{"label":["clarity"],"name":[5],"type":["ord"],"align":["right"]},{"label":["depth"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["table"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[8],"type":["int"],"align":["right"]},{"label":["x"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"2586.667","2":"0.30","3":"Ideal","4":"H","5":"VVS2","6":"61.1","7":"55.0","8":"776","9":"4.36","10":"4.32","11":"2.65"},{"1":"1986.667","2":"0.30","3":"Very Good","4":"I","5":"VVS2","6":"63.0","7":"57.0","8":"596","9":"4.24","10":"4.27","11":"2.68"},{"1":"2904.255","2":"0.47","3":"Ideal","4":"I","5":"VVS1","6":"61.6","7":"55.0","8":"1365","9":"4.99","10":"5.01","11":"3.08"},{"1":"2678.873","2":"0.71","3":"Very Good","4":"I","5":"SI2","6":"62.2","7":"58.0","8":"1902","9":"5.61","10":"5.70","11":"3.52"},{"1":"2586.667","2":"0.30","3":"Premium","4":"F","5":"VS2","6":"62.8","7":"58.0","8":"776","9":"4.28","10":"4.25","11":"2.68"},{"1":"5914.815","2":"0.54","3":"Premium","4":"D","5":"VVS1","6":"61.4","7":"57.5","8":"3194","9":"5.25","10":"5.28","11":"3.23"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1899,7 +1902,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["table"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[3],"type":["int"],"align":["right"]},{"label":["within_budget"],"name":[4],"type":["chr"],"align":["left"]},{"label":["my_style"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Ideal","2":"56","3":"743","4":"yes","5":"yes"},{"1":"Ideal","2":"55","3":"752","4":"yes","5":"yes"},{"1":"Very Good","2":"57","3":"506","4":"yes","5":"yes"},{"1":"Very Good","2":"55","3":"749","4":"yes","5":"yes"},{"1":"Very Good","2":"56","3":"613","4":"yes","5":"yes"},{"1":"Very Good","2":"59","3":"829","4":"yes","5":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["table"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[3],"type":["int"],"align":["right"]},{"label":["within_budget"],"name":[4],"type":["chr"],"align":["left"]},{"label":["my_style"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Ideal","2":"55","3":"776","4":"yes","5":"yes"},{"1":"Very Good","2":"57","3":"596","4":"yes","5":"yes"},{"1":"Very Good","2":"59","3":"710","4":"yes","5":"yes"},{"1":"Ideal","2":"55","3":"596","4":"yes","5":"yes"},{"1":"Very Good","2":"56","3":"559","4":"yes","5":"yes"},{"1":"Ideal","2":"55","3":"838","4":"yes","5":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1919,10 +1922,8 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price_level</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/mutate-ex-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/mutate-ex-solution-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1935,10 +1936,8 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Diamond price level"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/mutate-ex-solution-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/mutate-ex-solution-2.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2049,7 +2048,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Fair","2":"4256","3":"4709.6"},{"1":"Fair","2":"6425","3":"4709.6"},{"1":"Fair","2":"6285","3":"4709.6"},{"1":"Fair","2":"2048","3":"4709.6"},{"1":"Fair","2":"4534","3":"4709.6"},{"1":"Good","2":"3946","3":"5683.4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Fair","2":"2854","3":"5303.2"},{"1":"Fair","2":"10206","3":"5303.2"},{"1":"Fair","2":"8044","3":"5303.2"},{"1":"Fair","2":"2500","3":"5303.2"},{"1":"Fair","2":"2912","3":"5303.2"},{"1":"Good","2":"2599","3":"4598.2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2063,7 +2062,7 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ideal","2":"2188","3":"6569.8"},{"1":"Ideal","2":"14428","3":"6569.8"},{"1":"Ideal","2":"5577","3":"6569.8"},{"1":"Ideal","2":"4361","3":"6569.8"},{"1":"Ideal","2":"6295","3":"6569.8"},{"1":"Premium","2":"1708","3":"1906.8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["cut"],"name":[1],"type":["ord"],"align":["right"]},{"label":["price"],"name":[2],"type":["int"],"align":["right"]},{"label":["avg_price_cut"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ideal","2":"3478","3":"2578.8"},{"1":"Ideal","2":"391","3":"2578.8"},{"1":"Ideal","2":"1011","3":"2578.8"},{"1":"Ideal","2":"5021","3":"2578.8"},{"1":"Ideal","2":"2993","3":"2578.8"},{"1":"Premium","2":"3313","3":"2828.2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2101,10 +2100,8 @@ $ species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <span>       color <span class="op">=</span> <span class="st">"Team"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-data-transformations_files/figure-html/application-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-data-transformations_files/figure-html/application-solution-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2239,15 +2236,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -2256,7 +2266,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -2298,6 +2316,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -2373,7 +2414,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -2455,12 +2495,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./hw-r-visualizations.html" class="pagination-link">
+      <a href="./hw-r-visualizations.html" class="pagination-link  aria-label=" visualizations="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./hw-r-data-transformations.html" class="pagination-link">
+      <a href="./hw-r-data-transformations.html" class="pagination-link" aria-label="<span class='chapter-number'>31</span>&nbsp; <span class='chapter-title'>HW - Data Transformations</span>">
         <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

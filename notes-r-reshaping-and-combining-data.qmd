@@ -1,4 +1,4 @@
-# Notes -- Reshaping and Combining Data {#sec-reshaping-and-combining-data}
+# Notes -- Reshaping and Combining Data {#sec-notes-reshaping-and-combining-data}
 
 ```{r}
 #| label: load-prereqs

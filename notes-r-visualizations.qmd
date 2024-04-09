@@ -35,7 +35,7 @@ library(tidyverse)
 
 {{< video https://youtu.be/VQPV6dILO78 >}}
 
--   And finally here is the starter file mentioned and needed data for one of the exercises: [visulaizations-STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/visualizations-STARTER.qmd) and [data-bsu-game.RData](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/www/data-bsu-game.RData)
+-   And finally here is the starter file mentioned and needed data for one of the exercises: [visualizations-STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/visualizations-STARTER.qmd) and [data-bsu-game.RData](https://github.com/coltongearhart/dana320/blob/main/tutorials/visualizations/www/data-bsu-game.RData)
 
 ### This section
 

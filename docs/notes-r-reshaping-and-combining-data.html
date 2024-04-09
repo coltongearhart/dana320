@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.376">
+<meta name="generator" content="quarto-1.4.545">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>DANA 320 –Data Visualization - 32&nbsp; Notes – Reshaping and Combining Data</title>
 <style>
@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -91,32 +91,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-reshaping-and-combining-data.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes -- Reshaping and Combining Data</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-reshaping-and-combining-data.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-reshaping-and-combining-data.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes -- Reshaping and Combining Data</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-r.html">R</a></li><li class="breadcrumb-item"><a href="./notes-r-reshaping-and-combining-data.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">
-<span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span>
-</h1>
+      <h1 class="title"><span id="sec-notes-reshaping-and-combining-data" class="quarto-section-identifier"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></span></h1>
                       </div>
   </div>
     
@@ -131,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">DANA 320 –<br>Data Visualization</a> 
     </div>
@@ -434,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -502,12 +526,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>In the previous tutorial, we learned how to transform our data for either for data cleaning, summarizing, or to get it into a form for different visualizations.</p></li>
 <li><p>Before either of these steps can be done, generally data needs to be worked with after importing.</p></li>
 </ul>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="50%">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="tutorials/reshaping-and-combining-data/images/data-science-project-workflow.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img" style="width:50.0%">
-</div>
-</figure>
-</div>
+<p><img src="tutorials/reshaping-and-combining-data/images/data-science-project-workflow.png" class="img-fluid" style="width:50.0%"></p>
 <p><strong>tidyr</strong> is all about cleaning up messy data and turning it into well structured / organized objects. These objects are can be easily used across all packages in the <strong>tidyverse</strong> (e.g.&nbsp;<strong>ggplot2</strong>, <strong>dpylr</strong>, etc.), which makes common data analysis tasks flow much cleaner and smoother.</p>
 </section><section id="readings" class="level3" data-number="32.1.3"><h3 data-number="32.1.3" class="anchored" data-anchor-id="readings">
 <span class="header-section-number">32.1.3</span> Readings</h3>
@@ -569,10 +588,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/goal-preview-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/goal-preview-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -589,10 +606,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                 y <span class="op">=</span> <span class="va">potato</span><span class="op">)</span>,</span>
 <span>             data <span class="op">=</span> <span class="va">data_ff</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/first-plot_demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/first-plot_demo-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -621,10 +636,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>            size <span class="op">=</span> <span class="fl">2</span>, color <span class="op">=</span> <span class="st">"blue"</span>,</span>
 <span>            data <span class="op">=</span> <span class="va">data_potato</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/potato-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/potato-demo-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -643,10 +656,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">avg_potato</span>, group <span class="op">=</span> <span class="va">subject</span><span class="op">)</span>,</span>
 <span>            data <span class="op">=</span> <span class="va">data_subject</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/subject-plot-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/subject-plot-demo-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -671,10 +682,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>              data <span class="op">=</span> <span class="va">data_ff</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">.</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/smooth-line-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/smooth-line-demo-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -727,10 +736,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">flavor_type</span> <span class="op">~</span> <span class="va">treatment</span>,</span>
 <span>             scale <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/average-long-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/average-long-demo-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -869,24 +876,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Now that each dataset has been converted to long format, we can begin to combine each of them into a single dataset.</li>
 </ul>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" width="100%">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="tutorials/reshaping-and-combining-data/images/tableau-flow.png" id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="img-fluid figure-img" style="width:100.0%">
-</div>
-</figure>
-</div>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center anchored" width="75%">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="tutorials/reshaping-and-combining-data/images/joins.png" id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="img-fluid figure-img" style="width:75.0%">
-</div>
-</figure>
-</div>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center anchored" width="75%">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="tutorials/reshaping-and-combining-data/images/joins-example.png" id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="img-fluid figure-img" style="width:75.0%">
-</div>
-</figure>
-</div>
+<p><img src="tutorials/reshaping-and-combining-data/images/tableau-flow.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="tutorials/reshaping-and-combining-data/images/joins.png" class="img-fluid" style="width:75.0%"></p>
+<p><img src="tutorials/reshaping-and-combining-data/images/joins-example.png" class="img-fluid" style="width:75.0%"></p>
 <ul>
 <li><p>The first step is to inner join the life expectancy, income, and population databy country and year. This will keep all observations with matching (Country, Year) values. This can be done in with a series of pipes.</p></li>
 <li><p>Then we can take that result and left join with the countries total data to add in the country abbreviations.</p></li>
@@ -926,10 +918,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       color <span class="op">=</span> <span class="st">"Region"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/visualize-data-demo-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/visualize-data-demo-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -970,10 +960,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/application-preview-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/application-preview-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1005,10 +993,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/application2-preview-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/application2-preview-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1037,10 +1023,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       y <span class="op">=</span> <span class="st">"Total candy count"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/application-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/application-solution-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1067,10 +1051,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       color <span class="op">=</span> <span class="st">"30-min time interval"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="quarto-figure quarto-figure-center anchored" width="672" data-fig-pos="hold">
-<figure class="quarto-float quarto-float-fig figure"><div>
-<img src="notes-r-reshaping-and-combining-data_files/figure-html/application2-solution-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="img-fluid figure-img" data-fig-pos="hold" width="672">
-</div>
+<div>
+<figure class="figure"><p><img src="notes-r-reshaping-and-combining-data_files/figure-html/application2-solution-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1205,15 +1187,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1222,7 +1217,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1264,6 +1267,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1339,7 +1365,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -1421,12 +1446,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./hw-r-data-transformations.html" class="pagination-link">
+      <a href="./hw-r-data-transformations.html" class="pagination-link  aria-label=" data="" transformations="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./lab-r-data-cleaning.html" class="pagination-link">
+      <a href="./lab-r-data-cleaning.html" class="pagination-link" aria-label="<span class='chapter-number'>33</span>&nbsp; <span class='chapter-title'>Lab - Data Cleaning</span>">
         <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

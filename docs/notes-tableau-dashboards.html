@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.376">
+<meta name="generator" content="quarto-1.4.545">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -62,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -74,14 +75,14 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-tableau.html">Tableau</a></li><li class="breadcrumb-item"><a href="./notes-tableau-dashboards.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes -- Dashboards</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-tableau.html">Tableau</a></li><li class="breadcrumb-item"><a href="./notes-tableau-dashboards.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes – Dashboards</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -90,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-tableau.html">Tableau</a></li><li class="breadcrumb-item"><a href="./notes-tableau-dashboards.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes -- Dashboards</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module-tableau.html">Tableau</a></li><li class="breadcrumb-item"><a href="./notes-tableau-dashboards.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes – Dashboards</span></a></li></ol></nav>
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title"><span id="sec-notes-dashboards" class="quarto-section-identifier"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes – Dashboards</span></span></h1>
@@ -108,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">DANA 320 –<br>Data Visualization</a> 
@@ -413,7 +414,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -433,19 +434,20 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <section id="preface" class="level2" data-number="23.1">
 <h2 data-number="23.1" class="anchored" data-anchor-id="preface"><span class="header-section-number">23.1</span> Preface</h2>
 <ul>
 <li><p>Below is all of the content for this section along with the corresponding assignments (in the recommended order).</p></li>
 <li><p><strong><em>Be sure to follow along with all of the videos using the provided Tableau workbooks (no additional exercises)</em></strong>.</p></li>
-<li><p>Post any questions related to content or assignments in the corresponding discussion board.</p></li>
+<li><p>Post any questions related to content or assignments in the corresponding discussion board on Canvas.</p></li>
 </ul>
 </section>
 <section id="dashboards-in-tableau" class="level2" data-number="23.2">
 <h2 data-number="23.2" class="anchored" data-anchor-id="dashboards-in-tableau"><span class="header-section-number">23.2</span> Dashboards in Tableau</h2>
 <ul>
 <li><p>The real power of Tableau is in creating <strong>dashboards.</strong> These videos will take you through designing a <strong>complete, effective, well-designed dashboard step-by-step</strong>.</p></li>
-<li><p>FILES: <a href="https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-STARTER.twbx">dashboards-STARTER.twbx</a> (the needed data should be part of the packaged Tableau file, but if not here it is: <a href="https://github.com/coltongearhart/dana320/blob/main/tableau/sample-superstore.csv">sample-superstore.csv</a>) and <a href="https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-COMPLETED.twbx">dashboards-COMPLETED.twbx</a></p></li>
+<li><p>FILES: <a href="https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-STARTER.twbx">dashboards-STARTER.twbx</a> (the needed data should be part of the packaged Tableau file, but if not here it is: <a href="https://github.com/coltongearhart/dana320/blob/main/tableau/data/sample-superstore.csv">sample-superstore.csv</a>) and <a href="https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-COMPLETED.twbx">dashboards-COMPLETED.twbx</a></p></li>
 <li><p><strong>NOTES: These are important mini items to make sure you can follow all the steps in the video; if you get stuck somewhere, look here first!</strong></p>
 <ul>
 <li>PLAYBACK
@@ -486,11 +488,9 @@ ul.task-list li input[type="checkbox"] {
 <li><p>The emphasis areas shown below agree with the Storytelling With Data idea that we tend to <strong>read plots in a “Z” pattern</strong>. So this is how we setup our dashboards as well in terms of <strong>most emphasis to least</strong>.</p></li>
 <li><p>Finally there is a checklist for items and aspects to have incorporated in your final dashboards so that <strong>users are able to easily glean the information that we want to focus on</strong>.</p></li>
 </ul>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-left anchored" data-fig-align="left" width="2000">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="images/dashboard-design.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid quarto-figure-left figure-img" width="2000">
-</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/dashboard-design.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="2000"></p>
 </figure>
 </div>
 </section>
@@ -630,15 +630,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -647,7 +660,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -689,6 +710,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -764,7 +808,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -848,12 +891,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./hw-tableau-parameters.html" class="pagination-link">
+      <a href="./hw-tableau-parameters.html" class="pagination-link  aria-label=" &lt;span="" --="" parameters&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">HW – Parameters</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./hw-tableau-dashboards.html" class="pagination-link">
+      <a href="./hw-tableau-dashboards.html" class="pagination-link" aria-label="<span class='chapter-number'>24</span>&nbsp; <span class='chapter-title'>HW -- Dashboards</span>">
         <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">HW – Dashboards</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

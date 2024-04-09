@@ -18,7 +18,7 @@ What will be looked at for grading: Correct code, output and sufficient write-up
 
 ## Overview
 
-This problem applies the ideas from the notes in @sec-notes-reshaping-and-combining-data, where we learned to restructure datasets, and also uses functions from **dplyr** functions from @sec-data-transformations.
+This problem applies the ideas from the notes in @sec-notes-reshaping-and-combining-data, where we learned to restructure datasets, and also uses functions from **dplyr** functions from @sec-notes-data-transformations.
 
 We will be working with the [midwest-gas-prices.csv](https://github.com/coltongearhart/dana320/blob/main/r/data/midwest-gas-prices.csv) data which contains the average weekly midwestern fuel prices for a gallon of regular unleaded gasoline from November 1994 to May 2012. We want to use this data to create a time series line-plot of the data that looks like the image below:
 
