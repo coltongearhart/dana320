@@ -6,7 +6,7 @@
 
 -   ***Be sure to follow along with all of the videos using the provided Excel files AND complete the additional Exercises.***
 
--   Post any questions related to content or assignments in the corresponding discussion board.
+-   Post any questions related to content or assignments in the corresponding discussion board on Canvas.
 
 ## Basic Charts in Excel {#sec-notes-basic-charts-in-excel}
 

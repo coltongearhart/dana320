@@ -1,0 +1,368 @@
+Sale ID,Date,Country,Bike Type,Model,Order Quantity,Unit Cost,Unit Price,Revenue,Profit
+3415,1/1/12,France,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+4853,1/4/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+7152,1/7/12,United Kingdom,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628
+5724,1/10/12,France,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+3802,1/12/12,France,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+8763,1/13/12,United Kingdom,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+1897,1/14/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+4668,1/15/12,France,Mountain Bikes,Mountain-200 Silver,3,1266,2320,6960,3162
+7385,1/15/12,United Kingdom,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+7891,1/17/12,France,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+1871,1/18/12,United Kingdom,Road Bikes,Road-750 Black,1,344,540,540,196
+6676,1/19/12,United Kingdom,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+2527,1/19/12,United Kingdom,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+1818,1/20/12,United Kingdom,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+6477,1/21/12,Germany,Mountain Bikes,Mountain-200 Black,1,1252,3400,3400,2148
+7290,1/21/12,United Kingdom,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+3160,1/22/12,France,Mountain Bikes,Mountain-200 Black,2,1252,3400,6800,4296
+5828,1/22/12,France,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+1454,1/26/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,1,1266,769,769,-497
+3500,1/27/12,France,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+3339,1/30/12,Germany,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628
+8052,2/1/12,United Kingdom,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+4327,2/2/12,United Kingdom,Road Bikes,Road-750 Black,3,344,540,1620,588
+3228,2/4/12,Germany,Road Bikes,Road-750 Black,3,344,540,1620,588
+3923,2/5/12,United Kingdom,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+5868,2/6/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+3530,2/8/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,3,1266,2320,6960,3162
+1703,2/8/12,Germany,Road Bikes,Road-250 Red,2,1519,2443,4886,1848
+7859,2/9/12,United Kingdom,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+9738,2/10/12,United Kingdom,Mountain Bikes,Mountain-200 Black,1,1252,2295,2295,1043
+5792,2/11/12,France,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+8203,2/13/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+4342,2/13/12,United Kingdom,Road Bikes,Road-250 Red,3,1519,2443,7329,2772
+3466,2/14/12,Germany,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+4964,2/14/12,United Kingdom,Road Bikes,Road-650 Black,4,487,783,3132,1184
+4600,2/15/12,Germany,Road Bikes,Road-250 Red,2,1519,2443,4886,1848
+1822,2/17/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+1555,2/18/12,France,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+7129,2/19/12,Germany,Road Bikes,Road-550-W Yellow,2,713,1120,2240,814
+7754,2/23/12,Germany,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+6063,2/24/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+5292,2/24/12,Germany,Road Bikes,Road-750 Black,1,344,540,540,196
+9082,3/1/12,Germany,Road Bikes,Road-750 Black,2,344,540,1080,392
+6227,3/4/12,France,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+4141,3/5/12,Germany,Road Bikes,Road-550-W Yellow,3,713,1120,3360,1221
+6934,3/6/12,Germany,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628
+4090,3/6/12,France,Road Bikes,Road-750 Black,1,344,540,540,196
+1247,3/7/12,France,Mountain Bikes,Mountain-200 Black,4,1252,3375,13500,8492
+7759,3/7/12,Germany,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+2026,3/8/12,Germany,Road Bikes,Road-750 Black,2,344,540,1080,392
+9733,3/11/12,France,Mountain Bikes,Mountain-200 Black,2,1252,3375,6750,4246
+5405,3/11/12,United Kingdom,Mountain Bikes,Mountain-200 Black,2,1252,2295,4590,2086
+4282,3/13/12,France,Mountain Bikes,Mountain-200 Black,3,1252,3375,10125,6369
+3487,3/15/12,Germany,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+3387,3/17/12,France,Road Bikes,Road-650 Red,4,487,783,3132,1184
+9064,3/18/12,United Kingdom,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+5163,3/18/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+3265,3/19/12,France,Road Bikes,Road-550-W Yellow,3,713,1120,3360,1221
+5744,3/20/12,Germany,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+6734,3/21/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+1722,3/23/12,Germany,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+7505,3/24/12,Germany,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+3013,3/24/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+1232,3/28/12,France,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+2395,4/1/12,Germany,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+4209,4/5/12,Germany,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+3047,4/5/12,France,Road Bikes,Road-650 Black,4,487,783,3132,1184
+4274,4/7/12,United Kingdom,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+9272,4/7/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+5864,4/8/12,France,Road Bikes,Road-250 Red,4,1555,2443,9772,3552
+7024,4/9/12,United Kingdom,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+2687,4/10/12,Germany,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+4385,4/10/12,Germany,Road Bikes,Road-750 Black,3,344,540,1620,588
+2491,4/11/12,Germany,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+9532,4/12/12,France,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+5449,4/14/12,France,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+7595,4/15/12,United Kingdom,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+1770,4/17/12,Germany,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+8807,4/17/12,Germany,Road Bikes,Road-250 Red,4,1519,2443,9772,3696
+1825,4/18/12,France,Road Bikes,Road-250 Black,3,1555,2443,7329,2664
+3469,4/23/12,France,Road Bikes,Road-750 Black,2,344,540,1080,392
+3299,4/25/12,Germany,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+1135,4/25/12,Germany,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+8671,4/26/12,United Kingdom,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+9466,4/27/12,France,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+2164,4/27/12,Germany,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+2383,4/30/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,3,1266,769,2307,-1491
+7772,4/30/12,Germany,Road Bikes,Road-650 Red,1,487,783,783,296
+8311,5/3/12,Germany,Road Bikes,Road-250 Red,3,1519,2443,7329,2772
+2431,5/5/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+6519,5/6/12,Germany,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+4397,5/6/12,United Kingdom,Road Bikes,Road-650 Red,1,487,783,783,296
+3075,5/6/12,Germany,Road Bikes,Road-750 Black,1,344,540,540,196
+3713,5/8/12,Germany,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+4657,5/12/12,France,Mountain Bikes,Mountain-200 Black,3,1252,3375,10125,6369
+9468,5/12/12,Germany,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+2961,5/12/12,Germany,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+9902,5/12/12,United Kingdom,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+2846,5/13/12,France,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+5720,5/14/12,France,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+3443,5/16/12,France,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+5536,5/17/12,Germany,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+2359,5/17/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+1154,5/17/12,France,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+3383,5/18/12,Germany,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+6498,5/18/12,France,Road Bikes,Road-250 Red,3,1555,2443,7329,2664
+2952,5/18/12,Germany,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+9705,5/19/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+1078,5/20/12,United Kingdom,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+4065,5/21/12,France,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+5897,5/22/12,France,Mountain Bikes,Mountain-200 Black,2,1252,3375,6750,4246
+6504,5/22/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+4774,5/25/12,France,Road Bikes,Road-250 Red,4,1519,2443,9772,3696
+8006,5/25/12,Germany,Road Bikes,Road-250 Red,2,1519,2443,4886,1848
+6103,5/27/12,Germany,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+3448,5/29/12,France,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+1811,6/1/12,France,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+3650,6/4/12,Germany,Road Bikes,Road-750 Black,2,344,540,1080,392
+7864,6/7/12,Germany,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+9045,6/7/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+6770,6/8/12,United Kingdom,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+1473,6/10/12,United Kingdom,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+4207,6/12/12,Germany,Mountain Bikes,Mountain-200 Black,1,1252,2295,2295,1043
+9239,6/13/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+2108,6/18/12,France,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+2340,6/18/12,France,Road Bikes,Road-750 Black,3,344,540,1620,588
+4117,6/19/12,United Kingdom,Road Bikes,Road-250 Red,4,1519,2443,9772,3696
+4817,6/19/12,Germany,Road Bikes,Road-650 Black,3,487,783,2349,888
+6208,6/21/12,Germany,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+1739,6/21/12,France,Road Bikes,Road-550-W Yellow,1,713,1120,1120,407
+2112,6/21/12,France,Road Bikes,Road-750 Black,2,344,540,1080,392
+6347,6/22/12,Germany,Mountain Bikes,Mountain-200 Black,2,1252,2295,4590,2086
+3986,6/23/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+6412,6/26/12,France,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+8648,6/26/12,France,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+8413,6/30/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+8636,6/30/12,France,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+5146,7/1/12,Germany,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+8474,7/1/12,Germany,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+3904,7/2/12,Germany,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+1090,7/2/12,United Kingdom,Road Bikes,Road-750 Black,1,344,540,540,196
+2850,7/3/12,Germany,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+7317,7/4/12,Germany,Road Bikes,Road-250 Black,3,1555,2443,7329,2664
+5209,7/4/12,France,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+2955,7/4/12,Germany,Road Bikes,Road-650 Red,2,487,783,1566,592
+1929,7/5/12,France,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+9215,7/6/12,United Kingdom,Road Bikes,Road-750 Black,3,344,540,1620,588
+7937,7/7/12,Germany,Road Bikes,Road-750 Black,1,344,540,540,196
+3886,7/11/12,Germany,Road Bikes,Road-250 Red,2,1555,2443,4886,1776
+5334,7/11/12,United Kingdom,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+6846,7/12/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+9701,7/13/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+2897,7/13/12,United Kingdom,Road Bikes,Road-550-W Yellow,3,713,1120,3360,1221
+7339,7/14/12,France,Mountain Bikes,Mountain-200 Black,4,1252,2295,9180,4172
+7957,7/16/12,France,Road Bikes,Road-650 Red,1,487,783,783,296
+8766,7/21/12,France,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+4577,7/22/12,Germany,Road Bikes,Road-250 Red,3,1519,2443,7329,2772
+1900,7/23/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+3431,7/23/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+7562,7/25/12,Germany,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+5954,7/26/12,France,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+9189,7/27/12,United Kingdom,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+9764,7/29/12,France,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+9517,7/30/12,Germany,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+4435,8/2/12,United Kingdom,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+4387,8/4/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+4835,8/5/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+4603,8/6/12,France,Mountain Bikes,Mountain-200 Black,4,1252,2295,9180,4172
+4513,8/6/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+8328,8/7/12,United Kingdom,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+1337,8/9/12,United Kingdom,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+9716,8/10/12,Germany,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+6422,8/11/12,France,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+1113,8/12/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+8702,8/13/12,France,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+5626,8/13/12,Germany,Road Bikes,Road-750 Black,3,344,540,1620,588
+5510,8/14/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,4,1266,2320,9280,4216
+9323,8/15/12,United Kingdom,Road Bikes,Road-550-W Yellow,3,713,1120,3360,1221
+7329,8/15/12,Germany,Road Bikes,Road-650 Black,4,487,783,3132,1184
+7135,8/15/12,Germany,Road Bikes,Road-750 Black,2,344,540,1080,392
+8071,8/16/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+5365,8/16/12,Germany,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+2126,8/18/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+2629,8/19/12,Germany,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+4328,8/19/12,France,Road Bikes,Road-750 Black,1,344,540,540,196
+9493,8/20/12,France,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+8865,8/20/12,United Kingdom,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+7941,8/20/12,United Kingdom,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628
+9471,8/21/12,United Kingdom,Road Bikes,Road-650 Black,1,487,783,783,296
+1175,8/22/12,Germany,Mountain Bikes,Mountain-200 Black,2,1252,540,1080,-1424
+2585,8/22/12,France,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+6167,8/23/12,United Kingdom,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+8890,8/24/12,France,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+5210,8/24/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+9862,8/25/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+9824,8/26/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+8566,8/26/12,United Kingdom,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+7852,8/26/12,United Kingdom,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+3066,8/26/12,Germany,Road Bikes,Road-650 Black,2,487,783,1566,592
+9380,8/26/12,United Kingdom,Road Bikes,Road-750 Black,1,344,540,540,196
+3022,8/27/12,United Kingdom,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+4585,8/29/12,France,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+5825,8/31/12,France,Mountain Bikes,Mountain-200 Black,4,1252,2295,9180,4172
+8305,8/31/12,United Kingdom,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+4064,9/2/12,United Kingdom,Road Bikes,Road-250 Black,3,1555,2443,7329,2664
+9794,9/2/12,Germany,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+1478,9/3/12,France,Road Bikes,Road-250 Red,3,1519,2443,7329,2772
+5218,9/3/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+1460,9/4/12,France,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+3813,9/5/12,France,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+6091,9/5/12,France,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+1049,9/5/12,France,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628
+5168,9/5/12,United Kingdom,Road Bikes,Road-750 Black,3,344,540,1620,588
+8814,9/6/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+3511,9/7/12,Germany,Road Bikes,Road-750 Black,3,344,540,1620,588
+2386,9/8/12,United Kingdom,Mountain Bikes,Mountain-200 Black,4,1252,2295,9180,4172
+6943,9/8/12,France,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+1642,9/9/12,Germany,Mountain Bikes,Mountain-200 Silver,4,1266,2320,9280,4216
+4793,9/9/12,United Kingdom,Road Bikes,Road-750 Black,1,344,540,540,196
+8734,9/10/12,France,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+1925,9/10/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+2680,9/11/12,United Kingdom,Mountain Bikes,Mountain-200 Black,4,1252,2295,9180,4172
+3521,9/11/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+9779,9/11/12,United Kingdom,Road Bikes,Road-750 Black,1,344,540,540,196
+2526,9/12/12,Germany,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+2608,9/13/12,France,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+5486,9/14/12,France,Mountain Bikes,Mountain-200 Black,4,1252,2295,9180,4172
+8191,9/14/12,United Kingdom,Mountain Bikes,Mountain-200 Black,1,1252,540,540,-712
+1532,9/14/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+9156,9/14/12,Germany,Road Bikes,Road-250 Red,2,1555,2443,4886,1776
+8240,9/14/12,United Kingdom,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+5929,9/17/12,Germany,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+8661,9/18/12,Germany,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+2486,9/19/12,Germany,Road Bikes,Road-550-W Yellow,1,713,1120,1120,407
+6290,9/21/12,France,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+7544,9/22/12,France,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+3575,9/22/12,France,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628
+6801,9/23/12,Germany,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+5757,9/24/12,United Kingdom,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+5104,9/26/12,Germany,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+8845,9/26/12,Germany,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+5677,9/26/12,United Kingdom,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+1312,9/26/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+4031,9/29/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+6198,9/29/12,Germany,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+2342,9/29/12,France,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+6765,9/30/12,Germany,Road Bikes,Road-750 Black,2,344,540,1080,392
+6132,9/30/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+8485,9/30/12,United Kingdom,Road Bikes,Road-750 Black,1,344,540,540,196
+7282,10/2/12,United Kingdom,Road Bikes,Road-250 Red,2,1519,2443,4886,1848
+9986,10/3/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+6652,10/4/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+1345,10/6/12,France,Mountain Bikes,Mountain-200 Silver,3,1266,2320,6960,3162
+2794,10/8/12,United Kingdom,Mountain Bikes,Mountain-200 Black,1,1252,2295,2295,1043
+2831,10/8/12,Germany,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+3964,10/11/12,France,Road Bikes,Road-750 Black,3,344,540,1620,588
+7552,10/12/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+1311,10/12/12,United Kingdom,Road Bikes,Road-250 Black,3,1555,2443,7329,2664
+7686,10/14/12,Germany,Road Bikes,Road-650 Red,2,487,783,1566,592
+2780,10/15/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+6243,10/15/12,United Kingdom,Road Bikes,Road-550-W Yellow,3,713,1120,3360,1221
+4921,10/16/12,France,Mountain Bikes,Mountain-200 Black,2,1252,2295,4590,2086
+9332,10/16/12,United Kingdom,Mountain Bikes,Mountain-200 Black,1,1252,2295,2295,1043
+4424,10/16/12,United Kingdom,Road Bikes,Road-250 Red,4,1519,2443,9772,3696
+4716,10/16/12,Germany,Road Bikes,Road-650 Red,3,487,783,2349,888
+4859,10/17/12,Germany,Road Bikes,Road-250 Red,4,1555,2443,9772,3552
+8912,10/20/12,France,Road Bikes,Road-250 Red,1,1555,2443,2443,888
+6099,10/20/12,United Kingdom,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628
+6678,10/21/12,United Kingdom,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+9390,10/21/12,Germany,Road Bikes,Road-650 Red,2,487,783,1566,592
+3225,10/24/12,United Kingdom,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+9307,10/24/12,France,Road Bikes,Road-750 Black,1,344,540,540,196
+4831,10/26/12,France,Road Bikes,Road-250 Red,3,1519,2443,7329,2772
+9880,10/28/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+6982,10/29/12,Germany,Road Bikes,Road-650 Red,3,487,783,2349,888
+6033,10/30/12,France,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+5355,10/30/12,France,Road Bikes,Road-650 Black,2,487,783,1566,592
+6026,10/31/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+3108,10/31/12,United Kingdom,Road Bikes,Road-750 Black,1,344,540,540,196
+3803,11/2/12,Germany,Mountain Bikes,Mountain-200 Silver,4,1266,2320,9280,4216
+3917,11/5/12,Germany,Road Bikes,Road-550-W Yellow,3,713,1120,3360,1221
+8756,11/5/12,Germany,Road Bikes,Road-750 Black,3,344,540,1620,588
+8749,11/6/12,Germany,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+6353,11/6/12,France,Road Bikes,Road-250 Red,1,1555,2443,2443,888
+6844,11/6/12,France,Road Bikes,Road-550-W Yellow,3,713,1120,3360,1221
+5673,11/6/12,United Kingdom,Road Bikes,Road-550-W Yellow,2,713,1120,2240,814
+8238,11/9/12,Germany,Mountain Bikes,Mountain-200 Silver,3,1266,2320,6960,3162
+8796,11/9/12,France,Road Bikes,Road-550-W Yellow,2,713,1120,2240,814
+7122,11/10/12,Germany,Road Bikes,Road-250 Black,3,1555,2443,7329,2664
+5262,11/10/12,United Kingdom,Road Bikes,Road-750 Black,3,344,540,1620,588
+7698,11/11/12,Germany,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+1083,11/11/12,Germany,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+1278,11/12/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+5036,11/14/12,Germany,Mountain Bikes,Mountain-200 Black,4,1252,2295,9180,4172
+7075,11/14/12,Germany,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+4881,11/16/12,Germany,Mountain Bikes,Mountain-200 Black,2,1252,2295,4590,2086
+7211,11/16/12,Germany,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+5885,11/17/12,Germany,Road Bikes,Road-750 Black,1,344,540,540,196
+8823,11/19/12,Germany,Road Bikes,Road-650 Red,4,487,783,3132,1184
+5903,11/20/12,Germany,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+2662,11/20/12,Germany,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+7266,11/21/12,Germany,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+1160,11/21/12,France,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+3365,11/24/12,France,Road Bikes,Road-150 Red,3,2171,3578,10734,4221
+6684,11/24/12,United Kingdom,Road Bikes,Road-250 Black,3,1555,2443,7329,2664
+6834,11/25/12,France,Road Bikes,Road-650 Black,1,487,783,783,296
+2270,11/25/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+3940,11/26/12,Germany,Mountain Bikes,Mountain-200 Silver,3,1266,2320,6960,3162
+1146,11/26/12,United Kingdom,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+3286,11/27/12,France,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+8490,11/27/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+4959,11/28/12,United Kingdom,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+1895,11/28/12,United Kingdom,Road Bikes,Road-750 Black,2,344,540,1080,392
+2239,12/1/12,Germany,Road Bikes,Road-550-W Yellow,1,713,1120,1120,407
+1644,12/2/12,France,Road Bikes,Road-550-W Yellow,1,713,1120,1120,407
+8157,12/2/12,United Kingdom,Road Bikes,Road-750 Black,3,344,540,1620,588
+3311,12/3/12,United Kingdom,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+9212,12/3/12,France,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+6073,12/3/12,United Kingdom,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+3978,12/3/12,United Kingdom,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+1986,12/6/12,France,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+2031,12/7/12,Germany,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+5095,12/7/12,United Kingdom,Road Bikes,Road-650 Black,1,487,783,783,296
+6542,12/9/12,Germany,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+2350,12/9/12,Germany,Road Bikes,Road-650 Red,2,487,783,1566,592
+9365,12/11/12,France,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+3226,12/11/12,France,Road Bikes,Road-250 Black,4,1555,2443,9772,3552
+3568,12/11/12,France,Road Bikes,Road-250 Red,1,1555,2443,2443,888
+1740,12/11/12,United Kingdom,Road Bikes,Road-550-W Yellow,3,713,1120,3360,1221
+8090,12/12/12,United Kingdom,Road Bikes,Road-250 Black,1,1555,2443,2443,888
+6587,12/12/12,United Kingdom,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+2057,12/13/12,United Kingdom,Mountain Bikes,Mountain-200 Black,2,1252,2295,4590,2086
+1334,12/13/12,France,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+7481,12/13/12,Germany,Road Bikes,Road-350-W Yellow,3,1083,1701,5103,1854
+1522,12/14/12,Germany,Road Bikes,Road-150 Red,1,2171,3578,3578,1407
+5855,12/14/12,Germany,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+3633,12/16/12,France,Mountain Bikes,Mountain-200 Silver,3,1266,2320,6960,3162
+4309,12/16/12,Germany,Road Bikes,Road-250 Red,4,1555,2443,9772,3552
+7096,12/17/12,Germany,Mountain Bikes,Mountain-200 Silver,3,1266,2320,6960,3162
+9088,12/18/12,France,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+1795,12/18/12,Germany,Mountain Bikes,Mountain-200 Silver,2,1266,2320,4640,2108
+6746,12/18/12,United Kingdom,Mountain Bikes,Mountain-200 Silver,3,1266,769,2307,-1491
+3388,12/18/12,France,Road Bikes,Road-250 Red,4,1519,2443,9772,3696
+5234,12/19/12,Germany,Mountain Bikes,Mountain-200 Black,1,1252,2295,2295,1043
+1234,12/19/12,France,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+8478,12/19/12,Germany,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628
+7649,12/20/12,United Kingdom,Road Bikes,Road-350-W Yellow,2,1083,1701,3402,1236
+3162,12/22/12,United Kingdom,Road Bikes,Road-550-W Yellow,1,713,1120,1120,407
+9472,12/22/12,United Kingdom,Road Bikes,Road-750 Black,4,344,540,2160,784
+3434,12/23/12,France,Road Bikes,Road-150 Red,4,2171,3578,14312,5628
+2826,12/24/12,Germany,Mountain Bikes,Mountain-200 Black,1,1252,2295,2295,1043
+2858,12/24/12,Germany,Road Bikes,Road-250 Red,1,1555,2443,2443,888
+8583,12/24/12,France,Road Bikes,Road-750 Black,2,344,540,1080,392
+2497,12/25/12,Germany,Mountain Bikes,Mountain-200 Silver,1,1266,2320,2320,1054
+3058,12/25/12,France,Road Bikes,Road-750 Black,1,344,540,540,196
+8619,12/26/12,United Kingdom,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+7458,12/27/12,Germany,Road Bikes,Road-250 Black,2,1555,2443,4886,1776
+8344,12/28/12,United Kingdom,Mountain Bikes,Mountain-200 Black,1,1252,2295,2295,1043
+1286,12/29/12,France,Road Bikes,Road-150 Red,2,2171,3578,7156,2814
+9203,12/29/12,France,Road Bikes,Road-250 Red,4,1519,2443,9772,3696
+8526,12/29/12,Germany,Road Bikes,Road-250 Red,1,1519,2443,2443,924
+1016,12/29/12,Germany,Road Bikes,Road-350-W Yellow,4,1083,1701,6804,2472
+4941,12/29/12,United Kingdom,Road Bikes,Road-350-W Yellow,1,1083,1701,1701,618
+1364,12/30/12,France,Mountain Bikes,Mountain-200 Black,3,1252,2295,6885,3129
+8501,12/30/12,United Kingdom,Mountain Bikes,Mountain-200 Black,2,1252,2295,4590,2086
+3277,12/31/12,United Kingdom,Road Bikes,Road-250 Black,3,1555,2443,7329,2664
+7310,12/31/12,Germany,Road Bikes,Road-550-W Yellow,4,713,1120,4480,1628

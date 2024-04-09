@@ -1,0 +1,60 @@
+---
+title: "HW -- Data Manipulations STARTER"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+execute: 
+  warning: false # clean up output
+  message: false # clean up output
+---
+
+```{r setup}
+
+# load packages
+library(tidyverse)
+
+```
+
+```{r data}
+
+# load data
+data_raw <- read_csv(file = "data/data-grades.csv")
+data_majors <- read_csv(file = "data/data-majors.csv")
+
+# preview data
+head(data_raw)
+head(data_majors)
+
+```
+
+### Part a -- Data manipulations
+
+```{r}
+
+```
+
+### Part b -- Visualize data
+
+```{r}
+
+```
+
+### Part c -- Summarize data
+
+```{r}
+
+```
+
+### Part d -- More manipulations and visualizations 1
+
+```{r}
+
+```
+
+### Part e -- More manipulations and visualizations 2
+
+```{r}
+
+```

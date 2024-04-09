@@ -12,7 +12,7 @@ Submission
 
 FILES
 
--   [hw-working-with-data.docx](https://github.com/coltongearhart/dana320/blob/main/tableau/working-with-data.docx) and [gapminder.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/gapminder.csv)
+-   [hw-working-with-data.docx](https://github.com/coltongearhart/dana320/blob/main/tableau/hw-working-with-data.docx) and [gapminder.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/data/gapminder.csv)
 
 -   *NOTE*: Instructors can contact me for solutions :)
 

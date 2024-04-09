@@ -20,7 +20,7 @@ FILES
 
 ### Overview
 
--   This problem extends the ideas from the notes in @sec-notes-basic-charts-in-excel, where we learned how to create summary tables, and from @lab-more-charts-in-excel, where we created scatterplots.
+-   This problem extends the ideas from the notes in @sec-notes-basic-charts-in-excel, where we learned how to create summary tables, and from @sec-lab-more-charts-in-excel, where we created scatterplots.
 
 -   The first tab of the accompanying workbook contains a dataset of public transformation information related to the metro for a sample of hypothetical cities; a subset is shown below:
 

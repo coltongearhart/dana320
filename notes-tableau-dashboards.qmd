@@ -6,13 +6,13 @@
 
 -   ***Be sure to follow along with all of the videos using the provided Tableau workbooks (no additional exercises)***.
 
--   Post any questions related to content or assignments in the corresponding discussion board.
+-   Post any questions related to content or assignments in the corresponding discussion board on Canvas.
 
 ## Dashboards in Tableau
 
 -   The real power of Tableau is in creating **dashboards.** These videos will take you through designing a **complete, effective, well-designed dashboard step-by-step**.
 
--   FILES: [dashboards-STARTER.twbx](https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-STARTER.twbx) (the needed data should be part of the packaged Tableau file, but if not here it is: [sample-superstore.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/sample-superstore.csv)) and [dashboards-COMPLETED.twbx](https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-COMPLETED.twbx)
+-   FILES: [dashboards-STARTER.twbx](https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-STARTER.twbx) (the needed data should be part of the packaged Tableau file, but if not here it is: [sample-superstore.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/data/sample-superstore.csv)) and [dashboards-COMPLETED.twbx](https://github.com/coltongearhart/dana320/blob/main/tableau/dashboards-COMPLETED.twbx)
 
 -   **NOTES: These are important mini items to make sure you can follow all the steps in the video; if you get stuck somewhere, look here first!**
 

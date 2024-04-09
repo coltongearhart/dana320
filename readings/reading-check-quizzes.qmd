@@ -1,0 +1,512 @@
+---
+title: "Reading Check Quizzes - Storytelling With Data"
+format: html
+---
+
+### Instructions and Canvas 
+
+Answer the following questions after ***reading pages # - #*** of ***Storytelling With Data***.
+
+NOTE: Canvas can shuffle questions (and answers if want).
+
+- Putting the correct answer first always here and can reorder when inputting into Canvas.
+
+- If there is not an "All of the above" type answer, then will shuffle answers.
+
+### Grading 
+
+Overall grading
+
+- Each quiz counts for the same percent of overall grade
+
+Points assignment
+
+- All quizzes will have 3 or 4 questions
+
+- Equally weighted point totals for each question (with partial credit for select all that apply / multiple answer questions)
+
+- With equal weighting from above, point totals don't matter (so leaving as default pts = 1).
+
+### Reading Check Quiz 1 
+
+**SWD: Pages 1 --- 13.5** (up to "How this book us organized" section)
+
+Introduction (Storytelling; How you will learn with this book)
+
+*OPTIONAL: Read the Foreword and **About the Author sections if interested!*
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following are reasons why visualizations are often *ineffective*? (Select all that apply)
+
+    a.  **We were never taught how to tell stories with numbers.**
+
+    b.  **Relying on tool defaults.**
+
+    c.  **There are gaps in capabilities for those that are creating the visuals.**
+
+    d.  **Ending the visualization with the first graph we make.**
+    
+2.  Typically, which part of the analysis process does the *audience* see? (Multiple Choice)
+
+    a.  **Communication of the analysis**
+    
+    b.  Finding the data
+
+    c.  Analyzing the data
+
+    d.  Building models
+    
+3.  Which software(s) to the *lessons* of Storytelling With Data *apply* to? (Multiple Choice)
+
+    a.  Excel
+
+    b.  Tableau
+
+    c.  R
+
+    d.  **All of the above**
+
+### Reading Check Quiz 2 
+
+**SWD: Pages 13.5 --- 27.5** (up to "Who, what, and how: illustrated by example" section)
+
+Introduction (Organization of book)
+
+Ch 1 Importance of Context (Types of analyses; Questions to ask; Mechanism)
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  When *planning* an explanatory analysis, what is the correct *order* of questions to answer? (Drag into order, on Canvas match to first, second, third)
+
+    a.  **To whom are you communicating?**
+
+    b.  **What do you want your audience to know?**
+
+    c.  **How can you use data to help make your point?**
+
+2.  Which of the following statements are *true* regarding how to *create* your presentations? (Select all that apply)
+
+    a.  **Slides should be sparse**
+    
+    b.  **You should be able to answer any audience questions regardless of whether that detail is in the presentation or not**
+
+    c.  Slides should act as your speaker notes
+
+    d.  Slides should be detailed enough to answer any potential questions the audience may have
+    
+3.  Which of the following aspects are impacted by the *method* of the communications? (Select all that apply)
+
+    a.  **The amount of control you will have over how the information is consumed**
+
+    b.  **The level of detail**
+
+    c.  The analysis that is performed
+
+    d.  The effectiveness of the communication
+    
+### Reading Check Quiz 3 
+
+**SWD: Pages 27.5 --- 33** (up to end of Chapter 1)
+
+Ch 1 Importance of Context (Who, what, how example; 3-min story; Big idea; Storyboarding)
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following are *not benefits* of creating a *3-minute story*? (Multiple Choice)
+
+    a.  **Can use the 3-minute story directly in your presentation.**
+
+    b.  Removes dependence on your slides or visuals for a presentation.
+
+    c.  As a consequence, you know what the most important pieces are and what isn't essential.
+    
+    d.  Ensures you are clear on and can articulate the story you want to tell.
+
+2.  What is the recommended *way* to *storyboard*? (Multiple Choice)
+
+    a.  **Use a whiteboard, post-it notes or plain paper.**
+    
+    b.  Create slides and choose the most important ones.
+
+    c.  Write the report and get key ideas from each section.
+
+    d.  Convert your analysis to slides using software.
+    
+3.  Which of the following are the *advantages* of *storyboarding*? (Multiple choice)
+
+    a.  Avoid attachment to slides that were made before forming a narrative.
+
+    b.  Can easily rearrange, add, or remove pieces to explore different narrative flows.
+
+    c.  Saves time by reducing the number of iterations when building content.
+
+    d.  **All of the above.**
+    
+### Reading Check Quiz 4 
+
+**SWD: Pages 35 --- 55.5** (up to "Waterfall chart" section)
+
+Ch 2 Choosing an effective visual (Simple text; Tables; Heatmap; Graphs; Points; Lines; Bars)
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following statements is *not true about tables*? (Multiple choice)
+
+    a.  **Audiences interact with tables and graphs the same way.**
+
+    b.  If used in a presentation, you can lose your audience's attention as they read the table.
+
+    c.  The design of the table needs to be considered, specifically how to let the data be the focus.
+    
+    d.  Heatmaps add visual cues to a table, which can make points of interest, such as low and high values, stand out more.
+    
+    e.  Tables are great for communicating to a mixed audience who will search for their particular row of interest.
+
+2.  Match each *graph* to the *type of data* it displays. (Matching)
+
+    a.  Scatterplot: Relationship between two variables.
+    
+    b.  Line graph: Continuous data, often over time.
+
+    c.  Slopegraph: Comparison between two points across categories.
+
+    d.  Bar graph: Categorical data (organized in groups) 
+    
+3.  Which of the following statements are *true about bar graphs*? (Select all that apply)
+
+    a.  **Because of how our eyes compare the relative end points of the bars, it is importaant that bar graphs always have a zero baseline.**
+
+    b.  **In general, bars should be wider than the white space between them, but not too wide or the audience will start to compare areas instead of lengths.**
+
+    c.  **There are multiple types of bar graphs that can solve different visualization problems.**
+
+    d.  Bar graphs should be avoided because they are common.
+    
+    e.  All subcomponent categories in a stacked vertical bar charts are easy to compare with appropriately chosen colors.
+    
+### Reading Check Quiz 5 
+
+**SWD: Pages 55.5 --- 69** (up to end of Chapter 2)
+
+Ch 2 Choosing an effective visual (Bars; Area; Other types of graphs; To be avoided)
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  How do we typically process information on a chart? What path do our eyes make across the screen or page? (Multiple choice)
+
+    a.  **Letter Z path.**
+
+    b.  Left to right.
+
+    c.  Top to bottom.
+    
+    d.  Random, no pattern.
+
+2.  All of the following graphs should be avoided. Match each *graph* to the *correct reason* for *why it should be avoided*. (Matching)
+
+    a.  Pie chart: The human eye isn't good at interpreting areas (ascribing quantitative information to two-dimensional space).
+    
+    b.  Donut chart: Arc lengths are even harder than areas to compare.
+
+    c.  3D: Introduces unnecessary chart elements and visual distortions.
+
+    d.  Secondary y-axes: Takes time and reading to understand how to read the data.
+    
+3.  Instead of a *secondary y-axis*, there are a few alternatives. Match each *strategy* with its *advantage.* (Matching)
+
+    a.  Label directly: Puts more attention on the specific numbers.
+    
+    b.  Pull apart vertically: Puts more emphasis on the overarching trends.
+
+    c.  Color data to match axis: This can work, but this element can often be used more strategically.
+    
+### Reading Check Quiz 6 
+
+**SWD: Pages 71 --- 84.5** (up to "White space" section)
+
+Ch 3 Clutter is your enemy (Cognitive load; Clutter; Gestalt principles of visual perception; Lack of visual order, alignment)
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following are reasons to *reduce clutter*? (Select all that apply)
+
+    a.  **To reduce the perceived cognitive load on the audience.**
+
+    b.  **Clutter makes our visuals appear more complicated than necessary.**
+
+    c.  **If cluttered, we risk the audience deciding they do not want to take the time to understand what we are showing them.**
+
+    d.  Clutter is needed to fill white space to show more information.
+    
+2.  Which *Gestalt principle of visualization* is leverage by *shading the area behind forecasts* in time series plots? (Multiple Choice)
+
+    a.  **Enclosure**
+    
+    b.  Proximity
+
+    c.  Similarity
+
+    d.  Closure
+    
+    e.  Contrast
+    
+3.  Which of the following is *true* about *text on plots*? (Select all that apply)
+
+    a.  **The goal is to create clean lines both horizontally and vertically with alignment of elements and white space.**
+    
+    b.  **Text such as titles, subtitles, axis titles, and legends should be upper-left most justified.**
+
+    c.  Diagonal components are okay when there isn't enough space.
+    
+    d.  Should always draw lines to connect text blocks to parts of the plot they refer to.
+    
+### Reading Check Quiz 7 
+
+**SWD: Pages 84.5 --- 98** (up to end of Chapter 3)
+
+Ch 3 Clutter is your enemy (Lack of visual order, white space; Non-strategic use of contrast; De-cluttering)
+
+**R4DS: Chapter 3 -- Workflow basics**
+
+Coding basics, comments, what's in a name, calling functions
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following are *true* about the *minimal guidelines* when it comes to *preserving white space*? (Select all that apply)
+
+    a.  **Margins should remain free of text and visuals.**
+
+    b.  **Size visuals appropriately to their content, not to fill up space.**
+
+    c.  **White space should be used strategicially.**
+
+    d.   White space should be filled.
+    
+    e.   White space isn't an important consideration in design.
+    
+2.  We should use *data markers / labels*...? (Multiple Choice)
+
+    a.  **On purpose and with a purpose.**
+    
+    b.  Always.
+
+    c.  Becuase they are the default in applications.
+
+    d.  If they look nicer.
+    
+3.  *Labeling data directly* and with the *same color* takes *advantage* of which *two Gestalt principles of visualization*? (Multiple Choice)
+
+    a.  **Proximity and similarity**
+    
+    b.  Proximity and closure
+
+    c.  Similarity and color
+    
+    d.  Connection and enclosure
+    
+4. Which of the following *comments* has the correct *content* according to the author. (Multiple choice)
+
+  a. # Manually change the colors of the points to bring emphasis to the specific points of interest and make the others fade into background
+  
+  b. # Manually change the colors using scale_color_manual(), have to match each value to each color
+  
+  c. # Create a plot with different colored points
+    
+### Reading Check Quiz 8 
+
+**SWD: Pages 99 --- 116.5** (up to "Size" section)
+
+Ch 4 Focus your audience's attention (Memory; Preattentive attributes, signal where to look in text and in graphs)
+
+**R4DS: Chapter 5 -- Code style**
+
+Names, spaces, pipes, ggplot2, sectioning comments
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following are *true* about the *preattentive attributes*? (Select all that apply)
+
+    a.  **Iconic (super fast) memory is tuned to preatttentive attributes, which enables our audience to see what we want them to see before they know they are seeing it.**
+
+    b.  **Preattentive attributes change the way you process information.**
+
+    c.  **Preattentive attributes can be leveraged in text and graphs.**
+
+    d.  Preattentive attributes are for visualizations only.
+    
+    e.  All preattentive attributes have equal strength in grabbing the audience's attention.
+    
+2.  Which of the following are statements are *true* regarding the use of *repeated iterations of the same plot* in a *presentation setting*? (Select all that apply)
+
+    a.  **This strategy can familiarize your audience with the data and visual first before highlighting the important aspects.**
+    
+    b.  **You can tell different stories by emphasizing different aspects.**
+
+    c.  The benefits are limited because you can only leverage one to two preattentive attributes for a plot.
+
+    d.  The main benefit is ease of prep work for the presenter.
+    
+3.  Which of the following statements are *true* for *how you should start when creating plots*? (Select all that apply)
+
+    a.  **A good strategy is to push everything to the background.**
+    
+    b.  **When creating exploratory plots at the start, you should avoid the use of preattentive attributes.**
+
+    c.  **By pushing everything to the background, you have to make explicit decisions about what to bring to the forefront or highlight.**
+    
+    d.  For exploratory analysis, the first plots should already have a plan for what preattentive attributes to leverage.
+    
+4. Which of the following *code chunks* has the *recommended style* according to the author (ignoring the difference between base R pipe |> and %>%)? (Multiple choice)
+
+  a.
+  
+```{r, eval = FALSE}
+rnorm(n = 10) %>% 
+  scale %>% 
+  mean(rm.na = TRUE)
+```
+  
+  b.
+  
+```{r, eval = FALSE}
+rnorm(n=10) %>% scale %>% mean(na.rm=TRUE)
+```
+  
+  c.
+  
+```{r, eval = FALSE}
+mean(scale(rnorm(n = 10)), na.rm = TRUE)
+```
+  
+### Reading Check Quiz 9 
+
+**SWD: Pages 116.5 --- 126** (up to end of Chapter 4)
+
+Ch 4 Focus your audience's attention (Size; Color; Position on page)
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following are *true* about the use of *color*? (Select all that apply)
+
+    a.  **The authors suggest shades of grey and a single bold color to draw attention such as blue or black.**
+
+    b.  **Color should be used sparingly, consistently, and designed with the color-blind in mind.**
+
+    c.  **Color saturation (think intensity) can cary quantitative information.**
+
+    d.  Color should be used to to make the plots not lose the audience's attention.
+    
+    e.  Color does not envoke emotion or have connotations associated with them.
+    
+2.  Which pair of colors does the author suggest as *substitutes* for *green / red* for *positive / negative* values, respectively? (Multiple choice)
+
+    a.  **Blue / orange**
+    
+    b.  Purple / yellow
+
+    c.  Grey / orange
+
+    d.  Blue / yellow
+    
+3.  Where on the page should *important things* go for *plots and slides*? (Multiple choice)
+
+    a.  **Top left**
+    
+    b.  Top right
+
+    c.  Bottom left
+    
+    d.  Bottom right
+    
+    e.  Wherever fits best
+    
+### Reading Check Quiz 10 
+
+**SWD: Pages 127 --- 138.5** (up to "Accessibility" section)
+
+Ch 5 Think like a designer (Affordances (highlight the important stuff, eliminate distractions, visual hierarchy))
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following are *true* about *visual affordances**? (Select all that apply)
+
+    a.  **Visual affordances can be leveraged to indicate to our audience how to tuse and interact with our visualization.**
+
+    b.  **Preattentive attributes can be used to highlight the important stuff, and be also can be layered.**
+
+    c.  **Bold, uppercase, size and color are the most effective ways to highlight text while adding minimal noise.**
+
+    d.  **At most 10% of the visual design should be highlighted.**
+    
+    e.  At most 20% of the visual design should be highlighted.
+    
+    f.  Italics and underline add the same amount of noise and can be used interchangeably.
+    
+2.  Which of the following are *true* about *distractions*? (Select all that apply)
+
+    a.  **To identify distractions, we need to think about clutter and context.**
+    
+    b.  **To recognize distractions, we can recognize that not all data are equally important and some details can be summarized.**
+
+    c.  **Each step in reduction and de-emphasis causes what remains to stand out more.**
+
+    d.  If a detail is needed for the appendix, it should be included on the slide where it is mentioned because it is important enough.
+    
+    e.  To identify distractions, we should ask ourselves if anything else needs to be added to the visual?
+    
+3.  Which of the following are *true* about *visual hierarchy*? (Select all that apply)
+
+    a.  **Design can influence th e order in which the audience interacts with a visual.**
+    
+    b.  **Super categories can be used in tables or plots (such as labeling quadrants on a scatterplot) to establish a hierarchy.**
+
+    c.  All categories must always be labeled when utilizing super categories on a plot.
+    
+    d.  Audiences will always process the hierarchy in the same order.
+    
+### Reading Check Quiz 11 
+
+**SWD: Pages 138.5 --- 150** (up to end of Chapter 5)
+
+Ch 5 Think like a designer (Accessibility (don't overcomplicate, text); Aesthetics; Accepatance)
+
+Note that you only get *1 attempt (no time limit)*.
+
+1.  Which of the following are *true* about *accessibility**? (Select all that apply)
+
+    a.  **Applied to data visualization, accessibility means plots should be designed to be easy to use by people of widely varying technical skills.**
+
+    b.  **Poorly designed plots lead to misinterpretation and lack of understanding, which is the designers fault.**
+
+    c.  **Every chart needs a title and every axis needs a title (exceptions are extrememly rare).**
+
+    d.  Audienecs will always draw the same conlcusions from a well designed plot.
+    
+    e.  More complicated graphs mean that the conclusions that can be drawn are more advanced / technical.
+    
+    
+2.  Which of the following are *advantages* of *pretty plots*? (Select all that apply)
+
+    a.  **Pretty plots are perceived as easier to use.**
+    
+    b.  **Pretty plots are more accepted over time, promote creative thinking, and audiences are more tolerant of design flaws.**
+
+    c.  Extra fluff should be added to make designs pretty.
+
+    d.  One needs to study art and advanced design in order to be able to create aesthetic designs in their plots.
+    
+    
+3.  When it comes to *aesthetics*, which of the following *lessons* need to be considered?  (Select all that apply)
+
+    a.  **Be smart with color.**
+    
+    b.  **Pay attention to alignment.**
+
+    c.  **Leverage white space.**
+    
+    d.  Add extra elements for more engaging plots.
+    
+    e.  Fill entire space.
+    
+    f.  Adds colors to be more aesthetically pleasing.

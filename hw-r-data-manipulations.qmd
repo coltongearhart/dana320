@@ -12,6 +12,8 @@ source("_common.R")
 
 Submission: Completed qmd file and rendered html file via Canvas.
 
+FILE: [hw-datas-manipulations-STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/r/hw-data-manipulations-STARTER.qmd)
+
 What will be looked at for grading: Correct code, output and sufficient write-ups where indicated.
 
 ## Overview

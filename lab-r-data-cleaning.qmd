@@ -12,11 +12,13 @@ source("_common.R")
 
 Submission: Completed qmd file and rendered html file via Canvas.
 
+FILE: [lab-data-cleaning-STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/r/lab-data-cleaning-STARTER.qmd)
+
 What will be looked at for grading: Correct code, output and sufficient write-ups where indicated.
 
 ## Overview
 
-This problem applies the ideas from the notes '3.4 -- Reshaping and Combining Data', where we learned to restructure datasets, and also uses functions from **dplyr** functions from '3.3 -- Data Transformations'.
+This problem applies the ideas from the notes in @sec-notes-reshaping-and-combining-data, where we learned to restructure datasets, and also uses functions from **dplyr** functions from @sec-data-transformations.
 
 We will be working with the [midwest-gas-prices.csv](https://github.com/coltongearhart/dana320/blob/main/r/data/midwest-gas-prices.csv) data which contains the average weekly midwestern fuel prices for a gallon of regular unleaded gasoline from November 1994 to May 2012. We want to use this data to create a time series line-plot of the data that looks like the image below:
 

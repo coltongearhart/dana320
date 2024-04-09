@@ -1,4 +1,4 @@
-# Notes -- Interactive Plots
+# Notes -- Interactive Plots {#sec-interactive-plots}
 
 ```{r}
 #| label: load-prereqs

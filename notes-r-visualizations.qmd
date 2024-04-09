@@ -1,4 +1,4 @@
-# Notes -- Visualizations
+# Notes -- Visualizations  {#sec-notes-visualizations}
 
 ```{r}
 #| label: load-prereqs

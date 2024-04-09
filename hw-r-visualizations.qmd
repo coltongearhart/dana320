@@ -12,9 +12,13 @@ source("_common.R")
 
 Submission: Completed qmd file and rendered html file via Canvas.
 
+FILE: [hw-visualizations-STARTER.qmd](https://github.com/coltongearhart/dana320/blob/main/r/hw-visualizations-STARTER.qmd)
+
+What will be looked at for grading: Correct code, output and sufficient write-ups where indicated.
+
 ## Overview
 
-These problems apply the idea from the notes '3.2 -- Visualizations', where we learned how to create plots using in R using **ggplot2**.
+These problems apply the idea from the notes @sec-notes-visualizations, where we learned how to create plots using in R using **ggplot2**.
 
 We will be working with the `ggplot2::msleep` data ([documentation](https://ggplot2.tidyverse.org/reference/msleep.html)), which contains information on mammals sleep patterns as well as some categorical variables about the species. A subset is shown below:
 

@@ -12,7 +12,7 @@ Submission
 
 FILES
 
--   [hw-dashboards.docx](https://github.com/coltongearhart/dana320/blob/main/tableau/working-with-data.docx), start with any blank Tableau workbook, and the following files: [bike-sales.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/bike-sales.csv) and [folder](https://github.com/coltongearhart/dana320/blob/main/tableau/images-hw/)
+-   [hw-dashboards.docx](https://github.com/coltongearhart/dana320/blob/main/tableau/hw-dashboards.docx), start with any blank Tableau workbook, and the following files: [bike-sales.csv](https://github.com/coltongearhart/dana320/blob/main/tableau/data/bike-sales.csv) and [folder](https://github.com/coltongearhart/dana320/blob/main/tableau/images-hw/)
 
 ## Video Description
 
