@@ -2108,5 +2108,15 @@
       "module-extra-r.qmd",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Extra - Storytelling with Data</span>"
     ]
+  },
+  {
+    "objectID": "module-extra-r.html",
+    "href": "module-extra-r.html",
+    "title": "Extra R",
+    "section": "",
+    "text": "This section contains extra notes on data visualization in R.",
+    "crumbs": [
+      "Extra R"
+    ]
   }
 ]
