@@ -65,8 +65,9 @@ book:
         
     - part: module-extra-r.qmd
       chapters:
-        - extra-r-categorical-displays.qmd
         - extra-r-swd.qmd
+        - extra-r-categorical-displays.qmd
+
 
 format:
   html:
