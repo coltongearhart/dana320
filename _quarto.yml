@@ -62,6 +62,11 @@ book:
         - hw-r-interactive-plots.qmd
         - notes-r-apps.qmd
         - project-r-shiny.qmd
+        
+    - part: module-extra-r.qmd
+      chapters:
+        - extra-r-categorical-displays.qmd
+        - extra-r-swd.qmd
 
 format:
   html:

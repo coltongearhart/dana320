@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.545">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>DANA 320 –Data Visualization - 40&nbsp; Extra - Storytelling with Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./extra-r-categorical-displays.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./extra-r-categorical-displays.html">module-extra-r.qmd</a></li><li class="breadcrumb-item"><a href="./extra-r-swd.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Extra - Storytelling with Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./extra-r-categorical-displays.html">module-extra-r.qmd</a></li><li class="breadcrumb-item"><a href="./extra-r-swd.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Extra - Storytelling with Data</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">
+<span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Extra - Storytelling with Data</span>
+</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">DANA 320 –<br>Data Visualization</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-meet-your-instructor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Meet Your Instructor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-how-to-navigate-this-course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Navigate this Course</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-data-viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-readings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Readings</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-assignments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reading Assignments</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Excel</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-basic-charts-in-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Notes – Basic Charts in Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-more-charts-in-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab – More Charts in Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-plots-for-analyses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">HW – Plots for Analyses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Notes – Reports</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-pivot-tables-and-combining-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lab – Pivot Tables and Combining Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-creating-more-engaging-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">HW – Creating More Engaging Reports</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notes – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Lab – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">HW – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-tableau.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tableau</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-tableau-and-tableau-prep-builder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Install Tableau and Tableau Prep Builder</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-tableau.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Tableau</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Notes – Working with Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">HW – Working with Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">HW – Parameters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes – Dashboards</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">HW – Dashboards</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-r-and-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Install R and RStudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Notes – Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-data-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-data-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-reshaping-and-combining-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-r-data-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-data-manipulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">HW - Data Manipulations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">HW – Interactive Plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Notes – Apps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project-r-shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Group Project – Shiny</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">module-extra-r.qmd</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extra-r-categorical-displays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Extra - Categorical Displays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extra-r-swd.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Extra - Storytelling with Data</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#big-picture" id="toc-big-picture" class="nav-link active" data-scroll-target="#big-picture"><span class="header-section-number">40.1</span> Big picture</a>
+  <ul class="collapse">
+<li><a href="#encoding" id="toc-encoding" class="nav-link" data-scroll-target="#encoding"><span class="header-section-number">40.1.1</span> Encoding</a></li>
+  <li><a href="#decoding" id="toc-decoding" class="nav-link" data-scroll-target="#decoding"><span class="header-section-number">40.1.2</span> Decoding</a></li>
+  <li><a href="#final-goal" id="toc-final-goal" class="nav-link" data-scroll-target="#final-goal"><span class="header-section-number">40.1.3</span> Final goal</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">40.1.4</span> Questions</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#storytelling-with-data" id="toc-storytelling-with-data" class="nav-link" data-scroll-target="#storytelling-with-data"><span class="header-section-number">40.2</span> Storytelling with data</a>
+  <ul class="collapse">
+<li><a href="#clarity" id="toc-clarity" class="nav-link" data-scroll-target="#clarity"><span class="header-section-number">40.2.1</span> Clarity</a></li>
+  <li><a href="#cut-the-clutter" id="toc-cut-the-clutter" class="nav-link" data-scroll-target="#cut-the-clutter"><span class="header-section-number">40.2.2</span> Cut the clutter</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#graphical-perceptions" id="toc-graphical-perceptions" class="nav-link" data-scroll-target="#graphical-perceptions"><span class="header-section-number">40.3</span> Graphical perceptions</a>
+  <ul class="collapse">
+<li><a href="#graphical-comparisons-of-numeric-values" id="toc-graphical-comparisons-of-numeric-values" class="nav-link" data-scroll-target="#graphical-comparisons-of-numeric-values"><span class="header-section-number">40.3.1</span> Graphical comparisons of numeric values</a></li>
+  </ul>
+</li>
+  <li><a href="#parts-of-a-data-story" id="toc-parts-of-a-data-story" class="nav-link" data-scroll-target="#parts-of-a-data-story"><span class="header-section-number">40.4</span> Parts of a data story</a></li>
+  <li><a href="#beautiful-design" id="toc-beautiful-design" class="nav-link" data-scroll-target="#beautiful-design"><span class="header-section-number">40.5</span> Beautiful design</a></li>
+  <li>
+<a href="#redesigning-plots" id="toc-redesigning-plots" class="nav-link" data-scroll-target="#redesigning-plots"><span class="header-section-number">40.6</span> Redesigning plots</a>
+  <ul class="collapse">
+<li><a href="#read-in-data" id="toc-read-in-data" class="nav-link" data-scroll-target="#read-in-data"><span class="header-section-number">40.6.1</span> Read in data</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">40.6.2</span> Example 1</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span class="header-section-number">40.6.3</span> Example 2</a></li>
+  <li><a href="#saving-plots" id="toc-saving-plots" class="nav-link" data-scroll-target="#saving-plots"><span class="header-section-number">40.6.4</span> Saving plots</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3"><span class="header-section-number">40.6.5</span> Example 3</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Below are some notes about data visualization from a zoomed out perspective.</p>
+<section id="big-picture" class="level2" data-number="40.1"><h2 data-number="40.1" class="anchored" data-anchor-id="big-picture">
+<span class="header-section-number">40.1</span> Big picture</h2>
+<p>We can think of data visualization as a product lifecycle.</p>
+<ul>
+<li><p>Iterations are going to be a very important part of this process.</p></li>
+<li><p>We will have questions that we need to answer and want to eliminate terrible choices so that we can narrow down to potentially good choices (there are many correct ways, but eventually want to find the best).</p></li>
+<li><p>The goal is not to have something be right the first time we make it.</p></li>
+</ul>
+<embed src="extra/files/big-picture.pdf" type="application/pdf" width="100%" height="140%"><section id="encoding" class="level3" data-number="40.1.1"><h3 data-number="40.1.1" class="anchored" data-anchor-id="encoding">
+<span class="header-section-number">40.1.1</span> Encoding</h3>
+<p>Left side of process</p>
+<ul>
+<li><p>First we need to get the materials (ie the messy / raw data).</p></li>
+<li><p>Then we do a process to refine the materials (i.e.&nbsp;clean / structure data).</p></li>
+<li>
+<p>Then we can make the product (i.e.&nbsp;a plot)</p>
+<ul>
+<li><p>Aesthetic mapping (i.e.&nbsp;visually encoding information from the data to elements in the plot).</p></li>
+<li><p>Some information can go directly into the plot, but other info may require some transformations (goal is to condense the information).</p></li>
+<li><p>So we use some statistical modelling, summary statistics, aggregation, etc.</p></li>
+</ul>
+</li>
+</ul></section><section id="decoding" class="level3" data-number="40.1.2"><h3 data-number="40.1.2" class="anchored" data-anchor-id="decoding">
+<span class="header-section-number">40.1.2</span> Decoding</h3>
+<p>Right side of process</p>
+<ul>
+<li><p>This is the marketing and selling of plot.</p></li>
+<li>
+<p>The user reads the plot (i.e.&nbsp;visual decoding - processing it as colors, shapes, sizes, etc.).</p>
+<ul>
+<li>Get summary statistics from the plot into the user’s mind (i.e.&nbsp;translate something that they see into something that they know).</li>
+</ul>
+</li>
+</ul></section><section id="final-goal" class="level3" data-number="40.1.3"><h3 data-number="40.1.3" class="anchored" data-anchor-id="final-goal">
+<span class="header-section-number">40.1.3</span> Final goal</h3>
+<ul>
+<li>In data visualization, the final goal is to create plots that are accurate (left side), readable and informative (right side).</li>
+</ul></section><section id="questions" class="level3" data-number="40.1.4"><h3 data-number="40.1.4" class="anchored" data-anchor-id="questions">
+<span class="header-section-number">40.1.4</span> Questions</h3>
+<p>Here are some questions that you will need to answer along the way when creating a data visualization:</p>
+<p>Encoding (i.e.&nbsp;building)</p>
+<ul>
+<li><p>What level of aggregation is needed?</p></li>
+<li><p>Is the data sufficient / appropriate for answering research questions?</p></li>
+<li><p>What comparisons am I trying to explore?</p></li>
+<li><p>What type(s) of variables do I have?</p></li>
+<li><p>What kind / type of plots can I draw?</p></li>
+<li><p>What kind of statistical models are appropriate?</p></li>
+</ul>
+<p>Decoding (i.e.&nbsp;reading)</p>
+<ul>
+<li><p>!!! Who is the audience?</p></li>
+<li><p>What do they know in terms of understanding the plots?</p></li>
+<li><p>What do they know in terms of background / contextual knowledge?</p></li>
+<li><p>What should they know after viewing plot?</p></li>
+<li><p>!!! What is the medium where the plot will live (i.e.&nbsp;where is it going to be displayed)?</p></li>
+<li><p>!!! What communication will surround the plot (i.e.&nbsp;will there need to be an extensive caption)?</p></li>
+</ul>
+<p>Overall pointers</p>
+<ul>
+<li><p>Need to get audience ready to be able to understand the narrative we are trying to tell.</p></li>
+<li>
+<p>Need to know we are going to tell the narrative.</p>
+<ul>
+<li>Will tell differently if we are doing an elevator pitch vs the three minute spiel.</li>
+</ul>
+</li>
+</ul></section></section><section id="storytelling-with-data" class="level2" data-number="40.2"><h2 data-number="40.2" class="anchored" data-anchor-id="storytelling-with-data">
+<span class="header-section-number">40.2</span> Storytelling with data</h2>
+<p>Here is a summary some of the main ideas from the Storytelling with Data reading.</p>
+<section id="clarity" class="level3" data-number="40.2.1"><h3 data-number="40.2.1" class="anchored" data-anchor-id="clarity">
+<span class="header-section-number">40.2.1</span> Clarity</h3>
+<p>Good general reminders</p>
+<ul>
+<li><p>Don’t be afraid of whitespace.</p></li>
+<li><p>Be aware of colorblindness / color contexts.</p></li>
+<li><p>Simplicity is important (and organization).</p></li>
+<li><p>Clarity of communication is important.</p></li>
+</ul>
+<p>New concepts / ideas</p>
+<ul>
+<li>
+<p>Audience has a short window of attention (general audience may be shorter because they have no personal investment in it).</p>
+<ul>
+<li>If you’re the expert, then hopefully the window will be longer.</li>
+</ul>
+</li>
+<li><p>Cognative load theory and Gestault principles help guide decisions.</p></li>
+</ul>
+<p>Focusing the attention</p>
+<ul>
+<li>
+<p>There are preattentive attributes that we can take advantage of (e.g.&nbsp;color, size, movement, positions, angles, shape, etc.). Differences in these help us to instinctively notice very quickly (without even processing the info).</p>
+<ul>
+<li><p>If we want to highlight one aspect of a plot, make it stand out (leverage it) by using a preattentive feature.</p></li>
+<li><p>Color and shape are usually most effective for drawing attention (e.g.&nbsp;if want them to takeaway trend, then put in a bold trend line).</p></li>
+</ul>
+</li>
+<li>
+<p>Attentive attributes can make it harder to get information and also slow down the process of getting the info.</p>
+<ul>
+<li>Attributes become attentive when we use too many at once (something that we have to actively process / think about each individual object); e.g.&nbsp;using combinations of preattentive features (e.g.&nbsp;color and shape).</li>
+</ul>
+</li>
+</ul>
+<p>Color (from book)</p>
+<ul>
+<li><p>Colorblindness (most prevalent is red/green and red/blue); so, can maybe use orange/blue for -/+ or add another feature to help distinguish.</p></li>
+<li>
+<p>Context (evocation / association): Colors often naturally carry a meaning (blue for cold and red for hot)</p>
+<ul>
+<li>Don’t try to fight the way the audience will naturally want to see it.</li>
+</ul>
+</li>
+<li><p>Consistency (plot-to-plot) (if a group is green, make it green in all other plots as well).</p></li>
+</ul>
+<p>Color (not from book)</p>
+<ul>
+<li>
+<p>Colorspace (how we decompose color information): HSV</p>
+<ul>
+<li><p>Hue (color), Saturation (how much color intensity), Value (shade)</p></li>
+<li><p>i.e.&nbsp;translate data values to different properties of colors</p></li>
+</ul>
+</li>
+<li>
+<p>HSV is a good way to think about color when wanting to isolate a property of color while holding the other two constant.</p>
+<ul>
+<li>Saturation is the least effective (but can carry some quantitative meaning - i.e.&nbsp;darker intensity relates to larger vales).</li>
+</ul>
+</li>
+</ul>
+<embed src="extra/files/swd-color.pdf" type="application/pdf" width="100%" height="140%"></section><section id="cut-the-clutter" class="level3" data-number="40.2.2"><h3 data-number="40.2.2" class="anchored" data-anchor-id="cut-the-clutter">
+<span class="header-section-number">40.2.2</span> Cut the clutter</h3>
+<ul>
+<li><p>Ink to information ratio: If there is a lot going on in the plot, then it better be carrying a lot of information. (e.g.&nbsp;get rid of unneeded legends, extra tick marks, simplifying the data by aggregating)</p></li>
+<li>
+<p>Cognitive load theory says that we have finite mental resources.</p>
+<ul>
+<li><p>Intrinsic load: Difficulty of the task (i.e.&nbsp;in data viz, understanding info from a plot).</p></li>
+<li><p>Extrinsic load: Distractions / interferance with the main taks (e.g.&nbsp;reading bad labels, they have to figure out what the label means becuase we made it bad); very important to minimize this.</p></li>
+</ul>
+</li>
+<li>
+<p>Germain load: Learning how to do the task (i.e.&nbsp;if giving someone a boxplot and they don’t know how to read a boxplot, they have to first have to learn how to read it).</p>
+<ul>
+<li>We have to consider this; it is something that we can help with (i.e.&nbsp;priming them with what to look for).</li>
+</ul>
+</li>
+<li>
+<p>Gestault principles: Visual features that cause multiple objects to be perceived as groups.</p>
+<ul>
+<li><p>Simplifies plots by being able to think of things as a group instead of many individual things.</p></li>
+<li><p>We can assist with this by coloring different points for example (e.g.&nbsp;proximity, connection, similarity, continuity, enclosure, closure)</p></li>
+</ul>
+</li>
+</ul>
+<embed src="extra/files/swd-clutter.pdf" type="application/pdf" width="100%" height="140%"></section></section><section id="graphical-perceptions" class="level2" data-number="40.3"><h2 data-number="40.3" class="anchored" data-anchor-id="graphical-perceptions">
+<span class="header-section-number">40.3</span> Graphical perceptions</h2>
+<p>Here is a summary of the results of 39 different studies on data visualization</p>
+<section id="graphical-comparisons-of-numeric-values" class="level3" data-number="40.3.1"><h3 data-number="40.3.1" class="anchored" data-anchor-id="graphical-comparisons-of-numeric-values">
+<span class="header-section-number">40.3.1</span> Graphical comparisons of numeric values</h3>
+<p>Bar charts vs line charts</p>
+<ul>
+<li><p>When connecting things with lines, people see trend (even if that wasn’t the intention).</p></li>
+<li><p>We read from right to left as a continuous thing; so, if want them to think about any number of values as discrete, maybe a bar chart (so they are separate) will be better.</p></li>
+</ul>
+<p>Bias for sizes, shapes and colors</p>
+<ul>
+<li>A lot of how we percieve things depends a lot on context. Things close together or far apart can look different (and things surrounding it can change look).</li>
+</ul>
+<p>3D</p>
+<ul>
+<li>(3D pie charts) can often skew data so that size doesn’t match up to the corresponding proportion.</li>
+</ul>
+<p>Perceptual hierarchy (cleveland and mcgill (1984))</p>
+<ul>
+<li>
+<p>Perceptual hierarchy is how an audience can most accurately decode the information that you encoded in a graph</p>
+<ul>
+<li>For example, knowing what kind of comparison you want to make will help tell you which axis you need to align.</li>
+</ul>
+</li>
+<li><p>In every plot we try to encode numeric info (even with categorical data, we look at counts or frequencies).</p></li>
+<li>
+<p>Example: Can I accurately compare magnitudes of to values graphically? If we have the numbers 5 vs 2, we know that 5 is 2.5 times as large as 2 (this is the information that we want to encode in a visual). Going from best to worst:</p>
+<ul>
+<li><p>Position on a scale in most accurate (because we can “look up” the values).</p></li>
+<li><p>Position on unshared scales are also pretty good (can still look up values; axis should have labels).</p></li>
+<li><p>Length</p></li>
+<li><p>Angle</p></li>
+<li><p>Area</p></li>
+<li><p>Volume (projection)</p></li>
+<li><p>Shade (probably going to get the least accurate information returned)</p></li>
+</ul>
+</li>
+<li><p>Several of the above are used in the most common graphs.</p></li>
+</ul>
+<p>Special consideration for categorical data visualization (bars vs pies)</p>
+<ul>
+<li>
+<p>Comparing parts of a single population.</p>
+<ul>
+<li><p>Options: Pie, stacked bar chart, regular bar chart</p></li>
+<li><p>Pie charts are best for getting proportions (easier when have no axis / scale, and easier to think of whole pie chart as 1). But often this isn’t the most important question we are trying to answer.</p></li>
+<li><p>Bar charts are best for relative comparisons (i.e.&nbsp;group vs group).</p></li>
+</ul>
+</li>
+<li>
+<p>Parts of multiple groups</p>
+<ul>
+<li><p>Options: Pies, stacked bars, proportionally stacked bars, dodged bar chart</p></li>
+<li><p>Never use pies</p></li>
+<li><p>Stacked and proportionally stacked bars are good with unshared scales and when wanting to look at conditional proportions (i.e.&nbsp;within group comparisions).</p></li>
+<li><p>Position dodge can be good with ordinal data and maybe want to show trend (? connecting bars maybe)</p></li>
+</ul>
+</li>
+</ul></section></section><section id="parts-of-a-data-story" class="level2" data-number="40.4"><h2 data-number="40.4" class="anchored" data-anchor-id="parts-of-a-data-story">
+<span class="header-section-number">40.4</span> Parts of a data story</h2>
+<p>GOAL: Tell the audience what you’re going to tell them, tell them, and then tell them what you told them.</p>
+<p>Here are the parts that we need to have in the story:</p>
+<p>Beginning</p>
+<ul>
+<li>Context (observations, measurments, time frame, etc.)</li>
+</ul>
+<p>Middle</p>
+<ul>
+<li><p>Visualization</p></li>
+<li><p>Aesthetic mapping: Describe the plot attributes (i.e.&nbsp;how the data is connected to the plot).</p></li>
+<li><p>Explain what are the trends, comparisons, outliers, etc. of interest?</p></li>
+</ul>
+<p>End</p>
+<ul>
+<li><p>So what? Give them a takeaway.</p></li>
+<li><p>What should the audience know / think / do after the presentation?</p></li>
+</ul>
+<p>Causal statements</p>
+<ul>
+<li><p>Have to be careful not to overstate what the data tells you.</p></li>
+<li><p>Can maybe include some reference items or annotations to help support our viewpoint.</p></li>
+</ul>
+<p>3 min stories with data visualization</p>
+<ul>
+<li><p>Can frame our talk like we are the expert and the audience should believe our claims.</p></li>
+<li><p>The evidence is in front of them in the form of our plot.</p></li>
+</ul>
+<embed src="extra/files/swd-storytelling.pdf" type="application/pdf" width="100%" height="140%"></section><section id="beautiful-design" class="level2" data-number="40.5"><h2 data-number="40.5" class="anchored" data-anchor-id="beautiful-design">
+<span class="header-section-number">40.5</span> Beautiful design</h2>
+<p>Tufte’s principles for analytical design</p>
+<ol type="1">
+<li>Comparisons</li>
+</ol>
+<ul>
+<li><p>What’s the difference?</p></li>
+<li><p>Talking about only one thing just gives its properties and isn’t very interesting.</p></li>
+</ul>
+<ol start="2" type="1">
+<li>Structure / mechanism / causality</li>
+</ol>
+<ul>
+<li>Very good visualization if can say why something happened, but be very careful to not say too much.</li>
+</ul>
+<ol start="3" type="1">
+<li>Multivariate</li>
+</ol>
+<ul>
+<li>What are the relationships?</li>
+</ul>
+<ol start="4" type="1">
+<li>Integration of evidence</li>
+</ol>
+<ul>
+<li><p>What is the context?</p></li>
+<li><p>Make it easy for the audience to get the information (e.g.&nbsp;directly labeling lines on plots can be easier than using a legend underneath).</p></li>
+</ul>
+<ol start="5" type="1">
+<li>Documentation</li>
+</ol>
+<ul>
+<li><p>Why should the audience trust it?</p></li>
+<li><p>Good documentation gives it credibility.</p></li>
+</ul>
+<ol start="6" type="1">
+<li>Content matters most of all</li>
+</ol>
+<ul>
+<li><p>Why should the audience care?!</p></li>
+<li><p>Make sure that the content is relevant.</p></li>
+</ul></section><section id="redesigning-plots" class="level2" data-number="40.6"><h2 data-number="40.6" class="anchored" data-anchor-id="redesigning-plots">
+<span class="header-section-number">40.6</span> Redesigning plots</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="read-in-data" class="level3" data-number="40.6.1"><h3 data-number="40.6.1" class="anchored" data-anchor-id="read-in-data">
+<span class="header-section-number">40.6.1</span> Read in data</h3>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read in dataset in with desired column attributes</span></span>
+<span><span class="va">data_ff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"tutorials/reshaping-and-combining-data/www/french-fries.csv"</span>, col_names <span class="op">=</span> <span class="cn">TRUE</span>, col_types <span class="op">=</span> <span class="st">"cfffnnnnnn"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="example-1" class="level3" data-number="40.6.2"><h3 data-number="40.6.2" class="anchored" data-anchor-id="example-1">
+<span class="header-section-number">40.6.2</span> Example 1</h3>
+<p>To start, we will make plot similar to one that we have seen before in notes</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make line plot of potato flavor over time, one line per subject with average line</span></span>
+<span></span>
+<span><span class="co"># first we need one row per time per person (two batches)</span></span>
+<span><span class="va">data_subject</span> <span class="op">&lt;-</span> <span class="va">data_ff</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">subject</span>, <span class="va">time</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>avg_potato <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">potato</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># overall average potato score at each time</span></span>
+<span><span class="va">data_potato</span> <span class="op">&lt;-</span> <span class="va">data_ff</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>avg_potato <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">potato</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># line plot with one line per person with average per week</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_subject</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">avg_potato</span>,</span>
+<span>                group <span class="op">=</span> <span class="va">subject</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_potato</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">avg_potato</span>,</span>
+<span>                group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>            size <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>            color <span class="op">=</span> <span class="st">"brown"</span>, <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Checklist of things we need to fix / add to plot</p>
+<ul>
+<li><p>Coloring each line doesn’t add anything useful and makes it too busy.</p></li>
+<li><p>Add title and fix axis labels</p></li>
+<li><p>Legend of some kind for red line</p></li>
+<li><p>Make bold line stand out more</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>Here is how we can do the above in ggplot (NOTE: going overboard slightly for demonstration purposes).</p>
+<ul>
+<li><p>Can use <code>alpha</code> argument to make lines lighter (makes more transparent: i.e.&nbsp;plays with saturation of color).</p></li>
+<li>
+<p>One way to add a label on graph: Can create another dataframe that is 1 x 3 and has an <code>x</code>, <code>y</code>, and a <code>label</code>. Then use <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code> (which works like <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>, but with words).</p>
+<ul>
+<li>For simple case (cause we only want one label): use <code><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate()</a></code>, which just gives the info above directly.</li>
+</ul>
+</li>
+<li>
+<p>Can then add attributes to the annotation to make it clear that it goes with bolded average line.</p>
+<ul>
+<li>Can use text parsing things within labels / axis titles (such as <code>\n</code> line break).</li>
+</ul>
+</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create improved plot</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_subject</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">avg_potato</span>,</span>
+<span>                group <span class="op">=</span> <span class="va">subject</span><span class="op">)</span>,</span>
+<span>            color <span class="op">=</span> <span class="st">"brown"</span>,</span>
+<span>            alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">data_potato</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">avg_potato</span>,</span>
+<span>                group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>            size <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>            color <span class="op">=</span> <span class="st">"brown"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>           x <span class="op">=</span> <span class="fl">5.5</span>, y <span class="op">=</span> <span class="fl">8</span>, label <span class="op">=</span> <span class="st">"Overall average score"</span>,</span>
+<span>           color <span class="op">=</span> <span class="st">"brown"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Potato flavor profiles over week"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="st">"by subject"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Week"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Potato flavor score"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="example-2" class="level3" data-number="40.6.3"><h3 data-number="40.6.3" class="anchored" data-anchor-id="example-2">
+<span class="header-section-number">40.6.3</span> Example 2</h3>
+<p>Now we are going to convert the data to long format where flavor and score variables replace 5 flavor columns.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># reshape data</span></span>
+<span><span class="co"># -&gt; then find average for each subject within a flavor category each week</span></span>
+<span><span class="va">data_long</span> <span class="op">&lt;-</span> <span class="va">data_ff</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">potato</span><span class="op">:</span><span class="va">painty</span>, names_to <span class="op">=</span> <span class="st">"flavor_type"</span>, values_to <span class="op">=</span> <span class="st">"flavor_score"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">subject</span>, <span class="va">time</span>, <span class="va">flavor_type</span>, <span class="va">treatment</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>avg_score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">flavor_score</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># lineplot for each persons score over time, broken down by flavor and oil treatment</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_long</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">avg_score</span>,</span>
+<span>                group <span class="op">=</span> <span class="va">subject</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">flavor_type</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># a basic plot with average "smoother" for each flavor/oil combination</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_long</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">avg_score</span>,</span>
+<span>                group <span class="op">=</span> <span class="va">subject</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_long</span>,</span>
+<span>              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                  y <span class="op">=</span> <span class="va">avg_score</span>,</span>
+<span>                  group <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                  color <span class="op">=</span> <span class="va">flavor_type</span><span class="op">)</span>,</span>
+<span>              span <span class="op">=</span> <span class="fl">2</span>, method <span class="op">=</span> <span class="st">"loess"</span>, se<span class="op">=</span><span class="cn">FALSE</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">flavor_type</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># controlling scales and themes</span></span>
+<span><span class="co"># -&gt; this uses some of the same tricks we used in example 1 -&gt; but still not good and needs to be fixed</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_long</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">avg_score</span>,</span>
+<span>                group <span class="op">=</span> <span class="va">subject</span><span class="op">)</span>,</span>
+<span>            alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_long</span>,</span>
+<span>              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                  y <span class="op">=</span> <span class="va">avg_score</span>,</span>
+<span>                  group <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                  color <span class="op">=</span> <span class="va">flavor_type</span><span class="op">)</span>,</span>
+<span>              span <span class="op">=</span> <span class="fl">2</span>, method <span class="op">=</span> <span class="st">"loess"</span>, se<span class="op">=</span><span class="cn">FALSE</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">flavor_type</span> <span class="op">~</span> <span class="va">treatment</span>,</span>
+<span>             scale <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Checklist of things to improve</p>
+<ul>
+<li><p>Cut legend</p></li>
+<li><p>Clean up axis ticks / labels</p></li>
+<li><p>Add title / axes</p></li>
+<li><p>Arrange facet labels</p></li>
+<li><p>Oil labels</p></li>
+</ul>
+<p>Note</p>
+<ul>
+<li>
+<p>All things that determine how the plot looks that are not <code>geom</code> related are controlled in a <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code> statement.</p>
+<ul>
+<li>Can use similarly named arguements to control certain elements (i.e.&nbsp;groups of arguments), unless we want to determine how the geoms are scaled.</li>
+</ul>
+</li>
+</ul>
+<p>Here is how we will make the needed improvements.</p>
+<ul>
+<li>
+<p>When making facetted graphs, you want to have a lot of control over how the narrative unfolds.</p>
+<ul>
+<li><p>So depending on how we are presenting it (maybe a paper), it will determine how we make plot.</p></li>
+<li><p>If presenting, we can walk audience through more; but if writing, then maybe want to split into several plots so not so much.</p></li>
+<li><p>Regardless, it is helpful to include subtitle explaining what facets mean.</p></li>
+<li><p>For facet labels, occasionally it is better to go back to the data (the actual data values) and change them (because plot will inherit them)</p></li>
+</ul>
+</li>
+<li><p><code>legend.position = c(0.2, 0.8)</code>: Puts legend 20% from right and 80% from bottom</p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous()</a></code>: Use for a continuous y scale, can control tick marks, breaks and labels.</p></li>
+<li><p>Can add documentation via a caption in the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> (just puts a little blurb in the corner).</p></li>
+<li><p>If there is something that we don’t know how to do, we can look at the documentation. For example, <code>theme(strip background = &lt; ... &gt;)</code> works with the bacground of facet labels.</p></li>
+<li>
+<p>Can also remove things from certain elements with <code><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank()</a></code>.</p>
+<ul>
+<li>It is better to remove things like axis titles in the theme rather than in the labels (i.e.&nbsp;make an empty string x = ““) because it will remove it from the construction of the graph and not leave space for it</li>
+</ul>
+</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># clean treatment strings</span></span>
+<span><span class="va">data_long</span> <span class="op">%&lt;&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Oil"</span>, <span class="va">treatment</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># make improved plot</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_long</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">avg_score</span>,</span>
+<span>                group <span class="op">=</span> <span class="va">subject</span><span class="op">)</span>,</span>
+<span>            alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_long</span>,</span>
+<span>              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,</span>
+<span>                  y <span class="op">=</span> <span class="va">avg_score</span>,</span>
+<span>                  group <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                  color <span class="op">=</span> <span class="va">flavor_type</span><span class="op">)</span>,</span>
+<span>              span <span class="op">=</span> <span class="fl">2</span>, method <span class="op">=</span> <span class="st">"loess"</span>, se<span class="op">=</span><span class="cn">FALSE</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">flavor_type</span> <span class="op">~</span> <span class="va">treatment</span>,</span>
+<span>             scale <span class="op">=</span> <span class="st">"free_y"</span>,</span>
+<span>             switch <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">16</span><span class="op">)</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">16</span>, by <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"All flavor profiles over week"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="st">"faceted by flavor type and oil"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Week"</span>, </span>
+<span>       y <span class="op">=</span> <span class="st">"Flavor score"</span>, </span>
+<span>       caption <span class="op">=</span> <span class="st">"Data source: ISU Study 2003\nPlot by me"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>        strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="saving-plots" class="level3" data-number="40.6.4"><h3 data-number="40.6.4" class="anchored" data-anchor-id="saving-plots">
+<span class="header-section-number">40.6.4</span> Saving plots</h3>
+<ul>
+<li>
+<p>Pixel based graphs (e.g.&nbsp;png): Save a bunch of boxes of color and looks granulated when zooming in (they don’t have high resolution).</p>
+<ul>
+<li><p>Copying the graph makes it a pixel based graph.</p></li>
+<li><p>Fix: Save at a higher resolution or save with the size that you will print it to (e.g.&nbsp;a poster).</p></li>
+</ul>
+</li>
+<li>
+<p><code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a></code> does a better job than just exporting it.</p>
+<ul>
+<li><p>Can make it have a higher resolution by specifying the dpi argument (dots per inch): Max is 900. Note that files get pretty big though with higher dpi.</p></li>
+<li><p>Vector based graphs: Save the actual attributes of all of the lines, dots, and other features of plot and they redraw it every time you look at it. These are more finnacy with where you can put the saved image (e.g.&nbsp;pdf).</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error in `ggsave()`:
+! Can't save to &lt; path &gt;.
+ℹ Either supply `filename` with a file extension or supply `device`.</code></pre>
+</div>
+</div>
+</section><section id="example-3" class="level3" data-number="40.6.5"><h3 data-number="40.6.5" class="anchored" data-anchor-id="example-3">
+<span class="header-section-number">40.6.5</span> Example 3</h3>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load data</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># look at example dataset</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,704
+Columns: 6
+$ country   &lt;fct&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", …
+$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …
+$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …
+$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…
+$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…
+$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …</code></pre>
+</div>
+</div>
+<p>Example plots that need design improvements and attention to analytical design principles.</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 1. Timeplots of life expectancy</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">lifeExp</span>,</span>
+<span>                group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2. Scatterplot of relationship between gdp and life expectancy</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdpPercap</span>,</span>
+<span>                 y <span class="op">=</span> <span class="va">lifeExp</span>,</span>
+<span>                 size <span class="op">=</span> <span class="va">pop</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 3. Boxplots of three variables for each countries, by continent, in 2007</span></span>
+<span><span class="va">data_2007</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">==</span> <span class="fl">2007</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">lifeExp</span><span class="op">:</span><span class="va">gdpPercap</span>, names_to <span class="op">=</span> <span class="st">"metric"</span>, values_to <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_2007</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">continent</span>,</span>
+<span>                   y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span> <span class="va">.</span> <span class="op">~</span> <span class="va">metric</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here are the redesigns.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 1. Timeplots of life expectancy</span></span>
+<span></span>
+<span><span class="co"># GOAL -&gt; look at life expectancy per year by continent</span></span>
+<span><span class="co"># -&gt; include an average trend line for each continent</span></span>
+<span></span>
+<span><span class="co"># make plot to show above</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">lifeExp</span>,</span>
+<span>                group <span class="op">=</span> <span class="va">country</span>,</span>
+<span>                color <span class="op">=</span> <span class="va">continent</span><span class="op">)</span>,</span>
+<span>            alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>,</span>
+<span>                  y <span class="op">=</span> <span class="va">lifeExp</span>,</span>
+<span>                  group <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                  color <span class="op">=</span> <span class="va">continent</span><span class="op">)</span>,</span>
+<span>              span <span class="op">=</span> <span class="fl">2</span>, method <span class="op">=</span> <span class="st">"loess"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">$</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">.</span> <span class="op">~</span> <span class="va">continent</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Life expectancy by country"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="st">"by continent"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Year"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Life expectancy"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2. Scatterplot of relationship between gdp and life expectancy. </span></span>
+<span></span>
+<span><span class="co"># GOAL: color countries by continent and fix pop scale to be readable</span></span>
+<span><span class="co"># -&gt; only look at first / last year of data to see how the trends change (and so less overplotting of all country / year combos)</span></span>
+<span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">.</span><span class="op">$</span><span class="va">year</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">.</span><span class="op">$</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdpPercap</span>,</span>
+<span>                 y <span class="op">=</span> <span class="va">lifeExp</span>,</span>
+<span>                 size <span class="op">=</span> <span class="va">pop</span> <span class="op">/</span> <span class="fl">1000000</span>,</span>
+<span>                 color <span class="op">=</span> <span class="va">continent</span><span class="op">)</span>,</span>
+<span>             alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/comma.html">comma</a></span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html">scale_size_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/comma.html">comma</a></span><span class="op">)</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="va">year</span> <span class="op">~</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Life expectancy vs GDP per capita"</span>,</span>
+<span>       size <span class="op">=</span> <span class="st">"Population (in millions)"</span>,</span>
+<span>       color <span class="op">=</span> <span class="st">"Continent"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"GDP per capita"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Life Expectancy"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 3. Boxplots of three variables for each countries, by continent, in 2007</span></span>
+<span></span>
+<span><span class="co"># GOAL: horizontal boxplots with better labels and scales</span></span>
+<span></span>
+<span><span class="va">data_2007</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">metric</span> <span class="op">==</span> <span class="st">"pop"</span> <span class="op">~</span> <span class="va">value</span> <span class="op">/</span> <span class="fl">1000000</span>,</span>
+<span>                           .default <span class="op">=</span> <span class="va">value</span><span class="op">)</span>,</span>
+<span>         metric <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">metric</span> <span class="op">==</span> <span class="st">"gdpPercap"</span>  <span class="op">~</span> <span class="st">"GDP per capita"</span>,</span>
+<span>                            <span class="va">metric</span> <span class="op">==</span> <span class="st">"lifeExp"</span> <span class="op">~</span> <span class="st">"Life expectancy"</span>,</span>
+<span>                            <span class="va">metric</span> <span class="op">==</span> <span class="st">"pop"</span> <span class="op">~</span> <span class="st">"Population (in millions)"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">value</span>,</span>
+<span>                   y <span class="op">=</span> <span class="va">continent</span>,</span>
+<span>                   color <span class="op">=</span> <span class="va">continent</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="va">metric</span> <span class="op">~</span> <span class="va">.</span>, scales <span class="op">=</span> <span class="st">"free_x"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Metrics by continent for 2007"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Value"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Continent"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-swd_files/figure-html/unnamed-chunk-11-3.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./extra-r-categorical-displays.html" class="pagination-link  aria-label=" categorical="" displays="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Extra - Categorical Displays</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,4 @@
+# Extra R {.unnumbered}
+
+This section contains extra notes on data visualization in R.
+

@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.545">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>DANA 320 –Data Visualization - 39&nbsp; Extra - Categorical Displays</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./extra-r-swd.html" rel="next">
+<link href="./project-r-shiny.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./extra-r-categorical-displays.html">module-extra-r.qmd</a></li><li class="breadcrumb-item"><a href="./extra-r-categorical-displays.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Extra - Categorical Displays</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./extra-r-categorical-displays.html">module-extra-r.qmd</a></li><li class="breadcrumb-item"><a href="./extra-r-categorical-displays.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Extra - Categorical Displays</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">
+<span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Extra - Categorical Displays</span>
+</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">DANA 320 –<br>Data Visualization</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-meet-your-instructor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Meet Your Instructor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-how-to-navigate-this-course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Navigate this Course</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-data-viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-readings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Readings</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-assignments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reading Assignments</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Excel</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Install Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-basic-charts-in-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Notes – Basic Charts in Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-more-charts-in-excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab – More Charts in Excel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-plots-for-analyses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">HW – Plots for Analyses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Notes – Reports</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-pivot-tables-and-combining-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lab – Pivot Tables and Combining Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-creating-more-engaging-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">HW – Creating More Engaging Reports</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notes – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Lab – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-excel-dynamic-charts-and-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">HW – Dynamic Charts and Dashboards</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-tableau.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tableau</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-tableau-and-tableau-prep-builder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Install Tableau and Tableau Prep Builder</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-tableau.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Tableau</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Notes – Working with Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-working-with-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">HW – Working with Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notes – Parameters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">HW – Parameters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Notes – Dashboards</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-tableau-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">HW – Dashboards</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./module-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install-r-and-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Install R and RStudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Notes – Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">HW - Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-data-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Notes – Data Transformations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-data-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">HW - Data Transformations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-reshaping-and-combining-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Notes – Reshaping and Combining Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-r-data-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lab - Data Cleaning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-data-manipulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">HW - Data Manipulations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Notes – Interactive Plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hw-r-interactive-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">HW – Interactive Plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes-r-apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Notes – Apps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project-r-shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Group Project – Shiny</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">module-extra-r.qmd</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extra-r-categorical-displays.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Extra - Categorical Displays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extra-r-swd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Extra - Storytelling with Data</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">39.1</span> Data</a>
+  <ul class="collapse">
+<li><a href="#read-in-data" id="toc-read-in-data" class="nav-link" data-scroll-target="#read-in-data"><span class="header-section-number">39.1.1</span> Read in data</a></li>
+  <li><a href="#clean-data" id="toc-clean-data" class="nav-link" data-scroll-target="#clean-data"><span class="header-section-number">39.1.2</span> Clean data</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations"><span class="header-section-number">39.2</span> Visualizations</a>
+  <ul class="collapse">
+<li><a href="#heat-map" id="toc-heat-map" class="nav-link" data-scroll-target="#heat-map"><span class="header-section-number">39.2.1</span> Heat map</a></li>
+  <li><a href="#proportionally-stacked-barplot" id="toc-proportionally-stacked-barplot" class="nav-link" data-scroll-target="#proportionally-stacked-barplot"><span class="header-section-number">39.2.2</span> Proportionally stacked Barplot</a></li>
+  <li><a href="#mosaic-plot" id="toc-mosaic-plot" class="nav-link" data-scroll-target="#mosaic-plot"><span class="header-section-number">39.2.3</span> Mosaic plot</a></li>
+  <li><a href="#proportionally-stacked-barplot-2" id="toc-proportionally-stacked-barplot-2" class="nav-link" data-scroll-target="#proportionally-stacked-barplot-2"><span class="header-section-number">39.2.4</span> Proportionally stacked barplot 2</a></li>
+  <li><a href="#heat-map-2" id="toc-heat-map-2" class="nav-link" data-scroll-target="#heat-map-2"><span class="header-section-number">39.2.5</span> Heat map 2</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># set default plot theme</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># define 'not in' logical check</span></span>
+<span><span class="va">`%!in%`</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Negate</a></span><span class="op">(</span><span class="va">`%in%`</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="data" class="level2" data-number="39.1"><h2 data-number="39.1" class="anchored" data-anchor-id="data">
+<span class="header-section-number">39.1</span> Data</h2>
+<p>For these notes, we will be continuing to use the BRFSS data to build a few different categorical variable displays. This time we will be using the data directly from the source <a href="CDC website">https://www.cdc.gov/brfss/annual_data/annual_2017.html</a> to download the data from the full 2017 survey. Please download from the link labeled “2017 BRFSS Data (SAS Transport Format)” [ZIP size 101 MB]. Extract the files and retrieve the file named “LLCP2017.XPT” (note this file is a large file, 1.29 GB).</p>
+<p>Once the data is loaded, we will make the plots described in each of the parts parts. For each of the plots above, include a write-up should discussing the plot image and one paragraph summarizing what the plot tells us in the context of the data.</p>
+<section id="read-in-data" class="level3" data-number="39.1.1"><h3 data-number="39.1.1" class="anchored" data-anchor-id="read-in-data">
+<span class="header-section-number">39.1.1</span> Read in data</h3>
+<p>The Behavioral Risk Factor Surveillance System (BRFSS) is a nationally conducted survey by the Centers for Disease Control and Prevention (CDC). Data about various health related risk factors and chronic health conditions were collected from telephone surveys. More information can be found in the <a href="codebook">https://www.cdc.gov/brfss/annual_data/2017/pdf/codebook17_llcp-v2-508.pdf</a>.</p>
+<p>Here is a first look at the raw data taken directly from the CDC website for the variables of interest.</p>
+<!-- ## ---- Read in data ----  -->
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read in smaller dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"extra/data/LLCP2017-selected.RData"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># preview dataset</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data_raw</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 450,016
+Columns: 10
+$ month           &lt;chr&gt; "01", "01", "01", "02", "01", "01", "01", "02", "01", …
+$ sex             &lt;dbl&gt; 2, 1, 1, 2, 2, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 1, 2, …
+$ general_health  &lt;dbl&gt; 2, 2, 3, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 1, 4, 1, 2, 5, …
+$ pregnant        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ joint_pain      &lt;dbl&gt; 2, NA, NA, NA, NA, NA, 2, NA, 9, NA, NA, 5, 6, 2, NA, …
+$ bmi             &lt;dbl&gt; 3, 3, 3, 3, 2, 3, 3, NA, 2, 3, 2, 4, 2, 2, 3, 2, 2, 3,…
+$ n_children      &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ edu             &lt;dbl&gt; 4, 4, 1, 1, 1, 2, 3, 2, 2, 2, 2, 2, 3, 4, 2, 2, 4, 2, …
+$ physical_health &lt;dbl&gt; 88, 88, 88, 88, 14, 6, 88, 88, 88, 2, 88, 88, 5, 88, 8…
+$ mental_health   &lt;dbl&gt; 88, 88, 88, 88, 88, 88, 88, 88, 25, 1, 88, 88, 88, 88,…</code></pre>
+</div>
+</div>
+</section><section id="clean-data" class="level3" data-number="39.1.2"><h3 data-number="39.1.2" class="anchored" data-anchor-id="clean-data">
+<span class="header-section-number">39.1.2</span> Clean data</h3>
+<p>Looking at the codebook, we see that data values for each variable do not have meaningful labels. <img src="images/extra-categorical-codebook.png" class="img-fluid"> These needed to be recoded to readable values before any visualizations can be created. Also note that the raw frequencies were used to calculate weighted relative frequencies, which would have been used in any formal analysis. But all of the following visualizations just used the raw, unweighted frequencies.</p>
+<p>When recoding the data, we can use <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code> to map levels to meaningful labels.</p>
+<ul>
+<li><p>In doing so, only need <code>x</code> argument (implicitly this converts the variable to character).</p></li>
+<li><p>Use <code>levels</code> and <code>labels</code> combo together to map original levels to new levels given in labels. Can use this to combine levels into a single new level by just repeating the label.</p></li>
+<li><p>If use less levels than there are in the original data, data values without a corresponding level will become <code>NA</code>.</p></li>
+<li><p>Note that we have to list ALL levels of the original data; so, with numeric variables where we are discretizing, would want to use <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code>.</p></li>
+<li><p>If you have ordinal variables (rather than nominal), these needed to be converted to ordered factors with <code><a href="https://rdrr.io/r/base/factor.html">ordered()</a></code>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># recode data</span></span>
+<span><span class="co"># -&gt; looked at codebook for what the mapping should be</span></span>
+<span><span class="co"># variable specifics</span></span>
+<span><span class="co"># -&gt; refused and unsure were put at the bottom of the scales</span></span>
+<span><span class="co"># -&gt; for general_health, used rev() so didn't have to write the labels and levels backwards </span></span>
+<span><span class="co"># -&gt; for physical_health and mental_health, case_when() converts ranges of numeric values to character values</span></span>
+<span><span class="co"># --&gt; then wrap with ordered() to make it into an ordered factor</span></span>
+<span><span class="co"># --&gt; can specify the order using levels argument</span></span>
+<span><span class="co"># --&gt; don't need to use labels unless changing the mapping (which we aren't)</span></span>
+<span><span class="va">data_survey</span> <span class="op">&lt;-</span> <span class="va">data_raw</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    month <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">month</span>,</span>
+<span>                   levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span>, <span class="fl">10</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>                   labels <span class="op">=</span> <span class="va">month.abb</span><span class="op">)</span>,</span>
+<span>    sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>,</span>
+<span>                 levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>,</span>
+<span>                 labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Refused"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    general_health <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">ordered</a></span><span class="op">(</span><span class="va">general_health</span>,</span>
+<span>                            levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">7</span>, <span class="fl">9</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                            labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Excellent"</span>, <span class="st">"Very Good"</span>, <span class="st">"Good"</span>, <span class="st">"Fair"</span>, <span class="st">"Poor"</span>, <span class="st">"Unsure"</span> ,<span class="st">"Refused"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    pregnant <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">pregnant</span>,</span>
+<span>                      levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">7</span>, <span class="fl">9</span><span class="op">)</span>,</span>
+<span>                      labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Unsure"</span>, <span class="st">"Refused"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    joint_pain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">ordered</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">joint_pain</span>,</span>
+<span>                        levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">99</span>, <span class="fl">77</span>, <span class="fl">0</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>,</span>
+<span>                        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Refused"</span>, <span class="st">"Unsure"</span>, <span class="st">"No pain or aching 0"</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span>, <span class="st">"As bad as it can be 10"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    bmi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">ordered</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">bmi</span>,</span>
+<span>                 levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>,</span>
+<span>                 labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Underweight"</span>, <span class="st">"Normal weight"</span>, <span class="st">"Overweight"</span>, <span class="st">"Obese"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span></span>
+<span>    n_children <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">ordered</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">n_children</span>,</span>
+<span>                        levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>,</span>
+<span>                        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Unsure"</span>, <span class="st">"None"</span>, <span class="st">"One"</span>, <span class="st">"Two"</span>, <span class="st">"Three"</span>,<span class="st">" Four"</span>, <span class="st">"Five or more"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    edu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">ordered</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">edu</span>,</span>
+<span>                 levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>,</span>
+<span>                 labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Unsure"</span>, <span class="st">"Did not graduate high school"</span>, <span class="st">"Graduated high school"</span>, <span class="st">"Some college"</span>, <span class="st">"Graduated college"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    physical_health <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">ordered</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">physical_health</span> <span class="op">==</span> <span class="fl">99</span> <span class="op">~</span> <span class="st">"Refused"</span>,</span>
+<span>                                            <span class="va">physical_health</span> <span class="op">==</span> <span class="fl">77</span> <span class="op">~</span> <span class="st">"Unsure"</span>,</span>
+<span>                                            <span class="va">physical_health</span> <span class="op">==</span> <span class="fl">88</span> <span class="op">~</span> <span class="st">"None"</span>,</span>
+<span>                                            <span class="va">physical_health</span> <span class="op">&lt;=</span> <span class="fl">5</span> <span class="op">~</span> <span class="st">"&lt; 5"</span>,</span>
+<span>                                            <span class="va">physical_health</span> <span class="op">&lt;=</span> <span class="fl">10</span> <span class="op">~</span> <span class="st">"6-10"</span>,</span>
+<span>                                            <span class="va">physical_health</span> <span class="op">&lt;=</span> <span class="fl">15</span> <span class="op">~</span> <span class="st">"11-15"</span>,</span>
+<span>                                            <span class="va">physical_health</span> <span class="op">&lt;=</span> <span class="fl">20</span> <span class="op">~</span> <span class="st">"16-20"</span>,</span>
+<span>                                            <span class="va">physical_health</span> <span class="op">&lt;=</span> <span class="fl">25</span> <span class="op">~</span> <span class="st">"21-25"</span>,</span>
+<span>                                            <span class="va">physical_health</span> <span class="op">&lt;=</span> <span class="fl">30</span> <span class="op">~</span> <span class="st">"26-30"</span><span class="op">)</span>,</span>
+<span>                              levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"None"</span>, <span class="st">"&lt; 5"</span>, <span class="st">"6-10"</span>, <span class="st">"11-15"</span>, <span class="st">"16-20"</span>, <span class="st">"21-25"</span>, <span class="st">"26-30"</span>, <span class="st">"Unsure"</span>,<span class="st">"Refused"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    mental_health <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">ordered</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">mental_health</span> <span class="op">==</span> <span class="fl">99</span> <span class="op">~</span> <span class="st">"Refused"</span>,</span>
+<span>                                          <span class="va">mental_health</span> <span class="op">==</span> <span class="fl">77</span> <span class="op">~</span> <span class="st">"Unsure"</span>,</span>
+<span>                                          <span class="va">mental_health</span> <span class="op">==</span> <span class="fl">88</span> <span class="op">~</span> <span class="st">"None"</span>,</span>
+<span>                                          <span class="va">mental_health</span> <span class="op">&lt;=</span> <span class="fl">5</span> <span class="op">~</span> <span class="st">"&lt; 5"</span>,</span>
+<span>                                          <span class="va">mental_health</span> <span class="op">&lt;=</span> <span class="fl">10</span> <span class="op">~</span> <span class="st">"6-10"</span>,</span>
+<span>                                          <span class="va">mental_health</span> <span class="op">&lt;=</span> <span class="fl">15</span> <span class="op">~</span> <span class="st">"11-15"</span>,</span>
+<span>                                          <span class="va">mental_health</span> <span class="op">&lt;=</span> <span class="fl">20</span> <span class="op">~</span> <span class="st">"16-20"</span>,</span>
+<span>                                          <span class="va">mental_health</span> <span class="op">&lt;=</span> <span class="fl">25</span> <span class="op">~</span> <span class="st">"21-25"</span>,</span>
+<span>                                          <span class="va">mental_health</span> <span class="op">&lt;=</span> <span class="fl">30</span> <span class="op">~</span> <span class="st">"26-30"</span><span class="op">)</span>,</span>
+<span>                            levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"None"</span>, <span class="st">"&lt; 5"</span>, <span class="st">"6-10"</span>, <span class="st">"11-15"</span>, <span class="st">"16-20"</span>, <span class="st">"21-25"</span>, <span class="st">"26-30"</span>, <span class="st">"Unsure"</span>,<span class="st">"Refused"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># preview dataset</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data_survey</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 450,016
+Columns: 10
+$ month           &lt;fct&gt; Jan, Jan, Jan, Feb, Jan, Jan, Jan, Feb, Jan, Jan, Jan,…
+$ sex             &lt;fct&gt; Female, Male, Male, Female, Female, Male, Male, Female…
+$ general_health  &lt;ord&gt; Very Good, Very Good, Good, Fair, Fair, Good, Good, Go…
+$ pregnant        &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ joint_pain      &lt;ord&gt; 2, NA, NA, NA, NA, NA, 2, NA, 9, NA, NA, 5, 6, 2, NA, …
+$ bmi             &lt;ord&gt; Overweight, Overweight, Overweight, Overweight, Normal…
+$ n_children      &lt;ord&gt; None, None, None, None, None, None, None, None, None, …
+$ edu             &lt;ord&gt; Graduated college, Graduated college, Did not graduate…
+$ physical_health &lt;ord&gt; None, None, None, None, 11-15, 6-10, None, None, None,…
+$ mental_health   &lt;ord&gt; None, None, None, None, None, None, None, None, 21-25,…</code></pre>
+</div>
+</div>
+</section></section><section id="visualizations" class="level2" data-number="39.2"><h2 data-number="39.2" class="anchored" data-anchor-id="visualizations">
+<span class="header-section-number">39.2</span> Visualizations</h2>
+<section id="heat-map" class="level3" data-number="39.2.1"><h3 data-number="39.2.1" class="anchored" data-anchor-id="heat-map">
+<span class="header-section-number">39.2.1</span> Heat map</h3>
+<p>GOAL: Heatmap of general health (<code>GENHLTH</code>) vs sex (<code>SEX</code>)</p>
+<p>First we needed to group and summarize the survey data for the heat map between General Health and Sex. Then we could create the heat map.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create underlying dataset for heat map</span></span>
+<span><span class="co"># -&gt; select the two variables of interest</span></span>
+<span><span class="co"># -&gt; remove responses with 'refused' (still including unsure cause could have some contextual meaning)</span></span>
+<span><span class="co"># -&gt; remove rows with NA</span></span>
+<span><span class="va">data_heat</span> <span class="op">&lt;-</span> <span class="va">data_survey</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">general_health</span>, <span class="va">sex</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">general_health</span> <span class="op">!=</span> <span class="st">"Refused"</span>, <span class="va">sex</span> <span class="op">!=</span> <span class="st">"Refused"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="va">na.omit</span></span>
+<span></span>
+<span><span class="co"># create plotting data set for heat map</span></span>
+<span><span class="co"># -&gt; get the pairwise count with group_by() and summarize()</span></span>
+<span><span class="op">(</span><span class="va">data_heat_plot</span> <span class="op">&lt;-</span> <span class="va">data_heat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">general_health</span>, <span class="va">sex</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>freq <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["general_health"],"name":[1],"type":["ord"],"align":["right"]},{"label":["sex"],"name":[2],"type":["fct"],"align":["left"]},{"label":["freq"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Unsure","2":"Male","3":"345"},{"1":"Unsure","2":"Female","3":"361"},{"1":"Poor","2":"Male","3":"10186"},{"1":"Poor","2":"Female","3":"14113"},{"1":"Fair","2":"Male","3":"26137"},{"1":"Fair","2":"Female","3":"36036"},{"1":"Good","2":"Male","3":"64473"},{"1":"Good","2":"Female","3":"77933"},{"1":"Very Good","2":"Male","3":"63883"},{"1":"Very Good","2":"Female","3":"81533"},{"1":"Excellent","2":"Male","3":"33486"},{"1":"Excellent","2":"Female","3":"40805"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># calculate proportion of missing observations and bad responses (for the discussion of the plot)</span></span>
+<span><span class="va">non_included_heat</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_heat</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_survey</span><span class="op">)</span></span>
+<span><span class="co"># -&gt; turns out to be quite small and not worth mentioning</span></span>
+<span></span>
+<span><span class="co"># create heat map</span></span>
+<span><span class="co"># -&gt; use geom_tile() and shade (aes = fill) by frequency to create heat map</span></span>
+<span><span class="co"># -&gt; define color scale for the frequency with scale_fill_gradient()</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">general_health</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">sex</span>,</span>
+<span>                fill <span class="op">=</span> <span class="va">freq</span><span class="op">)</span>,</span>
+<span>            data <span class="op">=</span> <span class="va">data_heat_plot</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"lightblue"</span>,</span>
+<span>                      high <span class="op">=</span> <span class="st">"darkblue"</span>,</span>
+<span>                      name <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"General Health Status vs Sex"</span>,</span>
+<span>       caption <span class="op">=</span> <span class="st">"Data source: 2017 BRFSS from CDC"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"General health"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Sex"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-categorical-displays_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Frequencies for Males and Females follow the same trends, however Females have higher frequencies within each general health level. We can see that lower levels of health have fewer respondents, with the highest frequency having either Good or Very Good general health.</p>
+</section><section id="proportionally-stacked-barplot" class="level3" data-number="39.2.2"><h3 data-number="39.2.2" class="anchored" data-anchor-id="proportionally-stacked-barplot">
+<span class="header-section-number">39.2.2</span> Proportionally stacked Barplot</h3>
+<p>GOAL: Proportionally stacked barplot of pregnancy (<code>PREGNANT</code>) rates across months (<code>IMONTH</code>) for female responses</p>
+<p>Female participants were asked whether or not they were pregnant. To visualize this response across interview months, we used a proportionally stacked bar plot.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create plotting dataset for proportionally stacked bar chart</span></span>
+<span><span class="co"># -&gt; filter to relevant observations / responses (do this before removing sex variable)</span></span>
+<span><span class="co"># -&gt; select the two variables of interest</span></span>
+<span><span class="co"># -&gt; remove rows with NA</span></span>
+<span><span class="va">data_bar</span> <span class="op">&lt;-</span> <span class="va">data_survey</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">sex</span> <span class="op">==</span> <span class="st">"Female"</span>, <span class="va">pregnant</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">month</span>, <span class="va">pregnant</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="va">na.omit</span></span>
+<span></span>
+<span><span class="co"># calculate proportion of missing observations and bad responses (for the discussion of the plot)</span></span>
+<span><span class="co"># -&gt; do this for only female respondents</span></span>
+<span><span class="va">non_included_bar</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_bar</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">data_survey</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"Female"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create proportionally stacked bar chart</span></span>
+<span><span class="co"># -&gt; geom_bar() with position_fill stacks bars and standardizes each stack to have constant height</span></span>
+<span><span class="co"># --&gt; by the specification of variables in aes, this is calculating and displaying the conditional probabilities of P(pregnant | month)</span></span>
+<span><span class="co"># --&gt; by default (alphabetically No comes before Yes??? I think that's how ggplot is ordering them, but sorting the data values has Yes first because Yes == 1 and No == 2); so reverse the order to make Yes on the bottom and therefore an easier visual comparison</span></span>
+<span><span class="co"># --&gt; then make the legend order match this as well by specifying the breaks (legend starts with the top and goes down)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">month</span>,</span>
+<span>               fill <span class="op">=</span> <span class="va">pregnant</span><span class="op">)</span>,</span>
+<span>           position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_stack.html">position_fill</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>           data <span class="op">=</span> <span class="va">data_bar</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"No"</span>, <span class="st">"Yes"</span><span class="op">)</span>,</span>
+<span>                        values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>Yes <span class="op">=</span> <span class="st">"steelblue4"</span>, No <span class="op">=</span> <span class="st">"lightgrey"</span><span class="op">)</span>,</span>
+<span>                        name <span class="op">=</span> <span class="st">"Pregnant"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Pregnancy rates across interview months"</span>,</span>
+<span>       caption <span class="op">=</span> <span class="st">"Data source: 2017 BRFSS from CDC"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Proportion"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-categorical-displays_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The percentage of respondents that were pregnant remained relatively constant throughout all of the different interview months. 68% of female respondents were unsure, refused or did not answer this question.</p>
+</section><section id="mosaic-plot" class="level3" data-number="39.2.3"><h3 data-number="39.2.3" class="anchored" data-anchor-id="mosaic-plot">
+<span class="header-section-number">39.2.3</span> Mosaic plot</h3>
+<p>GOAL: Mosaic plot of joint pain (<code>JOINPAI1</code>) within BMI categories (<code>X_BMI5CAT</code>)</p>
+<p>Respondents also had their body mass index (BMI) recorded. Based on this value, they were classified into a weight category. The survey data was aggregated to create the mosaic plot below, which looked at these categories at different levels of joint pain (ranging from 0 to 10, with 10 being the worst).</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create underlying dataset for mosaic plot</span></span>
+<span><span class="co"># -&gt; select the two variables of interest</span></span>
+<span><span class="co"># -&gt; filter to relevant observations / responses</span></span>
+<span><span class="co"># -&gt; remove rows with NA</span></span>
+<span><span class="co"># -&gt; remove levels for bad responses (or else they will still have a break in the plot)</span></span>
+<span><span class="va">data_mosaic</span> <span class="op">&lt;-</span> <span class="va">data_survey</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">joint_pain</span>, <span class="va">bmi</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">joint_pain</span> <span class="op">%!in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Unsure"</span>, <span class="st">"Refused"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="va">na.omit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="va">droplevels</span></span>
+<span></span>
+<span><span class="co"># create plotting data set for mosaic plot</span></span>
+<span><span class="co"># -&gt; get the pairwise count with group_by() and summarize()</span></span>
+<span><span class="op">(</span><span class="va">data_mosaic_plot</span> <span class="op">&lt;-</span> <span class="va">data_mosaic</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">joint_pain</span>, <span class="va">bmi</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>freq <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["joint_pain"],"name":[1],"type":["ord"],"align":["right"]},{"label":["bmi"],"name":[2],"type":["ord"],"align":["right"]},{"label":["freq"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"No pain or aching 0","2":"Underweight","3":"174"},{"1":"No pain or aching 0","2":"Normal weight","3":"3350"},{"1":"No pain or aching 0","2":"Overweight","3":"4010"},{"1":"No pain or aching 0","2":"Obese","3":"3250"},{"1":"1","2":"Underweight","3":"120"},{"1":"1","2":"Normal weight","3":"2836"},{"1":"1","2":"Overweight","3":"3551"},{"1":"1","2":"Obese","3":"2786"},{"1":"2","2":"Underweight","3":"164"},{"1":"2","2":"Normal weight","3":"4217"},{"1":"2","2":"Overweight","3":"6040"},{"1":"2","2":"Obese","3":"5060"},{"1":"3","2":"Underweight","3":"184"},{"1":"3","2":"Normal weight","3":"4401"},{"1":"3","2":"Overweight","3":"6580"},{"1":"3","2":"Obese","3":"6349"},{"1":"4","2":"Underweight","3":"155"},{"1":"4","2":"Normal weight","3":"3277"},{"1":"4","2":"Overweight","3":"5202"},{"1":"4","2":"Obese","3":"5692"},{"1":"5","2":"Underweight","3":"286"},{"1":"5","2":"Normal weight","3":"4746"},{"1":"5","2":"Overweight","3":"6819"},{"1":"5","2":"Obese","3":"7915"},{"1":"6","2":"Underweight","3":"165"},{"1":"6","2":"Normal weight","3":"2481"},{"1":"6","2":"Overweight","3":"3857"},{"1":"6","2":"Obese","3":"5147"},{"1":"7","2":"Underweight","3":"187"},{"1":"7","2":"Normal weight","3":"2551"},{"1":"7","2":"Overweight","3":"3756"},{"1":"7","2":"Obese","3":"5753"},{"1":"8","2":"Underweight","3":"248"},{"1":"8","2":"Normal weight","3":"2776"},{"1":"8","2":"Overweight","3":"3813"},{"1":"8","2":"Obese","3":"6317"},{"1":"9","2":"Underweight","3":"78"},{"1":"9","2":"Normal weight","3":"730"},{"1":"9","2":"Overweight","3":"952"},{"1":"9","2":"Obese","3":"1661"},{"1":"As bad as it can be 10","2":"Underweight","3":"165"},{"1":"As bad as it can be 10","2":"Normal weight","3":"1468"},{"1":"As bad as it can be 10","2":"Overweight","3":"1982"},{"1":"As bad as it can be 10","2":"Obese","3":"3557"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># calculate proportion of missing observations and bad responses (for the discussion of the plot)</span></span>
+<span><span class="va">non_included_mosaic</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_mosaic</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_survey</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create mosaic plot</span></span>
+<span><span class="co"># -&gt; use geom_mosaic, product() is needed in the aes for x (?? not sure exactly why)</span></span>
+<span><span class="co"># --&gt; by the specification of variables in aes, this is calculating and displaying the conditional probabilities of P(bmi | joint pain)</span></span>
+<span><span class="co"># --&gt; this comparison is better so that there aren't too many categories (bmi) within each outer category (joint pain)</span></span>
+<span><span class="co"># -&gt; specify type of color scale by using scale_fill_grey() and set the darkness range</span></span>
+<span><span class="co"># -&gt; flip coordinates because labels look better and visual comparison across categories looks better this way</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggmosaic</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggmosaic/man/geom_mosaic.html">geom_mosaic</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu">ggmosaic</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggmosaic/man/product.html">product</a></span><span class="op">(</span><span class="va">joint_pain</span><span class="op">)</span>,</span>
+<span>                            fill <span class="op">=</span> <span class="va">bmi</span>,</span>
+<span>                            weight <span class="op">=</span> <span class="va">freq</span><span class="op">)</span>,</span>
+<span>                        data <span class="op">=</span> <span class="va">data_mosaic_plot</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_grey.html">scale_fill_grey</a></span><span class="op">(</span>start <span class="op">=</span> <span class="fl">0.9</span>,</span>
+<span>                  end <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"BMI categories across different levels of joint pain"</span>,</span>
+<span>       caption <span class="op">=</span> <span class="st">"Data source: 2017 BRFSS from CDC"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Joint pain"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"BMI"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error:
+! Discrete values supplied to continuous scale.
+ℹ Example values: &lt;environment&gt;, &lt;environment&gt;, &lt;environment&gt;, &lt;environment&gt;,
+  and &lt;environment&gt;</code></pre>
+</div>
+</div>
+<p>(Code not rendering, but running in console. Here is the output)</p>
+<p><img src="extra/images/mosaic-plot.png" class="img-fluid" style="width:50.0%"></p>
+<p>We can see that those who are obese are more likely to have higher joint pain. Additionally, the occurrences of high joint pain seems to be less frequent for those that are underweight or of normal weight. These trends follow with what intuitively we would suspect: the more weight and pressure on your joints, the more likely there are to ache. 70% of respondents were unsure, refused or did not answer the one or both of these questions.</p>
+</section><section id="proportionally-stacked-barplot-2" class="level3" data-number="39.2.4"><h3 data-number="39.2.4" class="anchored" data-anchor-id="proportionally-stacked-barplot-2">
+<span class="header-section-number">39.2.4</span> Proportionally stacked barplot 2</h3>
+<p>GOAL: Any plot to show association between number of children (<code>X_CHLDCNT</code>) and education (<code>X_EDUCAG</code>)</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create plotting dataset for proportionally stacked bar chart</span></span>
+<span><span class="co"># -&gt; remove bad observations ('Unsure' for number of children because the question was asked in the context of number of children in the household)</span></span>
+<span><span class="co"># -&gt; select the two variables of interest</span></span>
+<span><span class="co"># -&gt; remove rows with NA</span></span>
+<span><span class="va">data_bar_2</span> <span class="op">&lt;-</span> <span class="va">data_survey</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">n_children</span> <span class="op">!=</span> <span class="st">"Unsure"</span>, <span class="va">edu</span> <span class="op">!=</span> <span class="st">"Unsure"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">n_children</span>, <span class="va">edu</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="va">na.omit</span></span>
+<span></span>
+<span><span class="co"># calculate proportion of missing observations and bad responses (for the discussion of the plot)</span></span>
+<span><span class="va">non_included_bar_2</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_bar_2</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_survey</span><span class="op">)</span></span>
+<span><span class="co"># -&gt; only ~1% of very observations were removed, not worth mentioning </span></span>
+<span></span>
+<span><span class="co"># create proportionally stacked bar chart</span></span>
+<span><span class="co"># -&gt; geom_bar() with position_fill stacks bars and standardizes each stack to have constant height</span></span>
+<span><span class="co"># --&gt; from aes(), displaying P(education | number of children)</span></span>
+<span><span class="co"># -&gt; specify the color fill / scale by using scale_fill_brewer() and set the levels to go in increasing order of education</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">n_children</span>,</span>
+<span>               fill <span class="op">=</span> <span class="va">edu</span><span class="op">)</span>,</span>
+<span>           position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_stack.html">position_fill</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>           data <span class="op">=</span> <span class="va">data_bar_2</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">data_bar_2</span><span class="op">$</span><span class="va">edu</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                    name <span class="op">=</span> <span class="st">"Education"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Education levels across different sized households"</span>,</span>
+<span>       caption <span class="op">=</span> <span class="st">"Data source: 2017 BRFSS from CDC"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Number of children"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Proportion"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-categorical-displays_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create another proportionally stacked bar chart</span></span>
+<span><span class="co"># -&gt; now show P(number of children | education) to see if comparisons change</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">edu</span>,</span>
+<span>               fill <span class="op">=</span> <span class="va">n_children</span><span class="op">)</span>,</span>
+<span>           position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_stack.html">position_fill</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>           data <span class="op">=</span> <span class="va">data_bar_2</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">data_bar_2</span><span class="op">$</span><span class="va">n_children</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                    name <span class="op">=</span> <span class="st">"Number of children"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Household sizes across different eduacation levels"</span>,</span>
+<span>       caption <span class="op">=</span> <span class="st">"Data source: 2017 BRFSS from CDC"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Education"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Proportion"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-categorical-displays_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see from the first plot that it is slightly more likely to have not graduated high school as the number of children in the household increases and that the household size of two have the the highest proportion of college graduates. From the second plot, we can see that the overwhelming majority of households have no children with decreasing proportions for larger households. This trend is fairly consistent across all levels of education.</p>
+</section><section id="heat-map-2" class="level3" data-number="39.2.5"><h3 data-number="39.2.5" class="anchored" data-anchor-id="heat-map-2">
+<span class="header-section-number">39.2.5</span> Heat map 2</h3>
+<p>GOAL: Heatmap of physical health (<code>PHYSHLTH</code>) vs mental health (<code>MENTHLTH</code>)</p>
+<p>Survey participants were asked how many of the past 30 days was their physical and mental health not good. We created a heat map to visualize this relationship.</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create underlying dataset for heat map</span></span>
+<span><span class="co"># -&gt; select the two variables of interest</span></span>
+<span><span class="co"># -&gt; remove responses with 'refused' (still including unsure cause could have some contextual meaning)</span></span>
+<span><span class="co"># -&gt; remove rows with NA</span></span>
+<span><span class="va">data_heat_bonus</span> <span class="op">&lt;-</span> <span class="va">data_survey</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">physical_health</span>, <span class="va">mental_health</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">physical_health</span> <span class="op">%!in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Refused"</span>, <span class="st">"Unsure"</span><span class="op">)</span>, <span class="va">mental_health</span> <span class="op">%!in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Refused"</span>, <span class="st">"Unsure"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="va">na.omit</span></span>
+<span></span>
+<span><span class="co"># create plotting data set for heat map</span></span>
+<span><span class="co"># -&gt; get the pairwise count with group_by() and summarize()</span></span>
+<span><span class="op">(</span><span class="va">data_heat_plot_bonus</span> <span class="op">&lt;-</span> <span class="va">data_heat_bonus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">physical_health</span>, <span class="va">mental_health</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>freq <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["physical_health"],"name":[1],"type":["ord"],"align":["right"]},{"label":["mental_health"],"name":[2],"type":["ord"],"align":["right"]},{"label":["freq"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"26-30","2":"26-30","3":"9529"},{"1":"26-30","2":"21-25","3":"547"},{"1":"26-30","2":"16-20","3":"1193"},{"1":"26-30","2":"11-15","3":"2455"},{"1":"26-30","2":"6-10","3":"2011"},{"1":"26-30","2":"< 5","3":"3943"},{"1":"26-30","2":"None","3":"16621"},{"1":"21-25","2":"26-30","3":"598"},{"1":"21-25","2":"21-25","3":"298"},{"1":"21-25","2":"16-20","3":"190"},{"1":"21-25","2":"11-15","3":"287"},{"1":"21-25","2":"6-10","3":"264"},{"1":"21-25","2":"< 5","3":"544"},{"1":"21-25","2":"None","3":"1493"},{"1":"16-20","2":"26-30","3":"1000"},{"1":"16-20","2":"21-25","3":"239"},{"1":"16-20","2":"16-20","3":"673"},{"1":"16-20","2":"11-15","3":"533"},{"1":"16-20","2":"6-10","3":"689"},{"1":"16-20","2":"< 5","3":"1063"},{"1":"16-20","2":"None","3":"2312"},{"1":"11-15","2":"26-30","3":"1612"},{"1":"11-15","2":"21-25","3":"246"},{"1":"11-15","2":"16-20","3":"600"},{"1":"11-15","2":"11-15","3":"1531"},{"1":"11-15","2":"6-10","3":"1327"},{"1":"11-15","2":"< 5","3":"2416"},{"1":"11-15","2":"None","3":"6961"},{"1":"6-10","2":"26-30","3":"1775"},{"1":"6-10","2":"21-25","3":"244"},{"1":"6-10","2":"16-20","3":"736"},{"1":"6-10","2":"11-15","3":"1223"},{"1":"6-10","2":"6-10","3":"2319"},{"1":"6-10","2":"< 5","3":"4247"},{"1":"6-10","2":"None","3":"11235"},{"1":"< 5","2":"26-30","3":"3566"},{"1":"< 5","2":"21-25","3":"543"},{"1":"< 5","2":"16-20","3":"1612"},{"1":"< 5","2":"11-15","3":"2878"},{"1":"< 5","2":"6-10","3":"5509"},{"1":"< 5","2":"< 5","3":"21126"},{"1":"< 5","2":"None","3":"43698"},{"1":"None","2":"26-30","3":"7470"},{"1":"None","2":"21-25","3":"837"},{"1":"None","2":"16-20","3":"2124"},{"1":"None","2":"11-15","3":"5274"},{"1":"None","2":"6-10","3":"8690"},{"1":"None","2":"< 5","3":"36395"},{"1":"None","2":"None","3":"212698"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># calculate proportion of missing observations and bad responses (for the discussion of the plot)</span></span>
+<span><span class="va">non_included_heat_bonus</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_heat_bonus</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_survey</span><span class="op">)</span></span>
+<span><span class="co"># -&gt; turns out to be quite small and not worth mentioning</span></span>
+<span></span>
+<span><span class="co"># create heat map</span></span>
+<span><span class="co"># -&gt; use geom_tile() and shade (aes = fill) by frequency to create heat map</span></span>
+<span><span class="co"># -&gt; define color scale for the frequency with scale_fill_gradient()</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">physical_health</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">mental_health</span>,</span>
+<span>                fill <span class="op">=</span> <span class="va">freq</span><span class="op">)</span>,</span>
+<span>            data <span class="op">=</span> <span class="va">data_heat_plot_bonus</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"lightblue"</span>,</span>
+<span>                      high <span class="op">=</span> <span class="st">"darkblue"</span>,</span>
+<span>                      name <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Health status"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="st">"Perceived total of bad days (in the past 30)"</span>,</span>
+<span>       caption <span class="op">=</span> <span class="st">"Data source: 2017 BRFSS from CDC"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Physical health"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Mental health"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="extra-r-categorical-displays_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" data-fig-pos="hold" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The highest frequency was for no or few bad days for both physical and mental health. All other categies seemed fairly equal with no clear trends.</p>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./project-r-shiny.html" class="pagination-link  aria-label=" project="" shiny="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Group Project – Shiny</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./extra-r-swd.html" class="pagination-link" aria-label="<span class='chapter-number'>40</span>&nbsp; <span class='chapter-title'>Extra - Storytelling with Data</span>">
+        <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Extra - Storytelling with Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

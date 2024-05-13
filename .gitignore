@@ -12,6 +12,7 @@ libs/
 *.zip
 *SOLUTION.xlsx
 *SOLUTION.twbx
+*.XPT
 
 rsconnect/
 

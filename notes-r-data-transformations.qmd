@@ -620,6 +620,28 @@ reds %>% summarize(across(starts_with("X"), sum))
     b)  Mean of `price`, `table` and `depth`, as well as the total number of observations.
 
     c)  *Number of* and the *proportion of* diamonds that have an "Ideal" `cut`.
+    
+### Variations on summarize()
+
+```{r}
+# multiple columns with a single summary function
+# -> typically omit first two argument names
+# -> names are just the col
+diamonds %>% summarize(across(.cols = x:z, .fns = mean))
+
+# one column with multiple summary functions
+diamonds %>% summarize(across(.cols = x, .fns = list(mean, sd)))
+
+# should ALWAYS name functions when in list
+diamonds %>% summarize(across(x, list(mean = mean, st.dev = sd)))
+
+# by default, names are col_functionname, change with .names arg 
+diamonds %>% summarize(across(x, list(mean = mean, st.dev = sd), .names = "{.fn}"))
+
+# multiple columsn with multiple summary functions and customized name
+diamonds %>% summarize(across(.cols = x:z, .fns = list(mean = mean, st.dev = sd), .names = "{.fn}({.col})"))
+
+```
 
 ## Groups
 
