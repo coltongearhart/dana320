@@ -1,0 +1,23 @@
+# Extra - Maps
+
+```{r}
+#| label: load-prereqs
+#| echo: false
+#| message: false
+
+# knitr options
+source("_common.R")
+
+```
+
+```{r}
+#| label: setup
+
+# load packages
+library(tidyverse)
+
+# set default plot theme
+theme_set(theme_bw())
+
+
+```

@@ -24,7 +24,7 @@
 
 -   FILES: Start with any blank Tableau workbook and [recreating-gapminder-data folder](https://github.com/coltongearhart/dana320/blob/main/tableau/recreating-gapminder-data/), and [recreating-gapminder-visualization-COMPLETED.twb](https://github.com/coltongearhart/dana320/blob/main/tableau/recreating-gapminder-visualization-COMPLETED.twb)
 
-{{< video https://youtu.be/K8F2tasK818 >}} https://youtu.be/1cdRDCjnH2A
+{{< video https://youtu.be/K8F2tasK818 >}}
 
 ## Recreating the Gapminder Visualization
 

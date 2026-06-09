@@ -17,3 +17,6 @@ libs/
 rsconnect/
 
 /.quarto/
+.positai
+
+**/*.quarto_ipynb
